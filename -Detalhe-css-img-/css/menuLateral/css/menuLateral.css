@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+.lateral a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 700;
+    display: block;
+    padding: 10px 20px;
+    color: #000;
+}
+
+.lateral {
+    list-style: none;
+    margin-top: 7px;
+    position: relative;
+    width: 100%;
+}
+.lateral li {
+    margin-top: 15px;
+    font-size: 20px;
+}
+.label-lateral #img {
+    width: 45px;
+}
+.barraLateral input[type="checkbox"] {
+    display: none;
+}
+.barraLateral input[type="checkbox"]:checked ~ nav {
+    transform: translateX(350px);
+}
+.nav-lateral {
+    background-color: rgb(246, 246, 246);
+    opacity: 0.9;
+    top: 97px;
+    width: 190px;
+    height: 100%;
+    left: -350px;
+    position: fixed;
+    transition: all .5s;
+}
+
+.lateral a:hover {
+    background-color: rgb(176, 224, 230);
+    color: #116dff;
+    border-bottom: 0.1px solid rgba(58, 58, 58, 0.288);
+}
+.label-lateral{
+    padding: 22px;
+    position: fixed;
+    z-index: 10;
+}
+#sair {
+    color: rgb(255, 38, 38);
+}
+#bottom {
+    position: absolute;
+    bottom: 150px;
+}

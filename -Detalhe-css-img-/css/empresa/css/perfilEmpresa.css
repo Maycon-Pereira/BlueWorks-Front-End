@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+.img {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img img {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.body {
+    background-color: rgb(246, 246, 246);
+    width: 900px;
+    height: 700px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.body-down {
+    display: flex;
+    height: 350px;
+    margin: 20px;
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 20px;
+}
+.update {
+    width: 30%;
+    padding: 10px;
+    line-height: 2.5;
+}
+#edit {
+    border-bottom: 2px solid;
+    width: 150px;
+}
+.historia {
+    border-left: 1px dashed;
+    width: 70%;
+    padding: 10px;
+}
+.perfil-candidato img {
+    width: 25px;
+
+}

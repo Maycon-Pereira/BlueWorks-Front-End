@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/css/cadVaga.css">
+    <!-- Adicionando Javascript -->
+    <script>
+
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
+            document.getElementById('bairro').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        }
+
+        //Ocultar ADDRESS
+        function ocultar() {
+            var marcados = document.querySelector("input[type=checkbox]:checked");
+            var check = document.getElementById("input-address");
+            check.style.display = (marcados != null) ? "block" : "none";
+        }
+
+    </script>
+
+    <title>Cadastro Vaga</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <form method="get" action=".">
+
+            <div class="Cad-info">
+                <div class="title">
+                    <h2>Dados da Vaga</h2>
+                </div>
+
+                <div class="intro">
+                    <div class="intoducao">
+                        <p><i> Informe os dados abaixo e cadastre a vaga no site: </i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cadastro">
+
+                <div class="gerais">
+                    <h4>Informações Gerais</h4>
+
+                    <div class="input-group">
+
+                        <label for="nome">Nome da Vaga:<br />
+                            <input id="name" type="text" required>
+                        </label><br />
+
+                        <label for="type-vaga">Tipo da Vaga:<br />
+                            <select class="vaga-options" id="type" name="types">
+                                <option value="valor1" selected>Designer & Grafico</option>
+                                <option value="valor2">Desenvolvedor Web</option>
+                                <option value="valor3">Escrita & Edicao</option>
+                                <option value="valor4">Marketing Digital</option>
+                                <option value="valor5">Mobile / APP</option>
+                                <option value="valor5">Música & Audio</option>
+                                <option value="valor5">Suporte Técnico</option>
+                                <option value="valor5">Video & Animacao</option>
+                            </select required></label><br />
+
+                        <label for="qtda">Qtda de Vagas Disponiveis:<br />
+                            <input type="number" required>
+                        </label><br />
+
+                        <label for="salario">Sálario:<br />
+                            <input type="number" required>
+                        </label><br />
+
+                        <label for="escolaridade-Vaga">Nivel de Escolaridade Minima:<br />
+                            <select class="vaga-options" id="escolaridadeVaga" name="types">
+                                <option value="valor1">Fundamental</option>
+                                <option value="valor2" selected>Médio</option>
+                                <option value="valor3">Superior (Graduação)</option>
+                                <option value="valor4">Pós-graduação</option>
+                                <option value="valor5">Mestrado</option>
+                                <option value="valor6">Doutorado</option>
+                            </select required ></label><br />
+
+                        <label for="">Vaga Presencial ?</label>
+
+                        <div class="checkVaga" id="check">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input onclick="ocultar()" type="checkbox">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="other">
+
+                    <div class="input-group">
+                        <h4>Informacao da Vaga</h4>
+
+                        <label for="historia-vaga">Sobre a Vaga:<br />
+                            <textarea class="historia-Vaga" id="historia-vaga" maxlength="500" required></textarea>
+                        </label><br />
+
+                        </div>
+                    </div>
+                    <div class="confirm">
+                        <div class="other">
+                            <div class="input-group">
+                                <h4>Endereço</h4>
+
+                                <label>Cep:<br />
+                                    <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                                        onblur="pesquisacep(this.value);" required /></label><br />
+        
+                                <div class="input-address" class="tiny button" id="input-address" style="display:none">
+                                    <!-- Inicio do formulario -->
+                                    <label>Rua:<br />
+                                        <input name="rua" type="text" id="rua" size="40" /></label><br />
+                                    <label>Bairro:<br />
+                                        <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+                                    <label>Cidade:<br />
+                                        <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+                                    <label>Estado:<br />
+                                        <input name="uf" type="text" id="uf" size="2" /></label><br />
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Confirme que é você</h4>
+                        <label for="password">Senha:<br />
+                            <input id="password" type="password" name="password" minlength="8" required></label><br />
+                    </div>
+                </div>
+                <div class="botoes">
+                    <input class="button" id="button" type="reset" value="Limpar" />
+                    <input class="button" id="button" type="submit" value="Cadastrar" />
+                </div>
+            </div>
+    </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+body{
+    background-color: #fff;
+    width: 100%;
+}
+.candidato-title h1{
+    text-align: center;
+    padding: 50px;
+}
+.candidatos {
+    width: 70%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.candidato-box {
+    display: flex;
+    width: 80%;
+    height: 200px;
+    background-color: rgb(246, 246, 246);
+    box-shadow: 2px 2px rgba(161, 157, 157, 0.514);
+    border-top-right-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+.candidato-box-info {
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    display: inline-block;
+    line-height: 1.5;
+}
+.inf-pessoa {
+    width: 50%;
+    height: 100%;
+}
+
+.candidato img{
+    width: 203.5px;
+}
+#down {
+    margin-bottom: 100px;
+}
+
+footer {
+    bottom: auto;
+}

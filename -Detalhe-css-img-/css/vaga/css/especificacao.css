@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+.title {
+    margin-top: 20px;
+    padding: 40px;
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
+}
+
+.vagas-box {/*
+    border: 1px solid red;*/
+    background-color: rgba(255, 255, 255, 0.87);
+    padding: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-bottom: 1px solid rgb(202, 202, 202);
+    justify-content: start;
+}
+.vagas span {
+    color: rgba(0, 0, 0, 0.719);
+}
+.vaga-box {
+    margin-top: 10px;
+    margin-bottom: 15px;/*
+    border: 1px solid green;*/
+    text-align: start;
+    width: 300px;
+    line-height: 25px;
+
+}
+.vaga-name h3{
+    font-size: 20px;
+}
+.vaga-name h4{
+    font-size: 17px;
+    font-weight: 500;
+    text-align: start;
+}
+
+.descricao {/*
+    border: 1px solid rebeccapurple;*/
+    width: 700px;
+    height: 60px;
+}
+.baixo {
+    display: flex;
+    margin: 2px;
+    justify-content: space-between;
+}
+.baixo img{
+    height: 25px;
+}
+.vagas {
+    margin-bottom: 30px;
+}

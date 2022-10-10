@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/ajuda/css/ajuda.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
+    <title>Ajuda</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+
+            <header>
+                <div class="header">
+                    <div class="logo">
+                        <a href="/Pag-Inicial/inicio.html">
+                            <h1>BlueTips</h1>
+                        </a>
+                    </div>
+
+                    <div class="enviar">
+                        <ul>
+                            <li><a href="/Ajuda/ajuda.html">Enviar uma solicitação</a></li>
+                        </ul>
+                    </div>
+                    <div class="entrar">
+                        <ul>
+                            <a href="#" class="cta"><button>Login</button></a>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <div id="area">
+                <form id="formulario" autocomplete="off">
+
+                    <div class="legend">
+                        <legend>Envie-nos uma solicitação</legend>
+                    </div>
+                    <div class="fieldset">
+                        <div class="input">
+                            <label>Endereço de E-mail:</label><br><input class="campo_email" type="email" required><br>
+                        </div>
+                        <div class="input">
+                            <label>Descrição:</label><br><textarea class="msg" cols="35" rows="8" required></textarea><br>
+                        </div>
+                        <div class="input">
+                            <form action="anexa_arquivos" method="post" enctype="multipart/form-data">
+                                <label>Anexos:</label><br><input id="anexo" type="file" name="anexo"></br>
+                        </div>
+                        <div class="input">
+                            <input class="btn_submit" type="submit" value="Enviar">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

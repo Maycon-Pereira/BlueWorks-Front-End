@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+.curriculos {
+    color: #116dff;
+}
+.curric {
+    height: 800px;
+    width: 600px;
+    margin-bottom: 100px;
+}
+.back-apresentacao {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+.apresentacao {
+    background-color: #fff;
+    width: 700px;
+    height: 250px;
+    margin: 60px;
+    margin-right: 280px;
+}
+.title {
+    height: 65px;
+    font-size: 35px;
+    text-align: center;
+    padding-top: 50px;
+    
+}
+.parag {
+    height: 65px;
+    font-size: 18px;
+    text-align: center;
+    padding-top: 80px;
+}
+.curriculos-div {
+    margin: 100px;
+}
+.curriculos-ul {
+    list-style: none;
+    display: flex;
+    padding-top: 80px;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+.curriculos-ul li {
+    margin-right: auto;
+    margin-left: auto;
+}

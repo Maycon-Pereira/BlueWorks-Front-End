@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/css/cadEmpresa.css">
+    
+    <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
+    <!-- Adicionando Javascript -->
+    <script>
+
+
+        function disp(event){
+            event.preventDefault();
+        //var x = $( "form" ).serialize();
+
+        console.log("chegou aqui 0");
+
+        var name = $("#name").val();
+                var cnpj = $("#cnpj").val();
+                var types = $("#types").val();
+                var historia = $("#historia").val();
+                var numero = $("#numero").val();
+                var email = $("#email").val();
+                var password = $("#password").val();
+                var cep = $("#cep").val();
+                var rua = $("#rua").val();
+                var bairro = $("#bairro").val();
+                var uf = $("#uf").val();
+                var cidade = $("#cidade").val();
+                
+            console.log("chegou aqui 1");
+
+             var request =  {
+                                "nome": name,
+                                "cnpj": cnpj,
+                                "porte": types,
+                                "sobre": historia,
+                                "telefone": numero,
+                                "email": email,
+                                "senha": password,
+                                "cep": cep,
+                                "logradouro": rua,
+                                "bairro": bairro,
+                                "uf": uf,
+                                "cidade": cidade
+                            }
+            
+
+            console.log("chegou aqui 2");
+
+
+            $.ajax({
+                url: "http://localhost:8080/empresa",
+                type: "POST",
+                crossDomain: true,
+                data: JSON.stringify(request),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (response) {
+                    //var resp = JSON.parse(response)
+                    console.log(response);
+                    alert("empresa cadastrada com sucesso!! "+response.id)
+                },
+                error: function (xhr, status) {
+
+                    console.log(xhr);
+                    console.log(status);
+
+                }
+            });     
+
+
+
+            console.log("chegou aqui 3");
+
+        }
+
+            
+        /*
+            $('form').submit(function(event) {
+                event.preventDefault();
+            });
+            */
+            
+ 
+
+        /*
+        lista todas as empresas cadastradas
+        $.ajax({
+            url: "http://localhost:8080/empresa",
+            type: "GET",
+            crossDomain: true,
+            //data: JSON.stringify({}),
+            //dataType: "json",
+            success: function (response) {
+                //var resp = JSON.parse(response)
+                console.log(response);
+            },
+            error: function (xhr, status) {
+                alert("error");
+            }
+        });
+        */
+
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
+            document.getElementById('bairro').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //end if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //end if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        }
+
+        //Ocultar ADDRESS
+        function ocultar() {
+            var marcados = document.querySelector("input[type=checkbox]:checked");
+            var check = document.getElementById("input-address");
+            check.style.display = (marcados != null) ? "block" : "none";
+        }
+
+    </script>
+
+    <title>Cadastro Empresa</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <form action="#">
+
+            <div class="Cad-info">
+                <div class="title">
+                    <h2>Dados da Empresa</h2>
+                </div>
+
+                <div class="intro">
+                    <div class="intoducao">
+                        <p><i> Informe os dados abaixo e cadastre sua empresa no site: </i></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cadastro">
+
+                <div class="gerais">
+                    <h4>Informações Gerais</h4>
+
+                    <div class="input-group">
+
+                        <div class="input-box">
+                            <label for="name">Nome da Empresa:<br />
+                                <input id="name" type="text" name="name" required></label><br />
+
+                            <label for="cnpj">CNPJ:<br />
+                                <input id="cnpj" type="text" name="cnpj" placeholder="" size="15" maxlength="14"
+                                    required></label><br />
+
+                            <label for="type-name">Porte da Empresa:<br />
+                                <select class="porteEmpresa" id="porte" name="types">
+                                    <option value="valor1">Microempreendedor Individual (MEI)</option>
+                                    <option value="valor2">Microempresa (ME)</option>
+                                    <option value="valor3">Empresa de Pequeno Porte (EPP)</option>
+                                    <option value="valor4" selected>Empresa de Médio Porte</option>
+                                    <option value="valor5">Grande Empresa</option>
+                                </select></label><br />
+
+
+                            <div class="checkEmpresa" id="check">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <label for="empresa">Tem Empresa Fisica?</label>
+                                            <input onclick="ocultar()" type="checkbox">
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </div>
+
+                            <label for="sobre">Sobre a Empresa:<br />
+                                <textarea class="historiaEmpresa" id="historia" maxlength="520" required></textarea>
+                            </label><br />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="endereco">
+
+                    <div class="input-group">
+                        <h4>Endereço</h4>
+
+                        <label>Cep:<br />
+                            <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                                onblur="pesquisacep(this.value);" required /></label><br />
+
+                        <div class="input-address" class="tiny button" id="input-address" style="display:none">
+                            <!------->
+                            <!-- Inicio do formulario -->
+                            <label>Rua:<br />
+                                <input name="rua" type="text" id="rua" size="40" /></label><br />
+                            <label>Bairro:<br />
+                                <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+                            <label>Cidade:<br />
+                                <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+                            <label>Estado:<br />
+                                <input name="uf" type="text" id="uf" size="2" /></label><br />
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contato">
+                    <h4>Contato</h4>
+
+                    <div class="input-group">
+
+                        <div class="input-box">
+
+                            <label for="numero">Número de Telefone:<br />
+                                <input id="numero" type="text" name="numero"></label><br />
+
+                            <label for="email">E-mail:<br />
+                                <input id="email" type="email" name="email" placeholder="" required></label><br />
+
+                            <label for="password">Senha:<br />
+                                <input id="password" type="password" name="password" placeholder="" minlength="8"
+                                    required></label><br />
+
+                            <label for="confirmPassword">Confirme sua Senha:<br />
+                                <input id="confirmPassword" type="password" name="confirmPassword" minlength="8"
+                                    required></label><br />
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="botoes">
+                <input class="button" id="button1" type="reset" value="Limpar" />
+                <input class="button" id="button" type="submit" value="Cadastrar"  onclick = "disp(event)"/>
+            </div>
+            <div class="perguntas">
+                <div class="usu">
+                    <label for="">já tem uma conta? <a href="/Login/loginEmpresa.html">Login</a></label><br />
+                </div>
+                <div class="usu">
+                    <label for="">É Usuario? <a href="/Cadastros/Usuario/CadastroUsuario.html">Cadastre-se</a></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
