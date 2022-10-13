@@ -7,48 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/css/cadEmpresa.css">
-    
+
     <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
     <!-- Adicionando Javascript -->
     <script>
 
 
-        function disp(event){
+        function disp(event) {
             event.preventDefault();
-        //var x = $( "form" ).serialize();
+            //var x = $( "form" ).serialize();
 
-        console.log("chegou aqui 0");
+            console.log("chegou aqui 0");
 
-        var name = $("#name").val();
-                var cnpj = $("#cnpj").val();
-                var types = $("#types").val();
-                var historia = $("#historia").val();
-                var numero = $("#numero").val();
-                var email = $("#email").val();
-                var password = $("#password").val();
-                var cep = $("#cep").val();
-                var rua = $("#rua").val();
-                var bairro = $("#bairro").val();
-                var uf = $("#uf").val();
-                var cidade = $("#cidade").val();
-                
+            var name = $("#name").val();
+            var cnpj = $("#cnpj").val();
+            var types = $("#types").val();
+            var historia = $("#historia").val();
+            var numero = $("#numero").val();
+            var email = $("#email").val();
+            var password = $("#password").val();
+            var cep = $("#cep").val();
+            var rua = $("#rua").val();
+            var bairro = $("#bairro").val();
+            var uf = $("#uf").val();
+            var cidade = $("#cidade").val();
+
             console.log("chegou aqui 1");
 
-             var request =  {
-                                "nome": name,
-                                "cnpj": cnpj,
-                                "porte": types,
-                                "sobre": historia,
-                                "telefone": numero,
-                                "email": email,
-                                "senha": password,
-                                "cep": cep,
-                                "logradouro": rua,
-                                "bairro": bairro,
-                                "uf": uf,
-                                "cidade": cidade
-                            }
-            
+            var request = {
+                "nome": name,
+                "cnpj": cnpj,
+                "porte": types,
+                "sobre": historia,
+                "telefone": numero,
+                "email": email,
+                "senha": password,
+                "cep": cep,
+                "logradouro": rua,
+                "bairro": bairro,
+                "uf": uf,
+                "cidade": cidade
+            }
+
 
             console.log("chegou aqui 2");
 
@@ -63,7 +63,7 @@
                 success: function (response) {
                     //var resp = JSON.parse(response)
                     console.log(response);
-                    alert("empresa cadastrada com sucesso!! "+response.id)
+                    alert("empresa cadastrada com sucesso!! " + response.id)
                 },
                 error: function (xhr, status) {
 
@@ -71,7 +71,7 @@
                     console.log(status);
 
                 }
-            });     
+            });
 
 
 
@@ -79,14 +79,14 @@
 
         }
 
-            
+
         /*
             $('form').submit(function(event) {
                 event.preventDefault();
             });
             */
-            
- 
+
+
 
         /*
         lista todas as empresas cadastradas
@@ -300,7 +300,7 @@
 
             <div class="botoes">
                 <input class="button" id="button1" type="reset" value="Limpar" />
-                <input class="button" id="button" type="submit" value="Cadastrar"  onclick = "disp(event)"/>
+                <input class="button" id="button" type="submit" value="Cadastrar" onclick="disp(event)" />
             </div>
             <div class="perguntas">
                 <div class="usu">

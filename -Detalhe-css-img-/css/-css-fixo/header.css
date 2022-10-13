@@ -123,3 +123,54 @@ button {
 button:hover {
     background-color: #3c87ff;
 }
+
+/*-----Search------*/
+
+.caixa-search {
+    position: fixed;
+    z-index: 10;
+    top: 55px;
+    right: 250px;
+    background-color: rgba(230, 230, 230, 0.945);
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+.caixa-search:hover > .caixa-texto {
+    width: 350px;
+    padding: 0 6px;
+}
+
+.caixa-search:hover > .botao-search {
+    background-color: rgba(230, 230, 230, 0.945);
+    margin-left: 3px;
+}
+
+.botao-search {
+    color: #116dff;
+    float: right;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(230, 230, 230, 0.945);
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    transition: 0.4s;
+}
+
+.caixa-texto {
+    border: none;
+    background-color: rgba(230, 230, 230, 0.945);
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #000;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height:20px;
+    width: 0px;
+    cursor: pointer;
+}

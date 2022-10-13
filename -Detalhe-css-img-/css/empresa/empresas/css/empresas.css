@@ -8,12 +8,12 @@ body{
     background-color: #fff;
     width: 100%;
 }
-.candidato-title h1{
+.empresas-title h1{
     font-size: 50px;
     text-align: center;
     padding: 50px;
 }
-.candidatos {
+.empresas {
     width: 70%;
     height: 100%;
     margin-left: auto;
@@ -21,7 +21,7 @@ body{
     margin-top: 10px;
 }
 
-.candidato-box {
+.empresas-box {
     display: flex;
     width: 100%;
     height: 250px;
@@ -32,24 +32,22 @@ body{
     margin-right: auto;
     margin-bottom: 15px;
 }
-
-.candidato-box-info {
+.empresas-box-info {
     display: flex;
     width: 100%;
     padding: 15px;
     display: inline-block;
     line-height: 1.5;
 }
-.inf-pessoa {
+.inf-empresas {
     font-size: 20px;
-    width: 50%;
+    width: 100%;
     height: 100%;
 }
 
-.candidato img{
+.empresa img{
     width: 30vh;
 }
-
-footer {
-    bottom: auto;
+.info-vaga {
+    font-size: 18px;
 }

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
-    <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/css/cadVaga.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/atualizarVaga/css/atualizarVaga.css">
     <!-- Adicionando Javascript -->
     <script>
 
@@ -120,7 +120,7 @@
                         </label><br />
 
                         <label for="type-name">Tipo da Vaga:<br />
-                            <select id="porte" name="types">
+                            <select class="tipo-vaga" id="tipo-vaga" name="types">
                                 <option value="valor1" selected>Designer & Grafico</option>
                                 <option value="valor2">Desenvolvedor Web</option>
                                 <option value="valor3">Escrita & Edicao</option>
@@ -140,7 +140,7 @@
                         </label><br />
 
                         <label for="escolaridade">Nivel de Escolaridade Minima:<br />
-                            <select id="porte" name="types">
+                            <select class="nivel-escolaridade" id="nivel-escolaridade" name="types">
                                 <option value="valor1">Fundamental</option>
                                 <option value="valor2" selected>Médio</option>
                                 <option value="valor3">Superior (Graduação)</option>
@@ -151,7 +151,7 @@
 
                         <label for="">Vaga Presencial ?</label>
 
-                        <div id="check">
+                        <div class="check-box" id="check">
                             <tbody>
                                 <tr>
                                     <td>
@@ -170,8 +170,8 @@
                     <div class="input-group">
                         <h4>Informacao da Vaga</h4>
 
-                        <label for="historia-vaga">Sobre a Vaga:<br />
-                            <textarea id="historia-vaga" maxlength="500" required></textarea>
+                        <label for="sobre-vaga">Sobre a Vaga:<br />
+                            <textarea class="sobre-vaga" id="sobre-vaga" maxlength="500" required></textarea>
                         </label><br />
 
                         </div>
@@ -207,6 +207,10 @@
                         </div>
     
                         <h4>Confirme que é você</h4>
+                        
+                        <label for="cnpj">Cnpj:<br />
+                            <input id="cnpj" type="cnpj" name="cnpj" minlength="14" maxlength="14" required></label><br />
+    
     
                         <label for="password">Senha:<br />
                             <input id="password" type="password" name="password" minlength="8" required></label><br />
@@ -215,8 +219,8 @@
                 </div>
 
                 <div class="botoes">
-                    <input id="button" type="reset" value="Limpar" />
-                    <input id="button" type="submit" value="Atualizar" />
+                    <input class="button" id="button1" type="reset" value="Limpar" />
+                    <input class="button" id="button2" type="submit" value="Atualizar" />
                 </div>
                 
             </div>

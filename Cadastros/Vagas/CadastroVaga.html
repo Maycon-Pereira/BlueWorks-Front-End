@@ -10,6 +10,76 @@
     <!-- Adicionando Javascript -->
     <script>
 
+        function displ(event) {
+            event.preventDefault();
+            //var x = $( "form" ).serialize();
+
+            console.log("chegou aqui 0");
+
+            var name = $("#name").val();
+            var tipo = $("#type").val();
+            var qtda = $("#qtda").val();
+            var salario = $("#salario").val();
+            var escolaridade = $("#escolaridadeVaga").val();
+            var sobre = $("#historia-vaga").val();
+            var cnpj = $("#cnpj").val();
+            var senha = $("#password").val();
+            var cep = $("#cep").val();
+            var logradouro = $("#rua").val();
+            var bairro = $("#bairro").val();
+            var uf = $("#uf").val();
+            var cidade = $("#cidade").val();
+
+            console.log("chegou aqui 1");
+
+            var request = {
+                "nome": name,
+                "tipo": tipo,
+                "qtda": qtda,
+                "salario": salario,
+                "escolaridade": escolaridade,
+                "sobre": sobre,
+                "cnpj": cnpj,
+                "senha": senha,
+                "cep": cep,
+                "logradouro": logradouro,
+                "bairro": bairro,
+                "uf": uf,
+                "cidade": cidade
+            }
+
+
+            console.log("chegou aqui 2");
+
+
+            $.ajax({
+                url: "http://localhost:8080/vagas",
+                type: "POST",
+                crossDomain: true,
+                data: JSON.stringify(request),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (response) {
+                    //var resp = JSON.parse(response)
+                    console.log(response);
+                    alert("vaga cadastrada com sucesso!! " + response.id)
+                },
+                error: function (xhr, status) {
+
+                    console.log(xhr);
+                    console.log(status);
+
+                }
+            });
+
+
+
+            console.log("chegou aqui 3");
+
+        }
+
+
+
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
             document.getElementById('rua').value = ("");
@@ -128,11 +198,11 @@
                             </select required></label><br />
 
                         <label for="qtda">Qtda de Vagas Disponiveis:<br />
-                            <input type="number" required>
+                            <input id="qtda" type="number" required>
                         </label><br />
 
                         <label for="salario">Sálario:<br />
-                            <input type="number" required>
+                            <input id="salario" type="number" required>
                         </label><br />
 
                         <label for="escolaridade-Vaga">Nivel de Escolaridade Minima:<br />
@@ -143,7 +213,7 @@
                                 <option value="valor4">Pós-graduação</option>
                                 <option value="valor5">Mestrado</option>
                                 <option value="valor6">Doutorado</option>
-                            </select required ></label><br />
+                            </select required></label><br />
 
                         <label for="">Vaga Presencial ?</label>
 
@@ -156,7 +226,7 @@
                                 </tr>
                             </tbody>
                         </div>
-                        
+
                     </div>
                 </div>
                 <div class="other">
@@ -168,41 +238,44 @@
                             <textarea class="historia-Vaga" id="historia-vaga" maxlength="500" required></textarea>
                         </label><br />
 
-                        </div>
                     </div>
-                    <div class="confirm">
-                        <div class="other">
-                            <div class="input-group">
-                                <h4>Endereço</h4>
+                </div>
+                <div class="confirm">
+                    <div class="other">
+                        <div class="input-group">
+                            <h4>Endereço</h4>
 
-                                <label>Cep:<br />
-                                    <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-                                        onblur="pesquisacep(this.value);" required /></label><br />
-        
-                                <div class="input-address" class="tiny button" id="input-address" style="display:none">
-                                    <!-- Inicio do formulario -->
-                                    <label>Rua:<br />
-                                        <input name="rua" type="text" id="rua" size="40" /></label><br />
-                                    <label>Bairro:<br />
-                                        <input name="bairro" type="text" id="bairro" size="40" /></label><br />
-                                    <label>Cidade:<br />
-                                        <input name="cidade" type="text" id="cidade" size="40" /></label><br />
-                                    <label>Estado:<br />
-                                        <input name="uf" type="text" id="uf" size="2" /></label><br />
-                                </div>
+                            <label>Cep:<br />
+                                <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                                    onblur="pesquisacep(this.value);" required /></label><br />
+
+                            <div class="input-address" class="tiny button" id="input-address" style="display:none">
+                                <!-- Inicio do formulario -->
+                                <label>Rua:<br />
+                                    <input name="rua" type="text" id="rua" size="40" /></label><br />
+                                <label>Bairro:<br />
+                                    <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+                                <label>Cidade:<br />
+                                    <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+                                <label>Estado:<br />
+                                    <input name="uf" type="text" id="uf" size="2" /></label><br />
                             </div>
                         </div>
-
-                        <h4>Confirme que é você</h4>
-                        <label for="password">Senha:<br />
-                            <input id="password" type="password" name="password" minlength="8" required></label><br />
                     </div>
-                </div>
-                <div class="botoes">
-                    <input class="button" id="button" type="reset" value="Limpar" />
-                    <input class="button" id="button" type="submit" value="Cadastrar" />
+
+                    <h4>Confirme que é você</h4>
+                    <label for="cnpj">Cnpj:<br />
+                        <input id="cnpj" type="cnpj" name="cnpj" minlength="14" maxlength="14" required></label><br />
+
+                    <label for="password">Senha:<br />
+                        <input id="password" type="password" name="password" minlength="8" required></label><br />
                 </div>
             </div>
+            <div class="botoes">
+                <input class="button" id="button1" type="reset" value="Limpar" />
+                <input class="button" id="button" type="submit" value="Cadastrar"  onclick="displ(event)" />
+            </div>
+    </div>
     </form>
     </div>
 </body>

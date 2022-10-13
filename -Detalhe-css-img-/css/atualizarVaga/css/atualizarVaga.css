@@ -63,7 +63,7 @@ form {
     background-color: rgb(214, 214, 214);
 }
 
-.cadastro #porte {
+.tipo-vaga {
     margin-bottom: 10px;
     font-size: 18px;
     border-radius: 10px;
@@ -72,12 +72,23 @@ form {
     border: 1px solid rgba(128, 128, 128, 0.089);
     background-color: rgba(214, 214, 214, 0.575);
 }
-
-.cadastro #porte:focus {
+.tipo-vaga:focus {
+    background-color: rgb(214, 214, 214);
+}
+.nivel-escolaridade {
+    margin-bottom: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    width: 250px;
+    height: 30px;
+    border: 1px solid rgba(128, 128, 128, 0.089);
+    background-color: rgba(214, 214, 214, 0.575);
+}
+.nivel-escolaridade:focus {
     background-color: rgb(214, 214, 214);
 }
 
-#historia-vaga {
+.sobre-vaga {
     font-size: 18px;
     border-radius: 10px;
     background-color: rgba(214, 214, 214, 0.575);
@@ -86,7 +97,7 @@ form {
     height: 350px;
 }
 
-#historia-vaga:focus {
+.sobre-vaga:focus {
     background-color: rgb(214, 214, 214);
     width: 300px;
     height: 350px;
@@ -96,7 +107,7 @@ form {
     position: absolute;
 }
 
-#button {
+.button {
     font-size: 18px;
     margin-top: 10px;
     margin-bottom: 32px;
@@ -111,16 +122,16 @@ form {
     transition: all 0.3s ease 0.1s;
 }
 
-#button:hover {
+.button:hover {
     background-color: #3c87ff;
 }
 
-#check input {
+.check-box input {
     margin-left: 10px;
     width: 20px;
 }
 
-#check {
+.check-box {
     align-items: center;
     width: 250px;
     margin-bottom: 10px;

@@ -9,6 +9,74 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/css/cadUser.css">
     <script>
 
+        function disp(event) {
+            event.preventDefault();
+            //var x = $( "form" ).serialize();
+
+            console.log("chegou aqui 0");
+
+            var name = $("#name").val();
+            var cpf = $("#cpf").val();
+            var escolaridade = $("#escolaridade").val();
+            var data = $("#data").val();
+            var sobre = $("#sobre").val();
+            var numero = $("#numero").val();
+            var email = $("#email").val();
+            var password = $("#password").val();
+            var cep = $("#cep").val();
+            var bairro = $("#bairro").val();
+            var uf = $("#uf").val();
+            var cidade = $("#cidade").val();
+
+            console.log("chegou aqui 1");
+
+            var request = {
+                "nome": name,
+                "cpf": cpf,
+                "escolaridade": escolaridade,
+                "Data": data,
+                "sobre": sobre,
+                "telefone": numero,
+                "email": email,
+                "senha": password,
+                "cep": cep,
+                "bairro": bairro,
+                "uf": uf,
+                "cidade": cidade
+            }
+
+
+            console.log("chegou aqui 2");
+
+
+            $.ajax({
+                url: "http://localhost:8080/usuario",
+                type: "POST",
+                crossDomain: true,
+                data: JSON.stringify(request),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (response) {
+                    //var resp = JSON.parse(response)
+                    console.log(response);
+                    alert("usuario cadastrado com sucesso!! " + response.id)
+                },
+                error: function (xhr, status) {
+
+                    console.log(xhr);
+                    console.log(status);
+
+                }
+            });
+
+
+
+            console.log("chegou aqui 3");
+
+        }
+
+
+
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
             document.getElementById('bairro').value = ("");
@@ -104,12 +172,12 @@
                             <label for="name">Nome:<br />
                                 <input id="name" type="text" name="name" required></label><br />
 
-                            <label for="cnpj">CPF:<br />
-                                <input id="cnpj" type="text" name="cnpj" placeholder="" size="11" maxlength="11"
+                            <label for="cpf">CPF:<br />
+                                <input id="cpf" type="text" name="cpf" placeholder="" size="11" maxlength="11"
                                     required></label><br />
 
                             <label for="escolaridade">Escolaridade:<br />
-                                <select  class="escolaridadeUsuario" id="escolaridade" name="types">
+                                <select class="escolaridadeUsuario" id="escolaridade" name="types">
                                     <option value="valor1" selected>Médio</option>
                                     <option value="valor2">Superior (Graduação)</option>
                                     <option value="valor3">Pós-graduação</option>
@@ -121,7 +189,7 @@
                                 <input id="data" type="date" name="data" required></label><br />
 
                             <label for="sobre">Sobre Mim:<br />
-                                <textarea class="historiaUsuario" id="historia" maxlength="500" required></textarea>
+                                <textarea class="historiaUsuario" id="sobre" maxlength="500" required></textarea>
                             </label><br />
 
 
@@ -194,7 +262,7 @@
 
             <div class="botoes">
                 <input class="button" id="button" type="reset" value="Limpar" />
-                <input class="button" id="button" type="submit" value="Cadastrar" />
+                <input class="button" id="cadastrar" type="submit" value="Cadastrar" />
             </div>
             <div class="perguntas">
                 <div class="usu">

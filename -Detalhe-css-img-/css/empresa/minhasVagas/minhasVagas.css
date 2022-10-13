@@ -9,6 +9,7 @@ body{
     width: 100%;
 }
 .candidato-title h1{
+    font-size: 50px;
     text-align: center;
     padding: 50px;
 }
@@ -24,8 +25,8 @@ body{
 }
 .candidato-box {
     display: flex;
-    width: 80%;
-    height: 200px;
+    width: 100%;
+    height: 300px;
     background-color: rgb(246, 246, 246);
     box-shadow: 2px 2px rgba(161, 157, 157, 0.514);
     border-top-right-radius: 50px;
@@ -34,7 +35,6 @@ body{
     margin-bottom: 15px;
 }
 .candidato-box-info {
-    border: 1px solid blue;
     display: flex;
     width: 100%;
     padding: 15px;
@@ -42,25 +42,38 @@ body{
     line-height: 1.5;
 }
 .inf-pessoa {
-    border: 1px solid red;
     width: 100%;
     height: 100%;
 }
+
 .ed-vaga {
     text-align: center;
     display: flex;
     width: 150px;
-    height: 200px;
-    border: 1px solid green;
+    height: 150px;
+    border-top-right-radius: 50px;
+    border-bottom: 1px solid rgb(216, 216, 216);
     justify-content: center;
     align-items: center;
 }
+.del-vaga {
+    text-align: center;
+    display: flex;
+    width: 150px;
+    height: 150px;
+    justify-content: center;
+    align-items: center;
+}
+.del-vaga:hover {
+    color: red;
+    cursor: pointer;
+}
 
 .candidato img{
-    width: 203.5px;
+    width: 30vh;
 }
-#down {
-    margin-bottom: 100px;
+.info-vaga {
+    font-size: 18px;
 }
 
 footer {
