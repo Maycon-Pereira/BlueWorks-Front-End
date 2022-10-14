@@ -1,53 +1,37 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #ccc;
+  font-family: Arial;
+}
+.menu-container {
+  width: 300px;
+  padding: 15px 0px;
+  background-color: #bbb;
+  margin: 10px;
 }
 
-.caixa-search {
-  position: fixed;
-  top: 50%;
-  right: 50%;
-  background-color: #333;
-  height: 40px;
-  border-radius: 40px;
-  padding: 10px;
-}
-
-.caixa-search:hover > .caixa-texto {
-  width: 240px;
-  padding: 0 6px;
-}
-
-.caixa-search:hover > .botao-search {
-  background-color: #fff;
-  margin-left: 3px;
-}
-
-.botao-search {
-  color: #e84118;
-  float: right;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #333;
-  display: flex;
-  justify-content: center;
+.menu-container li a{
+  padding: 12px;
   text-decoration: none;
-  align-items: center;
-  transition: 0.4s;
+  color: #000;
+  display: block;
+}
+.menu-container h2 {
+  padding-left: 10px;
+}
+#pesquisa {
+  width: 100%;
+  font-size: 18px;
+  padding: 11px;
+  border: 1px solid #ddd;
+}
+#menu {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
 }
 
-.caixa-texto {
-  border: none;
-  background-color: #333;
-  outline: none;
-  float: left;
-  padding: 0;
-  color: #fff;
-  font-size: 16px;
-  transition: 0.4s;
-  line-height: 40px;
-  width: 0px;
-  cursor: pointer;
+#menu li a:hover{
+  background-color: #eee;
 }
