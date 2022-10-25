@@ -8,17 +8,17 @@
 form {
     background-color: rgb(246, 246, 246);
     width: 1200px;
-    height: 650px;
+    height: 700px;
     border-radius: 20px;
-    margin-top: 150px;
+    margin-top: 4%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .Cad-info {
-    display: block;
+    display: flex;
+    justify-content: space-around;
     padding: 30px;
-
 }
 
 .cadastro {
@@ -144,4 +144,52 @@ form {
 
 .usu {
     margin-bottom: 10px;
+}
+
+
+/*----------------------*/
+
+#picture__input {
+    display: none;
+}
+
+.picture {
+    width: 90px;
+    height: 90px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+    overflow: hidden;
+}
+
+.picture:hover {
+    color: #777;
+    background: #ccc;
+}
+
+.picture:active {
+    border-color: turquoise;
+    color: turquoise;
+    background: #eee;
+}
+
+.picture:focus {
+    color: #777;
+    background: #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.picture__img {
+    max-width: 100%;
+}
+.img-perfil img{
+    height: 90px;
+    padding: 4px;
 }

@@ -1,37 +1,40 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial;
-}
-.menu-container {
-  width: 300px;
-  padding: 15px 0px;
-  background-color: #bbb;
-  margin: 10px;
+#picture__input {
+  display: none;
 }
 
-.menu-container li a{
-  padding: 12px;
-  text-decoration: none;
-  color: #000;
-  display: block;
-}
-.menu-container h2 {
-  padding-left: 10px;
-}
-#pesquisa {
-  width: 100%;
-  font-size: 18px;
-  padding: 11px;
-  border: 1px solid #ddd;
-}
-#menu {
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
+.picture {
+  width: 400px;
+  aspect-ratio: 16/9;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  border: 2px dashed currentcolor;
+  cursor: pointer;
+  font-family: sans-serif;
+  transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  outline: none;
+  overflow: hidden;
 }
 
-#menu li a:hover{
-  background-color: #eee;
+.picture:hover {
+  color: #777;
+  background: #ccc;
+}
+
+.picture:active {
+  border-color: turquoise;
+  color: turquoise;
+  background: #eee;
+}
+
+.picture:focus {
+  color: #777;
+  background: #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.picture__img {
+  max-width: 100%;
 }

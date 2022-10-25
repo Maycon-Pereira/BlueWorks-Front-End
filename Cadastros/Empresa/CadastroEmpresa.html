@@ -10,101 +10,42 @@
 
     <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
     <!-- Adicionando Javascript -->
+
+    <script src="/-Detalhe-css-img-/js/cadastro/cadastros.js"></script>
     <script>
+        
+const inputFile = document.querySelector("#picture__input");
+const pictureImage = document.querySelector(".picture__image");
+const pictureImageTxt = "Choose an image";
+pictureImage.innerHTML = pictureImageTxt;
 
+inputFile.addEventListener("change", function (e) {
+  const inputTarget = e.target;
+  const file = inputTarget.files[0];
 
-        function disp(event) {
-            event.preventDefault();
-            //var x = $( "form" ).serialize();
+  if (file) {
+    const reader = new FileReader();
 
-            console.log("chegou aqui 0");
+    reader.addEventListener("load", function (e) {
+      const readerTarget = e.target;
 
-            var name = $("#name").val();
-            var cnpj = $("#cnpj").val();
-            var types = $("#types").val();
-            var historia = $("#historia").val();
-            var numero = $("#numero").val();
-            var email = $("#email").val();
-            var password = $("#password").val();
-            var cep = $("#cep").val();
-            var rua = $("#rua").val();
-            var bairro = $("#bairro").val();
-            var uf = $("#uf").val();
-            var cidade = $("#cidade").val();
+      const img = document.createElement("img");
+      img.src = readerTarget.result;
+      img.classList.add("picture__img");
 
-            console.log("chegou aqui 1");
+      pictureImage.innerHTML = "";
+      pictureImage.appendChild(img);
+    });
 
-            var request = {
-                "nome": name,
-                "cnpj": cnpj,
-                "porte": types,
-                "sobre": historia,
-                "telefone": numero,
-                "email": email,
-                "senha": password,
-                "cep": cep,
-                "logradouro": rua,
-                "bairro": bairro,
-                "uf": uf,
-                "cidade": cidade
-            }
+    reader.readAsDataURL(file);
+  } else {
+    pictureImage.innerHTML = pictureImageTxt;
+  }
+});
 
+    </script>
 
-            console.log("chegou aqui 2");
-
-
-            $.ajax({
-                url: "http://localhost:8080/empresa",
-                type: "POST",
-                crossDomain: true,
-                data: JSON.stringify(request),
-                contentType: "application/json",
-                dataType: "json",
-                success: function (response) {
-                    //var resp = JSON.parse(response)
-                    console.log(response);
-                    alert("empresa cadastrada com sucesso!! " + response.id)
-                },
-                error: function (xhr, status) {
-
-                    console.log(xhr);
-                    console.log(status);
-
-                }
-            });
-
-
-
-            console.log("chegou aqui 3");
-
-        }
-
-
-        /*
-            $('form').submit(function(event) {
-                event.preventDefault();
-            });
-            */
-
-
-
-        /*
-        lista todas as empresas cadastradas
-        $.ajax({
-            url: "http://localhost:8080/empresa",
-            type: "GET",
-            crossDomain: true,
-            //data: JSON.stringify({}),
-            //dataType: "json",
-            success: function (response) {
-                //var resp = JSON.parse(response)
-                console.log(response);
-            },
-            error: function (xhr, status) {
-                alert("error");
-            }
-        });
-        */
+    <script>
 
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
@@ -189,15 +130,32 @@
         <form action="#">
 
             <div class="Cad-info">
-                <div class="title">
-                    <h2>Dados da Empresa</h2>
-                </div>
+                <div class="main">
+                    <div class="title">
+                        <h2>Dados da Empresa</h2>
+                    </div>
 
-                <div class="intro">
-                    <div class="intoducao">
-                        <p><i> Informe os dados abaixo e cadastre sua empresa no site: </i></p>
+                    <div class="intro">
+                        <div class="intoducao">
+                            <p><i> Informe os dados abaixo e cadastre sua empresa no site: </i></p>
+                        </div>
+
                     </div>
                 </div>
+
+                <!---IMAGEM DO PERFIL--->
+                <div class="img-perfil">
+                    
+
+                    <label class="picture" for="picture__input" tabIndex="0">
+                        <span class="picture__image"><img src="" alt=""></span><!--/-Detalhe-css-img-/img/LogoSemFundo.png-->
+                    </label>
+                    
+
+                    <input type="file" name="picture__input" id="picture__input">
+                    <label for="">Img de perfil</label>
+                </div>
+
             </div>
 
             <div class="cadastro">
@@ -247,6 +205,8 @@
 
                 <div class="endereco">
 
+
+
                     <div class="input-group">
                         <h4>Endereço</h4>
 
@@ -268,6 +228,10 @@
 
                         </div>
                     </div>
+
+
+
+
                 </div>
 
                 <div class="contato">
@@ -300,7 +264,7 @@
 
             <div class="botoes">
                 <input class="button" id="button1" type="reset" value="Limpar" />
-                <input class="button" id="button" type="submit" value="Cadastrar" onclick="disp(event)" />
+                <input class="button" id="button" type="submit" value="Cadastrar" onclick="empresaCad(event)" />
             </div>
             <div class="perguntas">
                 <div class="usu">
