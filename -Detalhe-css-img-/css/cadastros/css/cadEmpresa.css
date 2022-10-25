@@ -18,7 +18,7 @@ form {
 .Cad-info {
     display: flex;
     justify-content: space-around;
-    padding: 30px;
+    padding-top: 20px;
 }
 
 .cadastro {
@@ -149,47 +149,8 @@ form {
 
 /*----------------------*/
 
-#picture__input {
-    display: none;
-}
-
-.picture {
-    width: 90px;
-    height: 90px;
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #aaa;
+#frame {
     border-radius: 50%;
-    cursor: pointer;
-    font-family: sans-serif;
-    transition: color 300ms ease-in-out, background 300ms ease-in-out;
-    outline: none;
-    overflow: hidden;
-}
-
-.picture:hover {
-    color: #777;
-    background: #ccc;
-}
-
-.picture:active {
-    border-color: turquoise;
-    color: turquoise;
-    background: #eee;
-}
-
-.picture:focus {
-    color: #777;
-    background: #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-.picture__img {
-    max-width: 100%;
-}
-.img-perfil img{
-    height: 90px;
-    padding: 4px;
+    margin-left: 9px;
+    margin-top: 5px;
 }

@@ -50,19 +50,7 @@ function empresaCad(event) {
             //var resp = JSON.parse(response)
             console.log(response);
             
-            console.log(name)
-            console.log(cnpj)
-            console.log(types)
-            console.log(historia)
-            console.log(numero)
-            console.log(email)
-            console.log(password)
-            console.log(cep)
-            console.log(rua)
-            console.log(bairro)
-            console.log(uf)
-            console.log(cidade)
-            //alert("empresa cadastrada com sucesso!! " + response.id)
+            alert("empresa cadastrada com sucesso!! " + response.id)
         },
         error: function (xhr, status) {
 

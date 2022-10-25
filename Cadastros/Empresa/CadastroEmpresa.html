@@ -13,7 +13,7 @@
 
     <script src="/-Detalhe-css-img-/js/cadastro/cadastros.js"></script>
     <script>
-        
+        /*
 const inputFile = document.querySelector("#picture__input");
 const pictureImage = document.querySelector(".picture__image");
 const pictureImageTxt = "Choose an image";
@@ -41,11 +41,15 @@ inputFile.addEventListener("change", function (e) {
   } else {
     pictureImage.innerHTML = pictureImageTxt;
   }
-});
+});*/
 
     </script>
 
     <script>
+
+        function preview() {
+            frame.src = URL.createObjectURL(event.target.files[0]);
+        }
 
         function limpa_formulário_cep() {
             //Limpa valores do formulário de cep.
@@ -143,18 +147,19 @@ inputFile.addEventListener("change", function (e) {
                     </div>
                 </div>
 
-                <!---IMAGEM DO PERFIL--->
-                <div class="img-perfil">
-                    
 
-                    <label class="picture" for="picture__input" tabIndex="0">
-                        <span class="picture__image"><img src="" alt=""></span><!--/-Detalhe-css-img-/img/LogoSemFundo.png-->
-                    </label>
-                    
 
-                    <input type="file" name="picture__input" id="picture__input">
-                    <label for="">Img de perfil</label>
+                <div id="img-perfil" class="img-perfil" style=" height: 100%;">
+
+                    <label for="tag">Imagem de Perfil</label>
+                    <div id="img-perfil-2" class="img-style">
+                        <img id="frame" src="/-Detalhe-css-img-/img/vc-usuario.webp" width="100px" height="100px" />
+                    </div>
+                    <input id="uploadImg" type="file" onchange="preview()" accept="image/*" style="width: 118px;">
+
                 </div>
+
+
 
             </div>
 
