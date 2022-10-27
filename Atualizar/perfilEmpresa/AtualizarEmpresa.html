@@ -9,79 +9,8 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/css/cadEmpresa.css">
 
     <!-- Adicionando Javascript -->
-    <script>
-
-        function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value = ("");
-            document.getElementById('bairro').value = ("");
-            document.getElementById('cidade').value = ("");
-            document.getElementById('uf').value = ("");
-        }
-
-        function meu_callback(conteudo) {
-            if (!("erro" in conteudo)) {
-                //Atualiza os campos com os valores.
-                document.getElementById('rua').value = (conteudo.logradouro);
-                document.getElementById('bairro').value = (conteudo.bairro);
-                document.getElementById('cidade').value = (conteudo.localidade);
-                document.getElementById('uf').value = (conteudo.uf);
-            } //end if.
-            else {
-                //CEP não Encontrado.
-                limpa_formulário_cep();
-                alert("CEP não encontrado.");
-            }
-        }
-
-        function pesquisacep(valor) {
-
-            //Nova variável "cep" somente com dígitos.
-            var cep = valor.replace(/\D/g, '');
-
-            //Verifica se campo cep possui valor informado.
-            if (cep != "") {
-
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-
-                //Valida o formato do CEP.
-                if (validacep.test(cep)) {
-
-                    //Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('rua').value = "...";
-                    document.getElementById('bairro').value = "...";
-                    document.getElementById('cidade').value = "...";
-                    document.getElementById('uf').value = "...";
-
-                    //Cria um elemento javascript.
-                    var script = document.createElement('script');
-
-                    //Sincroniza com o callback.
-                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                    //Insere script no documento e carrega o conteúdo.
-                    document.body.appendChild(script);
-
-                } //end if.
-                else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    alert("Formato de CEP inválido.");
-                }
-            } //end if.
-            else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
-            }
-        }
-
-        //Ocultar ADDRESS
-        function ocultar() {
-            var marcados = document.querySelector("input[type=checkbox]:checked");
-            var check = document.getElementById("input-address");
-            check.style.display = (marcados != null) ? "block" : "none";
-        }
+    <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
+    <script src="/-Detalhe-css-img-/js/cadastro/cadastros.js"></script>
 
     </script>
 
@@ -93,17 +22,33 @@
     <div class="container">
         <form method="get" action=".">
 
-            <div class="Cad-info">
-                <div class="title">
-                    <h2>Dados da Empresa</h2>
-                </div>
 
-                <div class="intro">
-                    <div class="intoducao">
-                        <p><i> Informe os dados abaixo e atualize seu perfil: </i></p>
+            <div class="Cad-info">
+                <div class="main">
+                    <div class="title">
+                        <h2>Dados da Empresa</h2>
+                    </div>
+
+                    <div class="intro">
+                        <div class="intoducao">
+                            <p><i> Informe os dados abaixo e atualize seu perfil: </i></p>
+                        </div>
+
                     </div>
                 </div>
+
+                <div id="img-perfil" class="img-perfil" style=" height: 100%;">
+
+                    <label for="tag">Imagem de Perfil</label>
+                    <div id="img-perfil-2" class="img-style">
+                        <img id="frame" src="/-Detalhe-css-img-/img/vc-usuario.webp" width="100px" height="100px" />
+                    </div>
+                    <input id="perfil-img" type="file" onchange="preview()" accept="image/*" style="width: 118px;">
+
+                </div>
+
             </div>
+
 
             <div class="cadastro">
 
@@ -203,7 +148,7 @@
                 <input class="button" id="button" type="reset" value="Limpar" />
                 <input class="button" id="button" type="submit" value="Atualizar" />
             </div>
-            
+
         </form>
     </div>
 </body>

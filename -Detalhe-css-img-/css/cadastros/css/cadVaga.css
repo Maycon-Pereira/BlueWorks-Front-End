@@ -8,17 +8,17 @@
 form {
     background-color: rgb(246, 246, 246);
     width: 1200px;
-    height: 650px;
+    height: 700px;
     border-radius: 20px;
-    margin-top: 110px;
+    margin-top: 4%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .Cad-info {
-    display: block;
-    padding: 30px;
-
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
 }
 
 .cadastro {
@@ -130,4 +130,12 @@ form {
 }
 .other h4{
     margin-top: 15px;
+}
+
+/*----------------------*/
+
+#frame {
+    border-radius: 50%;
+    margin-left: 9px;
+    margin-top: 5px;
 }
