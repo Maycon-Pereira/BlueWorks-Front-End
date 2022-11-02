@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/css/cadVaga.css">
 
     <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
-    <!-- Adicionando Javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js">
+        //https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html#callback-examples
+    </script>
 
-    <script src="/-Detalhe-css-img-/js/cadastro/cadastros.js"></script>
+    <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
+    <script src="/-Detalhe-css-img-/js/cadastro/vagas.js"></script>
 
 
     <title>Cadastro Vaga</title>
@@ -82,7 +85,7 @@
                         </label><br />
 
                         <label for="salario">Sálario:<br />
-                            <input id="salario" type="number" required>
+                            <input id="salario" type="text" placeholder="R$:" required>
                         </label><br />
 
                         <label for="escolaridade-Vaga">Nivel de Escolaridade Minima:<br />
@@ -126,7 +129,7 @@
                             <h4>Endereço</h4>
 
                             <label>Cep:<br />
-                                <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                                <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" placeholder="XXXXX-XXX"
                                     onblur="pesquisacep(this.value);" required /></label><br />
 
                             <div class="input-address" class="tiny button" id="input-address" style="display:none">
@@ -145,11 +148,19 @@
 
                     <h4>Confirme que é você</h4>
                     <label for="cnpj">Cnpj:<br />
-                        <input id="cnpj" type="cnpj" name="cnpj" minlength="14" maxlength="14" required></label><br />
+                        <input id="cnpj" type="cnpj" name="cnpj" minlength="14" maxlength="14" placeholder="XX. XXX. XXX/0001-XX" required></label><br />
 
                     <label for="password">Senha:<br />
                         <input id="password" type="password" name="password" minlength="8" required></label><br />
                 </div>
+
+                <script> // MASK
+                    $('#cep').mask('00000-000')
+                    $('#cnpj').mask('00.000.000/0000-00')
+                    $('#salario').mask("R$: #.##0,00");
+                </script>
+
+
             </div>
             <div class="botoes">
                 <input class="button" id="button1" type="reset" value="Limpar" />

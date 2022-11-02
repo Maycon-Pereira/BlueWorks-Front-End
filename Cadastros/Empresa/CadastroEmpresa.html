@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/css/cadEmpresa.css">
 
     <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
-    <script src="/-Detalhe-css-img-/js/cadastro/cadastros.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js">
+        //https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html#callback-examples
+    </script>
+
+    <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
+    <script src="/-Detalhe-css-img-/js/cadastro/empresa.js"></script>
 
     <title>Cadastro Empresa</title>
 </head>
@@ -17,7 +22,7 @@
 <body>
 
     <div class="container">
-        <form action="#">
+        <form action="" onsubmit="senhaOK()">
 
             <div class="Cad-info">
                 <div class="main">
@@ -53,11 +58,11 @@
 
                         <div class="input-box">
                             <label for="name">Nome da Empresa:<br />
-                                <input id="name" type="text" name="name" required></label><br />
+                                <input id="name" type="text" name="name" maxlength="255" required></label><br />
 
                             <label for="cnpj">CNPJ:<br />
-                                <input id="cnpj" type="text" name="cnpj" placeholder="" size="15" maxlength="14"
-                                    required></label><br />
+                                <input id="cnpj" type="text" name="cnpj" placeholder="XX. XXX. XXX/0001-XX" size="15"
+                                    maxlength="14" required></label><br />
 
                             <label for="type-name">Porte da Empresa:<br />
                                 <select class="porteEmpresa" id="porte" name="types">
@@ -74,7 +79,7 @@
                                     <tr>
                                         <td>
                                             <label for="empresa">Tem Empresa Fisica?</label>
-                                            <input onclick="ocultar()" type="checkbox">
+                                            <input id="empresaCheck" onclick="ocultar()" type="checkbox">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -97,20 +102,20 @@
                         <h4>Endereço</h4>
 
                         <label>Cep:<br />
-                            <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-                                onblur="pesquisacep(this.value);" required /></label><br />
+                            <input name="cep" type="text" id="cep" value="" size="10" placeholder="XXXXX-XXX"
+                                maxlength="9" onblur="pesquisacep(this.value);" required /></label><br />
 
                         <div class="input-address" class="tiny button" id="input-address" style="display:none">
                             <!------->
                             <!-- Inicio do formulario -->
                             <label>Rua:<br />
-                                <input name="rua" type="text" id="rua" size="40" /></label><br />
+                                <input name="rua" type="text" id="rua" size="40" maxlength="255" /></label><br />
                             <label>Bairro:<br />
-                                <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+                                <input name="bairro" type="text" id="bairro" size="40" maxlength="255" /></label><br />
                             <label>Cidade:<br />
-                                <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+                                <input name="cidade" type="text" id="cidade" size="40" maxlength="255" /></label><br />
                             <label>Estado:<br />
-                                <input name="uf" type="text" id="uf" size="2" /></label><br />
+                                <input name="uf" type="text" id="uf" size="2" maxlength="2" /></label><br />
 
                         </div>
                     </div>
@@ -128,18 +133,30 @@
                         <div class="input-box">
 
                             <label for="numero">Número de Telefone:<br />
-                                <input id="numero" type="text" name="numero"></label><br />
+                                <input id="numero" type="tel" name="numero" placeholder="(XX) XXXXX-XXXX" maxlength="11"
+                                    required></label><br />
 
                             <label for="email">E-mail:<br />
                                 <input id="email" type="email" name="email" placeholder="" required></label><br />
 
                             <label for="password">Senha:<br />
-                                <input id="password" type="password" name="password" placeholder="" minlength="8"
+                                <input id="password" type="password" name="password" onchange="confereSenha()"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
+                                    title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
                                     required></label><br />
 
                             <label for="confirmPassword">Confirme sua Senha:<br />
-                                <input id="confirmPassword" type="password" name="confirmPassword" minlength="8"
+                                <input id="confirmPassword" type="password" name="password" onchange="confereSenha()"
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
+                                    title="A confirmação de senha deve ser exatamente igual a senha colocada acima."
                                     required></label><br />
+
+
+                            <script> // MASK
+                                $('#cep').mask('00000-000')
+                                $('#numero').mask('(00) 00000-0000')
+                                $('#cnpj').mask('00.000.000/0000-00')
+                            </script>
 
                         </div>
 
@@ -149,8 +166,9 @@
             </div>
 
             <div class="botoes">
-                <input class="button" id="button1" type="reset" value="Limpar" />
-                <input class="button" id="button" type="submit" value="Cadastrar" onclick="empresaCad(event)" />
+                <input class="button" id="reset" type="reset" value="Limpar" />
+                <input class="button" id="cadastro" type="submit" value="Cadastrar" onclick="empresaCad(event)"
+                    onclick="validatePassword()" />
             </div>
             <div class="perguntas">
                 <div class="usu">
