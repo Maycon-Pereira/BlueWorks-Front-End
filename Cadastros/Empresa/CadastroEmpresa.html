@@ -24,7 +24,7 @@ A VALIDAÇÃO HTML DESAPARECE, E O JS CONTINUA NÃO FUNCIONANDO*/
 <body>
 
     <div class="container">
-        <form action="/Empresa/perfil-Empresa/radac.html" name="register" method="post" onsubmit="return validacao()" >
+        <form action="" method="post" name="register" onsubmit="validacao()">
 
             <div class="Cad-info">
                 <div class="main">
@@ -142,13 +142,13 @@ A VALIDAÇÃO HTML DESAPARECE, E O JS CONTINUA NÃO FUNCIONANDO*/
                                 <input id="email" type="email" name="email" placeholder="" required></label><br />
 
                             <label for="password">Senha:<br />
-                                <input id="password" type="password" name="password" onchange="validarSenha()"
+                                <input id="password" type="password" name="password"
                                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
                                     title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
                                     required></label><br />
 
                             <label for="confirmPassword">Confirme sua Senha:<br />
-                                <input id="confirmPassword" type="password" name="password" onchange="validarSenha()"
+                                <input id="confirmPassword" type="password" name="password"
                                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
                                     title="A confirmação de senha deve ser exatamente igual a senha colocada acima."
                                     required></label><br />
@@ -170,19 +170,22 @@ A VALIDAÇÃO HTML DESAPARECE, E O JS CONTINUA NÃO FUNCIONANDO*/
 
             </div>
 
-            <div class="botoes">
-                <input class="button" id="reset" type="reset" value="Limpar" />
-                <input class="button" id="cadastro" type="submit" value="Cadastrar"
-                    onclick="  return empresaCad(event)" />
-            </div>
-            <div class="perguntas">
-                <div class="usu">
-                    <label for="">já tem uma conta? <a href="/Login/loginEmpresa.html">Login</a></label><br />
+            <div class="botoes-tudo">
+                <div class="botoes">
+                    <input class="button" id="reset" type="reset" value="Limpar" />
+                    <input class="button" id="cadastro" type="submit" value="Cadastrar" />
+                    <!---empresaCad(event)-->
                 </div>
-                <div class="usu">
-                    <label for="">É Usuario? <a href="/Cadastros/Usuario/CadastroUsuario.html">Cadastre-se</a></label>
+
+                <div class="re">
+                    <button type="button" class="re-e" id="diferente"><a href="/Cadastros/Usuario/CadastroUsuario.html"><span
+                                class="text">É usuario?</span> Cadastre-se</a><br /></button>
+                    <button type="button" class="re-e" id="conta"><a
+                        href="/Login/loginEmpresa.html"><span class="text">Já tem conta?</span>
+                            Login</a><br /></button>
                 </div>
             </div>
+
         </form>
     </div>
 </body>

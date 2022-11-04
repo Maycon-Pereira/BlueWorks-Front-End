@@ -22,11 +22,21 @@ var confirm_password = document.getElementById('confirmPassword')
 
 function validacao() {
     if(nome.value == "") {
-        alert('Insira um nome valido')
+        alert(`insira um nome valido`)
+    } 
+
+/**
+ * else if (cnpj.value == "") {
+        alert(`insira um cnpj valido`)
+        return false;
+    }else if (porte.value == "") {
+        alert(`insira um porte valido`)
+        return false;
+    }else if (historia.value == "") {
+        alert(`insira um sobre valido`)
         return false;
     }
-
-
+ */
 }
 /*
 function validarSenha() {
@@ -35,22 +45,20 @@ function validarSenha() {
     confirm_password.reportValidity();
     return false;
   } else {
-    confirm_password.setCustomValidity("foi");
+    confirm_password.setCustomValidity("");
     alert('foi')
     return true;
   }
 }
-
-// verificar também quando o campo for modificado, para que a mensagem suma quando as senhas forem iguais
-confirm_password.addEventListener('input', validarSenha);
-
-
-
 */
 
 
+
+
+
 //EMPRESA--------------------------------------------
-/*function empresaCad(event) {
+/*
+function empresaCad(event) {
     event.preventDefault();
     //var x = $( "form" ).serialize();
 
@@ -111,5 +119,6 @@ confirm_password.addEventListener('input', validarSenha);
 
     console.log("chegou aqui 3");
 
-}*/
+}
 
+*/

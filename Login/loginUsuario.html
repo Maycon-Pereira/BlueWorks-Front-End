@@ -14,55 +14,65 @@
     <div class="container">
         <form action="">
 
-            <div class="box">
+            <!--
+                <div class="box">
 
                 <h2>Login</h2>
+
                 <div class="inputs">
-
                     <label for="email">Email:</label><br />
-                    <input id="email" type="email" name="email" required><br />
-
-
+                    <input id="email" type="email" onchange="validateFields()" name="email" required><br />
 
                     <label for="password">Senha:</label><br />
                     <input id="password" type="password" name="password" minlength="8" required><br />
                 </div>
 
                 <div class="button">
-                    <a href="/Usuario/Perfil-Usuario/elizabethBryan.html">
-                    <input type="submit" value="Logar"></a>
+                    <button type="button" class="log" id="login" disabled="true">Logar</button>
+
+                    <button type="button" class="esqueceu" id="esqueceuSenha"><a
+                            href="/Recuperar/recuperarSenha/recuperarSenha.html">Esqueceu Senha?</a></button>
                 </div>
 
-                
-            </div>
-
-            <div class="box-cadastro">
-
-                <div class="usu">
-                    <label for="">Esqueceu a senha?
-                        <a href="/Recuperar/recuperarSenha/recuperarSenha.html">Recuperar</a>
-                    </label>
+                <div class="re">
+                    <button type="button" class="re-e" id="diferente"><a href="/Login/loginUsuario.html"><span
+                                class="text">É Usuario?</span> Login</a><br /></button>
+                    <button type="button" class="re-e" id="conta"><a
+                            href="/Cadastros/Empresa/CadastroEmpresa.html"><span class="text">Não tem conta?</span>
+                            Cadastre-se</a><br /></button>
                 </div>
-
-                
-
-                <div class="usu">
-                    <label for="">Ainda não tem conta?
-                        <a href="/Cadastros/Usuario/CadastroUsuario.html">Cadastre-se</a>
-                    </label>
-                </div>
-
-                <div class="usu">
-                    <label for="">É Empresa?
-                        <a href="/Login/loginEmpresa.html">Login</a><br />
-                    </label>
-                </div>
-
-                
 
             </div>
+            -->
+
+            <div class="box">
+
+                <h2>Login</h2>
+                <div class="inputs">
+                    <label for="email">Email:</label><br />
+                    <input id="email" type="email" onchange="validateFields()" name="email" required><br />
+
+                    <label for="password">Senha:</label><br />
+                    <input id="password" type="password" name="password" minlength="8" required><br />
+                </div>
+
+                <div class="button">
+                    <button type="button" class="log" id="login" disabled="true">Logar</button>
+
+                    <button type="button" class="esqueceu" id="esqueceuSenha"><a
+                            href="/Recuperar/recuperarSenha/recuperarSenha.html">Esqueceu Senha?</a></button>
+                </div>
+
+                <div class="re">
+                    <button type="button" class="re-e" id="diferente"><a href="/Login/loginEmpresa.html"><span
+                                class="text">É Empresa?</span> Login</a><br /></button>
+                    <button type="button" class="re-e" id="conta"><a
+                            href="/Cadastros/Usuario/CadastroUsuario.html"><span class="text">Não tem conta?</span>
+                            Cadastre-se</a><br /></button>
+                </div>
 
 
+            </div>
 
         </form>
     </div>
