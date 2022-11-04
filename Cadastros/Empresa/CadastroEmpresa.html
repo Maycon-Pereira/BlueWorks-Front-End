@@ -14,7 +14,9 @@
     </script>
 
     <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
-    <script src="/-Detalhe-css-img-/js/cadastro/empresa.js"></script>
+    <script src="/-Detalhe-css-img-/js/cadastro/empresa.js">/* ESSTA DANDO PROBLEMA PUXANDO ESSE SCRIPT,
+A VALIDAÇÃO HTML DESAPARECE, E O JS CONTINUA NÃO FUNCIONANDO*/
+    </script>
 
     <title>Cadastro Empresa</title>
 </head>
@@ -22,7 +24,7 @@
 <body>
 
     <div class="container">
-        <form action="" onsubmit="senhaOK()">
+        <form action="/Empresa/perfil-Empresa/radac.html" name="register" method="post" onsubmit="return validacao()" >
 
             <div class="Cad-info">
                 <div class="main">
@@ -140,16 +142,19 @@
                                 <input id="email" type="email" name="email" placeholder="" required></label><br />
 
                             <label for="password">Senha:<br />
-                                <input id="password" type="password" name="password" onchange="confereSenha()"
+                                <input id="password" type="password" name="password" onchange="validarSenha()"
                                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
                                     title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
                                     required></label><br />
 
                             <label for="confirmPassword">Confirme sua Senha:<br />
-                                <input id="confirmPassword" type="password" name="password" onchange="confereSenha()"
+                                <input id="confirmPassword" type="password" name="password" onchange="validarSenha()"
                                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
                                     title="A confirmação de senha deve ser exatamente igual a senha colocada acima."
                                     required></label><br />
+                            <div id="inner">
+
+                            </div>
 
 
                             <script> // MASK
@@ -167,8 +172,8 @@
 
             <div class="botoes">
                 <input class="button" id="reset" type="reset" value="Limpar" />
-                <input class="button" id="cadastro" type="submit" value="Cadastrar" onclick="empresaCad(event)"
-                    onclick="validatePassword()" />
+                <input class="button" id="cadastro" type="submit" value="Cadastrar"
+                    onclick="  return empresaCad(event)" />
             </div>
             <div class="perguntas">
                 <div class="usu">

@@ -1,4 +1,4 @@
-/*VARIAVEIS
+//variaveis
 var nome = document.getElementById('name')
 var cnpj = document.getElementById('cnpj')
 var porte = document.getElementById('porte')
@@ -14,14 +14,43 @@ var img = document.getElementById('perfil-img')
 
 var numero = document.getElementById('numero')
 
-var email = document.getElementById('email')*/
+var email = document.getElementById('email')
 var password = document.getElementById('password')
 var confirm_password = document.getElementById('confirmPassword')
 
 //FINAL VARIAVEIS
 
+function validacao() {
+    if(nome.value == "") {
+        alert('Insira um nome valido')
+        return false;
+    }
+
+
+}
+/*
+function validarSenha() {
+  if (password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Senhas diferentes!");
+    confirm_password.reportValidity();
+    return false;
+  } else {
+    confirm_password.setCustomValidity("foi");
+    alert('foi')
+    return true;
+  }
+}
+
+// verificar também quando o campo for modificado, para que a mensagem suma quando as senhas forem iguais
+confirm_password.addEventListener('input', validarSenha);
+
+
+
+*/
+
+
 //EMPRESA--------------------------------------------
-function empresaCad(event) {
+/*function empresaCad(event) {
     event.preventDefault();
     //var x = $( "form" ).serialize();
 
@@ -82,17 +111,5 @@ function empresaCad(event) {
 
     console.log("chegou aqui 3");
 
-}
-
-
-function confereSenha() {   //confere senha
-    if (password.value === confirm_password.value) {
-        confirm_password.setCustomValidity("");
-    } else {
-        confirm_password.setCustomValidity('As senhas não conferem');
-    }
-}
-function senhaOK() {
-    alert('Senhas conferem!')
-}
+}*/
 

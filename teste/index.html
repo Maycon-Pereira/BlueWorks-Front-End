@@ -1,27 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste</title>
-
-    <link rel="stylesheet" href="/teste/style.css">
-    <script src="/teste/script.js"></script>
-
+    <title>Document</title>
 </head>
-
 <body>
+    <div class="container">
+        <form action="" id="loginForm">
+          <h2>Login</h2>
+          <p><label for="username">Username</label><input type="text" name="username" id="username" placeholder="username" /></p>
+          <p><label for="password">Password</label><input type="password" name="password" id="password" placeholder="password" /> <input type="button" id="showPassword" value="show" class="button" /></p>
+          <p><input type="submit" value="Login" class="button" /></p>
+        </form>
+      </div>
+      <script>
+        
+jQuery : passwordField.attr('type', 'text');
 
-    <!---IMAGEM DO PERFIL--->
-    <label class="picture" for="picture__input" tabIndex="0">
-        <span class="picture__image"></span>
-    </label>
+$(this).val('Hide');
 
-    <input type="file" name="picture__input" id="picture__input">
+passwordField.attr('type', 'password');
 
+$(this).val('Show');
 
+// Check javascript has loaded
+$(document).ready(function(){
+ 
+  // Click event of the showPassword button
+  $('#showPassword').on('click', function(){
+     
+    // Get the password field
+    var passwordField = $('#password');
+ 
+    // Get the current type of the password field will be password or text
+    var passwordFieldType = passwordField.attr('type');
+ 
+    // Check to see if the type is a password field
+    if(passwordFieldType == 'password')
+    {
+        // Change the password field to text
+        passwordField.attr('type', 'text');
+ 
+        // Change the Text on the show password button to Hide
+        $(this).val('Hide');
+    } else {
+        // If the password field type is not a password field then set it to password
+        passwordField.attr('type', 'password');
+ 
+        // Change the value of the show password button to Show
+        $(this).val('Show');
+    }
+  });
+});
+      </script>
 </body>
-
 </html>
