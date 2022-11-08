@@ -19,13 +19,13 @@ var password = document.getElementById('password')
 var confirm_password = document.getElementById('confirmPassword')
 
 //FINAL VARIAVEIS
-
+/**
 function validacao() {
     if(nome.value == "") {
         alert(`insira um nome valido`)
     } 
 
-/**
+
  * else if (cnpj.value == "") {
         alert(`insira um cnpj valido`)
         return false;
@@ -36,8 +36,8 @@ function validacao() {
         alert(`insira um sobre valido`)
         return false;
     }
- */
-}
+ 
+}*/
 /*
 function validarSenha() {
   if (password.value != confirm_password.value) {
@@ -57,6 +57,35 @@ function validarSenha() {
 
 
 //EMPRESA--------------------------------------------
+//imagem da empresa
+function empresaImg() {
+
+    $.ajax({
+        url: "http://localhost:8080/v2/image/download/",
+        type: "GET",
+        crossDomain: true,
+        contentType: "application/json",
+        dataType: "json",
+        success: function (response) {
+
+
+            for (var i = 0; i < response.length; i++) {
+
+                $('.img').append(' <div class="img"> <img src="data:image/png;base64,' + response[i].fotoBase64 + '" </div> ');
+            }
+
+        },
+        error: function (xhr, status) {
+
+            console.log(xhr);
+            console.log(status);
+
+        }
+    });
+
+}
+
+
 
 function empresaCad(event) {
     event.preventDefault();
@@ -77,7 +106,7 @@ function empresaCad(event) {
     var uf = $("#uf").val();
     var cidade = $("#cidade").val();
 
-    console.log("chegou aqui 1");
+    console.log("chegou aqui 1")
 
     var request = {
         "nome": name,
@@ -94,7 +123,8 @@ function empresaCad(event) {
         "cidade": cidade
     }
 
-    console.log("chegou aqui 2");
+
+    console.log("   chegou aqui 2");
 
     $.ajax({
         url: "http://localhost:8080/empresa",
@@ -118,6 +148,28 @@ function empresaCad(event) {
     });
 
     console.log("chegou aqui 3");
+
+
+
+
+
+    
+
+    
+    
+    console.log(" DADOS CADASTRADOS ")
+    console.log(" nome "+ name)
+    console.log(" cnpj "+ cnpj)
+    console.log(" porte "+ types)
+    console.log(" sobre "+ historia)
+    console.log(" telefone "+ numero)
+    console.log(" email "+ email)
+    console.log(" senha  "+ password)
+    console.log(" cep "+ cep)
+    console.log(" logradouro "+ rua)
+    console.log(" bairro "+ bairro)
+    console.log(" uf "+ uf)
+    console.log(" cidade "+ cidade)
 
 }
 
