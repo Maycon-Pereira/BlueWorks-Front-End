@@ -57,7 +57,7 @@ function validarSenha() {
 
 
 //EMPRESA--------------------------------------------
-/*
+
 function empresaCad(event) {
     event.preventDefault();
     //var x = $( "form" ).serialize();
@@ -121,4 +121,3 @@ function empresaCad(event) {
 
 }
 
-*/

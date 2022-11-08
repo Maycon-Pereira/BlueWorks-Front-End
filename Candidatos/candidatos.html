@@ -7,11 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="/-Detalhe-css-img-/css/menuLateral/css/menuLateral.css">  
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/menuLateral/css/menuLateral.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/header.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/footer.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/candidato/css/candidato.css">
+
+    <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
+    <script src="/-Detalhe-css-img-/js/candidatos/candidatos.js"></script>
+
     <title>Candidatos</title>
 </head>
 
@@ -23,44 +27,46 @@
 
                 <div class="fixo">
                     <div class="ator">
-            
+
                         <nav class="ator-nav">
                             <ul class="ator-ul">
-                                <li><a href="/Cadastros/Usuario/CadastroUsuario.html">Usuario</a><img class="login-usuario"
-                                        src="/-Detalhe-css-img-/img/usuarioSemFundo.png" alt=""></li>
-                                <li class="emp"><a href="/Cadastros/Empresa/CadastroEmpresa.html">Empresa</a><img class="login-empresa"
-                                        src="/-Detalhe-css-img-/img/empresaSemFundo.png" alt=""></li>
+                                <li><a href="/Cadastros/Usuario/CadastroUsuario.html">Usuario</a><img
+                                        class="login-usuario" src="/-Detalhe-css-img-/img/usuarioSemFundo.png" alt="">
+                                </li>
+                                <li class="emp"><a href="/Cadastros/Empresa/CadastroEmpresa.html">Empresa</a><img
+                                        class="login-empresa" src="/-Detalhe-css-img-/img/empresaSemFundo.png" alt="">
+                                </li>
                             </ul>
                         </nav>
-            
+
                     </div>
                 </div>
-            
+
                 <header>
-            
+
                     <!--Navegar entre as paginas principais-->
-            
+
                     <nav class="header-nav">
                         <ul class="headerLink">
                             <li><a class="inicio" href="/Pag-Inicial/inicio.html">Início</a></li>
-            
+
                             <li><a class="sobre" href="/Sobre/sobre.html">Sobre</a></li>
-            
+
                             <li><a class="curriculos" href="/Curriculos/curriculos.html">Curriculos</a></li>
-            
+
                             <li><a class="vagas" href="/Vagas/vagas.html">Vagas</a></li>
                         </ul>
                     </nav>
-            
-            
+
+
                     <nav class="botao">
                         <a href="/Login/loginUsuario.html" class="cta"><button>Login</button></a>
                     </nav>
-                    
-            
+
+
                 </header>
-            
-            
+
+
                 <div class="barraLateral">
                     <!--Barra Lateral-->
                     <input type="checkbox" id="chec">
@@ -75,34 +81,42 @@
                             <li><a href="/Vagas/vagas.html">Vagas</a></li>
                             <li><a href="/Empresa/empresas/empresas.html">Empresas</a></li>
                         </ul>
-            
+
                         <ul class="lateral" id="bottom">
                             <li><a href="/Usuario/Perfil-Usuario/elizabethBryan.html" class="bottom-li">Perfil</a></li>
                             <li><a href="/Ajuda/ajuda.html" class="bottom-li">Ajuda</a></li>
                             <li><a href="#" class="bottom-li" id="sair">Sair</a></li>
                         </ul>
-            
+
                     </nav>
                 </div>
                 <!--Fim Barra Lateral-->
-            
-            
+
+
                 <div class="parte-branca">
                 </div>
-            
+
                 <div class="caixa-search">
                     <input class="caixa-texto" type="text" name="" placeholder="Pesquisar...">
                     <a class="botao-search" href="#">
                         <i class="fas fa-search"></i>
                     </a>
                 </div>
-            
+
             </section>
             <!--Final Header-->
-            
-            
+
+
 
             <section>
+
+
+
+                <script>
+                    candidatoImg(event)
+                    console.log("Chegei aqui")
+
+                </script>
 
 
                 <div class="body">
@@ -115,11 +129,8 @@
 
                         <div class="candidato-box">
                             <div class="img-candidato">
-                                <div class="candidato">
-                                    <a href="/Usuario/Perfil-Usuario/elizabethBryan.html"><img class="img"
-                                            src="/-Detalhe-css-img-/img/candidatos/Elizabeth.webp"
-                                            alt="imagem do candidato">
-                                    </a>
+                                <div class="candidato" id="div_imagetranscrits">
+                                    
                                 </div>
                             </div>
                             <div class="candidato-box-info">
@@ -131,97 +142,10 @@
                             </div>
                         </div>
 
-                        <div class="candidato-box">
-                            <div class="img-candidato">
-                                <div class="candidato">
-                                    <a href="/Usuario/Perfil-Usuario/elizabethBryan.html"><img class="img"
-                                            src="/-Detalhe-css-img-/img/candidatos/Bruno.webp"
-                                            alt="imagem do candidato">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="candidato-box-info">
+                        
+                        
 
-                                <div class="inf-pessoa">
-                                    <p><span class="bold">Nome: </span> Elizabeth Brian</p>
-                                    <p><span class="bold">Idade: </span> 22 anos</p>
-                                    <p><span class="bold">Gênero: </span> Feminino</p>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="candidato-box">
-                            <div class="img-candidato">
-                                <div class="candidato">
-                                    <a href="/Usuario/Perfil-Usuario/perfis/elizabethBryan.html"><img class="img"
-                                            src="/-Detalhe-css-img-/img/candidatos/CarlosMendes.webp"
-                                            alt="imagem do candidato">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="candidato-box-info">
-                                <div class="inf-pessoa">
-                                    <p><span class="bold">Nome: </span> Elizabeth Brian</p>
-                                    <p><span class="bold">Idade: </span> 22 anos</p>
-                                    <p><span class="bold">Gênero: </span> Feminino</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="candidato-box">
-                            <div class="img-candidato">
-                                <div class="candidato">
-                                    <a href="/Usuario/Perfil-Usuario/elizabethBryan.html"><img class="img"
-                                            src="/-Detalhe-css-img-/img/candidatos/Cláudia.webp"
-                                            alt="imagem do candidato">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="candidato-box-info">
-                                <div class="inf-pessoa">
-                                    <p><span class="bold">Nome: </span> Elizabeth Brian</p>
-                                    <p><span class="bold">Idade: </span> 22 anos</p>
-                                    <p><span class="bold">Gênero: </span> Feminino</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="candidato-box">
-                            <div class="img-candidato">
-                                <div class="candidato">
-                                    <a href="/Usuario/Perfil-Usuario/elizabethBryan.html"><img class="img"
-                                            src="/-Detalhe-css-img-/img/candidatos/Lucia.webp"
-                                            alt="imagem do candidato">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="candidato-box-info">
-                                <div class="inf-pessoa">
-                                    <p><span class="bold">Nome: </span> Elizabeth Brian</p>
-                                    <p><span class="bold">Idade: </span> 22 anos</p>
-                                    <p><span class="bold">Gênero: </span> Feminino</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="candidato-box" id="down">
-                            <div class="img-candidato">
-                                <div class="candidato">
-                                    <a href="/Usuario/Perfil-Usuario/elizabethBryan.html"><img class="img"
-                                            src="/-Detalhe-css-img-/img/candidatos/Rafael.webp"
-                                            alt="imagem do candidato">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="candidato-box-info">
-                                <div class="inf-pessoa">
-                                    <p><span class="bold">Nome: </span> Elizabeth Brian</p>
-                                    <p><span class="bold">Idade: </span> 22 anos</p>
-                                    <p><span class="bold">Gênero: </span> Feminino</p>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </section>
