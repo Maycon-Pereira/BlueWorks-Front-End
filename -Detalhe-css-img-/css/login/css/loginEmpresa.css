@@ -16,7 +16,6 @@ form {
     margin-left: auto;
     margin-right: auto;
     padding-top: 80px;
-
 }
 .box{
     padding: 15px;
@@ -43,11 +42,10 @@ form {
 .usu {
 margin-bottom: 10px;
 }
-
 .box h2 {
     text-align: center;
     padding: 8px;
-    font-size: 40px;
+    font-size: 45px;
 }
 .inputs {
     margin-top: 50px;
@@ -55,8 +53,6 @@ margin-bottom: 10px;
 .log {
     margin-top: 25px;
 }
-
-
 .box input {
     font-size: 18px;
     margin-bottom: 10px;
@@ -66,11 +62,10 @@ margin-bottom: 10px;
     border-radius: 10px;
     border: 1px solid rgba(128, 128, 128, 0.089);
 }
-
 .box input:focus {
     background-color: rgb(214, 214, 214);
+    border: none;
 }
-
 .log{
     font-size: 18px;
     height: 40px;
@@ -85,11 +80,6 @@ margin-bottom: 10px;
 .log:hover{
     background-color: #3c87ff;    
 }
-.log[disabled] {
-    opacity: 0.7;
-    color: red;
-}
-
 label {
     color: black;
 }

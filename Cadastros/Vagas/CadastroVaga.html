@@ -90,17 +90,37 @@
 
                         <label for="escolaridade-Vaga">Nivel de Escolaridade Minima:<br />
                             <select class="vaga-options" id="escolaridadeVaga" name="types">
-                                <option value="valor1">Fundamental</option>
-                                <option value="valor2" selected>Médio</option>
-                                <option value="valor3">Superior (Graduação)</option>
-                                <option value="valor4">Pós-graduação</option>
-                                <option value="valor5">Mestrado</option>
-                                <option value="valor6">Doutorado</option>
+                                <option value="valor1">Analfabeto</option>
+                                <option value="valor2">Até 5º Ano Incompleto</option>
+                                <option value="valor3">5º Ano Completo</option>
+                                <option value="valor4">6º ao 9º Ano do Fundamental</option>
+                                <option value="valor5">Fundamental Completo</option>
+                                <option value="valor6">Médio Incompleto</option>
+                                <option value="valor7" selected>Médio Completo</option>
+                                <option value="valor8">Superior Incompleto</option>
+                                <option value="valor9">Superior Completo</option>
+                                <option value="valor10">Mestrado</option>
+                                <option value="valor11">Doutorado</option>
+                                <option value="valor12">Ignorado</option>
                             </select required></label><br />
+                        <!--
+                            Analfabeto	1	Nível 1
+                            Até 5º Ano Incompleto	2
+                            5º Ano Completo	3
+                            6º ao 9º Ano do Fundamental	4
+                            Fundamental Completo	5	Nível 2
+                            Médio Incompleto	6
+                            Médio Completo	7	Nível 3
+                            Superior Incompleto	8
+                            Superior Completo	9	Nível 4
+                            Mestrado	10	Nível 5
+                            Doutorado	11
+                            Ignorado	-1	Sem Nível
+                        -->
 
-                        <label for="">Vaga Presencial ?</label>
 
                         <div class="checkVaga" id="check">
+                            <label class="presencial" for="">Vaga Presencial ?</label>
                             <tbody>
                                 <tr>
                                     <td>
@@ -114,23 +134,64 @@
                 </div>
                 <div class="other">
 
-                    <div class="input-group">
-                        <h4>Informacao da Vaga</h4>
+                    <h4>Informacao da Vaga</h4>
+
+                    <div class="input-group-inf">
+
+
+                        <label for="areaProfissional">Área Profissional:<br />
+                            <input id="" type="text" name="areaProfissional" required>
+                        </label><br />
+
+                        <label for="areaProfissional">Exigencias:<br />
+                            <input id="" type="text" name="areaProfissional" required>
+                        </label><br />
+                        <label for="areaProfissional">Valorizado:<br />
+                            <input id="" type="text" name="areaProfissional" required>
+                        </label><br />
+
+                        <label for="qtda">Tipo de contrato:<br />
+                            <select class="vaga-options" id="tipoContarto" name="contrato">
+                                <option value="valor1">Efetivo – CLT - Período Integral</option>
+                                <option value="valor2" selected>Efetivo – Home Office</option>
+                                <option value="valor3">por tempo determinado</option>
+                                <option value="valor4">por tempo indeterminado</option>
+                                <option value="valor5">de trabalho eventual</option>
+                                <option value="valor6">de estágio</option>
+                                <option value="valor7">de experiência</option>
+                                <option value="valor8">de teletrabalho</option>
+                                <option value="valor9">intermitente</option>
+                                <option value="valor10">de trabalho autônomo</option>
+                            </select required></label><br />
+                        </label><br />
+
+                        <!--
+                            <option value="valor1">por tempo determinado</option>
+                            <option value="valor1">por tempo indeterminado</option>
+                            <option value="valor1">de trabalho eventual</option>
+                            <option value="valor1">de estágio</option>
+                            <option value="valor1">de experiência</option>
+                            <option value="valor1">de teletrabalho</option>
+                            <option value="valor1">intermitente</option>
+                            <option value="valor1">de trabalho autônomo</option>
+                           
+                        -->
 
                         <label for="historia-vaga">Sobre a Vaga:<br />
                             <textarea class="historia-Vaga" id="historia-vaga" maxlength="500" required></textarea>
                         </label><br />
-
                     </div>
+
+
                 </div>
                 <div class="confirm">
-                    <div class="other">
+                    <div class="other-cep">
                         <div class="input-group">
                             <h4>Endereço</h4>
 
                             <label>Cep:<br />
-                                <input name="cep" type="text" id="cep" value="" size="10" maxlength="9" placeholder="XXXXX-XXX"
-                                    onblur="pesquisacep(this.value);" required /></label><br />
+                                <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                                    placeholder="XXXXX-XXX" onblur="pesquisacep(this.value);" required /></label><br />
 
                             <div class="input-address" class="tiny button" id="input-address" style="display:none">
                                 <!-- Inicio do formulario -->
@@ -148,7 +209,8 @@
 
                     <h4>Confirme que é você</h4>
                     <label for="cnpj">Cnpj:<br />
-                        <input id="cnpj" type="cnpj" name="cnpj" minlength="14" maxlength="14" placeholder="XX. XXX. XXX/0001-XX" required></label><br />
+                        <input id="cnpj" type="cnpj" name="cnpj" minlength="14" maxlength="14"
+                            placeholder="XX. XXX. XXX/0001-XX" required></label><br />
 
                     <label for="password">Senha:<br />
                         <input id="password" type="password" name="password" minlength="8" required></label><br />

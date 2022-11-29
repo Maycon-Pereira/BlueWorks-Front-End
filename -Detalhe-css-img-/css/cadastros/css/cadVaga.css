@@ -35,9 +35,13 @@ form {
 
 .gerais {
     padding: 20px;
-    width: 400px;
+    width: 300px;
+    padding-top: 20px;
 }
-
+.other {
+    padding-top: 0px;
+    max-width: 320px;
+}
 .endereco {
     padding: 20px;
     width: 400px;
@@ -47,7 +51,6 @@ form {
     padding: 20px;
     width: 400px;
 }
-
 
 .cadastro input {
     font-size: 18px;
@@ -64,13 +67,13 @@ form {
 }
 
 .cadastro .vaga-options {
-    margin-bottom: 10px;
     font-size: 18px;
     border-radius: 10px;
     width: 250px;
     height: 30px;
     border: 1px solid rgba(128, 128, 128, 0.089);
     background-color: rgba(214, 214, 214, 0.575);
+    margin-bottom: 10px;
 }
 
 .cadastro .vaga-options:focus {
@@ -83,14 +86,22 @@ form {
     background-color: rgba(214, 214, 214, 0.575);
     border: 1px solid rgba(128, 128, 128, 0.089);
     width: 300px;
-    height: 350px;
+    height: 155px;
 }
 
 .historia-Vaga:focus {
     background-color: rgb(214, 214, 214);
     width: 300px;
-    height: 350px;
+    height: 155px;
 }
+
+.input-group-inf input{
+    width: 300px;
+}
+#tipoContarto {
+    width: 300px;
+}
+
 
 .botoes {
     position: absolute;
@@ -123,7 +134,7 @@ form {
 .checkVaga {
     align-items: center;
     width: 250px;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 .confirm h4{
     margin-top: 15px;
@@ -135,7 +146,7 @@ form {
 /*----------------------*/
 
 #frame {
-    border-radius: 50%;
+    width: 100px;
     margin-left: 9px;
     margin-top: 5px;
 }
