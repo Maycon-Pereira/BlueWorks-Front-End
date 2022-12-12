@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/menuLateral/css/menuLateral.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/header.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/footer.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/usuario/Perfil-Usuario/css/perfilUsuario.css">
+
+    <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
+    <script src="/-Detalhe-css-img-/js/candidatos/candidatos.js"></script>
+    <title>Perfil Usuario</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+
+            <section class="header">
+
+                <div class="fixo">
+                    <div class="ator">
+
+                        <nav class="ator-nav">
+                            <ul class="ator-ul">
+                                <li><a href="/Cadastros/Usuario/CadastroUsuario.html">Usuario</a><img
+                                        class="login-usuario" src="/-Detalhe-css-img-/img/usuarioSemFundo.png" alt="">
+                                </li>
+                                <li class="emp"><a href="/Cadastros/Empresa/CadastroEmpresa.html">Empresa</a><img
+                                        class="login-empresa" src="/-Detalhe-css-img-/img/empresaSemFundo.png" alt="">
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+
+                <header>
+
+                    <!--Navegar entre as paginas principais-->
+
+                    <nav class="header-nav">
+                        <ul class="headerLink">
+                            <li><a class="inicio" href="/Pag-Inicial/inicio.html">Início</a></li>
+
+                            <li><a class="sobre" href="/Sobre/sobre.html">Sobre</a></li>
+
+                            <li><a class="curriculos" href="/Curriculos/curriculos.html">Curriculos</a></li>
+
+                            <li><a class="vagas" href="/Vagas/vagas.html">Vagas</a></li>
+                        </ul>
+                    </nav>
+
+
+                    <nav class="botao">
+                        <a href="/Login/loginUsuario.html" class="cta"><button>Login</button></a>
+                    </nav>
+
+
+                </header>
+
+
+                <div class="barraLateral">
+                    <!--Barra Lateral-->
+                    <input type="checkbox" id="chec">
+                    <label class="label-lateral" for="chec">
+                        <img id="img" src="/-Detalhe-css-img-/img/menuLateral/img/menu_icon.png">
+                    </label>
+                    <nav class="nav-lateral">
+                        <ul class="lateral">
+                            <li><a href="/Pag-Inicial/inicio.html">Inicio</a></li>
+                            <li><a href="/Sobre/sobre.html">Sobre</a></li>
+                            <li><a href="/Curriculos/curriculos.html">Curriculos</a></li>
+                            <li><a href="/Vagas/vagas.html">Vagas</a></li>
+                            <li><a href="/Empresa/empresas/empresas.html">Empresas</a></li>
+                        </ul>
+
+                        <ul class="lateral" id="bottom">
+                            <li><a href="/Usuario/Perfil-Usuario/elizabethBryan.html" class="bottom-li">Perfil</a></li>
+                            <li><a href="/Ajuda/ajuda.html" class="bottom-li">Ajuda</a></li>
+                            <li><a href="#" class="bottom-li" id="sair">Sair</a></li>
+                        </ul>
+
+                    </nav>
+                </div>
+                <!--Fim Barra Lateral-->
+
+
+                <div class="parte-branca">
+                </div>
+
+                <div class="caixa-search">
+                    <input class="caixa-texto" type="text" name="" placeholder="Pesquisar...">
+                    <a class="botao-search" href="#">
+                        <i class="fas fa-search"></i>
+                    </a>
+                </div>
+
+            </section>
+            <!--Final Header-->
+
+
+            <script>
+                candidatoImg()
+                console.log("Chegei aqui novamente!")
+            </script>
+
+            <section>
+                <div class="body">
+                    <div class="usuario-info">
+                        
+                        <!---
+                        <div class="main-info">
+                            <div class="info">
+                                <div class="img">
+                                    ' + response[i].fotoBase64 + '
+                                </div>
+                                <div class="personal-info">
+                                    <div class="info-0">
+                                        <span class="name">
+                                            <h2>' + response[i].nome + '</h2>
+                                        </span>
+                                    </div>
+                                    <div class="info-1">
+                                        <span class="formacao">
+                                            <label><span class="bold">Escolaridade: </span> ' + response[i].escolaridade + '</label>
+                                        </span>
+                                    </div>
+                                    <div class="info-1">
+                                        <label for="tel"><span class="bold"> Telefone: </span><span id="num">
+                                                ' + response[i].telefone + '</span></label>
+                                    </div>
+                                    <div class="info-1">
+                                        <label for="mail"><span class="bold">Email: </span><span id="email">
+                                                ' + response[i].email + '</span></label>
+                                    </div>
+                                    <div class="info-1">
+                                        <label for="addres"><span class="bold">Endereço: </span><span id="addres">
+                                                ' + response[i].bairro + '
+                                                
+                                                ' + response[i].cidade + ' ' +
+                                                response[i].uf + '
+                                            </span></label>
+                                    </div>
+                                    <div class="info-1">
+                                        <label for="nasc"><span class="bold">Data de Nascimento: </span><span
+                                                id="addres">' + response[i].data + ' </span></label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="main-info2">
+                            <div class="down-info">
+
+                                <div class="sobre-">
+                                    <div class="mim">
+
+
+                                        <div class="assunto">
+                                            <h2>Sobre-mim</h2>
+                                            <p>
+                                                ' + response[i].sobre + '
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>-->
+
+                                  
+                    </div>
+
+
+
+
+                </div>
+
+        </div>
+        </section>
+
+
+
+        <section>
+            <footer>
+                <div class="footer">
+                    <div class="rodape">
+                        <div class="rodape-links-nav">
+
+                            <div class="rodape-2">
+                                <ul>
+                                    <li><a href="/Pag-Inicial/inicio.html">Inicio</a></li>
+                                    <li><a href="/Sobre/sobre.html">Sobre-nós</a></li>
+                                    <li><a href="/Curriculos/curriculos.html">Currículos</a></li>
+                                    <li><a href="/Vagas/vagas.html">Vagas</a></li>
+                                </ul>
+                            </div>
+                            <div class="redes">
+                                <ul>
+                                    <li><a href=""><img src="/-Detalhe-css-img-/img/FACE.png" alt=""></a></li>
+                                    <li><a href=""><img src="/-Detalhe-css-img-/img/INSTA.png" alt=""></a></li>
+                                    <li><a href=""><img src="/-Detalhe-css-img-/img/IN.png" alt=""></a></li>
+                                    <li><a href=""><img src="/-Detalhe-css-img-/img/TW.png" alt=""></a></li>
+                                </ul>
+                            </div>
+
+
+                        </div>
+                        <div class="acesso-rapido">
+                            <ul>
+                                <li><a href="">Cadastre-se</a></li>
+                                <li><a href="">Anuncie Aqui</a></li>
+                                <li><a href="/Ajuda/ajuda.html">Ajuda</a></li>
+                            </ul>
+                        </div>
+                        <div class="por">
+                            <span>© Copyright 2022 - bluetipsbrasil@gmail.com - Todos os direitos reservados</span>
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+        </section>
+
+    </div>
+    </div>
+
+</body>
+
+</html>

@@ -23,7 +23,7 @@
 .main-info2 {
     background-color: rgb(246, 246, 246);
     width: 100%;
-    height: 1050px;
+    height: 1000px;
     margin-bottom: 300px;
 }
 .down-info {
@@ -57,7 +57,10 @@
     padding: 30px;
 }
 .mim {
+    margin-top: 100px;
     padding: 30px;
+    border-left: 2px dashed;
+    border-right: 2px dashed;
 }
 .assunto h2{
     font-size: 35px;
@@ -73,24 +76,4 @@
     margin-right: auto;
     border: 1px solid rgb(177, 24, 197);
     background-color: rgb(246, 246, 246);
-}
-.exp {
-    padding: 30px;
-}
-.assunto-exp {
-    border-left: 2px dashed;
-    border-right: 2px dashed;
-}
-.assunto-exp h2{
-    font-size: 35px;
-    margin-bottom: 20px;
-}
-.assunto-exp ul{
-    list-style: none;
-}
-.text {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 30px;
-    width: 700px;
 }
