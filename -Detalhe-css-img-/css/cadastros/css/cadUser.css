@@ -161,7 +161,9 @@ form {
     display: flex;
 }
 
-
+.listrado {
+    background-color: rgb(228, 228, 228);
+}
 /*----------------------*/
 
 #frame {

@@ -14,7 +14,7 @@ body{
     padding: 50px;
 }
 .candidatos {
-    width: 70%;
+    width: 90%;
     height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -24,7 +24,7 @@ body{
 .candidato-box {
     display: flex;
     width: 100%;
-    height: 250px;
+    height: auto;
     background-color: rgb(246, 246, 246);
     box-shadow: 2px 2px rgba(161, 157, 157, 0.514);
     border-top-right-radius: 50px;
@@ -49,9 +49,17 @@ body{
 }
 .candidato {
     height: 100%;
+    max-width: 26vh;
+    min-width: 25vh;
+    max-height: 100%;
+    min-height: 80%;
+    border: 1px solid red;
 }
 .candidato img{
-    width: 26vh;
+    max-width: 26vh;
+    min-width: 25vh;
+    max-height: 100%;
+    min-height: 80%;
     height: 100%;
 }
 
@@ -61,7 +69,10 @@ footer {
 
 .inf-ap {
     border: 1px solid rgb(226, 226, 226);
-    width: 50%;
+    width: auto;
+    overflow-wrap: break-word;  
+    word-wrap: break-word; 
+    word-break: break-word;
     height: 40px;
     padding: 8px;
 }
@@ -79,12 +90,11 @@ footer {
     flex-wrap: wrap;
 }
 #escolaridade-ap {
-    width: 50%;
+    width: 55%;
 }
 #cidade-ap {
-    width: 30%;
+    width: 25%;
     flex-wrap: wrap;
-
 }
 #estado-ap {
     width: 20%;

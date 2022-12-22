@@ -18,10 +18,11 @@
     width: 100%;
 }
 .apresentacao {
-    background-color: #fff;
+    background-color: rgb(246, 246, 246);
+    border-radius: 20px;
     width: 700px;
     height: 250px;
-    margin: 60px;
+    margin-top: 60px;
     margin-right: 280px;
 }
 .title {

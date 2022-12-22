@@ -1,6 +1,7 @@
 /*IMAGEM PREVIEW--------------------------------------------*/
 function preview() {
     frame.src = URL.createObjectURL(event.target.files[0]);
+    console.log(frame.src)
 }
 
 /*CEP AUTOMATICO---------------------------------------------*/
@@ -74,3 +75,36 @@ function ocultar() {
     var check = document.getElementById("input-address");
     check.style.display = (marcados != null) ? "block" : "none";
 }
+
+/**
+function validacao() {
+    if(nome.value == "") {
+        alert(`insira um nome valido`)
+    } 
+
+
+ * else if (cnpj.value == "") {
+        alert(`insira um cnpj valido`)
+        return false;
+    }else if (porte.value == "") {
+        alert(`insira um porte valido`)
+        return false;
+    }else if (historia.value == "") {
+        alert(`insira um sobre valido`)
+        return false;
+    }
+ 
+}*/
+/*
+function validarSenha() {
+  if (password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Senhas diferentes!");
+    confirm_password.reportValidity();
+    return false;
+  } else {
+    confirm_password.setCustomValidity("");
+    alert('foi')
+    return true;
+  }
+}
+*/

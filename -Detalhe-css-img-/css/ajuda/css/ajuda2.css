@@ -9,13 +9,13 @@ form {
     font-size: 18px;
     display: block;
     width: 500px;
-    height: 580px;
+    height: 600px;
     background-color: rgb(246, 246, 246);
     border-radius: 20px;
-    margin-top: 180px;
+    margin-top: 2%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 80px;
+    padding-top: 50px;
 
 }
 .box{
@@ -33,16 +33,6 @@ form {
     margin-right: auto;
     padding: 15px;
 }
-.box-cadastro a {
-    text-decoration: none;
-    color: #116dff;
-}
-.box-cadastro a:hover {
-    color: #3c87ff;  
-}
-.usu {
-margin-bottom: 10px;
-}
 
 .box h2 {
     text-align: center;
@@ -55,7 +45,6 @@ margin-bottom: 10px;
 .button {
     margin-top: 25px;
 }
-
 
 .box input, textarea{
     font-size: 18px;
@@ -85,4 +74,21 @@ margin-bottom: 10px;
 }
 .button input:hover{
     background-color: #3c87ff;    
+}
+.voltar {
+    padding: 5px;
+}
+.bnt-voltar {
+    background-color: transparent;
+    border: none;
+    text-decoration: none;
+}
+.p-voltar {
+    color: #116dff;
+}
+.p-voltar:hover {
+    color: #3c87ff;
+}
+.void {
+    height: 20px;
 }

@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+}
+
+.container-form {
+    background-color: rgb(246, 246, 246);
+    width: 80%;
+    height: 550px;
+    /*Height Auto*/
+    border-radius: 20px;
+    margin-top: 3%;
+    margin-bottom: 4%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.up-info {
+    display: flex;
+    width: 100%;
+    height: 130px;
+}
+
+.intoducao {
+    width: 80%;
+    padding: 35px;
+}
+
+.intoducao-img {
+    display: flex;
+    width: 20%;
+}
+
+.img-perfil {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-style img {
+    margin-top: 7px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+}
+
+/* Esconde o input */
+input[type='file'] {
+    display: none
+}
+
+/* Aparência que terá o seletor de arquivo */
+.label-img {
+    background-color: #116dff;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease 0.1s;
+}
+
+.label-img:hover {
+    background-color: #3c87ff;
+}
+
+.down-info {
+    width: 100%;
+    height: 420px;
+}
+
+.content {
+    display: flex;
+}
+
+.down {
+    width: 33.333333%;
+    height: 350px;
+    padding: 5px;
+}
+
+.buttons {
+    width: 100%;
+    height: 70px;
+}
+
+.input-box label,
+.titl {
+    margin: 5px;
+}
+
+.checkEmpresa {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    margin-top: 3px;
+    margin-bottom: 7px;
+}
+
+#empresaCheck {
+    width: 18px;
+}
+
+.input-box input,
+select,
+textarea {
+    font-size: 16px;
+    margin: 5px;
+    padding-left: 5px;
+    background-color: rgba(214, 214, 214, 0.575);
+    width: 210px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.089);
+}
+
+.input-box input:focus,
+select:focus,
+textarea:focus {
+    background-color: rgb(214, 214, 214);
+}
+
+.historiaEmpresa {
+    width: 90%;
+    height: 90px;
+}
+.historiaUsuario {
+    width: 90%;
+    height: 70px;
+}
+.historia-Vaga {
+    width: 60%;
+    height: 100px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+.botoes {
+    width: 80%;
+}
+
+.re {
+    width: 20%;
+}
+/*vaga buttons*/
+.botoes-vaga {
+    width: 55%;
+}
+
+.re-vaga {
+    width: 45%;
+}
+/*fecha vaga buttons*/
+.re-e {
+    background-color: transparent;
+    border: none;
+    width: auto;
+    height: 30px;
+    display: block;
+}
+.re-e a {
+    text-decoration: none;
+    color: black;
+}
+
+.button {
+    margin-left: 30px;
+    background-color: #116dff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+}
+.link {
+    color: #116dff;
+}
+.link:hover {
+    color: #3c87ff;
+}
+.input-box-vaga {
+    display: flex;
+    justify-content: space-between;
+}
+.input-box-vaga label {
+    margin: 5px;
+}
+.input-box-vaga input {
+    font-size: 16px;
+    margin: 5px;
+    padding-left: 5px;
+    background-color: rgba(214, 214, 214, 0.575);
+    width: 210px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.089);
+}

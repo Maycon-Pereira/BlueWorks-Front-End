@@ -6,151 +6,208 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
-    <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/css/cadEmpresa.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/cadastro-novo/css/CadastroStyle.css">
 
-    <!-- Adicionando Javascript -->
     <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
-    <script src="/-Detalhe-css-img-/js/cadastro/cadastros.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js">
+        //https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html#callback-examples
     </script>
 
-    <title>Atualizar Perfil - Empresa</title>
+    <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
+    <script src="/-Detalhe-css-img-/js/cadastro/empresaCadastro.js"></script>
+    <title>Atualizar Perfil</title>
 </head>
 
 <body>
 
     <div class="container">
-        <form method="get" action=".">
+        <div class="container-form">
+            <form action="" method="get">
 
-
-            <div class="Cad-info">
-                <div class="main">
-                    <div class="title">
-                        <h2>Dados da Empresa</h2>
-                    </div>
-
-                    <div class="intro">
-                        <div class="intoducao">
-                            <p><i> Informe os dados abaixo e atualize seu perfil: </i></p>
+                <div class="up-info">
+                    <div class="intoducao">
+                        <div class="title">
+                            <h2>Dados da Empresa</h2>
                         </div>
 
+                        <div class="apr">
+                            <div class="apr-info">
+                                <p><i> Informe os dados abaixo e atualize seu perfil: </i></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="intoducao-img">
 
-                <div id="img-perfil" class="img-perfil" style=" height: 100%;">
+                        <div id="img-perfil" class="img-perfil" style=" height: 100%;">
 
-                    <label for="tag">Imagem de Perfil</label>
-                    <div id="img-perfil-2" class="img-style">
-                        <img id="frame" src="/-Detalhe-css-img-/img/vc-usuario.webp" width="100px" height="100px" />
+
+                            <div id="img-perfil-2" class="img-style">
+                                <img for="uploadImg" id="frame" src="/-Detalhe-css-img-/img/vc-usuario.webp" />
+                            </div>
+                            <input id="uploadImg" type="file" onchange="preview()" accept="image/*">
+                            <label class="label-img" for="uploadImg">Imagem de Perfil</label>
+
+                        </div>
                     </div>
-                    <input id="perfil-img" type="file" onchange="preview()" accept="image/*" style="width: 118px;">
 
                 </div>
+                <div class="down-info">
 
-            </div>
+                    <div class="content">
+
+                        <div class="down gerais">
+
+                            <h4 class="titl">Informações Gerais</h4>
+
+                            <div class="input-group">
+
+                                <div class="input-box">
+                                    <label for="name">Nome da Empresa: *<br />
+                                        <input id="name" type="text" name="name" maxlength="255" required></label><br />
+
+                                    <label for="cnpj">CNPJ: *<br />
+                                        <input id="cnpj" type="text" name="cnpj" placeholder="XX. XXX. XXX/0001-XX"
+                                            size="15" maxlength="14" required></label><br />
+
+                                    <label for="porte">Porte da Empresa: *<br />
+                                        <select class="porteEmpresa" id="porte" name="types">
+                                            <option value="Microempreendedor Individual (MEI)">Microempreendedor
+                                                Individual (MEI)</option>
+                                            <option value="Microempresa (ME)">Microempresa (ME)</option>
+                                            <option value="Empresa de Pequeno Porte (EPP)">Empresa de Pequeno Porte
+                                                (EPP)</option>
+                                            <option value="Empresa de Médio Porte" selected>Empresa de Médio Porte
+                                            </option>
+                                            <option value="Grande Empresa">Grande Empresa</option>
+                                        </select></label><br />
 
 
-            <div class="cadastro">
+                                    <div class="checkEmpresa" id="check">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <label for="empresaCheck">Tem Empresa Fisica?</label>
+                                                    <input id="empresaCheck" onclick="ocultar()" type="checkbox">
+                                                </td>
+                                            </tr>
+                                        </tbody>
 
-                <div class="gerais">
-                    <h4>Informações Gerais</h4>
+                                    </div>
 
-                    <div class="input-group">
+                                    <label for="historia">Sobre a Empresa: *<br />
+                                        <textarea class="historiaEmpresa" id="historia" maxlength="520"
+                                            required></textarea>
+                                    </label><br />
 
-                        <div class="input-box">
-                            <label for="name">Nome da Empresa:<br />
-                                <input id="name" type="text" name="name" required></label><br />
+                                </div>
+                            </div>
 
-                            <label for="cnpj">CNPJ:<br />
-                                <input id="cnpj" type="text" name="cnpj" placeholder="" size="15" maxlength="14"
-                                    required></label><br />
+                        </div>
+                        <div class="down  endereco">
 
-                            <label for="type-name">Porte da Empresa:<br />
-                                <select class="porteEmpresa" id="porte" name="types">
-                                    <option value="valor1">Microempreendedor Individual (MEI)</option>
-                                    <option value="valor2">Microempresa (ME)</option>
-                                    <option value="valor3">Empresa de Pequeno Porte (EPP)</option>
-                                    <option value="valor4" selected>Empresa de Médio Porte</option>
-                                    <option value="valor5">Grande Empresa</option>
-                                </select></label><br />
+                            <h4 class="titl">Endereço</h4>
+
+                            <div class="input-group">
+
+                                <div class="input-box">
 
 
-                            <div class="checkEmpresa" id="check">
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <label for="empresa">Tem Empresa Fisica?</label>
-                                            <input onclick="ocultar()" type="checkbox">
-                                        </td>
-                                    </tr>
-                                </tbody>
+                                    <label>Cep: *<br />
+                                        <input name="cep" type="text" id="cep" value="" placeholder="XXXXX-XXX"
+                                            maxlength="9" onblur="pesquisacep(this.value);" required /></label><br />
+
+                                    <div class="input-address" class="tiny button" id="input-address"
+                                        style="display:none">
+                                        <!------->
+                                        <!-- Inicio do formulario -->
+                                        <label>Rua:<br />
+                                            <input name="rua" type="text" id="rua" 
+                                                maxlength="255" /></label><br />
+                                        <label>Bairro:<br />
+                                            <input name="bairro" type="text" id="bairro"
+                                                maxlength="255" /></label><br />
+                                        <label>Cidade:<br />
+                                            <input name="cidade" type="text" id="cidade"
+                                                maxlength="255" /></label><br />
+                                        <label>Estado:<br />
+                                            <input name="uf" type="text" id="uf" maxlength="2" /></label><br />
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="down contato">
+
+                            <h4 class="titl">Contato</h4>
+
+                            <div class="input-group">
+
+                                <div class="input-box">
+
+                                    <label for="numero">Número de Telefone:<br />
+                                        <input id="numero" type="tel" name="numero" placeholder="(XX) XXXXX-XXXX"
+                                            maxlength="11"></label><br />
+
+                                    <label for="email">E-mail: *<br />
+                                        <input id="email" type="email" name="email" placeholder=""
+                                            required></label><br />
+
+                                    <label for="password">Senha: *<br />
+                                        <input id="password" type="password" name="password"
+                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
+                                            title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
+                                            required></label><br />
+
+                                    <label for="confirmPassword">Confirme sua Senha: *<br />
+                                        <input id="confirmPassword" type="password" name="password"
+                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
+                                            title="A confirmação de senha deve ser exatamente igual a senha colocada acima."
+                                            required></label><br />
+                                    <div id="inner">
+
+                                    </div>
+
+
+                                    <script> // MASK
+                                        $('#cep').mask('00000-000')
+                                        $('#numero').mask('(00) 00000-0000')
+                                        $('#cnpj').mask('00.000.000/0000-00')
+                                    </script>
+
+                                </div>
 
                             </div>
 
-                            <label for="sobre">Sobre a Empresa:<br />
-                                <textarea class="historiaEmpresa" id="historia" maxlength="520" required></textarea>
-                            </label><br />
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="endereco">
-
-                    <div class="input-group">
-                        <h4>Endereço</h4>
-
-                        <label>Cep:<br />
-                            <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-                                onblur="pesquisacep(this.value);" required /></label><br />
-
-
-                        <div class="input-address" class="tiny button" id="input-address" style="display:none">
-                            <!------->
-                            <!-- Inicio do formulario -->
-
-                            <label>Rua:<br />
-                                <input name="rua" type="text" id="rua" size="40" /></label><br />
-                            <label>Bairro:<br />
-                                <input name="bairro" type="text" id="bairro" size="40" /></label><br />
-                            <label>Cidade:<br />
-                                <input name="cidade" type="text" id="cidade" size="40" /></label><br />
-                            <label>Estado:<br />
-                                <input name="uf" type="text" id="uf" size="2" /></label><br />
-
-                            <!------->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="contato">
-                    <h4>Contato</h4>
-
-                    <div class="input-group">
-
-                        <div class="input-box">
-
-                            <label for="numero">Número de Telefone:<br />
-                                <input id="numero" type="text" name="numero"></label><br />
-
-                            <label for="confirmPassword">Confirme sua Senha:<br />
-                                <input id="confirmPassword" type="password" name="confirmPassword" minlength="8"
-                                    required></label><br />
-
                         </div>
 
                     </div>
+
+
+                    <div class="buttons">
+                        <div class="botoes">
+                            <input class="button" id="reset" type="reset" value="Limpar" />
+                            <input class="button" id="cadastro" type="submit" value="Cadastrar"
+                                onclick="empresaCad(event)" />
+                            
+                        </div>
+
+                        <div class="re">
+                            <button type="button" class="re-e" id="diferente"><a
+                                    href="/Cadastros/Usuario/CadastroUsuario.html">É usuario?<span class="link"> Cadastre-se</span>
+                                    </a><br /></button>
+                            <button type="button" class="re-e" id="conta"><a href="/Login/login.html">
+                               Já tem conta? <span class="link">Login</span></a><br /></button>
+                        </div>
+                    </div>
+
                 </div>
 
-            </div>
-
-            <div class="botoes">
-                <input class="button" id="button" type="reset" value="Limpar" />
-                <input class="button" id="button" type="submit" value="Atualizar" />
-            </div>
-
-        </form>
+            </form>
+        </div>
     </div>
+
 </body>
 
 </html>

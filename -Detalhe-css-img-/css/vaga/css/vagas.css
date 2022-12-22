@@ -65,15 +65,15 @@ button {
   height: 100px;
 }
 
-/*EMPRESAS PARCEIRAS*/
+
 .parceiras {
   background-color: rgb(246, 246, 246);
   margin-top: 50px;
 }
-
+/*EMPRESAS PARCEIRAS*/  
 .parceiras-box {
   display: flex;
-  padding: 80px;
+  padding: 20px;
   justify-content: center;
 
 }
@@ -85,20 +85,12 @@ button {
   align-items: center;
   text-align: center;
 }
-
+/*
 .title-parceiras {
   padding: 25px;
   font-size: 20px;
   font-weight: 700;
 }
-
-.Title-Empre {
-  margin-top: 50px;
-  font-size: 20px;
-  text-align: center;
-  padding: 30px;
-}
-
 .parceiras p {
   justify-content: center;
   text-align: center;
@@ -106,28 +98,79 @@ button {
   margin-left: 20px;
   margin-right: 20px;
 }
-
-
-/*SLIDER AUTOMATICA
-
-  
-  .container-2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 500px;
-  }
-  img {
-    position: absolute;
-    height: 300px;
-    width: 600px;
-    opacity: 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: 0.8s;
-  }
-  
-  .show {
-    opacity: 1;
-  }
 */
+.Title-Empre {
+  margin-top: 80px;
+  font-size: 20px;
+  text-align: center;
+  padding: 30px;
+}
+
+
+
+
+/* Styling the area of the slides */
+
+#slideshow {
+  overflow: hidden;
+  height: 510px;
+  width: 728px;
+  margin: 0 auto;
+}
+
+/* Style each of the sides
+with a fixed width and height */
+
+.slide {
+  float: left;
+  height: 420px;
+  width: 728px;
+}
+.slide img {
+  width: 100%;
+}
+
+/* Add animation to the slides */
+
+.slide-wrapper {
+
+  /* Calculate the total width on the
+basis of number of slides */
+  width: calc(728px * 4);
+
+  /* Specify the animation with the
+duration and speed */
+  animation: slide 25s ease infinite;
+}
+
+/* Set the background color
+of each of the slides */
+
+/* Define the animation
+for the slideshow */
+
+@keyframes slide {
+
+  /* Calculate the margin-left for
+each of the slides */
+  20% {
+    margin-left: 0px;
+  }
+
+  40% {
+    margin-left: calc(-728px * 1);
+  }
+
+  60% {
+    margin-left: calc(-728px * 2);
+  }
+
+}
+
+.up-case {
+  height: 60px;
+}
+
+.up-case img {
+  width: 45px;
+}

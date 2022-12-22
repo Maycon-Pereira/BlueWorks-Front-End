@@ -48,8 +48,9 @@ p {
 .servicos {
     align-items: center;
     text-align: center;
-    margin-left: 20%;
-    margin-right: 20%;
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: 30px;
     padding-left: 30px;
     padding-right: 30px;
@@ -57,14 +58,13 @@ p {
 .servico {
     justify-content: center;
     padding: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
 }
 .servico h2 {
     font-size: 40px;
 }
 .servico p{
     padding: 10px;
+    font-size: 18px;
 }
 .vc {
     display: flex;

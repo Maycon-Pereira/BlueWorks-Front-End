@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/footer.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/empresa/empresas/css/empresas.css">
     <title>Empresas</title>
-    <script src="/-Detalhe-css-img-/js/cadastro/cadastros.js"></script>
+    <script src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
     <script src="/-Detalhe-css-img-/js/empresas/empresas.js"></script>
 </head>
 
@@ -24,44 +24,50 @@
 
         <div class="fixo">
             <div class="ator">
-    
+
                 <nav class="ator-nav">
+                    <div class="caixa-search">
+                        <input class="caixa-texto" type="text" name="" placeholder="Pesquisar...">
+                        <a class="botao-search" href="#">
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </div>
                     <ul class="ator-ul">
                         <li><a href="/Cadastros/Usuario/CadastroUsuario.html">Usuario</a><img class="login-usuario"
                                 src="/-Detalhe-css-img-/img/usuarioSemFundo.png" alt=""></li>
-                        <li class="emp"><a href="/Cadastros/Empresa/CadastroEmpresa.html">Empresa</a><img class="login-empresa"
-                                src="/-Detalhe-css-img-/img/empresaSemFundo.png" alt=""></li>
+                        <li class="emp"><a href="/Cadastros/Empresa/CadastroEmpresa.html">Empresa</a><img
+                                class="login-empresa" src="/-Detalhe-css-img-/img/empresaSemFundo.png" alt=""></li>
                     </ul>
                 </nav>
-    
+
             </div>
         </div>
-    
+
         <header>
-    
+
             <!--Navegar entre as paginas principais-->
-    
+
             <nav class="header-nav">
                 <ul class="headerLink">
                     <li><a class="inicio" href="/Pag-Inicial/inicio.html">Início</a></li>
-    
+
                     <li><a class="sobre" href="/Sobre/sobre.html">Sobre</a></li>
-    
+
                     <li><a class="curriculos" href="/Curriculos/curriculos.html">Curriculos</a></li>
-    
+
                     <li><a class="vagas" href="/Vagas/vagas.html">Vagas</a></li>
                 </ul>
             </nav>
-    
-    
+
+
             <nav class="botao">
                 <a href="/Login/loginUsuario.html" class="cta"><button>Login</button></a>
             </nav>
-            
-    
+
+
         </header>
-    
-    
+
+
         <div class="barraLateral">
             <!--Barra Lateral-->
             <input type="checkbox" id="chec">
@@ -76,32 +82,27 @@
                     <li><a href="/Vagas/vagas.html">Vagas</a></li>
                     <li><a href="/Empresa/empresas/empresas.html">Empresas</a></li>
                 </ul>
-    
+
                 <ul class="lateral" id="bottom">
                     <li><a href="/Usuario/Perfil-Usuario/elizabethBryan.html" class="bottom-li">Perfil</a></li>
                     <li><a href="/Ajuda/ajuda.html" class="bottom-li">Ajuda</a></li>
                     <li><a href="#" class="bottom-li" id="sair">Sair</a></li>
                 </ul>
-    
+
             </nav>
         </div>
         <!--Fim Barra Lateral-->
-    
-    
+
+
         <div class="parte-branca">
         </div>
-    
-        <div class="caixa-search">
-            <input class="caixa-texto" type="text" name="" placeholder="Pesquisar...">
-            <a class="botao-search" href="#">
-                <i class="fas fa-search"></i>
-            </a>
-        </div>
-    
+
+        
+
     </section>
     <!--Final Header-->
-    
-    
+
+
 
 
     <section>
@@ -109,139 +110,19 @@
 
         <div class="body">
 
+            <script>
+                empresaGetAll(event)
+            </script>
+
             <div class="empresas">
 
                 <div class="empresas-title">
                     <h1>Empresas Parceiras</h1><!--GET ALL, todas empresas cadastradas apareceram aqui !-->
                 </div>
 
-                <div class="empresas-box">
-                    <div class="img-empresas">
-                        <div class="empresa">
-                            <a id="img" href="/Empresa/perfil-Empresa/radac.html"><img class="img"
-                                    src="/-Detalhe-css-img-/img/empresa/img/designerLogo.png" alt="logo da empresa">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="empresas-box-info">
-                        <div class="inf-empresas">
-                            <p><span class="bold">Nome: </span> Designer Grafico</p>
-                            <p><span class="bold">Tipo: </span> Designer & Graficos</p>
-                            <p><span class="bold">Qtda de vagas: </span> 5</p>
-                            <p><span class="bold">Escolaridade minima: </span> Ensino Médio</p>
-                            <p><span class="bold">Info: </span> <span class="info-vaga"> Empresa de Autopeças, procura Designer Gráfico,
-                                responsável pela criação/manutenção do catalogo da empresa, 
-                                conhecimentos sólidos em Indesign são primordiais... </span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="empresas-box">
-                    <div class="img-empresas">
-                        <div class="empresa">
-                            <a id="img" href="/Empresa/perfil-Empresa/radac.html"><img class="img"
-                                    src="/-Detalhe-css-img-/img/empresa/img/designerLogo.png" alt="logo da empresa">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="empresas-box-info">
-                        <div class="inf-empresas">
-                            <p><span class="bold">Nome: </span> Designer Grafico</p>
-                            <p><span class="bold">Tipo: </span> Designer & Graficos</p>
-                            <p><span class="bold">Qtda de vagas: </span> 5</p>
-                            <p><span class="bold">Escolaridade minima: </span> Ensino Médio</p>
-                            <p><span class="bold">Info: </span> <span class="info-vaga"> Empresa de Autopeças, procura Designer Gráfico,
-                                responsável pela criação/manutenção do catalogo da empresa, 
-                                conhecimentos sólidos em Indesign são primordiais... </span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="empresas-box">
-                    <div class="img-empresas">
-                        <div class="empresa">
-                            <a id="img" href="/Empresa/perfil-Empresa/radac.html"><img class="img"
-                                    src="/-Detalhe-css-img-/img/empresa/img/designerLogo.png" alt="logo da empresa">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="empresas-box-info">
-                        <div class="inf-empresas">
-                            <p><span class="bold">Nome: </span> </p>
-                            <p><span class="bold">Tipo: </span> Designer & Graficos</p>
-                            <p><span class="bold">Qtda de vagas: </span> 5</p>
-                            <p><span class="bold">Escolaridade minima: </span> Ensino Médio</p>
-                            <p><span class="bold">Info: </span> <span class="info-vaga"> Empresa de Autopeças, procura Designer Gráfico,
-                                responsável pela criação/manutenção do catalogo da empresa, 
-                                conhecimentos sólidos em Indesign são primordiais... </span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="empresas-box">
-                    <div class="img-empresas">
-                        <div class="empresa">
-                            <a href="/Empresa/perfil-Empresa/radac.html"><img class="img"
-                                    src="/-Detalhe-css-img-/img/empresa/img/designerLogo.png" alt="logo da empresa">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="empresas-box-info">
-                        <div class="inf-empresas">
-                            <p><span class="bold">Nome: </span> Designer Grafico</p>
-                            <p><span class="bold">Tipo: </span> Designer & Graficos</p>
-                            <p><span class="bold">Qtda de vagas: </span> 5</p>
-                            <p><span class="bold">Escolaridade minima: </span> Ensino Médio</p>
-                            <p><span class="bold">Info: </span> <span class="info-vaga"> Empresa de Autopeças, procura Designer Gráfico,
-                                responsável pela criação/manutenção do catalogo da empresa, 
-                                conhecimentos sólidos em Indesign são primordiais... </span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="empresas-box">
-                    <div class="img-empresas">
-                        <div class="empresa">
-                            <a href="/Empresa/perfil-Empresa/radac.html"><img class="img"
-                                    src="/-Detalhe-css-img-/img/empresa/img/designerLogo.png" alt="logo da empresa">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="empresas-box-info">
-                        <div class="inf-empresas">
-                            <p><span class="bold">Nome: </span> Designer Grafico</p>
-                            <p><span class="bold">Tipo: </span> Designer & Graficos</p>
-                            <p><span class="bold">Qtda de vagas: </span> 5</p>
-                            <p><span class="bold">Escolaridade minima: </span> Ensino Médio</p>
-                            <p><span class="bold">Info: </span> <span class="info-vaga"> Empresa de Autopeças, procura Designer Gráfico,
-                                responsável pela criação/manutenção do catalogo da empresa, 
-                                conhecimentos sólidos em Indesign são primordiais... </span></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="empresas-box">
-                    <div class="img-empresas">
-                        <div class="empresa">
-                            <a href="/Empresa/perfil-Empresa/radac.html"><img class="img"
-                                    src="/-Detalhe-css-img-/img/empresa/img/designerLogo.png" alt="logo da empresa">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="empresas-box-info">
-                        <div class="inf-empresas">
-                            <p><span class="bold">Nome: </span> Designer Grafico</p>
-                            <p><span class="bold">Tipo: </span> Designer & Graficos</p>
-                            <p><span class="bold">Qtda de vagas: </span> 5</p>
-                            <p><span class="bold">Escolaridade minima: </span> Ensino Médio</p>
-                            <p><span class="bold">Info: </span> <span class="info-vaga"> Empresa de Autopeças, procura Designer Gráfico,
-                                responsável pela criação/manutenção do catalogo da empresa, 
-                                conhecimentos sólidos em Indesign são primordiais... </span></p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
+
+
         </div>
     </section>
 
@@ -261,10 +142,8 @@
                         </div>
                         <div class="redes">
                             <ul>
-                                <li><a href=""><img src="/-Detalhe-css-img-/img/FACE.png" alt=""></a></li>
-                                <li><a href=""><img src="/-Detalhe-css-img-/img/INSTA.png" alt=""></a></li>
-                                <li><a href=""><img src="/-Detalhe-css-img-/img/IN.png" alt=""></a></li>
-                                <li><a href=""><img src="/-Detalhe-css-img-/img/TW.png" alt=""></a></li>
+                                <li><a href="https://www.instagram.com/bluetips_empregabilidade/?next=%2Fbluetips_empregabilidade%2F" target="_blank"><img src="/-Detalhe-css-img-/img/INSTA.png" alt=""></a></li>
+                                <li><a href="https://discord.gg/YVzwuqs2" target="_blank"><img src="/-Detalhe-css-img-/img/DC.png" alt=""></a></li>
                             </ul>
                         </div>
 
@@ -272,13 +151,15 @@
                     </div>
                     <div class="acesso-rapido">
                         <ul>
-                            <li><a href="">Cadastre-se</a></li>
-                            <li><a href="">Anuncie Aqui</a></li>
+                            <li><a href="/Login/UsuarioEmpresa.html">Cadastre-se</a></li>
+                            <li><a href="/Cadastros/Empresa/CadastroEmpresa.html">Anuncie Aqui</a></li>
+                            <li><a href="/Documentacao/termos-de-uso/termos-de-uso.html">Termos de uso</a></li>
+                            <li><a href="/Documentacao/privacidade/privacidade.html">Política de Privacidade</a></li>
                             <li><a href="/Ajuda/ajuda.html">Ajuda</a></li>
                         </ul>
                     </div>
                     <div class="por">
-                        <span>© Copyright 2022 - bluetipsbrasil.com.br - Todos os direitos reservados</span>
+                        <span>© Copyright 2022 - bluetipsbrasil@gmail.com - Todos os direitos reservados</span>
                     </div>
                 </div>
 

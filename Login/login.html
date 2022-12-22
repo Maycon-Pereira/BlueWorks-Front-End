@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/-Detalhe-css-img-/css/login/css/loginEmpresa.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/login/css/login.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
     <title>Login</title>
 </head>
@@ -16,34 +16,42 @@
 
             <div class="box">
 
-                <h2>Login</h2>
-
-                <div class="inputs">
-                    <label for="email">Email:</label><br />
-                    <input id="email" type="email" name="email" required><br />
-
-                    <label for="password">Senha:</label><br />
-                    <input id="password" type="password" name="password" minlength="8" required><br />
+                <div class="part title">
+                    <h2>Login</h2>
                 </div>
 
-                <div class="button">
-                    <button type="button" class="log" id="login">Logar</button>
+                <div class="part up-part">
 
-                    <button type="button" class="esqueceu" id="esqueceuSenha"><a
-                            href="/Recuperar/recuperarSenha/recuperarSenha.html">Esqueceu Senha?</a></button>
+                    <div class="inputs">
+                        <label for="email">Email:</label><br />
+                        <input id="email" type="email" name="email" required><br />
+
+                        <label for="password">Senha:</label><br />
+                        <input id="password" type="password" name="password" minlength="8" required><br />
+                    </div>
+
+                    <div class="button">
+                        <button type="button" class="log" id="login">Logar</button>
+
+                        <button type="button" class="esqueceu" id="esqueceuSenha"><a
+                                href="/Recuperar/recuperarSenha/recuperarSenha.html">Esqueceu Senha?</a></button>
+                    </div>
                 </div>
 
-                <div class="re">
-                    <button type="button" class="re-e" id="conta"><a
-                            href="/Cadastros/Usuario/CadastroUsuario.html"><span class="text">Não tem conta?</span>
-                            Cadastre-se</a><br /></button>
+                <div class="part down-part">
+                    <div class="re">
+                        <button type="button" class="re-e" id="conta"><a
+                                href="/Login/UsuarioEmpresa.html"><span class="text">Não tem conta?</span>
+                                Cadastre-se</a><br /></button>
+                    </div>
                 </div>
+                <div class="void"></div>
+
 
             </div>
 
         </form>
     </div>
-
 </body>
 
 </html>

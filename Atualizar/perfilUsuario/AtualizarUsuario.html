@@ -6,144 +6,218 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
-    <link rel="stylesheet" href="/-Detalhe-css-img-/css/atualizarVaga/css/atualizarVaga.css">
-    <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
-    <script src="/-Detalhe-css-img-/js/cadastro/cadastros.js"></script>
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/cadastro-novo/css/CadastroStyle.css">
 
-    <title>Atualizar Perfil - Usuario</title>
+    <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js">
+        //https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html#callback-examples
+    </script>
+
+    <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
+    <script src="/-Detalhe-css-img-/js/cadastro/usuarioCadastro.js"></script>
+    <title>Atualizar Perfil</title>
 </head>
 
 <body>
 
     <div class="container">
-        <form method="get" action=".">
+        <div class="container-form">
+            <form action="" method="get">
 
-
-
-            <div class="Cad-info">
-                <div class="main">
-                    <div class="title">
-                        <h2>Digite Seus Dados</h2>
-                    </div>
-
-                    <div class="intro">
-                        <div class="intoducao">
-                            <p><i> Informe os dados abaixo e atualize seu perfil: </i></p>
+                <div class="up-info">
+                    <div class="intoducao">
+                        <div class="title">
+                            <h2>Digite Seus Dados</h2>
                         </div>
 
+                        <div class="apr">
+                            <div class="apr-info">
+                                <p><i> Informe os dados abaixo e atualize seu perfil: </i></p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    <div class="intoducao-img">
 
-                <div id="img-perfil" class="img-perfil" style=" height: 100%;">
-
-                    <label for="tag">Imagem de Perfil</label>
-                    <div id="img-perfil-2" class="img-style">
-                        <img id="frame" src="/-Detalhe-css-img-/img/vc-usuario.webp" width="100px" height="100px" />
-                    </div>
-                    <input id="perfil-img" type="file" onchange="preview()" accept="image/*" style="width: 118px;">
-
-                </div>
-            </div>
+                        <div id="img-perfil" class="img-perfil" style=" height: 100%;">
 
 
-            <div class="cadastro">
-
-                <div class="gerais">
-                    <h4>Informações Gerais</h4>
-
-                    <div class="input-group">
-
-                        <div class="input-box">
-                            <label for="name">Nome:<br />
-                                <input id="name" type="text" name="name" required></label><br />
-
-                            <label for="cnpj">CPF:<br />
-                                <input id="cnpj" type="text" name="cnpj" placeholder="" size="11" maxlength="11"
-                                    required></label><br />
-
-                            <label for="escolaridade">Escolaridade:<br />
-                                <select class="nivel-escolaridade" id="nivel-escolaridade" name="types">
-                                    <option value="valor1" selected>Médio</option>
-                                    <option value="valor2">Superior (Graduação)</option>
-                                    <option value="valor3">Pós-graduação</option>
-                                    <option value="valor4">Mestrado</option>
-                                    <option value="valor5">Doutorado</option>
-                                </select></label><br />
-
-                            <label for="data">Data de Nascimento:<br />
-                                <input id="data" type="date" name="data" required></label><br />
-
-                            <label for="sobre-vaga">Sobre Mim:<br />
-                                <textarea class="sobre-usuario" id="sobre-vaga" maxlength="500" required></textarea>
-                            </label><br />
-
+                            <div id="img-perfil-2" class="img-style">
+                                <img for="uploadImg" id="frame" src="/-Detalhe-css-img-/img/vc-usuario.webp" />
+                            </div>
+                            <input id="uploadImg" type="file" onchange="preview()" accept="image/*">
+                            <label class="label-img" for="uploadImg">Imagem de Perfil</label>
 
                         </div>
                     </div>
-                </div>
-
-                <div class="endereco">
-
-
-                    <div class="input-group">
-                        <h4>Endereço</h4>
-
-                        <!-- Inicio do formulario -->
-
-                        <label>Cep:<br />
-                            <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-                                onblur="pesquisacep(this.value);" required /></label><br />
-
-                        <label>Rua:<br />
-                            <input name="rua" type="text" id="rua" size="40" /></label><br />
-                        <label>Bairro:<br />
-                            <input name="bairro" type="text" id="bairro" size="40" /></label><br />
-                        <label>Cidade:<br />
-                            <input name="cidade" type="text" id="cidade" size="40" /></label><br />
-                        <label>Estado:<br />
-                            <input name="uf" type="text" id="uf" size="2" /></label><br />
-
-                        <!------->
-
-                    </div>
-
 
                 </div>
+                <div class="down-info">
 
-                <div class="contato">
-                    <h4>Contato</h4>
+                    <div class="content">
 
-                    <div class="input-group">
+                        <div class="down gerais">
 
-                        <div class="input-box">
+                            <h4 class="titl">Informações Gerais</h4>
+
+                            <div class="input-group">
+
+                                <div class="input-box">
+                                    <label for="name">Nome: *<br />
+                                        <input id="name" type="text" name="name" required></label><br />
+
+                                    <label for="cpf">CPF: *<br />
+                                        <input id="cpf" type="text" name="cpf" placeholder="XXX.XXX.XXX-XX" size="11"
+                                            maxlength="11" required></label><br />
+
+                                    <label for="escolaridade">Escolaridade: *<br />
+                                        <select class="escolaridadeUsuario" id="escolaridade" name="types">
+                                            <option value="Médio Completo" class="listrado" selected>Médio Completo
+                                            </option>
+                                            <option value="Cursando Médio">Cursando Médio</option>
+                                            <option value="Médio Incompleto" class="listrado">Médio Incompleto</option>
+
+                                            <option value="Superior (Graduação) Completo">Superior (Graduação) Completo
+                                            </option>
+                                            <option value="Cursando Superior (Graduação)" class="listrado">Cursando
+                                                Superior (Graduação)</option>
+                                            <option value="Superior (Graduação) Incompleto">Superior (Graduação)
+                                                Incompleto</option>
+
+                                            <option value="Pós-graduação Completo" class="listrado">Pós-graduação
+                                                Completo</option>
+                                            <option value="Cursando Pós-graduação">Cursando Pós-graduação</option>
+                                            <option value="Pós-graduação Incompleto" class="listrado">Pós-graduação
+                                                Incompleto</option>
+
+                                            <option value="Mestrado Completo">Mestrado Completo</option>
+                                            <option value="Cursando Mestrado" class="listrado">Cursando Mestrado
+                                            </option>
+                                            <option value="Mestrado Incompleto">Mestrado incompleto</option>
+
+                                            <option value="Doutorado Completo" class="listrado">Doutorado Completo
+                                            </option>
+                                            <option value="Cursando Doutorado">Cursando Doutorado</option>
+                                            <option value="Doutorado Incompleto" class="listrado">Doutorado Incompleto
+                                            </option>
+                                        </select></label><br />
+
+                                    <label for="data">Data de Nascimento: *<br />
+                                        <input id="data" type="text" name="data" placeholder="DD/MM/AAAA"
+                                            required></label><br />
+
+                                    <label for="sobre">Sobre Mim: *<br />
+                                        <textarea class="historiaUsuario" id="sobre" maxlength="500"
+                                            required></textarea>
+                                    </label><br />
 
 
-                            <label for="numero">Número de Telefone:<br />
-                                <input id="numero" type="text" name="numero"></label><br />
+                                </div>
+                            </div>
 
-                            <label for="confirmPassword">Confirme sua Senha:<br />
-                                <input id="confirmPassword" type="password" name="confirmPassword" minlength="8"
-                                    required></label><br />
+                        </div>
+                        <div class="down  endereco">
+
+                            <h4 class="titl">Endereço</h4>
+
+                            <div class="input-group">
+
+                                <div class="input-box">
+
+
+                                    <label>Cep: *<br />
+                                        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
+                                            placeholder="XXXXX-XXX" onblur="pesquisacep(this.value);" required /></label><br />
+            
+                                    <div class="input-address" class="tiny button" id="input-address">
+            
+                                        <!-- Inicio do formulario -->
+                                        <label>Rua:<br />
+                                            <input name="rua" type="text" id="rua" size="40" /></label><br />
+                                        <label>Bairro:<br />
+                                            <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+                                        <label>Cidade:<br />
+                                            <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+                                        <label>Estado:<br />
+                                            <input name="uf" type="text" id="uf" size="2" /></label><br />
+            
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="down contato">
+
+                            <h4 class="titl">Contato</h4>
+
+                            <div class="input-group">
+
+                                <div class="input-box">
+
+
+                                    <label for="numero">Número de Telefone:<br />
+                                        <input id="numero" type="text" name="numero"
+                                            placeholder="(XX) XXXXX-XXXX"></label><br />
+        
+        
+                                    <label for="email">E-mail: *<br />
+                                        <input id="email" type="email" name="email" placeholder="" required></label><br />
+        
+        
+                                    <label for="password">Senha: *<br />
+                                        <input id="password" type="password" name="password" 
+                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
+                                            title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
+                                            required></label><br />
+        
+        
+                                    <label for="confirmPassword">Confirme sua Senha: *<br />
+                                        <input id="confirmPassword" type="password" name="password" 
+                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
+                                            title="A confirmação de senha deve ser exatamente igual a senha colocada acima."
+                                            required></label><br />
+        
+        
+        
+                                    <script> // MASK
+                                        $('#cep').mask('00000-000')
+                                        $('#numero').mask('(00) 00000-0000')
+                                        $('#cpf').mask('000.000.000-00');
+                                        $('#data').mask('00/00/0000');
+                                    </script>
+        
+                                </div>
+
+                            </div>
 
                         </div>
 
                     </div>
 
 
+                    <div class="buttons">
+                        <div class="botoes">
+                            <input class="button" id="reset" type="reset" value="Limpar" />
+                            <input class="button" id="cadastro" type="submit" value="Cadastrar" onclick="usuarioCad(event)" />
+
+                        </div>
+
+                        <div class="re">
+                            <button type="button" class="re-e" id="diferente"><a
+                                    href="/Cadastros/cadastros-novos/Empresa/cadEmpresa.html">É Empresa?<span class="link">
+                                        Cadastre-se</span>
+                                </a><br /></button>
+                            <button type="button" class="re-e" id="conta"><a href="/Login/login.html">
+                                    Já tem conta? <span class="link">Login</span></a><br /></button>
+                        </div>
+                    </div>
 
                 </div>
 
-            </div>
-
-
-            <div class="botoes">
-                <input class="button" id="button1" type="reset" value="Limpar" />
-                <input class="button" id="button2" type="submit" value="Atualizar" />
-            </div>
-
-
-        </form>
+            </form>
+        </div>
     </div>
+
 </body>
 
 </html>

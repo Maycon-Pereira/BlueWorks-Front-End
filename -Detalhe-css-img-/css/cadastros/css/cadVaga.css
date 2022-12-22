@@ -98,7 +98,7 @@ form {
 .input-group-inf input{
     width: 300px;
 }
-#tipoContarto {
+#tipoContrato {
     width: 300px;
 }
 
@@ -146,6 +146,7 @@ form {
 /*----------------------*/
 
 #frame {
+    border-radius: 50px;
     width: 100px;
     margin-left: 9px;
     margin-top: 5px;

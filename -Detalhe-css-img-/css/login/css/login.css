@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+.box {
+    background-color: rgb(246, 246, 246);
+    max-width: 350px;
+    min-width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    font-size: 18px;
+    margin-top: 8%;
+    margin-bottom: 8%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.part {
+    height: 133.333px;
+    padding: 20px;
+    font-size: 18px;
+    color: black;
+}
+
+.title {
+    height: 100px;
+    padding-top: 40px;
+    text-align: center;
+}
+
+.up-part {
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+}
+
+.box input {
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    background-color: rgba(214, 214, 214, 0.575);
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.089);
+}
+
+.box input:focus {
+    background-color: rgb(214, 214, 214);
+    border: none;
+}
+
+.log {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #116dff;
+    margin-top: 20px;
+    transition: all 0.3s ease 0.1s;
+}
+.log:hover {
+    cursor: pointer;
+    background-color: #3c87ff;
+}
+.esqueceu {
+    width: 100%;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: transparent;
+    border: none;
+}
+.esqueceu a {
+    text-decoration: none;
+    color: #116dff;
+    transition: all 0.3s ease 0.1s;
+}
+.esqueceu a:hover {
+    text-decoration: none;
+    color: #3c87ff;
+    transition: all 0.3s ease 0.1s;
+}
+
+
+
+
+.down-part {
+    height: 50px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.re {
+    margin-left: auto;
+}
+
+.re-e {
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    display: block;
+    border: none;
+
+}
+
+.re-e a {
+    text-decoration: none;
+    list-style: none;
+    color: #116dff;
+    transition: all 0.3s ease 0.1s;
+}
+
+.re-e a:hover {
+    color: #3c87ff;
+}
+
+.text {
+    color: black;
+}
+
+.void {
+    height: 60px;
+}
