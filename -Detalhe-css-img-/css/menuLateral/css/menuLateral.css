@@ -7,10 +7,11 @@
 .lateral a {
     text-decoration: none;
     color: #000;
-    font-weight: 700;
+    font-weight: 600;
     display: block;
-    padding: 10px 20px;
+    padding: 10px;
     color: #000;
+    font-size: 15px;
 }
 
 .lateral {
@@ -19,10 +20,7 @@
     position: relative;
     width: 100%;
 }
-.lateral li {
-    margin-top: 15px;
-    font-size: 20px;
-}
+
 .label-lateral #img {
     width: 45px;
 }
@@ -53,11 +51,37 @@
     padding: 22px;
     position: fixed;
     z-index: 10;
+    cursor: pointer;
 }
 #sair {
     color: rgb(255, 38, 38);
 }
 #bottom {
     position: absolute;
-    bottom: 150px;
+    bottom: 100px;
+}
+
+
+/*width 930px pra baixo( novo header )*/
+
+@media (max-width: 930px) {
+    .nav-lateral {
+        top: 0px;
+        padding-top: 70px;
+        position: absolute;
+        height: 100%;
+        background-color: rgb(246, 246, 246);
+    }
+    
+    .lateral a {
+        font-size: 12px;
+    }
+    #bottom {
+        position: static;
+        margin-top: 0px;
+        background-color: rgb(246, 246, 246);
+    }
+    .lateral {
+        background-color: rgb(246, 246, 246);
+    }
 }

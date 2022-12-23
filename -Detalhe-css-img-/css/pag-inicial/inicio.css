@@ -25,7 +25,7 @@ p {
 }
 
 .title {
-    width: 600px;
+    width: 500px;
     height: 180px;
     font-size: 45px;
     padding: 10px;
@@ -42,13 +42,14 @@ p {
     width: 155px;
 }
 .servicos-box {
+    height: auto;
     background-color: rgb(246, 246, 246);
 }
 
 .servicos {
     align-items: center;
     text-align: center;
-    width: 1000px;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 30px;
@@ -69,7 +70,7 @@ p {
 .vc {
     display: flex;
     justify-content: space-evenly;
-    height: 380px;
+    height: auto;
 }
 .vc-usuario {
     width: 280px;
@@ -85,4 +86,71 @@ p {
 }
 .text {
     padding: 18px;
+}
+
+
+@media (max-width: 930px) {
+    .title {
+        font-size: 35px;
+        width: 300px;
+        padding: 5px;
+        margin-top: 10px;
+    }
+    .sub-title {
+        width: 350px;
+    }
+    
+}
+@media (max-width: 800px) {
+    .title {
+        font-size: 25px;
+        width: 250px;
+        padding: 5px;
+        margin-top: 10px;
+        height: 130px;
+    }
+    .sub-title {
+        width: 350px;
+        font-size: 13px;
+        margin-left: 0px;
+    }
+    .title-box {
+        margin-left: 10px;
+    }
+    
+}
+@media (max-width: 724px) {
+    .title {
+        font-size: 22px;
+        width: 250px;
+        padding: 5px;
+        margin-top: 10px;
+        height: 100px;
+    }
+    .sub-title {
+        width: 350px;
+    }
+    .title-box {
+        margin-left: 10px;
+    }
+    
+    
+}
+@media (max-width: 500px) {
+    .title {
+        font-size: 22px;
+        width: 200px ;
+        padding: 5px;
+        margin-top: 10px;
+        height: 100px;
+    }
+    .sub-title {
+        width: 200px;
+    }
+    .content {
+        margin-left: 50px;
+    }
+   
+    
+    
 }
