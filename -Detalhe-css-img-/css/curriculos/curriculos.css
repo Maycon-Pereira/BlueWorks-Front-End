@@ -4,51 +4,114 @@
     padding: 0;
     font-family: Arial;
 }
+
 .curriculos {
     color: #116dff;
 }
-.curric {
-    height: 800px;
-    width: 600px;
-    margin-bottom: 100px;
-}
+
 .back-apresentacao {
     display: flex;
     justify-content: end;
     width: 100%;
 }
+
+.void-apre {
+    width: 25%;
+}
+
 .apresentacao {
     background-color: rgb(246, 246, 246);
     border-radius: 20px;
-    width: 700px;
-    height: 250px;
+    width: 50%;
+    height: auto;
     margin-top: 60px;
-    margin-right: 280px;
 }
+
 .title {
-    height: 65px;
+    height: auto;
     font-size: 35px;
     text-align: center;
-    padding-top: 50px;
-    
+    padding: 50px;
 }
+
 .parag {
-    height: 65px;
+    height: auto;
     font-size: 18px;
     text-align: center;
-    padding-top: 80px;
+    padding: 20px;
 }
+
 .curriculos-div {
-    margin: 100px;
+    margin: 10px;
+    margin-top: 80px;
 }
+
 .curriculos-ul {
     list-style: none;
-    display: flex;
-    padding-top: 80px;
+    padding: 0px    ;
     flex-wrap: wrap;
-    margin: 20px;
+    width: 100%;
 }
-.curriculos-ul li {
-    margin-right: auto;
-    margin-left: auto;
+
+.curriculos-ul img {
+    border: 10px solid rgb(66, 66, 66);
+    border-radius: 20px;
+    width: 50%;
+    height: auto;
+    margin-bottom: 100px;
+    padding: 0px;
+}
+
+/*
+@media (max-width: 765px) {
+    
+    .curriculos-ul img {
+        height: 800px;
+        width: 600px;
+    }
+}
+@media (max-width: 728px) {
+    
+    .curriculos-ul img {
+        width: 100%;
+    }
+}
+
+*/
+
+
+@media (max-width: 726px) {
+    .title {
+        font-size: 25px;
+        padding: 10px;
+    }
+
+    .parag {
+        font-size: 15px;
+    }
+    .curriculos-ul img {
+        margin-bottom: 30px;
+    }
+    .apresentacao {
+        padding: 10px;
+    }
+
+
+}
+
+@media (max-width: 558px) {
+    .title {
+        font-size: 18px;
+        padding: 5px;
+    }
+
+    .parag {
+        font-size: 13px;
+    }
+    .curriculos-ul img {
+        margin-bottom: 15px;
+    }
+    .apresentacao {
+        padding: 15px;
+    }
 }

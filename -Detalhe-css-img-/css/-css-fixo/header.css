@@ -21,7 +21,6 @@ button {
 
 header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin-top: 23px;
     position: fixed;
@@ -82,7 +81,7 @@ header {
 .botao {
     width: 10%;
     display: inline-block;
-    margin-right: 15px;
+    padding-right: 15px;
 }
 
 
