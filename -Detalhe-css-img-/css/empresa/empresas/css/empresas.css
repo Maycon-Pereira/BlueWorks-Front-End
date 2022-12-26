@@ -14,7 +14,7 @@ body{
     padding: 50px;
 }
 .empresas {
-    width: 70%;
+    width: 100%;
     height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -22,7 +22,7 @@ body{
 }
 .empresas-box {
     display: flex;
-    width: 100%;
+    width: 90%;
     height: 100%;
     background-color: rgb(246, 246, 246);
     box-shadow: 2px 2px rgba(161, 157, 157, 0.514);
@@ -55,11 +55,11 @@ body{
     max-height: 250px;
     padding: 5px;
 }
-.info-vaga {
-    font-size: 18px;
+.inf-empresas {
+    font-size: 15px;
 }
 .name {
- font-size: 30px;
+ font-size: 25px;
  padding-bottom: 10px;
 }
 .info-empresa {
