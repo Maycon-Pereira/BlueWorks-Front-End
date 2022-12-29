@@ -55,7 +55,7 @@
 
                     <div class="content">
 
-                        <div class="down gerais">
+                        <div class="down downVaga gerais">
 
                             <h4 class="titl">Informações Gerais</h4>
 
@@ -134,7 +134,7 @@
                             </div>
 
                         </div>
-                        <div class="down  endereco">
+                        <div class="down downVaga  endereco">
 
                             <h4 class="titl">Informacao da Vaga</h4>
                             <div class="input-group">
@@ -170,10 +170,7 @@
                                         </select required></label><br />
                                     </label><br />
 
-                                    <label for="historia-vaga">Sobre a Vaga: *<br />
-                                        <textarea class="historia-Vaga" id="historia-vaga" maxlength="500"
-                                            required></textarea>
-                                    </label><br />
+                                    
                                 </div>
                             </div>
 
@@ -181,7 +178,7 @@
 
 
                         </div>
-                        <div class="down contato">
+                        <div class="down downVaga contato">
                             <h4 class="titl">Endereço</h4>
 
                             <div class="input-group">
@@ -215,6 +212,33 @@
 
 
                         </div>
+                        <div class="down downVaga">
+                            <div class="input-group">
+                                <div class="input-box-vaga">
+
+
+
+                                    <label for="data">Data de publicagem: *<br />
+                                        <input id="data" type="date" name="data" min="2022-12-26" max="2023-12-28" required></label><br />
+                                        
+                                        <label for="historia-vaga">Sobre a Vaga: *<br />
+                                            <textarea class="historia-Vaga" id="historia-vaga" maxlength="500"
+                                                required></textarea>
+                                        </label><br />
+
+                                    <label for="cnpj">Cnpj: *<br />
+                                        <input id="cnpj" type="cnpj" name="cnpj" minlength="14" maxlength="14"
+                                            placeholder="XX. XXX. XXX/0001-XX" required></label><br />
+
+                                    <label for="password">Senha: *<br />
+                                        <input id="password" type="password" name="password"
+                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
+                                            title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
+                                            required></label><br />
+
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
 
@@ -232,17 +256,6 @@
                             <div class="input-group">
 
                                 <div class="input-box-vaga">
-
-
-                                    <label for="cnpj">Cnpj: *<br />
-                                        <input id="cnpj" type="cnpj" name="cnpj" minlength="14" maxlength="14"
-                                            placeholder="XX. XXX. XXX/0001-XX" required></label><br />
-
-                                    <label for="password">Senha: *<br />
-                                        <input id="password" type="password" name="password"
-                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
-                                            title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
-                                            required></label><br />
 
 
                                     <div id="inner">

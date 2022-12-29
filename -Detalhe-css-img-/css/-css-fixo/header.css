@@ -97,7 +97,9 @@ header {
 .headerLink {
     list-style: none;
 }
-
+.headerLink li:hover{ 
+    transform: scale(1.05); 
+}
 .headerLink li {
     display: inline-block;
     padding: 0px 15px;

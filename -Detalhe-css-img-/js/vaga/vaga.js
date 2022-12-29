@@ -26,3 +26,31 @@ function vaga() {
 
 }
 
+//Vagas
+function todasVagas() {
+
+    $.ajax({
+        url: "http://localhost:8080/vagas",
+        type: "GET",
+        crossDomain: true,
+        contentType: "application/json",
+        dataType: "json",
+        success: function (response) {
+
+
+            for (var i = 0; i < response.length; i++) {
+
+                $('.vagas-block').append('<div class="vagas-box"><a href="/Vagas/EspecificaçãoVaga/todas/especificacaTodas/vagaPerfil.html"><div class="vaga-box"><div class="vaga-name"><h3>' + response[i].nome + '</h3><h4>' + response[i].area + '</h4></div></div><div class="abaixo"><div class="descricao"><p><span>' + response[i].sobre + '</span></p></div><div class="baixo"><div class="local"><img src="/-Detalhe-css-img-/img/LOCAL (2).png" alt=""><span> ' + response[i].cidade + ' / ' + response[i].uf + '</span></div><div class="data"> ' + response[i].data + ' <img src="/-Detalhe-css-img-/img/HORA (2).png" alt=""><span></span></div></div></div></a></div>');
+            }
+
+        },
+        error: function (xhr, status) {
+
+            console.log(xhr);
+            console.log(status);
+
+        }
+    });
+
+}
+

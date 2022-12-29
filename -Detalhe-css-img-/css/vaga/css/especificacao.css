@@ -35,6 +35,9 @@
     border-bottom: 1px solid rgb(202, 202, 202);
     justify-content: start;
 }
+.vagas-box:hover{
+    transform: scale(1.008);
+}
 
 .vagas span {
     color: rgba(0, 0, 0, 0.719);
@@ -72,14 +75,14 @@
     text-align: start;
 }
 
+
 .baixo {
     display: flex;
-    margin: 2px;
     justify-content: space-between;
 }
 
 .baixo img {
-    height: 25px;
+    height: 20px;
 }
 
 .vagas {

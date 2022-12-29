@@ -105,9 +105,9 @@ button {
   text-align: center;
   padding: 30px;
 }
-
-
-
+.scal:hover{
+  transform: scale(1.02);
+}
 
 /* Styling the area of the slides */
 

@@ -7,6 +7,7 @@ function vagasCad(event) {
     var name = $("#name").val();
     var tipo = $("#type").val();
     var qtda = $("#qtda").val();
+    var data = $("#data").val();
     var salario = $("#salario").val();
     var escolaridade = $("#escolaridadeVaga").val();
     var area = $("#area").val();
@@ -28,6 +29,7 @@ function vagasCad(event) {
         "nome": name,
         "tipo": tipo,
         "qtda": qtda,
+        "data": data,
         "salario": salario,
         "escolaridade": escolaridade,
         "area": area,
@@ -74,6 +76,7 @@ function vagasCad(event) {
     console.log(" nome "+ name)
     console.log(" tipo "+ tipo)
     console.log(" qtda "+ qtda)
+    console.log(" data "+ data)
     console.log(" salario "+ salario)
     console.log(" escolaridade "+ escolaridade)
     console.log(" area "+ area)

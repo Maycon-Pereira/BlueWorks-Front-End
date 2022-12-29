@@ -170,10 +170,7 @@
                                         </select required></label><br />
                                     </label><br />
 
-                                    <label for="historia-vaga">Sobre a Vaga: *<br />
-                                        <textarea class="historia-Vaga" id="historia-vaga" maxlength="500"
-                                            required></textarea>
-                                    </label><br />
+                                    
                                 </div>
                             </div>
 
@@ -216,23 +213,19 @@
 
                         </div>
 
-                    </div>
-
-
-                    <div class="buttons">
-                        <div class="botoes-vaga">
-                            <input class="button" id="reset" type="reset" value="Limpar" />
-                            <input class="button" id="cadastro" type="submit" value="Cadastrar"
-                                onclick="vagasCad(event)" />
-
-                        </div>
-
-                        <div class="re-vaga">
-
+                        <div class="down downVaga">
                             <div class="input-group">
-
                                 <div class="input-box-vaga">
 
+
+
+                                    <label for="data">Data de publicagem: *<br />
+                                        <input id="data" type="date" name="data" min="2022-12-26" max="2023-12-28" required></label><br />
+                                        
+                                        <label for="historia-vaga">Sobre a Vaga: *<br />
+                                            <textarea class="historia-Vaga" id="historia-vaga" maxlength="500"
+                                                required></textarea>
+                                        </label><br />
 
                                     <label for="cnpj">Cnpj: *<br />
                                         <input id="cnpj" type="cnpj" name="cnpj" minlength="14" maxlength="14"
@@ -244,24 +237,20 @@
                                             title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
                                             required></label><br />
 
-
-                                    <div id="inner">
-
-                                    </div>
-
-
-                                    <script> // MASK
-                                        $('#cep').mask('00000-000')
-                                        $('#cnpj').mask('00.000.000/0000-00')
-                                        $('#salario').mask("R$: #.##0,00");
-                                    </script>
-
                                 </div>
-
                             </div>
-
                         </div>
 
+                    </div>
+
+
+                    <div class="buttons">
+                        <div class="botoes-vaga">
+                            <input class="button" id="reset" type="reset" value="Limpar" />
+                            <input class="button" id="cadastro" type="submit" value="Cadastrar"
+                                onclick="vagasCad(event)" />
+
+                        </div>
 
 
                     </div>
