@@ -87,8 +87,13 @@ a {
     text-decoration: none;
 }
 
-input {
 
+
+input[type=text] {
+    display: block;
+}
+
+input {
     display: none;
 }
 
