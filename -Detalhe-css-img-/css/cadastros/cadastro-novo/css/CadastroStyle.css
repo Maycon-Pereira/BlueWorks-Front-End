@@ -84,6 +84,8 @@ input[type='file'] {
 
 .down {
     width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 .downVaga {
     width: 25%;
@@ -113,15 +115,22 @@ input[type='file'] {
     width: 18px;
 }
 
+
+.divisoria {
+    height: 10px;
+    margin-bottom: 3px;
+}
+
 .input-box input,
 select,
 textarea {
     font-size: 15px;
-    margin: 5px;
+
+
     padding-left: 5px;
     background-color: rgba(214, 214, 214, 0.575);
     width: 210px;
-    height: 30px;
+    height: 25px;
     border-radius: 10px;
     border: 1px solid rgba(128, 128, 128, 0.089);
 }
@@ -196,6 +205,9 @@ textarea:focus {
 .link:hover {
     color: #3c87ff;
 }
+
+
+
 .input-box-vaga {
     padding-top: 28px;
 }
@@ -211,4 +223,17 @@ textarea:focus {
     height: 30px;
     border-radius: 10px;
     border: 1px solid rgba(128, 128, 128, 0.089);
+}
+/* #name {
+    background-color: rgba(255, 0, 0, 0.418);
+} */
+
+/*======EXCEPTIONS CSS========*/
+
+.exception {
+    height: 13px;
+    margin-bottom: 3px;
+    font-size: 13px;
+    padding-left: 8px;
+    color: rgb(201, 19, 19);
 }

@@ -13,8 +13,6 @@
         //https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html#callback-examples
     </script>
 
-    <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
-    <script src="/-Detalhe-css-img-/js/cadastro/usuarioCadastro.js"></script>
     <title>Cadastro Usuario</title>
 </head>
 
@@ -126,10 +124,11 @@
 
                                     <label>Cep: *<br />
                                         <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-                                            placeholder="XXXXX-XXX" onblur="pesquisacep(this.value);" required /></label><br />
-            
+                                            placeholder="XXXXX-XXX" onblur="pesquisacep(this.value);"
+                                            required /></label><br />
+
                                     <div class="input-address" class="tiny button" id="input-address">
-            
+
                                         <!-- Inicio do formulario -->
                                         <label>Rua:<br />
                                             <input name="rua" type="text" id="rua" size="40" /></label><br />
@@ -139,7 +138,7 @@
                                             <input name="cidade" type="text" id="cidade" size="40" /></label><br />
                                         <label>Estado:<br />
                                             <input name="uf" type="text" id="uf" size="2" /></label><br />
-            
+
                                     </div>
                                 </div>
                             </div>
@@ -158,34 +157,35 @@
                                     <label for="numero">Número de Telefone:<br />
                                         <input id="numero" type="text" name="numero"
                                             placeholder="(XX) XXXXX-XXXX"></label><br />
-        
-        
+
+
                                     <label for="email">E-mail: *<br />
-                                        <input id="email" type="email" name="email" placeholder="" required></label><br />
-        
-        
+                                        <input id="email" type="email" name="email" placeholder=""
+                                            required></label><br />
+
+
                                     <label for="password">Senha: *<br />
-                                        <input id="password" type="password" name="password" 
+                                        <input id="password" type="password" name="password"
                                             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
                                             title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
                                             required></label><br />
-        
-        
+
+
                                     <label for="confirmPassword">Confirme sua Senha: *<br />
-                                        <input id="confirmPassword" type="password" name="password" 
+                                        <input id="confirmPassword" type="password" name="password"
                                             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
                                             title="A confirmação de senha deve ser exatamente igual a senha colocada acima."
                                             required></label><br />
-        
-        
-        
+
+
+
                                     <script> // MASK
                                         $('#cep').mask('00000-000')
                                         $('#numero').mask('(00) 00000-0000')
                                         $('#cpf').mask('000.000.000-00');
                                         $('#data').mask('00/00/0000');
                                     </script>
-        
+
                                 </div>
 
                             </div>
@@ -198,7 +198,8 @@
                     <div class="buttons">
                         <div class="botoes">
                             <input class="button" id="reset" type="reset" value="Limpar" />
-                            <input class="button" id="cadastro" type="submit" value="Cadastrar" onclick="usuarioCad(event)" />
+                            <input class="button" id="cadastro" type="submit" value="Cadastrar"
+                                onclick="usuarioCad(event)" />
 
                         </div>
 
@@ -215,6 +216,10 @@
                 </div>
 
             </form>
+
+
+            <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
+            <script src="/-Detalhe-css-img-/js/cadastro/usuarioCadastro.js"></script>
         </div>
     </div>
 
