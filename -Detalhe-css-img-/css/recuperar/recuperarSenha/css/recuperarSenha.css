@@ -9,63 +9,72 @@ form {
     font-size: 18px;
     display: block;
     width: 600px;
-    height: 500px;
+    height: auto;
     background-color: rgb(246, 246, 246);
     border-radius: 20px;
-    margin-top: 160px;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     padding-top: 60px;
+    padding-bottom: 20px;
 
 }
-.box{
+
+.box {
     padding: 15px;
-    width: 65%;
-    height: 330px;
+    width: 90%;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
 }
+
 .box-cadastro {
     text-align: end;
-    width: 65%;
+    width: 90%;
     height: 40px;
     margin-left: auto;
     margin-right: auto;
     padding: 15px;
 }
+
 .box-cadastro a {
     text-decoration: none;
     color: #116dff;
 }
+
 .box-cadastro a:hover {
-    color: #3c87ff;  
+    color: #3c87ff;
 }
-.usu {
-    
-margin-bottom: 10px;
-}
+
 
 .box h2 {
     text-align: center;
     padding: 8px;
     font-size: 40px;
 }
-.box p{
+
+.box p {
     text-align: center;
     padding: 8px;
     font-size: 17px;
 }
+
 .inputs {
     margin-top: 50px;
 }
+
 .button {
     margin-top: 25px;
 }
 
+.inputs label {
+    margin-left: 15%; 
+}
 
 .box input {
     font-size: 18px;
     margin-bottom: 10px;
+    margin-left: 14%;
     background-color: rgba(214, 214, 214, 0.575);
     width: 360px;
     height: 30px;
@@ -77,7 +86,7 @@ margin-bottom: 10px;
     background-color: rgb(214, 214, 214);
 }
 
-.button input{
+.button input {
     height: 40px;
     background-color: #116dff;
     color: #fff;
@@ -86,6 +95,46 @@ margin-bottom: 10px;
     cursor: pointer;
     transition: all 0.3s ease 0.1s;
 }
-.button input:hover{
-    background-color: #3c87ff;    
+
+.button input:hover {
+    background-color: #3c87ff;
+}
+
+@media (max-width: 700px) {
+    form {
+        width: 500px;
+        height: auto;
+    }
+
+    .inputs label {
+        margin-left: 9%; 
+    }
+    
+    .box input {
+        margin-left: 7%;
+    }
+    .box h2 {
+        font-size: 30px;
+    }
+    
+}
+@media (max-width: 550px) {
+    form {
+        width: auto;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .inputs label {
+        margin-left: 9%; 
+    }
+    
+    .box input {
+        width: 80%;
+        margin-left: 9%;
+    }
+    .box h2 {
+        font-size: 25px;
+    }
+    
 }

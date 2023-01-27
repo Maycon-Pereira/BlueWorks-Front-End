@@ -15,6 +15,7 @@
 
     <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
     <script src="/-Detalhe-css-img-/js/cadastro/vagasCadastro.js"></script>
+    
     <title>Atualizar Vaga</title>
 </head>
 
@@ -32,7 +33,7 @@
 
                         <div class="apr">
                             <div class="apr-info">
-                                <p><i> Altere os dados abaixo e atualize a vaga no site: </i></p>
+                                <p><i>Altere os dados abaixo e atualize a vaga no site: </i></p>
                             </div>
                         </div>
                     </div>
@@ -45,7 +46,9 @@
                                 <img for="uploadImg" id="frame" src="/-Detalhe-css-img-/img/vc-usuario.webp" />
                             </div>
                             <input id="uploadImg" type="file" onchange="preview()" accept="image/*">
-                            <label class="label-img" for="uploadImg">Imagem de Perfil</label>
+                            <label class="label-img" for="uploadImg">
+                                <p> Imagem de Perfil </p>
+                            </label>
 
                         </div>
                     </div>
@@ -53,21 +56,21 @@
                 </div>
                 <div class="down-info">
 
-                    <div class="content">
+                    <div class="content content-vaga">
 
-                        <div class="down gerais">
+                        <div class="down downVaga gerais">
 
-                            <h4 class="titl">Informações Gerais</h4>
+                            <h4 class="titl titulo-vaga">Informações Gerais:</h4>
 
-                            <div class="input-group">
+                            <div class="input-group input-vaga">
 
-                                <div class="input-box">
+                                <div class="input-box vagaInput">
                                     <label for="nome">Nome da Vaga: *<br />
-                                        <input id="name" type="text" required>
+                                        <input class="input" id="name" type="text" required>
                                     </label><br />
 
                                     <label for="type-vaga">Tipo da Vaga: *<br />
-                                        <select class="vaga-options" id="type" name="types">
+                                        <select class="vaga-options input select" id="type" name="types">
                                             <option value="Designer & Grafico" selected>Designer & Grafico</option>
                                             <option value="Desenvolvedor Web">Desenvolvedor Web</option>
                                             <option value="Escrita & Edicao">Escrita & Edicao</option>
@@ -79,15 +82,15 @@
                                         </select required></label><br />
 
                                     <label for="qtda">Qtda de Vagas Disponiveis: *<br />
-                                        <input id="qtda" type="number" required>
+                                        <input class="input" id="qtda" type="number" required>
                                     </label><br />
 
                                     <label for="salario">Sálario: *<br />
-                                        <input id="salario" type="text" placeholder="R$:" required>
+                                        <input class="input" id="salario" type="text" placeholder="R$:" required>
                                     </label><br />
 
                                     <label for="escolaridade-Vaga">Nivel de Escolaridade Minima: *<br />
-                                        <select class="vaga-options" id="escolaridadeVaga" name="types">
+                                        <select class="vaga-options input  select" id="escolaridadeVaga" name="types">
                                             <option value="Analfabeto">Analfabeto</option>
                                             <option value="Até 5º Ano Incompleto">Até 5º Ano Incompleto</option>
                                             <option value="5º Ano Completo">5º Ano Completo</option>
@@ -134,27 +137,28 @@
                             </div>
 
                         </div>
-                        <div class="down  endereco">
+                        <div class="down downVaga  endereco">
 
-                            <h4 class="titl">Informacao da Vaga</h4>
-                            <div class="input-group">
+                            <h4 class="titl titulo-vaga">Informacao da Vaga:</h4>
 
-                                <div class="input-box">
+                            <div class="input-group input-vaga">
+
+                                <div class="input-box  vagaInput">
 
 
                                     <label for="areaProfissional">Área Profissional: *<br />
-                                        <input id="area" type="text" name="areaProfissional" required>
+                                        <input class="input" id="area" type="text" name="areaProfissional" required>
                                     </label><br />
 
                                     <label for="exigencia">Exigencias: *<br />
-                                        <input id="exigencia" type="text" name="exigencia" required>
+                                        <input class="input" id="exigencia" type="text" name="exigencia" required>
                                     </label><br />
                                     <label for="valorizado">Valorizado:<br />
-                                        <input id="valorizado" type="text" name="valorizado" required>
+                                        <input class="input" id="valorizado" type="text" name="valorizado" required>
                                     </label><br />
 
                                     <label for="qtda">Tipo de contrato: *<br />
-                                        <select class="vaga-options" id="tipoContrato" name="contrato">
+                                        <select class="vaga-options input select" id="tipoContrato" name="contrato">
                                             <option value="Efetivo – CLT - Período Integral">Efetivo – CLT - Período
                                                 Integral</option>
                                             <option value="Efetivo – Home Office" selected>Efetivo – Home Office
@@ -170,7 +174,9 @@
                                         </select required></label><br />
                                     </label><br />
 
-                                    
+
+
+
                                 </div>
                             </div>
 
@@ -178,32 +184,35 @@
 
 
                         </div>
-                        <div class="down contato">
-                            <h4 class="titl">Endereço</h4>
+                        <div class="down downVaga contato">
+                            <h4 class="titl titulo-vaga">Endereço:</h4>
 
-                            <div class="input-group">
+                            <div class="input-group input-vaga">
 
-                                <div class="input-box">
+                                <div class="input-box  vagaInput">
 
 
                                     <label>Cep: *<br />
-                                        <input name="cep" type="text" id="cep" value="" placeholder="XXXXX-XXX"
-                                            maxlength="9" onblur="pesquisacep(this.value);" required /></label><br />
+                                        <input class="input" name="cep" type="text" id="cep" value=""
+                                            placeholder="XXXXX-XXX" maxlength="9" onblur="pesquisacep(this.value);"
+                                            required /></label><br />
 
                                     <div class="input-address" class="tiny button" id="input-address"
                                         style="display:none">
                                         <!------->
                                         <!-- Inicio do formulario -->
                                         <label>Rua:<br />
-                                            <input name="rua" type="text" id="rua" maxlength="255" /></label><br />
+                                            <input class="input" name="rua" type="text" id="rua"
+                                                maxlength="255" /></label><br />
                                         <label>Bairro:<br />
-                                            <input name="bairro" type="text" id="bairro"
+                                            <input class="input" name="bairro" type="text" id="bairro"
                                                 maxlength="255" /></label><br />
                                         <label>Cidade:<br />
-                                            <input name="cidade" type="text" id="cidade"
+                                            <input class="input" name="cidade" type="text" id="cidade"
                                                 maxlength="255" /></label><br />
                                         <label>Estado:<br />
-                                            <input name="uf" type="text" id="uf" maxlength="2" /></label><br />
+                                            <input class="input" name="uf" type="text" id="uf"
+                                                maxlength="2" /></label><br />
 
                                     </div>
                                 </div>
@@ -212,27 +221,30 @@
 
 
                         </div>
-
                         <div class="down downVaga">
-                            <div class="input-group">
-                                <div class="input-box-vaga">
+
+                            <h4 class="titl titulo-vaga">Finalização:</h4>
+
+                            <div class="input-group input-vaga">
+                                <div class="input-box vagaInput input-box-vaga">
 
 
 
                                     <label for="data">Data de publicagem: *<br />
-                                        <input id="data" type="date" name="data" min="2022-12-26" max="2023-12-28" required></label><br />
-                                        
-                                        <label for="historia-vaga">Sobre a Vaga: *<br />
-                                            <textarea class="historia-Vaga" id="historia-vaga" maxlength="500"
-                                                required></textarea>
-                                        </label><br />
+                                        <input class="input" id="data" type="date" name="data" min="2022-12-26"
+                                            max="2023-12-28" required></label><br />
+
+                                    <label for="historia-vaga">Sobre a Vaga: *<br />
+                                        <textarea class="historia-Vaga input textarea" id="historia-vaga"
+                                            maxlength="500" required></textarea>
+                                    </label><br />
 
                                     <label for="cnpj">Cnpj: *<br />
-                                        <input id="cnpj" type="cnpj" name="cnpj" minlength="14" maxlength="14"
-                                            placeholder="XX. XXX. XXX/0001-XX" required></label><br />
+                                        <input class="input" id="cnpj" type="cnpj" name="cnpj" minlength="14"
+                                            maxlength="14" placeholder="XX. XXX. XXX/0001-XX" required></label><br />
 
                                     <label for="password">Senha: *<br />
-                                        <input id="password" type="password" name="password"
+                                        <input class="input" id="password" type="password" name="password"
                                             pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
                                             title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
                                             required></label><br />
@@ -252,14 +264,42 @@
 
                         </div>
 
+                        
 
+                        <div class="re-vaga">
+
+                            <div class="input-group">
+
+                                <div class="input-box-vaga">
+
+
+                                    <div id="inner">
+
+                                    </div>
+
+
+                                    <script> // MASK
+                                        $('#cep').mask('00000-000')
+                                        $('#cnpj').mask('00.000.000/0000-00')
+                                        $('#salario').mask("R$: #.##0,00");
+                                    </script>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
+                    
                 </div>
-
+                
             </form>
+
+
+            <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
+            <script src="/-Detalhe-css-img-/js/cadastro/vagasCadastro.js"></script>
         </div>
+        
     </div>
+    <div class="void"></div>
 
 </body>
 

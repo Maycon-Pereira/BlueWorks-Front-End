@@ -1,5 +1,13 @@
 //variaveis
-const form = document.querySelector("#formEmpresa")
+const form = document.getElementById("formEmpresa");
+const campos = document.querySelectorAll(".required");
+const spans = document.querySelectorAll(".exception");
+
+//const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+//const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$/;
+//const emailRegex = /^\w+([-+.']\w+)+@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
 
 const nomeInput = document.querySelector("#name")
 const cnpjInput = document.getElementById('cnpj')
@@ -16,7 +24,7 @@ const imgInput = document.getElementById('uploadImg')
 
 const numeroInput = document.getElementById('numero')
 
-const emailInput = document.querySelector("#email")
+const emailInput = document.getElementById("email")
 const passwordInput = document.getElementById('password')
 const confirm_passwordInput = document.getElementById('confirmPassword')
 
@@ -95,6 +103,109 @@ function empresaImg() {
 
 }
 
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    nameValidate()
+    emailValidate()
+    mainPasswordValidate()
+    comparePassword()
+})
+function setError(index) {
+    campos[index].style.border = '1px solid rgb(218, 21, 21)';
+    spans[index].style.opacity = '1';
+}
+function removeError(index) {
+    campos[index].style.border = '';
+    spans[index].style.opacity = '0';
+}
+
+function nameValidate() {
+    if (campos[0].value.length < 3) {
+
+        setError(0);
+
+    } else {
+
+        removeError(0)
+
+    }
+}
+
+
+
+function emailValidate() {
+
+    const email = $('#email').val();
+
+
+    if (!validEmail(email)) {
+        setError(4)
+    } else {
+        removeError(4)
+    }
+    return false;
+}
+
+function validEmail(email) {
+    return email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
+
+function mainPasswordValidate() {
+    if (campos[5].value.length < 8) {
+        setError(5);
+    } else {
+        removeError(5);
+        comparePassword();
+    }
+}
+
+function comparePassword() {
+    if (campos[6].value == campos[5].value && campos[5].value.length >= 8) {
+
+        removeError(6)
+    } else {
+        setError(6)
+    }
+}
+
+
+
+
+
+/** 
+  NÃO SEI PQ NÃO FUNCIONA!!!! QUERIA SABER!!  ;-;
+function validation(event) {
+    event.preventDefault();
+
+    if (nomeInput.value == "" || nomeInput.value == null) {
+        nomeInput.style.border = "1px solid rgb(201, 19, 19)";
+        document.getElementById("--name").append("O nome não pode estar vazio");
+    }
+    else {
+        nomeInput.style.border = "1px solid rgba(128, 128, 128, 0.089)";
+        document.getElementById("--name").remove();
+    }
+    if (cnpjInput.value == "") {
+        cnpjInput.style.border = "1px solid rgb(201, 19, 19)";
+        const cnpjDOM = document.getElementById("--cnpj").append("O CNPJ não pode estar vazio");
+        cnpjDOM.append("O CNPJ não pode estar vazio");
+
+    } else if(cnpjInput.value < 14) {
+        const cnpjDOM = document.getElementById("--cnpj")
+        cnpjDOM.remove();
+        document.getElementById("--cnpj--").append("O CNPJ tem que ser maior que 14 digitos");
+    }
+    if (historiaTextarea.value == "" || historiaTextarea.value == null) {
+        historiaTextarea.style.border = "1px solid rgb(201, 19, 19)";
+        document.getElementById("--sobre").append("O sobre não pode estar vazio");
+    }
+
+}*/
+
 function empresaCad(event) {
     event.preventDefault();
     //var x = $( "form" ).serialize();
@@ -131,8 +242,10 @@ function empresaCad(event) {
         "fotoBase64": fotoPerfil
     }
 
+    console.log("1")
 
 
+    //AJAX ESTÁ DANDO ERRO na validação!!!!
     $.ajax({
         url: "http://localhost:8080/empresa",
         type: "POST",
@@ -140,18 +253,28 @@ function empresaCad(event) {
         data: JSON.stringify(request),
         contentType: "application/json",
         dataType: "json",
+
         success: function (response) {
+
+
             //var resp = JSON.parse(response)
+            console.log("2")
             console.log(response);
+            console.log("3")
 
             uploadImagem(response.id, event);
+            console.log("4")
+            alert("empresa cadastrada com sucesso!! " + response.id)
         },
+
         error: function (xhr, status) {
+            console.log("5")
 
             console.log(xhr);
+            console.log("6")
             console.log(status);
+            console.log("7")
 
-            //---
             let jsonObject = JSON.parse(xhr.responseText);
             let objects = jsonObject.erros;
 
@@ -162,51 +285,62 @@ function empresaCad(event) {
             var dataJSON = JSON.parse(str);
 
 
-           
+
+            function setError(index) {
+                campos[index].style.border = '1px solid rgb(218, 21, 21)';
+                spans[index].style.opacity = '1';
+            }
+            function removeError(index) {
+                campos[index].style.border = '';
+                spans[index].style.opacity = '0';
+            }
+
 
             //console.log("O nome: "+ dataJSON.nome);
             if (dataJSON !== null) {
 
                 if ('nome' in dataJSON == true) {
 
-                    nomeInput.style.border = "1px solid rgb(201, 19, 19)";
-                    document.getElementById("--name").append("Digite um nome válido");
+                    setError;
 
                 } else {
-                    nomeInput.style.border = "1px solid rgba(128, 128, 128, 0.089)";
-                    document.getElementById("--name").remove();
+                    
+                    removeError;
 
                 }
 
                 if ('sobre' in dataJSON == true) {
 
-                    historiaTextarea.style.border = "1px solid rgb(201, 19, 19)";
-                    document.getElementById("--sobre").append("Digite um sobre válido");
+                    setError;
 
                 } else {
-                    nomeInput.style.border = "1px solid rgba(128, 128, 128, 0.089)";
-                    document.getElementById("--sobre").remove();
+                    
+                    removeError;
 
                 }
 
 
                 if ('email' in dataJSON == true) {
-                    emailInput.style.border = "1px solid rgb(201, 19, 19)";
-                    document.getElementById("--email").append("Digite um email válido");
+
+                    setError;
+
                 } else {
-                    nomeInput.style.border = "1px solid rgba(128, 128, 128, 0.089)";
-                    document.getElementById("--email").remove();
+                    
+                    removeError;
 
                 }
 
                 if ('cep' in dataJSON == true) {
-                    cepInput.style.border = "1px solid rgb(201, 19, 19)";
-                    document.getElementById("--cep").append("Digite um CEP válido");
+
+                    setError;
+
                 } else {
-                    nomeInput.style.border = "1px solid rgba(128, 128, 128, 0.089)";
-                    document.getElementById("--cep").remove();
+                    
+                    removeError;
 
                 }
+
+                //old
 
                 if ('cnpj' in dataJSON == true) {
                     cnpjInput.style.border = "1px solid rgb(201, 19, 19)";
@@ -230,7 +364,8 @@ function empresaCad(event) {
                 return;
             }
 
-            //alert(str)
+
+            alert(str)
             //---F
         }
     });

@@ -15,6 +15,7 @@
 
     <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
     <script src="/-Detalhe-css-img-/js/cadastro/usuarioCadastro.js"></script>
+    
     <title>Atualizar Perfil</title>
 </head>
 
@@ -32,7 +33,7 @@
 
                         <div class="apr">
                             <div class="apr-info">
-                                <p><i> Informe os dados abaixo e atualize seu perfil: </i></p>
+                                <p><i>Informe os dados abaixo e atualize seu perfil: </i></p>
                             </div>
                         </div>
                     </div>
@@ -45,7 +46,7 @@
                                 <img for="uploadImg" id="frame" src="/-Detalhe-css-img-/img/vc-usuario.webp" />
                             </div>
                             <input id="uploadImg" type="file" onchange="preview()" accept="image/*">
-                            <label class="label-img" for="uploadImg">Imagem de Perfil</label>
+                            <label class="label-img" for="uploadImg"><p> Imagem de Perfil </p></label>
 
                         </div>
                     </div>
@@ -64,10 +65,16 @@
                                 <div class="input-box">
                                     <label for="name">Nome: *<br />
                                         <input id="name" type="text" name="name" required></label><br />
+                                    <div>
+                                        <p class="exception" id="--name">Nome deve ter no mínimo 3 caracteres</p>
+                                    </div>
 
                                     <label for="cpf">CPF: *<br />
                                         <input id="cpf" type="text" name="cpf" placeholder="XXX.XXX.XXX-XX" size="11"
                                             maxlength="11" required></label><br />
+                                    <div id="--cpf">
+                                        <p class="exception">O CPF não pode estar vazio</p>
+                                    </div>
 
                                     <label for="escolaridade">Escolaridade: *<br />
                                         <select class="escolaridadeUsuario" id="escolaridade" name="types">
@@ -100,15 +107,22 @@
                                             <option value="Doutorado Incompleto" class="listrado">Doutorado Incompleto
                                             </option>
                                         </select></label><br />
+                                    <div class="divisoria"></div>
 
                                     <label for="data">Data de Nascimento: *<br />
                                         <input id="data" type="text" name="data" placeholder="DD/MM/AAAA"
                                             required></label><br />
+                                    <div id="--data">
+                                        <p class="exception">A data não pode estar vazio</p>
+                                    </div>
 
                                     <label for="sobre">Sobre Mim: *<br />
                                         <textarea class="historiaUsuario" id="sobre" maxlength="500"
                                             required></textarea>
                                     </label><br />
+                                    <div id="--sobre">
+                                        <p class="exception">O sobre não pode estar vazio</p>
+                                    </div>
 
 
                                 </div>
@@ -126,20 +140,28 @@
 
                                     <label>Cep: *<br />
                                         <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-                                            placeholder="XXXXX-XXX" onblur="pesquisacep(this.value);" required /></label><br />
-            
+                                            placeholder="XXXXX-XXX" onblur="pesquisacep(this.value);"
+                                            required /></label><br />
+                                    <div id="--cep">
+                                        <p class="exception">O CEP não pode estar vazio</p>
+                                    </div>
+
                                     <div class="input-address" class="tiny button" id="input-address">
-            
+
                                         <!-- Inicio do formulario -->
                                         <label>Rua:<br />
                                             <input name="rua" type="text" id="rua" size="40" /></label><br />
+                                        <div class="divisoria"></div>
                                         <label>Bairro:<br />
                                             <input name="bairro" type="text" id="bairro" size="40" /></label><br />
+                                        <div class="divisoria"></div>
                                         <label>Cidade:<br />
                                             <input name="cidade" type="text" id="cidade" size="40" /></label><br />
+                                        <div class="divisoria"></div>
                                         <label>Estado:<br />
                                             <input name="uf" type="text" id="uf" size="2" /></label><br />
-            
+                                        <div class="divisoria"></div>
+
                                     </div>
                                 </div>
                             </div>
@@ -158,34 +180,41 @@
                                     <label for="numero">Número de Telefone:<br />
                                         <input id="numero" type="text" name="numero"
                                             placeholder="(XX) XXXXX-XXXX"></label><br />
-        
-        
+                                    <div class="divisoria"></div>
+
+
                                     <label for="email">E-mail: *<br />
-                                        <input id="email" type="email" name="email" placeholder="" required></label><br />
-        
-        
+                                        <input id="email" type="email" name="email" placeholder=""
+                                            required></label><br />
+                                    <div id="--email">
+                                        <p class="exception">Digite um email válido</p>
+                                    </div>
+
+
                                     <label for="password">Senha: *<br />
-                                        <input id="password" type="password" name="password" 
-                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
-                                            title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
-                                            required></label><br />
-        
-        
-                                    <label for="confirmPassword">Confirme sua Senha: *<br />
-                                        <input id="confirmPassword" type="password" name="password" 
-                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
-                                            title="A confirmação de senha deve ser exatamente igual a senha colocada acima."
-                                            required></label><br />
-        
-        
-        
-                                    <script> // MASK
-                                        $('#cep').mask('00000-000')
-                                        $('#numero').mask('(00) 00000-0000')
-                                        $('#cpf').mask('000.000.000-00');
-                                        $('#data').mask('00/00/0000');
-                                    </script>
-        
+                                        <input id="password" class="required" type="password" name="password"
+                                            oninput="mainPasswordValidate()"><br />
+                                        <div id="--senha">
+                                            <p class="exception">A senha tem que ter mais de 8 caracteres</p>
+                                        </div>
+
+
+                                        <label for="confirmPassword">Confirme sua Senha: *<br />
+                                            <input id="confirmPassword" class="required" type="password"
+                                                name="confirmPassword" oninput="comparePassword()"><br />
+                                            <div id="--comfirmsenha">
+                                                <p class="exception">Senahs devem ser compativeis</p>
+                                            </div>
+
+
+
+                                            <script> // MASK
+                                                $('#cep').mask('00000-000')
+                                                $('#numero').mask('(00) 00000-0000')
+                                                $('#cpf').mask('000.000.000-00');
+                                                $('#data').mask('00/00/0000');
+                                            </script>
+
                                 </div>
 
                             </div>
@@ -198,23 +227,29 @@
                     <div class="buttons">
                         <div class="botoes">
                             <input class="button" id="reset" type="reset" value="Limpar" />
-                            <input class="button" id="cadastro" type="submit" value="Cadastrar" onclick="usuarioCad(event)" />
+                            <input class="button" id="cadastro" type="submit" value="Cadastrar"
+                                onclick="usuarioCad(event)" />
 
                         </div>
 
                         <div class="re">
                             <button type="button" class="re-e" id="diferente"><a
-                                    href="/Cadastros/cadastros-novos/Empresa/cadEmpresa.html">É Empresa?<span class="link">
+                                    href="/Cadastros/Empresa/CadastroEmpresa.html">É Empresa?<span class="link">
                                         Cadastre-se</span>
                                 </a><br /></button>
                             <button type="button" class="re-e" id="conta"><a href="/Login/login.html">
                                     Já tem conta? <span class="link">Login</span></a><br /></button>
                         </div>
+                        <div class="void"></div>
                     </div>
 
                 </div>
 
             </form>
+
+
+            <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
+            <script src="/-Detalhe-css-img-/js/cadastro/usuarioCadastro.js"></script>
         </div>
     </div>
 

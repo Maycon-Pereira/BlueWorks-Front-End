@@ -12,7 +12,7 @@
     font-size: 17px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10%;
+    margin-top: 25vh;
 }
 .title {
     color: #fff;
@@ -50,4 +50,82 @@ a {
 }
 .void {
     height: 50px;
+}
+
+/*===========Responsividade===========*/
+
+@media (max-width: 660px) {
+    .choose {
+        width: 500px;
+        height: auto;
+        font-size: 15px;
+    }
+
+    .usuarioEmpresa {
+        height: auto;
+    }
+
+    .two {
+        height: auto;
+    }
+    .usuarioEmpresa img {
+        width: 150px;
+        height: auto;
+        padding: 10px;
+    }
+
+    legend {
+        padding-bottom: 10px;
+    }
+}
+@media (max-width: 530px) {
+    .choose {
+        width: 400px;
+        font-size: 15px;
+    }
+
+    .usuarioEmpresa img {
+        width: 100px;
+        height: auto;
+        padding: 10px;
+    }
+
+}
+@media (max-width: 440px) {
+    .choose {
+        width: 300px;
+        font-size: 15px;
+    }
+
+    .usuarioEmpresa img {
+        width: 80px;
+        height: auto;
+        padding: 5px;
+    }
+
+}
+@media (max-width: 330px) {
+    .choose {
+        margin-left: 30px;
+        margin-right: 30px;
+        width: auto;
+        height: auto;
+        font-size: 15px;
+    }
+
+    .usuarioEmpresa {
+        display: block;
+        border: 2px solid rgb(226, 226, 226);
+    }
+
+    .usuarioEmpresa img {
+        width: 80px;
+        height: auto;
+        padding: 5px;
+    }
+
+    .two {
+        width: 100%;
+        height: auto;
+    }
 }
