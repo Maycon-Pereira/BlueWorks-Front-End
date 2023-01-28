@@ -13,7 +13,7 @@ function empresaGetAll() {
 
           for (var i = 0; i < response.length; i++) {
 
-              $('.empresas').append('<div class="empresas-box"><div class="img-empresas"><div class="empresa"><a id="img" href="/Empresa/perfil-Empresa/radac.html"><img class="img" src="data:image/png;base64,' + response[i].fotoBase64 + '" /></a></div></div><div class="empresas-box-info"><div class="inf-empresas"><div class="bold name">'+ response[i].nome +'</div><div class="info-empresa"><span class="bold"> Sobre: </span><p>'+ response[i].sobre +'</p></div></div></div></div> ');
+              $('.empresas').append('<div class="empresas-box"><div class="img-empresas"><div class="empresa"><a id="img" href="/Empresa/perfil-Empresa/radac.html"><img class="img" src="data:image/png;base64,' + response[i].fotoBase64 + '" /></a></div></div><div class="empresas-box-info"><div class="inf-empresas"><div class="bold name">'+ response[i].nome +'</div><div class="email"><span class="bold">Email: </span> '+ response[i].email +'</div><div class="info-empresa"><span class="bold"> Sobre: </span><p>'+ response[i].sobre +'</p></div></div></div></div> ');
           }
 
       },
