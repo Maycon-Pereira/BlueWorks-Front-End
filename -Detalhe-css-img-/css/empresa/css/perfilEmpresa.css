@@ -20,7 +20,7 @@
     margin-right: auto;
     max-width:600px;
     max-height:398px;
-    min-width:200px;
+    min-width:100px;
     min-height:200px;
 }
 
@@ -35,7 +35,7 @@
 }
 .body-down {
     display: flex;
-    height: 350px;
+    height: auto;
     margin: 20px;
     margin-bottom: 0px;
     font-size: 18px;
@@ -68,6 +68,7 @@
     font-style: italic;
     text-align: center;
     margin-top: 20px;
+    height: auto;
 }
 .inf-cadastrada {
     padding-top: 10px;
@@ -108,5 +109,104 @@
     padding-top: 10px;
 }
 .endereco-title {
-    padding-left: 10px;
+    padding-left: 20px;
+}
+
+@media (max-width: 1000px) {
+    .body-perfil {
+        margin-top: 35px;
+        width: 90%;
+    }
+
+}
+@media (max-width: 970px) {
+    .img img {
+        width: 300px;
+    }
+    .body-down {
+        display: block;
+    }
+    .update {
+        display: flex;
+        width: 100%;
+        height: auto;
+    }
+    .view {
+        width: 100%;
+    }
+    .historia {
+        border-left: 0px dashed;
+        width: 100%;
+        border-top: 1px dashed;
+    }
+
+    .informacao {
+        border: 1px solid rgb(226, 226, 226);
+        padding-left: 10px;
+    }
+    .espaco-inf {
+        border-top: 2px solid rgb(226, 226, 226);
+        padding-left: 60px;
+    }
+
+    .endereco {
+        padding: 0px;
+        padding-top: 10px;
+    }
+    
+}
+
+
+
+@media (max-width: 600px) {
+    .conjunt {
+        padding: 0px;
+    }
+    .inf-cadastrada {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .nome-empresa {
+        font-size: 20px;
+    }
+    .espaco-inf {
+        border-top: 2px solid rgb(226, 226, 226);
+        padding-left: 20px;
+    }
+    .endereco-title {
+        padding-left: 10px;
+    }
+    .update {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .update a {
+        font-size: 15px;
+    }
+    .update img {
+        display: none;
+    }
+
+}
+
+
+
+
+@media (max-width: 460px) {
+    .img img {
+        width: 250px;
+    }
+
+    .nome-empresa {
+        font-size: 90%;
+    }
+
+}
+@media (max-width: 400px) {
+    .img img {
+        width: 180px;
+        margin-right: 20px;
+    }
+
 }

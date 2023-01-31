@@ -264,7 +264,6 @@ function empresaCad(event) {
 
             uploadImagem(response.id, event);
             console.log("4")
-            alert("empresa cadastrada com sucesso!! " + response.id)
         },
 
         error: function (xhr, status) {

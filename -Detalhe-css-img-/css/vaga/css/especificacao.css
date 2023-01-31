@@ -18,7 +18,6 @@
 
 .vagas-container {
     width: 75%;
-
 }
 
 .vagas-block {
@@ -35,7 +34,8 @@
     border-bottom: 1px solid rgb(202, 202, 202);
     justify-content: start;
 }
-.vagas-box:hover{
+
+.vagas-box:hover {
     transform: scale(1.008);
 }
 
@@ -89,6 +89,8 @@
     margin-bottom: 30px;
 }
 
+
+
 .pesquisa-container {
     display: flex;
     width: 25%;
@@ -103,6 +105,7 @@
     margin-right: auto;
     margin-top: 20px;
 }
+
 
 .search {
     height: 25px;
@@ -126,4 +129,54 @@
     list-style: none;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media (min-width: 701px) {
+    .top {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .direita {
+        display: none;
+    }
+
+    .especificacao-vaga {
+        display: block;
+    }
+
+
+    .top {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .funil {
+        padding: 20px;
+        margin-top: 50px;
+    }
+
+
+    .vagas-container {
+        width: 100%;
+    }
+    
+    .vagas-box {
+        padding: 20px;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 30px;
+        border-bottom: 1px solid rgb(202, 202, 202);
+        justify-content: start;
+    }
+
+}
+
+@media( max-width: 450px) {
+    .baixo {
+        display: block;
+    }
+    
 }

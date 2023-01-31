@@ -86,25 +86,18 @@
         background-color: rgb(246, 246, 246);
     }
 }
-@media (max-height: 429px) {
-    .nav-lateral {
-        width: 120px;
-        
-    }
-    .lateral a {
-        font-size: 8px;
-        padding: 5px;
-    }
-}
 
 @media (max-width : 500px) {
     .nav-lateral {
-        width: 100px;
+        width: 120px;
         padding-top: 80px;
         
     }
     .lateral a {
-        font-size: 8px;
-        padding: 2px;
+        font-size: 12px;
+        padding: 10px;
     }
 }
+
+
+

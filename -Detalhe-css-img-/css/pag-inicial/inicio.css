@@ -53,8 +53,8 @@ p {
     margin-left: auto;
     margin-right: auto;
     padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .servico {
     justify-content: center;

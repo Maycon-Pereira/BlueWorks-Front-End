@@ -176,9 +176,11 @@ footer {
     background-color: rgb(255, 0, 0);
 }
 
-@media (max-width: 900px) {
 
+@media (max-width: 900px) {
+    
     .img-candidato {
+        padding-top: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -245,16 +247,8 @@ footer {
     }
 
     .escolha {
-        display: flex;
-        position: relative;
         width: 100%;
     }
-
-    .buttam:last-child {
-        position: absolute;
-        right: 0px;
-    }
-
     .button-342 {
         border-top-right-radius: 0px;
     }

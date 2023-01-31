@@ -110,7 +110,50 @@
 
                 <div class="especificacao-vaga">
 
+                    <div class="pesquisa-container top">
+                        
+                        <div class="funil">
 
+                            <!--
+                            <div class="check-time">
+                                <div class="check-input">
+                                    <label for="">check 1</label>
+                                    <input type="checkbox" name="" id="">
+                                    
+                                </div>
+                                <div class="check-input">
+                                    <label for="">check 2</label>
+                                    <input type="checkbox" name="" id="">
+                                    
+                                </div>
+                                <div class="check-input">
+                                    <label for="">check 3</label>
+                                    <input type="checkbox" name="" id="">
+                                    
+                                </div>
+    
+                            </div>-->
+
+                            <h1>Pesquisa interativa</h1>
+                            <input type="search" class="search" id="pesquisa" oninput="limpar()">
+
+                            <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+                            <script type="text/javascript">
+
+                                $('#pesquisa').keyup(function (e) {
+                                    var termo = $('#pesquisa').val().toUpperCase();
+                                    $('#lista li').each(function () {
+                                        if ($(this).html().toUpperCase().indexOf(termo) === -1) {
+                                            $(this).hide();
+                                        } else {
+                                            $(this).show();
+                                        }
+                                    });
+                                });
+                            </script>
+                        </div>
+
+                    </div>
 
                     <div class="vagas-container">
                         <div class="title">
@@ -162,7 +205,7 @@
 
                     </div>
 
-                    <div class="pesquisa-container">
+                    <div class="pesquisa-container direita">
                         
                         <div class="funil">
 

@@ -1,4 +1,4 @@
-//Vagas
+//Minhas Vagas
 function vaga() {
 
     $.ajax({
@@ -25,6 +25,9 @@ function vaga() {
     });
 
 }
+
+
+
 
 //Vagas
 function todasVagas() {

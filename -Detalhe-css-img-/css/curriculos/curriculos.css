@@ -69,7 +69,7 @@
 }
 
 
-/*-------------*/
+
 
 
 @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@200;300;400;600;700&display=swap');
@@ -277,7 +277,7 @@ input {
 }
 
 @media (max-width: 1000px) {
-    
+
     .cards label {
         width: 330px;
         height: 600px;
@@ -319,6 +319,7 @@ input {
     .infos .lorem {
         font-size: 13px;
     }
+
     .cards .card {
         padding: 15px 20px;
     }
@@ -342,6 +343,7 @@ input {
     .apresentacao {
         padding: 15px;
     }
+
     .infos .lorem {
         font-size: 11px;
     }
@@ -354,18 +356,20 @@ input {
     .card .image img {
         height: 240px;
     }
+
     .cards .card {
         padding: 13px 18px;
     }
+
     .card .image .dots {
         padding-left: 10px;
     }
-    
+
 
 }
 
 @media (max-width: 460px) {
-    
+
     .cards label {
         width: 210px;
         height: 358px;
@@ -380,12 +384,15 @@ input {
         color: #ECEAED;
         letter-spacing: 3px;
     }
+
     .cards .card {
         padding: 10px 15px;
     }
+
     .card .image .dots {
         padding-left: 5px;
     }
+
     #s1:checked~.cards #slide4,
     #s2:checked~.cards #slide5,
     #s3:checked~.cards #slide1,
@@ -399,35 +406,143 @@ input {
 
 
     #s1:checked~.cards #slide5,
-#s2:checked~.cards #slide1,
-#s3:checked~.cards #slide2,
-#s4:checked~.cards #slide3,
-#s5:checked~.cards #slide4 {
-    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 45%);
-    transform: translate3d(-20%, 0, -120px);
-    --current-color1: #ECEAED;
-    --current-color2: #404457;
+    #s2:checked~.cards #slide1,
+    #s3:checked~.cards #slide2,
+    #s4:checked~.cards #slide3,
+    #s5:checked~.cards #slide4 {
+        box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 45%);
+        transform: translate3d(-20%, 0, -120px);
+        --current-color1: #ECEAED;
+        --current-color2: #404457;
+    }
+
+    #s1:checked~.cards #slide2,
+    #s2:checked~.cards #slide3,
+    #s3:checked~.cards #slide4,
+    #s4:checked~.cards #slide5,
+    #s5:checked~.cards #slide1 {
+        box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 45%);
+        transform: translate3d(20%, 0, -120px);
+        --current-color1: #ECEAED;
+        --current-color2: #404457;
+    }
+
+    #s1:checked~.cards #slide3,
+    #s2:checked~.cards #slide4,
+    #s3:checked~.cards #slide5,
+    #s4:checked~.cards #slide1,
+    #s5:checked~.cards #slide2 {
+        box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 45%);
+        transform: translate3d(40%, 0, -220px);
+        --current-color1: #ECEAED;
+        --current-color2: #404457;
+    }
 }
 
-#s1:checked~.cards #slide2,
-#s2:checked~.cards #slide3,
-#s3:checked~.cards #slide4,
-#s4:checked~.cards #slide5,
-#s5:checked~.cards #slide1 {
-    box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 45%);
-    transform: translate3d(20%, 0, -120px);
-    --current-color1: #ECEAED;
-    --current-color2: #404457;
+
+
+/*=================*/
+.slider-corpo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-    
-#s1:checked~.cards #slide3,
-#s2:checked~.cards #slide4,
-#s3:checked~.cards #slide5,
-#s4:checked~.cards #slide1,
-#s5:checked~.cards #slide2 {
-    box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 45%);
-    transform: translate3d(40%, 0, -220px);
-    --current-color1: #ECEAED;
-    --current-color2: #404457;
+
+
+.slider {
+    width: 50%;
 }
+
+
+.mySlides img {
+    vertical-align: middle;
+    max-height: 7   00px;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+    position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+    cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(36, 33, 33, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #863a3a;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Six columns side by side */
+.column {
+    float: left;
+    width: 14.2857%;
+}
+.column img{
+    height: 11rem;
+    border: 1px solid rgba(0, 0, 0, 0.445);
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+    opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+    opacity: 1;
 }

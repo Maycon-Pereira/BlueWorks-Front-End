@@ -34,7 +34,8 @@ body{
     margin-right: auto;
     margin-bottom: 15px;
 }
-.candidato-box-info {
+.candidato-box-info {/*
+    border: 1px solid red;*/
     margin: 10px;
     margin-right: 0px;
     display: flex;
@@ -99,7 +100,7 @@ footer {
 }
 .col {
     display: flex;
-    height: 40px;
+    height: auto;
     width: 100%;
 }
 .maior {
@@ -109,10 +110,39 @@ footer {
     width: 40%;
 }
 .info-bar {
-    height: 130px;
+    height: auto;
 }
 .desc-vaga {
     padding: 5px;
     border: 1px solid rgb(226, 226, 226);
 }
 
+@media (max-width: 1000px) {
+    .candidato-box {
+        display: block;
+    }
+    .img-candidato {
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .candidato img {
+        width: 11rem;
+    }
+}
+
+@media (max-width: 800px) {
+    
+    .candidato-box-info {
+        display: block;
+    }
+
+    .ed-vaga {
+        border-top-right-radius: 0px;
+        width: 100%;
+    }
+    .config {
+        margin-right: 0px;
+    }
+}
