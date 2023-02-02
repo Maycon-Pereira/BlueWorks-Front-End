@@ -47,6 +47,7 @@ function vagasCad(event) {
         "fotoPerfil":fotoPerfil,
     }
 
+    console.log("1")
 
 
     $.ajax({
@@ -56,21 +57,25 @@ function vagasCad(event) {
         data: JSON.stringify(request),
         contentType: "application/json",
         dataType: "json",
+        
         success: function (response) {
+            console.log("2")
             //var resp = JSON.parse(response)
             console.log(response);
-            
-            uploadImagem(response.id, event);
+            console.log("3")
+            uploadImagem(response.id, event);console.log("4")
         },
         error: function (xhr, status) {
-
+            console.log("5")
             console.log(xhr);
+            console.log("6")
             console.log(status);
+            console.log("7")
 
         }
+        
     });
-
-
+    console.log("8")
 
     console.log(" DADOS CADASTRADOS ")
     console.log(" nome "+ name)

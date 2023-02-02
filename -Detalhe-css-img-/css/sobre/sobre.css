@@ -18,10 +18,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 51px;
+    padding-top: 18px;
 }
 
 .title h2 {
+    margin-top: 51px;
     align-items: center;
     font-size: 50px;
     font-weight: 800;

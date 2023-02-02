@@ -1,5 +1,3 @@
-/* Modal, POP - UP */
-
 const openModalButton = document.querySelector("#open-modal");
 const closeModalButton = document.querySelector("#close-modal");
 const cancelModalButton = document.querySelector("#cancel-modal");
@@ -16,5 +14,7 @@ const toggleModal = () => {
 });
 
 function cancelCandidatura () {
-    alert("Candidatura canacelada com sucesso!      mandar um sinal pro back end")
+    alert("Candidatura canacelada com sucesso! mandar um sinal pro back end")
 }
+
+

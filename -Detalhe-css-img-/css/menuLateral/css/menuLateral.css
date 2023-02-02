@@ -48,7 +48,8 @@
     border-bottom: 0.1px solid rgba(58, 58, 58, 0.288);
 }
 .label-lateral{
-    padding: 22px;
+    padding-left: 22px;
+    padding-top: 18px;
     padding-bottom: 2px;
     position: fixed;
     z-index: 10;
@@ -64,6 +65,15 @@
 
 
 /*width 930px pra baixo( novo header )*/
+@media (min-width: 1000px) {
+    .label-lateral{
+        padding: 22px;
+        padding-bottom: 2px;
+        position: fixed;
+        z-index: 10;
+        cursor: pointer;
+    }
+}
 
 @media (max-width: 930px) {
     .nav-lateral {

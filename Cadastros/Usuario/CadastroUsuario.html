@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/cadastro-novo/css/CadastroStyle.css">
 
+    
     <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js">
         //https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html#callback-examples
@@ -190,7 +191,7 @@
 
                                     <label for="password">Senha: *<br />
                                         <input id="password" class="required" type="password" name="password"
-                                            oninput="mainPasswordValidate()"><br />
+                                            ><!--oninput="mainPasswordValidate()"--><br />
                                         <div id="--senha">
                                             <p class="exception">A senha tem que ter mais de 8 caracteres</p>
                                         </div>
@@ -198,7 +199,8 @@
 
                                         <label for="confirmPassword">Confirme sua Senha: *<br />
                                             <input id="confirmPassword" class="required" type="password"
-                                                name="confirmPassword" oninput="comparePassword()"><br />
+                                                name="confirmPassword" >
+                                                <!--oninput="comparePassword()"--><br />
                                             <div id="--comfirmsenha">
                                                 <p class="exception">Senahs devem ser compativeis</p>
                                             </div>

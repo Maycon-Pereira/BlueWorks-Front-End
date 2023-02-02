@@ -45,6 +45,7 @@ function usuarioCad(event) {
         data: JSON.stringify(request),
         contentType: "application/json",
         dataType: "json",
+
         success: function (response) {
             //var resp = JSON.parse(response)
             console.log(response);

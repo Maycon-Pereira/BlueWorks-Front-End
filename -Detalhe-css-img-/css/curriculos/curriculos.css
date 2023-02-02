@@ -370,6 +370,11 @@ input {
 
 @media (max-width: 460px) {
 
+    .title {
+        font-size: 15px;
+        padding: 0px;
+    }
+
     .cards label {
         width: 210px;
         height: 358px;
@@ -451,13 +456,18 @@ input {
 
 
 .slider {
-    width: 50%;
+    width: 40%;
 }
 
+.border-slider {
+    background-image: linear-gradient(-250deg, #c8d7f3, #afc8f5, #8cb2f0dc, #6d9bf1, #4982ec, #3171e7);
+    padding: 20px;
+    border-radius: 15px;
+}
 
 .mySlides img {
     vertical-align: middle;
-    max-height: 7   00px;
+    max-height: 700px;
 }
 
 /* Position the image container (needed to position the left and right arrows) */
@@ -529,20 +539,43 @@ input {
 
 /* Six columns side by side */
 .column {
+    background-color: rgba(0, 0, 0, 0.856);
     float: left;
-    width: 14.2857%;
-}
-.column img{
-    height: 11rem;
-    border: 1px solid rgba(0, 0, 0, 0.445);
+    width: 16.666666666%;
 }
 
 /* Add a transparency effect for thumnbail images */
 .demo {
     opacity: 0.6;
+    height: 120px;
 }
 
 .active,
 .demo:hover {
     opacity: 1;
 }
+
+@media (max-width: 977px) {
+    .demo{
+        height: 90px;
+    }
+}
+@media (max-width: 743px) {
+
+    .slider {
+        width: 50%;
+    }
+}
+@media (max-width: 600px) {
+    .slider {
+        width: 90%;
+    }
+    .demo{
+        height: 70px;
+    }
+}/*
+@media (max-width: 550px) {
+    .demo{
+        height: 4rem;
+    }
+}*/
