@@ -13,6 +13,7 @@ function limpa_formulário_cep() {
     document.getElementById('uf').value = ("");
 }
 
+
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
@@ -20,13 +21,19 @@ function meu_callback(conteudo) {
         document.getElementById('bairro').value = (conteudo.bairro);
         document.getElementById('cidade').value = (conteudo.localidade);
         document.getElementById('uf').value = (conteudo.uf);
+
+        document.getElementById("--cep").remove();        
+        cepInput.style.border = "1px solid rgba(128, 128, 128, 0.089)";
     } //end if.
     else {
         //CEP não Encontrado.
         limpa_formulário_cep();
-        alert("CEP não encontrado.");
+        
+        document.getElementById("--cep").append("CEP não encontrado");
+        cepInput.style.border = "1px solid rgb(218, 21, 21)";
     }
 }
+
 
 function pesquisacep(valor) {
     //Nova variável "cep" somente com dígitos.
@@ -56,11 +63,16 @@ function pesquisacep(valor) {
             //Insere script no documento e carrega o conteúdo.
             document.body.appendChild(script);
 
+            
         } //end if.
         else {
             //cep é inválido.
-            limpa_formulário_cep();
-            alert("Formato de CEP inválido.");
+            limpa_formulário_cep();/* 
+            alert("Formato de CEP inválido."); */
+            document.getElementById("--cep").append("Digite um CEP válido");
+            cepInput.style.border = "1px solid rgb(218, 21, 21)"; 
+
+            
         }
     } //end if.
     else {

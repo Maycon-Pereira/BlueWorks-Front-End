@@ -82,7 +82,22 @@
     margin-right: auto;
     background-color: rgb(246, 246, 246);
 }
+/* ========= */
 
+.atualiz {
+    padding: 20px;
+}
+.atualiz a{
+    font-size: 20px;
+    border-bottom: 1px solid  #0000009f;
+    padding: 4px;
+}
+.atualiz a:hover{
+    font-size: 20px;
+    color: #116dff;
+    border-bottom: 1px solid  #116dff;
+}
+/* ========= */
 
 @media (max-width: 1100px) {
     .img{

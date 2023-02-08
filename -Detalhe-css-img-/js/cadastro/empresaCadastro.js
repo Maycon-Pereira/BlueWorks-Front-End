@@ -2,12 +2,8 @@
 const form = document.getElementById("formEmpresa");
 const campos = document.querySelectorAll(".required");
 const spans = document.querySelectorAll(".exception");
-
-//const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-//const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
 const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$/;
-//const emailRegex = /^\w+([-+.']\w+)+@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+
 
 const nomeInput = document.querySelector("#name")
 const cnpjInput = document.getElementById('cnpj')
@@ -15,6 +11,8 @@ const porteSelect = document.getElementById('porte')
 const historiaTextarea = document.getElementById('historia')
 
 const cepInput = document.getElementById('cep')
+const cepComplemento = document.querySelector('.cep-complemento')
+
 const ruaInput = document.getElementById('rua')
 const bairroInput = document.getElementById('bairro')
 const cidadeInput = document.getElementById('cidade')
@@ -71,10 +69,8 @@ function isEmailValid(email) {
 
 */
 
-
-
-
 //EMPRESA--------------------------------------------
+
 //imagem da empresa
 function empresaImg() {
 
@@ -103,10 +99,12 @@ function empresaImg() {
 
 }
 
-
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     nameValidate()
+    cnpjValidate()
+    sobreValidate()
+    cepValidate()
     emailValidate()
     mainPasswordValidate()
     comparePassword()
@@ -132,7 +130,41 @@ function nameValidate() {
     }
 }
 
+function cnpjValidate() {
+    if (campos[1].value.length < 18) {
 
+        setError(1);
+
+    } else {
+
+        removeError(1)
+
+    }
+}
+
+function sobreValidate() {
+    if (campos[2].value.length <= 5) {
+
+        setError(2);
+
+    } else {
+
+        removeError(2)
+
+    }
+}
+
+function cepValidate() {
+    if (campos[3].value.length < 9) {
+
+        setError(3);
+
+    } else {
+
+        removeError(3)
+
+    }
+}
 
 function emailValidate() {
 
@@ -152,7 +184,6 @@ function validEmail(email) {
         /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
 };
-
 
 function mainPasswordValidate() {
     if (campos[5].value.length < 8) {
@@ -174,57 +205,53 @@ function comparePassword() {
 
 
 
+/* const date = new Date();
+const day = date.getDate();
+const month = date.getMonth() + 1;
+const year = date.getFullYear();
+console.log(day);
+console.log(month);
+console.log(year); */
 
-
-/** 
-  NÃO SEI PQ NÃO FUNCIONA!!!! QUERIA SABER!!  ;-;
-function validation(event) {
-    event.preventDefault();
-
-    if (nomeInput.value == "" || nomeInput.value == null) {
-        nomeInput.style.border = "1px solid rgb(201, 19, 19)";
-        document.getElementById("--name").append("O nome não pode estar vazio");
-    }
-    else {
-        nomeInput.style.border = "1px solid rgba(128, 128, 128, 0.089)";
-        document.getElementById("--name").remove();
-    }
-    if (cnpjInput.value == "") {
-        cnpjInput.style.border = "1px solid rgb(201, 19, 19)";
-        const cnpjDOM = document.getElementById("--cnpj").append("O CNPJ não pode estar vazio");
-        cnpjDOM.append("O CNPJ não pode estar vazio");
-
-    } else if(cnpjInput.value < 14) {
-        const cnpjDOM = document.getElementById("--cnpj")
-        cnpjDOM.remove();
-        document.getElementById("--cnpj--").append("O CNPJ tem que ser maior que 14 digitos");
-    }
-    if (historiaTextarea.value == "" || historiaTextarea.value == null) {
-        historiaTextarea.style.border = "1px solid rgb(201, 19, 19)";
-        document.getElementById("--sobre").append("O sobre não pode estar vazio");
-    }
-
-}*/
 
 function empresaCad(event) {
     event.preventDefault();
     //var x = $( "form" ).serialize();
 
-
     var name = $("#name").val();
     var cnpj = $("#cnpj").val();
+
+    /* restirar a mascara de cnpj */
+    cnpj = cnpj.replace(".", "");
+    cnpj = cnpj.replace(".", "");
+    cnpj = cnpj.replace("/", "");
+    cnpj = cnpj.replace("-", "");
+
     var porte = $("#porte").val();
     var historia = $("#historia").val();
     var numero = $("#numero").val();
+
+    /* restirar a mascara do numero */
+    numero = numero.replace("(", "");
+    numero = numero.replace(")", "");
+    numero = numero.replace(" ", "");
+    numero = numero.replace("-", "");
+
     var email = $("#email").val();
     var password = $("#password").val();
+    var confirmSenha = $("#confirmPassword").val();
     var cep = $("#cep").val();
+
+    /* restirar a mascara de cep */
+    cep = cep.replace("-", "");
+
     var rua = $("#rua").val();
     var bairro = $("#bairro").val();
     var uf = $("#uf").val();
     var cidade = $("#cidade").val();
     var fotoPerfil = $("#uploadImg").val();
 
+   
 
     var request = {
         "nome": name,
@@ -234,6 +261,7 @@ function empresaCad(event) {
         "telefone": numero,
         "email": email,
         "senha": password,
+        "confirmSenha": confirmSenha,
         "cep": cep,
         "logradouro": rua,
         "bairro": bairro,
@@ -256,14 +284,16 @@ function empresaCad(event) {
 
         success: function (response) {
 
-
             //var resp = JSON.parse(response)
             console.log("2")
             console.log(response);
             console.log("3")
 
+            //location.href redireciona para a tela escolhida após o submit.
+            /* location.href = "/Pag-Inicial/inicio.html"; */
             uploadImagem(response.id, event);
             console.log("4")
+            alert("Sucesso!")
         },
 
         error: function (xhr, status) {
@@ -279,97 +309,74 @@ function empresaCad(event) {
 
             let str = JSON.stringify(objects, null, 4);
 
-
-
             var dataJSON = JSON.parse(str);
-
-
-
-            function setError(index) {
-                campos[index].style.border = '1px solid rgb(218, 21, 21)';
-                spans[index].style.opacity = '1';
-            }
-            function removeError(index) {
-                campos[index].style.border = '';
-                spans[index].style.opacity = '0';
-            }
-
 
             //console.log("O nome: "+ dataJSON.nome);
             if (dataJSON !== null) {
+                event.preventDefault();
+
+                if(confirmSenha !== password) {
+                    event.preventDefault();
+                    setError(5);
+                    setError(6);
+                } else {
+                    removeError(5);
+                    removeError(6);
+                }
 
                 if ('nome' in dataJSON == true) {
-
-                    setError;
-
-                } else {
-                    
-                    removeError;
-
+                    nomeInput.style.border = "1px solid rgb(218, 21, 21)";
+                    document.getElementById("--name--").style.opacity = '1';
+                    /* spans.style.opacity = '1';  o opacity não funciona aqui */
                 }
-
+                if ('cnpj' in dataJSON == true) {
+                    //a propriedade "style" esta colorido, enquanto não devia!!!
+                    cnpjInput.style.border = "1px solid rgb(218, 21, 21)";
+                    document.getElementById("--cnpj--").style.opacity = '1';
+                    /* spans.style.opacity = '1'; */
+                }
                 if ('sobre' in dataJSON == true) {
-
-                    setError;
-
-                } else {
-                    
-                    removeError;
-
+                    historiaTextarea.style.border = "1px solid rgb(218, 21, 21)";
+                    document.getElementById("--sobre--").style.opacity = '1';
+                    /* spans.style.opacity = '1'; */
                 }
-
-
-                if ('email' in dataJSON == true) {
-
-                    setError;
-
-                } else {
-                    
-                    removeError;
-
-                }
-
                 if ('cep' in dataJSON == true) {
-
-                    setError;
-
-                } else {
-                    
-                    removeError;
-
+                    cepInput.style.border = "1px solid rgb(218, 21, 21)";
+                    document.getElementById("--cep--").style.opacity = '1';
+                    /* spans.style.opacity = '1'; */
+                }
+                if ('email' in dataJSON == true) {
+                    emailInput.style.border = "1px solid rgb(218, 21, 21)";
+                    document.getElementById("--email--").style.opacity = '1';
+                    /* spans.style.opacity = '1'; */
+                }
+                if ('senha' in dataJSON == true) {
+                    passwordInput.style.border = "1px solid rgb(218, 21, 21)";
+                    document.getElementById("--senha--").style.opacity = '1';
+                }
+                if ('confirmSenha' in dataJSON == true) {
+                    confirm_passwordInput.style.border = "1px solid rgb(218, 21, 21)";
+                    document.getElementById("--confirmSenha--").style.opacity = '1';
+                    /* spans.style.opacity = '1'; */
                 }
 
-                //old
-
+                //old validation
+                /* 
                 if ('cnpj' in dataJSON == true) {
                     cnpjInput.style.border = "1px solid rgb(201, 19, 19)";
                     document.getElementById("--cnpj").append("Digite um CNPJ válido");
                 } else {
                     nomeInput.style.border = "1px solid rgba(128, 128, 128, 0.089)";
                     document.getElementById("--cnpj").remove();
-
                 }
-
-                if ('senha' in dataJSON == true) {
-                    passwordInput.style.border = "1px solid rgb(201, 19, 19)";
-                    document.getElementById("--senha").append("Digite uma senha válido");
-                } else {
-                    nomeInput.style.border = "1px solid rgba(128, 128, 128, 0.089)";
-                    document.getElementById("--senha").remove();
-
-                }
-
-            } else {
-                return;
+                */
             }
-
-
+            
             alert(str)
+
             //---F
         }
     });
-
-
 
     console.log(" DADOS CADASTRADOS ")
     console.log(" nome " + name)
@@ -394,7 +401,6 @@ function uploadImagem(id, event) {
     //var file = $('#uploadImg').attr('src', event.target.result);
     var data = new FormData();
     data.append('file', foto);
-
 
     jQuery.ajax({
         url: 'http://localhost:8080/empresa/v2/image/upload/' + id,

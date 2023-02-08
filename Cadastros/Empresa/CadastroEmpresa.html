@@ -66,15 +66,16 @@
                                     <input id="name" class="required" type="text" name="name" maxlength="255"
                                         oninput="nameValidate()"><br />
                                     <div>
-                                        <p class="exception" id="--name">Nome deve ter no mínimo 3 caracteres</p>
+                                        <p class="exception" id="--name--">Nome deve ter no mínimo 3 caracteres</p>
                                     </div>
 
 
                                     <label for="cnpj">CNPJ: *</label><br />
                                     <input id="cnpj" class="required" type="text" name="cnpj"
-                                        placeholder="XX. XXX. XXX/0001-XX" size="15" maxlength="14"><br />
+                                        placeholder="XX. XXX. XXX/0001-XX" size="15" maxlength="14"
+                                        oninput="cnpjValidate()"><br />
                                     <div id="--cnpj">
-                                        <p class="exception">O CNPJ não pode estar vazio</p>
+                                        <p class="exception" id="--cnpj--">O CNPJ não pode estar vazio</p>
                                     </div>
 
                                     <label for="porte">Porte da Empresa: *</label><br />
@@ -105,10 +106,10 @@
                                     </div>
 
                                     <label for="historia">Sobre a Empresa: *</label><br />
-                                    <textarea class="historiaEmpresa required" id="historia"
-                                        maxlength="520"></textarea><br />
+                                    <textarea class="historiaEmpresa required" id="historia" maxlength="520"
+                                        oninput="sobreValidate()"></textarea><br />
                                     <div id="--sobre">
-                                        <p class="exception">O sobre não pode estar vazio</p>
+                                        <p class="exception" id="--sobre--">O sobre não pode estar vazio</p>
                                     </div>
 
                                 </div>
@@ -124,11 +125,12 @@
                                 <div class="input-box">
 
 
-                                    <label>Cep: *</label><br />
+                                    <label class="label-cep">Cep: * <p id="--cep"></p></label>
                                     <input name="cep" class="required" type="text" id="cep" value=""
-                                        placeholder="XXXXX-XXX" maxlength="9" onblur="pesquisacep(this.value);" /><br />
-                                    <div id="--cep">
-                                        <p class="exception">O CEP não pode estar vazio</p>
+                                        placeholder="XXXXX-XXX" maxlength="9" onblur="pesquisacep(this.value);"
+                                        oninput="cepValidate()" /><br />
+                                    <div>
+                                        <p class="exception" id="--cep--">O CEP não pode estar vazio</p>
                                     </div>
 
                                     <div class="input-address" class="tiny button" id="input-address"
@@ -171,14 +173,14 @@
                                     <input id="email" class="required" type="email" name="email" placeholder=""
                                         oninput="emailValidate()"><br />
                                     <div id="--email">
-                                        <p class="exception">Digite um email válido</p>
+                                        <p class="exception" id="--email--">Digite um email válido</p>
                                     </div>
 
                                     <label for="password">Senha: *</label><br />
                                     <input id="password" class="required" type="password" name="password"
                                         oninput="mainPasswordValidate()"><br />
                                     <div id="--senha">
-                                        <p class="exception">A senha tem que ter mais de 8 caracteres</p>
+                                        <p class="exception" id="--senha--">A senha tem que ter mais de 8 caracteres</p>
                                     </div>
                                     <!--
                                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
@@ -188,8 +190,8 @@
                                     <label for="confirmPassword">Confirme sua Senha: *</label><br />
                                     <input id="confirmPassword" class="required" type="password" name="confirmPassword"
                                         oninput="comparePassword()"><br />
-                                    <div id="--comfirmsenha">
-                                        <p class="exception">Senahs devem ser compativeis</p>
+                                    <div id="--confirmsenha">
+                                        <p class="exception" id="--confirmSenha--">Senhas devem ser compativeis</p>
                                     </div>
                                     <!--
                                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"

@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/-Detalhe-css-img-/css/login/css/login.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/login/css/login.css">
+
+    <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
     <title>Login</title>
 </head>
 
 <body>
     <div class="container">
-        <form action="">
+        <form id="formLogin" action="">
 
             <div class="box">
 
@@ -24,14 +26,16 @@
 
                     <div class="inputs">
                         <label for="email">Email:</label><br />
-                        <input id="email" type="email" name="email" required><br />
+                        <input id="email" class="required" type="email" name="email" oninput="emailValidate()" required><br />
+                        <div class="exception">Digite um email válido</div>
 
                         <label for="password">Senha:</label><br />
-                        <input id="password" type="password" name="password" minlength="8" required><br />
+                        <input id="password" class="required" type="password" name="password" oninput="passwordValidate()" minlength="8" required><br />
+                        <div class="exception">A senha não pode estar vazio</div>
                     </div>
 
                     <div class="button">
-                        <button type="button" class="log" id="login">Logar</button>
+                        <button type="button" class="log" id="login" onclick="logar(); return false">Logar</button>
 
                         <button type="button" class="esqueceu" id="esqueceuSenha"><a
                                 href="/Recuperar/recuperarSenha/recuperarSenha.html">Esqueceu Senha?</a></button>
@@ -45,6 +49,8 @@
                                 Cadastre-se</a><br /></button>
                     </div>
                 </div>
+
+                <script src="/-Detalhe-css-img-/js/login/login.js"></script>
 
 
             </div>

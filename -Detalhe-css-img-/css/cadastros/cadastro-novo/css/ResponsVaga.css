@@ -19,7 +19,7 @@
 
     .vagaInput input, .select, .textarea {
         width: 500px;
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
     }
 
     .input-group {
@@ -30,7 +30,6 @@
     .historia-Vaga {
         width: 500px;
         height: 100px;
-        margin-bottom: 20px;
     }
 
 }
@@ -38,13 +37,12 @@
     
     .vagaInput input, .select, .textarea {
         width: 450px;
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
     }
 
     .historia-Vaga {
         width: 450px;
         height: 100px;
-        margin-bottom: 20px;
     }
 
 }
@@ -52,13 +50,13 @@
     
     .vagaInput input, .select, .textarea {
         width: 400px;
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
     }
 
     .historia-Vaga {
         width: 400px;
         height: 100px;
-        margin-bottom: 20px;
+        
     }
 
 }
@@ -66,13 +64,12 @@
     
     .vagaInput input, .select, .textarea {
         width: 350px;
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
     }
 
     .historia-Vaga {
         width: 350px;
         height: 100px;
-        margin-bottom: 20px;
     }
 
 }
@@ -81,13 +78,12 @@
     
     .vagaInput input, .select, .textarea {
         width: 300px;
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
     }
 
     .historia-Vaga {
         width: 300px;
         height: 100px;
-        margin-bottom: 20px;
     }
 
     
@@ -120,13 +116,12 @@
     
     .vagaInput input, .select, .textarea {
         width: 250px;
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
     }
 
     .historia-Vaga {
         width: 250px;
         height: 100px;
-        margin-bottom: 20px;
     }
 
 }
@@ -142,12 +137,11 @@
     
     .vagaInput input, .select, .textarea {
         width: 96%;
-        margin-bottom: 15px;
+        /* margin-bottom: 15px; */
     }
 
     .historia-Vaga {
         width: 95%;
-        margin-bottom: 20px;
     }
 
 }

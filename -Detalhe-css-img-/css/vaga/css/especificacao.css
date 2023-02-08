@@ -34,9 +34,15 @@
     border-bottom: 1px solid rgb(202, 202, 202);
     justify-content: start;
 }
+.vagas-box a{
+    display: flex;
+}
+.vagas-box a:hover{
+    color: #3c87ff;
+}
 
 .vagas-box:hover {
-    transform: scale(1.008);
+    transform: scale(1.004);
 }
 
 .vagas span {
@@ -44,24 +50,34 @@
 }
 
 .vaga-box {
-    display: inline;
+    display: flex;
     margin-top: 10px;
-    margin-bottom: 15px;
     text-align: start;
     width: 100%;
     height: auto;
     line-height: 25px;
 }
 
+.content-vaga-display {
+width: 100%;
+padding-left: 20px;
+}
+
+.img-vaga-display img{
+    min-width: 100px;
+    max-width: 120px;
+    min-height: 100px;
+    max-height: 150px;
+}
+
 .vaga-name h3 {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .vaga-name h4 {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     text-align: start;
-    margin-bottom: 20px;
 }
 
 .abaixo {
@@ -69,12 +85,12 @@
 }
 
 .descricao {
-    margin-bottom: 10px;
+    font-size: 20px;
     width: 100%;
     height: 100%;
     text-align: start;
+    padding: 10px;
 }
-
 
 .baixo {
     display: flex;
@@ -89,8 +105,6 @@
     margin-bottom: 30px;
 }
 
-
-
 .pesquisa-container {
     display: flex;
     width: 25%;
@@ -98,14 +112,12 @@
     background-color: rgb(248, 246, 246);
 }
 
-
 .funil {
     padding: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
 }
-
 
 .search {
     height: 25px;
@@ -136,7 +148,6 @@
         display: none;
     }
 }
-
 @media (max-width: 700px) {
 
     .direita {
@@ -146,7 +157,6 @@
     .especificacao-vaga {
         display: block;
     }
-
 
     .top {
         width: 100%;
@@ -171,9 +181,22 @@
         border-bottom: 1px solid rgb(202, 202, 202);
         justify-content: start;
     }
+    .vagas-box a{
+        display: block;
+    }
 
+    .img-vaga-display img{
+        min-width: 120px;
+        max-width: 190px;
+        min-height: 120px;
+        max-height: 190px;
+    }
+    .content-vaga-display {
+        width: 100%;
+        padding-left: 0px;
+        }
+        
 }
-
 @media( max-width: 450px) {
     .baixo {
         display: block;

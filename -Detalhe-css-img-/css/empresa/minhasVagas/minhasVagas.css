@@ -52,6 +52,15 @@ body{
     margin-right: 10px;
     height: 250px;
 }
+.config-minhasInscricoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+    margin-right: 10px;
+    height: auto;
+
+}
 
 .ed-vaga {
     background-color: #9ac1ff;
@@ -133,6 +142,9 @@ footer {
 }
 
 @media (max-width: 800px) {
+    .candidato-title h1{
+        font-size: 40px;
+    }
     
     .candidato-box-info {
         display: block;
@@ -145,4 +157,30 @@ footer {
     .config {
         margin-right: 0px;
     }
+    .config-minhasInscricoes {
+        margin-right: 0px;
+        display: block;
+    
+    }
+}
+@media (max-width: 600px) {
+
+    .candidato-title h1{
+        font-size: 30px;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .col {
+        display: block;
+        height: auto;
+        width: 100%;
+    }
+    .maior {
+        width: 100%;
+    }
+    .menor {
+        width: 100%;
+    }
+    
 }

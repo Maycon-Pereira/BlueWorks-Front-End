@@ -14,6 +14,10 @@
         //https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html#callback-examples
     </script>
 
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="https://plentz.github.io/jquery-maskmoney/javascripts/jquery.maskMoney.min.js"
+        type="text/javascript"></script> -->
+
     <title>Cadastro Vaga</title>
 </head>
 
@@ -21,7 +25,7 @@
 
     <div class="container">
         <div class="container-form">
-            <form action="" method="get">
+            <form id="formVaga" action="" method="get">
 
                 <div class="up-info">
                     <div class="intoducao">
@@ -64,8 +68,11 @@
 
                                 <div class="input-box vagaInput">
                                     <label for="nome">Nome da Vaga: *<br />
-                                        <input class="input" id="name" type="text" required>
+                                        <input class="input required" id="name" type="text" oninput="nameValidate()" required>
                                     </label><br />
+                                    <div>
+                                        <p class="exception" id="--name--">Nome deve ter no mínimo 3 caracteres</p>
+                                    </div>
 
                                     <label for="type-vaga">Tipo da Vaga: *<br />
                                         <select class="vaga-options input select" id="type" name="types">
@@ -78,14 +85,22 @@
                                             <option value="Video & Animacao">Video & Animacao</option>
                                             <option value="Outros">Outros</option>
                                         </select required></label><br />
+                                    <div class="divisoria"></div>
 
                                     <label for="qtda">Qtda de Vagas Disponiveis: *<br />
-                                        <input class="input" id="qtda" type="number" required>
+                                        <input class="input required" id="qtda" oninput="qtdaValidate()" type="number" required>
                                     </label><br />
+                                    <div>
+                                        <p class="exception" id="--qtda--">A quantidade de vagas não pode estar vazio
+                                        </p>
+                                    </div>
 
-                                    <label for="salario">Sálario: *<br />
-                                        <input class="input" id="salario" type="text" placeholder="R$:" required>
+                                    <label for="salario">Salário: *<br />
+                                        <input class="input salario required" id="salario" name="salario" oninput="salarioValidate()" type="text" placeholder="R$: " required>
                                     </label><br />
+                                    <div>
+                                        <p class="exception" id="--salario--">O salário não pode estar vazio</p>
+                                    </div>
 
                                     <label for="escolaridade-Vaga">Nivel de Escolaridade Minima: *<br />
                                         <select class="vaga-options input  select" id="escolaridadeVaga" name="types">
@@ -103,6 +118,7 @@
                                             <option value="Doutorado">Doutorado</option>
                                             <option value="Nenhum">Nenhum</option>
                                         </select required></label><br />
+                                    <div class="divisoria"></div>
                                     <!--
                                         Analfabeto	1	Nível 1
                                         Até 5º Ano Incompleto	2
@@ -119,7 +135,7 @@
                                     -->
 
 
-                                    <div class="checkEmpresa" id="check">
+                                    <!-- <div class="checkEmpresa" id="check">
                                         <tbody>
                                             <tr>
                                                 <td>
@@ -129,7 +145,7 @@
                                             </tr>
                                         </tbody>
 
-                                    </div>
+                                    </div> -->
 
                                 </div>
                             </div>
@@ -145,17 +161,25 @@
 
 
                                     <label for="areaProfissional">Área Profissional: *<br />
-                                        <input class="input" id="area" type="text" name="areaProfissional" required>
+                                        <input class="input required" id="area" type="text" oninput="areaValidate()" name="areaProfissional" required>
                                     </label><br />
+                                    <div>
+                                        <p class="exception" id="--area--">A área profissional não pode estar vazio</p>
+                                    </div>
 
                                     <label for="exigencia">Exigencias: *<br />
-                                        <input class="input" id="exigencia" type="text" name="exigencia" required>
+                                        <input class="input required" id="exigencia" type="text" name="exigencia" oninput="exigenciaValidate()" required>
                                     </label><br />
-                                    <label for="valorizado">Valorizado:<br />
-                                        <input class="input" id="valorizado" type="text" name="valorizado" required>
-                                    </label><br />
+                                    <div>
+                                        <p class="exception" id="--exigencias--">A exigencia não pode estar vazio</p>
+                                    </div>
 
-                                    <label for="qtda">Tipo de contrato: *<br />
+                                    <label for="valorizado">Valorizado:<br />
+                                        <input class="input " id="valorizado" type="text" name="valorizado" required>
+                                    </label><br />
+                                    <div class="divisoria"></div>
+
+                                    <label for="tipoContrato">Tipo de contrato: *<br />
                                         <select class="vaga-options input select" id="tipoContrato" name="contrato">
                                             <option value="Efetivo – CLT - Período Integral">Efetivo – CLT - Período
                                                 Integral</option>
@@ -169,11 +193,20 @@
                                             <option value="de teletrabalho">de teletrabalho</option>
                                             <option value="intermitente">intermitente</option>
                                             <option value="de trabalho autônomo">de trabalho autônomo</option>
-                                        </select required></label><br />
+                                        </select required>
                                     </label><br />
+                                    <div class="divisoria"></div>
 
-
-
+                                </div>
+                                <div class="checkEmpresa" id="check">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <label for="empresaCheck">Tem Empresa Fisica?</label>
+                                                <input id="empresaCheck" onclick="ocultar()" type="checkbox">
+                                            </td>
+                                        </tr>
+                                    </tbody>
 
                                 </div>
                             </div>
@@ -190,10 +223,13 @@
                                 <div class="input-box  vagaInput">
 
 
-                                    <label>Cep: *<br />
-                                        <input class="input" name="cep" type="text" id="cep" value=""
-                                            placeholder="XXXXX-XXX" maxlength="9" onblur="pesquisacep(this.value);"
-                                            required /></label><br />
+                                    <label class="label-cep">Cep: * <p id="--cep"></p></label>
+                                    <input name="cep" class="required" type="text" id="cep" value=""
+                                        placeholder="XXXXX-XXX" maxlength="9" onblur="pesquisacep(this.value);"
+                                        oninput="cepValidate()" /><br />
+                                    <div>
+                                        <p class="exception" id="--cep--">O cep não pode estar vazio</p>
+                                    </div>
 
                                     <div class="input-address" class="tiny button" id="input-address"
                                         style="display:none">
@@ -202,15 +238,19 @@
                                         <label>Rua:<br />
                                             <input class="input" name="rua" type="text" id="rua"
                                                 maxlength="255" /></label><br />
+                                        <div class="divisoria"></div>
                                         <label>Bairro:<br />
                                             <input class="input" name="bairro" type="text" id="bairro"
                                                 maxlength="255" /></label><br />
+                                        <div class="divisoria"></div>
                                         <label>Cidade:<br />
                                             <input class="input" name="cidade" type="text" id="cidade"
                                                 maxlength="255" /></label><br />
+                                        <div class="divisoria"></div>
                                         <label>Estado:<br />
                                             <input class="input" name="uf" type="text" id="uf"
                                                 maxlength="2" /></label><br />
+                                        <div class="divisoria"></div>
 
                                     </div>
                                 </div>
@@ -228,24 +268,29 @@
 
 
 
-                                    <label for="data">Data Atual: *<br />
-                                        <input class="input" id="data" type="date" name="data" min="2022-12-26"
-                                            max="2023-12-28" required></label><br />
+
 
                                     <label for="historia-vaga">Sobre a Vaga: *<br />
-                                        <textarea class="historia-Vaga input textarea" id="historia-vaga"
-                                            maxlength="500" required></textarea>
-                                    </label><br />
+                                        <textarea class="historia-Vaga input textarea required" id="historia-vaga"
+                                            maxlength="500" oninput="sobreValidate()" required></textarea>
+                                    </label>
+                                    <div>
+                                        <p class="exception" id="--sobre--">O sobre não pode estar vazio</p>
+                                    </div>
 
                                     <label for="cnpj">Cnpj: *<br />
-                                        <input class="input" id="cnpj" type="cnpj" name="cnpj" minlength="14"
-                                            maxlength="14" placeholder="XX. XXX. XXX/0001-XX" required></label><br />
+                                        <input class="input required" id="cnpj" type="cnpj" name="cnpj" minlength="14"
+                                            maxlength="14" placeholder="XX. XXX. XXX/0001-XX" oninput="cnpjValidate()" required></label><br />
+                                    <div>
+                                        <p class="exception" id="--cnpj--">O cnpj não pode estar vazio</p>
+                                    </div>
 
                                     <label for="password">Senha: *<br />
-                                        <input class="input" id="password" type="password" name="password"
-                                            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
-                                            title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
-                                            required></label><br />
+                                        <input class="input required" id="password" type="password" name="password"
+                                            oninput="mainPasswordValidate()" required></label><br />
+                                    <div>
+                                        <p class="exception" id="--senha--">A senha tem que ter mais de 8 caracteres</p>
+                                    </div>
 
                                 </div>
                             </div>
@@ -262,7 +307,7 @@
 
                         </div>
 
-                        
+
 
                         <div class="re-vaga">
 
@@ -279,25 +324,26 @@
                                     <script> // MASK
                                         $('#cep').mask('00000-000')
                                         $('#cnpj').mask('00.000.000/0000-00')
-                                        $('#salario').mask("R$: #.##0,00");
+                                        $('#salario').mask("R$: ######", {reverse: false});
+
+
                                     </script>
 
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
-                
+
             </form>
 
 
             <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js" defer></script>
             <script src="/-Detalhe-css-img-/js/cadastro/vagasCadastro.js" defer></script>
         </div>
-        
+
     </div>
-    <div class="void"></div>
 
 </body>
 

@@ -84,6 +84,7 @@ input[type='file'] {
 .content {
     display: flex;
 }
+
 .content-vaga {
     display: flex;
 }
@@ -228,7 +229,6 @@ textarea:focus {
 
 .input-box-vaga input {
     font-size: 15px;
-    margin: 5px;
     padding-left: 5px;
     background-color: rgba(214, 214, 214, 0.575);
     width: 210px;
@@ -237,9 +237,10 @@ textarea:focus {
     border: 1px solid rgba(128, 128, 128, 0.089);
 }
 
-.vagaInput input, .select, .textarea {
+.vagaInput input,
+.select,
+.textarea {
     width: 210px;
-    margin: 5px;
 }
 
 .void {
@@ -259,6 +260,23 @@ textarea:focus {
     font-size: 10.5px;
     padding-left: 8px;
     color: rgb(218, 21, 21);
+}
+
+#--cep {
+    height: 13px;
+    font-size: 10.5px;
+    width: auto;
+    color: rgb(218, 21, 21);
+}
+
+.label-cep {
+    display: flex;
+    align-items: flex-end;
+}
+
+#--cep {
+    padding-left: 5px;
+    padding-top: 4px;
 }
 
 
@@ -392,6 +410,7 @@ textarea:focus {
         border-bottom: 1px solid rgb(214, 214, 214);
         display: inline;
     }
+
     .titl {
         display: inline-block;
         width: 100%;
@@ -474,4 +493,3 @@ textarea:focus {
 }
 
 /*==========CADASTRO VAGA RESPONSIVIDADE==========*/
-

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/cadastros/cadastro-novo/css/CadastroStyle.css">
 
-    
+
     <script type="text/javascript" src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js">
         //https://igorescobar.github.io/jQuery-Mask-Plugin/docs.html#callback-examples
@@ -21,7 +21,7 @@
 
     <div class="container">
         <div class="container-form">
-            <form action="" method="get">
+            <form id="formUsuario" action="" method="get">
 
                 <div class="up-info">
                     <div class="intoducao">
@@ -44,7 +44,9 @@
                                 <img for="uploadImg" id="frame" src="/-Detalhe-css-img-/img/vc-usuario.webp" />
                             </div>
                             <input id="uploadImg" type="file" onchange="preview()" accept="image/*">
-                            <label class="label-img" for="uploadImg"><p> Imagem de Perfil </p></label>
+                            <label class="label-img" for="uploadImg">
+                                <p> Imagem de Perfil </p>
+                            </label>
 
                         </div>
                     </div>
@@ -62,64 +64,88 @@
 
                                 <div class="input-box">
                                     <label for="name">Nome: *<br />
-                                        <input id="name" type="text" name="name" required></label><br />
+                                        <input id="name" class="required" type="text" name="name" maxlength="255"
+                                            oninput="nameValidate()"></label><br />
                                     <div>
-                                        <p class="exception" id="--name">Nome deve ter no mínimo 3 caracteres</p>
+                                        <p class="exception" id="--name--">Nome deve ter no mínimo 3 caracteres</p>
                                     </div>
 
                                     <label for="cpf">CPF: *<br />
-                                        <input id="cpf" type="text" name="cpf" placeholder="XXX.XXX.XXX-XX" size="11"
-                                            maxlength="11" required></label><br />
+                                        <input id="cpf" class="required" type="text" name="cpf"
+                                            placeholder="XXX.XXX.XXX-XX" size="11" maxlength="11"
+                                            oninput="cpfValidate()" required></label><br />
                                     <div id="--cpf">
-                                        <p class="exception">O CPF não pode estar vazio</p>
+                                        <p class="exception" id="--cpf--">O CPF não pode estar vazio</p>
                                     </div>
 
                                     <label for="escolaridade">Escolaridade: *<br />
                                         <select class="escolaridadeUsuario" id="escolaridade" name="types">
-                                            <option value="Médio Completo" class="listrado" selected>Médio Completo
+                                            
+                                            <option class="listrado" disabled>---------- ↓ Incompleto ↓ ----------</option>
+                                            <option value="Médio Incompleto" class="listrado">Médio Incompleto</option>
+                                            <option value="Superior (Graduação) Incompleto">Superior (Graduação) Incompleto</option>
+                                            <option value="Pós-graduação Incompleto" class="listrado">Pós-graduação Incompleto</option>
+                                            <option value="Mestrado Incompleto">Mestrado incompleto</option>
+                                            <option value="Doutorado Incompleto" class="listrado">Doutorado Incompleto</option>
+                                            <option class="listrado" disabled>---------- ↓ Cursando ↓ ----------</option>
+
+                                            <option value="Cursando Médio">Médio Cursando</option>
+                                            <option value="Cursando Superior (Graduação)" class="listrado">Superior (Graduação) Cursando</option>
+                                            <option value="Cursando Pós-graduação">Pós-graduação Cursando</option>
+                                            <option value="Cursando Mestrado" class="listrado">Mestrado Cursando</option>
+                                            <option value="Cursando Doutorado">Doutorado Cursando</option>
+                                            <option class="listrado" disabled>---------- ↓ Completo ↓ ----------</option>
+
+                                            <option value="Médio Completo" class="listrado" selected>Médio Completo</option>
+                                            <option value="Superior (Graduação) Completo">Superior (Graduação) Completo</option>
+                                            <option value="Pós-graduação Completo" class="listrado">Pós-graduação Completo</option>
+                                            <option value="Mestrado Completo">Mestrado Completo</option>
+                                            <option value="Doutorado Completo" class="listrado">Doutorado Completo</option>
+                                            
+
+                                            <!-- <option value="Médio Completo" class="listrado" selected>Médio Completo
                                             </option>
                                             <option value="Cursando Médio">Cursando Médio</option>
                                             <option value="Médio Incompleto" class="listrado">Médio Incompleto</option>
-
+                                            <option class="listrado" disabled>----------------------------------------</option>
                                             <option value="Superior (Graduação) Completo">Superior (Graduação) Completo
                                             </option>
                                             <option value="Cursando Superior (Graduação)" class="listrado">Cursando
                                                 Superior (Graduação)</option>
                                             <option value="Superior (Graduação) Incompleto">Superior (Graduação)
                                                 Incompleto</option>
-
+                                                <option class="listrado" disabled>----------------------------------------</option>
                                             <option value="Pós-graduação Completo" class="listrado">Pós-graduação
                                                 Completo</option>
                                             <option value="Cursando Pós-graduação">Cursando Pós-graduação</option>
                                             <option value="Pós-graduação Incompleto" class="listrado">Pós-graduação
                                                 Incompleto</option>
-
+                                                <option class="listrado" disabled>----------------------------------------</option>
                                             <option value="Mestrado Completo">Mestrado Completo</option>
                                             <option value="Cursando Mestrado" class="listrado">Cursando Mestrado
                                             </option>
                                             <option value="Mestrado Incompleto">Mestrado incompleto</option>
-
+                                            <option class="listrado" disabled>----------------------------------------</option>
                                             <option value="Doutorado Completo" class="listrado">Doutorado Completo
                                             </option>
                                             <option value="Cursando Doutorado">Cursando Doutorado</option>
                                             <option value="Doutorado Incompleto" class="listrado">Doutorado Incompleto
-                                            </option>
+                                            </option> -->
                                         </select></label><br />
                                     <div class="divisoria"></div>
 
                                     <label for="data">Data de Nascimento: *<br />
-                                        <input id="data" type="text" name="data" placeholder="DD/MM/AAAA"
-                                            required></label><br />
+                                        <input class="required" type="text" name="data" id="data" oninput="dateValidate()"></label><br />
                                     <div id="--data">
-                                        <p class="exception">A data não pode estar vazio</p>
+                                        <p class="exception" id="--data--">A data não pode estar vazio</p>
                                     </div>
 
                                     <label for="sobre">Sobre Mim: *<br />
-                                        <textarea class="historiaUsuario" id="sobre" maxlength="500"
-                                            required></textarea>
+                                        <textarea class="historiaUsuario required" id="historiaUsuario" maxlength="500"
+                                            oninput="sobreValidate()" required></textarea>
                                     </label><br />
                                     <div id="--sobre">
-                                        <p class="exception">O sobre não pode estar vazio</p>
+                                        <p class="exception" id="--sobre--">O sobre não pode estar vazio</p>
                                     </div>
 
 
@@ -136,12 +162,12 @@
                                 <div class="input-box">
 
 
-                                    <label>Cep: *<br />
-                                        <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
-                                            placeholder="XXXXX-XXX" onblur="pesquisacep(this.value);"
-                                            required /></label><br />
-                                    <div id="--cep">
-                                        <p class="exception">O CEP não pode estar vazio</p>
+                                    <label class="label-cep">Cep: * <p id="--cep"></p></label>
+                                    <input name="cep" class="required" type="text" id="cep" value=""
+                                        placeholder="XXXXX-XXX" maxlength="9" onblur="pesquisacep(this.value);"
+                                        oninput="cepValidate()" /><br />
+                                    <div>
+                                        <p class="exception" id="--cep--">O CEP não pode estar vazio</p>
                                     </div>
 
                                     <div class="input-address" class="tiny button" id="input-address">
@@ -182,27 +208,27 @@
 
 
                                     <label for="email">E-mail: *<br />
-                                        <input id="email" type="email" name="email" placeholder=""
-                                            required></label><br />
+                                        <input id="email" class="required" type="email" name="email" placeholder=""
+                                            oninput="emailValidate()" required></label><br />
                                     <div id="--email">
-                                        <p class="exception">Digite um email válido</p>
+                                        <p class="exception" id="--email--">Digite um email válido</p>
                                     </div>
 
 
                                     <label for="password">Senha: *<br />
                                         <input id="password" class="required" type="password" name="password"
-                                            ><!--oninput="mainPasswordValidate()"--><br />
+                                            oninput="mainPasswordValidate()"><br />
                                         <div id="--senha">
-                                            <p class="exception">A senha tem que ter mais de 8 caracteres</p>
+                                            <p class="exception" id="--senha--">A senha tem que ter mais de 8 caracteres</p>
                                         </div>
 
 
                                         <label for="confirmPassword">Confirme sua Senha: *<br />
                                             <input id="confirmPassword" class="required" type="password"
-                                                name="confirmPassword" >
-                                                <!--oninput="comparePassword()"--><br />
+                                                name="confirmPassword" oninput="comparePassword()">
+                                            <br />
                                             <div id="--comfirmsenha">
-                                                <p class="exception">Senahs devem ser compativeis</p>
+                                                <p class="exception" id="--confirmSenha--">Senhas devem ser compativeis</p>
                                             </div>
 
 
