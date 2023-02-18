@@ -18,10 +18,10 @@
     border-radius: 10px;
     margin-left: auto;
     margin-right: auto;
-    max-width:600px;
-    max-height:398px;
-    min-width:100px;
-    min-height:200px;
+    max-width: 600px;
+    max-height: 398px;
+    min-width: 100px;
+    min-height: 200px;
 }
 
 .body-perfil {
@@ -33,6 +33,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 .body-down {
     display: flex;
     height: auto;
@@ -42,27 +43,33 @@
     line-height: 1.5;
     padding: 20px;
 }
+
 .update {
     width: 30%;
     padding: 10px;
     line-height: 2.5;
 }
+
 .opcoes {
     border-bottom: 2px solid rgba(0, 0, 0, 0.445);
     width: 150px;
 }
+
 .opcoes:hover {
     border-bottom: 2px solid #3c87ff;
     transition: all 0.3s ease 0.2s;
 }
+
 .historia {
     border-left: 1px dashed;
     width: 70%;
     padding: 10px;
 }
+
 .perfil-candidato img {
     width: 25px;
 }
+
 .nome-empresa {
     font-size: 30px;
     font-style: italic;
@@ -70,6 +77,7 @@
     margin-top: 20px;
     height: auto;
 }
+
 .inf-cadastrada {
     padding-top: 10px;
     padding-left: 50px;
@@ -78,6 +86,7 @@
     margin: 20px;
     margin-top: 0px;
 }
+
 .informacao {
     font-size: 19px;
     border: 1px solid rgb(226, 226, 226);
@@ -85,31 +94,436 @@
     padding-left: 10px;
     padding-right: 0px;
 }
+
 .inf-ti {
     font-size: 25px;
     margin: 20px;
     margin-top: 0px;
-    
+
 }
+
 .conjunt {
     padding: 20px;
 }
+
 .espaco {
     margin-left: 0px;
     line-height: 25px;
     padding-top: 10px;
-    
+
 }
+
 .espaco-inf {
     border-top: 2px solid rgb(226, 226, 226);
     padding-left: 60px;
 }
+
 .endereco {
     padding: 0px;
     padding-top: 10px;
 }
+
 .endereco-title {
     padding-left: 20px;
+}
+
+
+/*Novo Perfil Empresa*/
+
+.parte-branca {
+    position: static;
+    display: grid;
+    width: 100%;
+    height: 70px;
+    margin-top: 0px;
+    background-color: rgb(246, 246, 246);
+}
+
+.nav-lateral {
+    top: 70px;
+    width: 190px;
+    height: 100%;
+    left: -350px;
+    position: fixed;
+    transition: all .5s;
+}
+
+.perfilEmpresa {
+    width: 100%;
+    height: auto;
+
+}
+
+.estatisticas {
+    display: flex;
+    /* 
+    border: 1px solid red; */
+}
+
+.qtda-estatistica {
+    background-color: rgb(246, 246, 246);
+    border-radius: 10px;
+    display: block;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    width: 33.33%;
+    height: auto;
+}
+
+.ti {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    height: 40%;
+}
+
+.qtda-num {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    padding: 10px;
+    height: 60%;
+}
+
+.sobre-empresa-perfil {
+    padding: 10px;
+    display: flex;
+    background-color: rgb(246, 246, 246);
+    border-radius: 10px;
+    margin: 10px;
+    width: 60%;
+    height: auto;
+}
+
+.first-empresa-sobre {
+    line-height: 2rem;
+    min-width: 50%;
+    display: inline;
+}
+
+.second-empresa-sobre {
+    line-height: 2rem;
+    min-width: 50%;
+    display: inline;
+}
+
+.sobre-exp {
+    font-size: 15px;
+    line-height: 1.3rem;
+}
+
+
+.dropdonw-img-config img {
+    position: relative;
+    max-width: 3rem;
+    border-radius: 50%;
+}
+
+.img-perfil-empresa {
+    position: relative;
+}
+
+.dropdonw-img-config {
+    min-width: 8rem;
+    position: absolute;
+    top: -25px;
+}
+
+.botao {
+    padding: 0px;
+    margin: 0px;
+    width: 0px;
+}
+
+.sobre-exp {
+    font-size: 14px;
+}
+
+.dropdonw-img-config .submenu-hover,
+.submenu {
+    position: relative;
+    display: none;
+}
+
+.dropdonw-img-config:hover .submenu-hover,
+.submenu {
+    display: block;
+}
+
+.submenu:last-child {
+    border-top: 1px solid rgb(180, 180, 180);
+    color: red;
+}
+
+.submenu:nth-child(1):hover {
+    background-color: rgb(196, 196, 196);
+    border-radius: 10px;
+}
+
+.submenu:nth-child(2):hover {
+    background-color: rgb(196, 196, 196);
+    border-radius: 10px;
+}
+
+.submenu:last-child:hover {
+    border-top: 1px solid rgb(180, 180, 180);
+    border-radius: 10px;
+    background-color: rgb(196, 196, 196);
+}
+
+.submenu {
+    margin: 2px;
+}
+
+.submenu-hover {
+    background-color: rgb(224, 224, 224);
+    border-radius: 10px;
+    line-height: 1.5rem;
+    width: 100%;
+    padding: 5px;
+}
+
+.tituloCa,
+.cima {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.cima {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nova-vaga button {
+    padding: 5px 10px;
+    background-color: #116dff;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0.1s;
+}
+
+.nova-vaga button:hover {
+    background-color: #3c87ff;
+}
+
+/* ===== */
+.vagas-e-candidatos {
+    display: flex;
+
+}
+
+.VeC {
+    background-color: rgb(246, 246, 246);
+    padding-bottom: 20px;
+    width: 50%;
+    height: auto;
+    /* exemplo height  ttem q ser auto */
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.mostrar-mais {
+    margin: 10px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    color: #004fce;
+}
+
+.mostrar-mais a {
+    font-size: 15px;
+    color: #004fce;
+}
+
+.mostrar-mais a:hover {
+    transform: scale(1.05);
+}
+
+.minhas-vagas {
+    justify-content: center;
+}
+
+.crud-vags-cadastradas-a-mostrar {
+    display: flex;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+    width: 90%;
+    height: auto;
+}
+
+.crud-usuarios-candidatados-a-mostrar {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: rgb(230, 230, 230);
+    width: 90%;
+    height: auto;
+}
+
+
+.crud-vagas {
+    display: grid;
+}
+
+.crud-vagas-1-5 {
+    display: flex;
+}
+
+.edit-1 {
+    border-radius: 5px;
+    background-color: rgb(230, 230, 230);
+    opacity: 0;
+}
+
+.delet-1 {
+    border-radius: 5px;
+    background-color: rgb(230, 230, 230);
+    opacity: 0;
+}
+
+.butt-exxx button {
+    cursor: default;
+}
+
+.butt-ex {
+    width: 20%;
+}
+
+.id-vaga-to-delet-or-edit {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    height: 50px;
+    width: 8%;
+}
+
+.first-size {
+    font-size: 17px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.content-vagas {
+    font-size: 15px;
+}
+
+
+.link {
+    width: 65%;
+    height: 50px;
+}
+
+.link .content-vagas {
+    display: flex;
+    width: 100%;
+    height: 50px;
+}
+
+.content-vagas:first-child {
+    border-right: 1px solid rgb(204, 204, 204);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-vagas:nth-child(2) {
+    border-right: 1px solid rgb(204, 204, 204);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.content-vagas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.butt {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.butt button {
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    border: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.edit {
+    border-radius: 5px;
+    background-color: rgb(0, 214, 0);
+}
+
+.delet {
+    border-radius: 5px;
+    background-color: rgb(250, 18, 18);
+}
+
+.edit:hover {
+    background-color: rgb(0, 233, 0);
+}
+
+.delet:hover {
+    background-color: red;
+}
+
+/*Final Novo Perfil Empresa*/
+
+.qtda-estat {
+    display: flex;
+    width: 100%;
+    border: 1px solid red;
+    
+}
+
+
+@media (max-width: 1100px) {
+    .vagas-e-candidatos {
+        display: block;
+    }
+
+    .VeC {
+        background-color: rgb(246, 246, 246);
+        width: 100%;
+        height: auto;
+        /* exemplo height  ttem q ser auto */
+        margin: 0px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
+
+
 }
 
 @media (max-width: 1000px) {
@@ -118,22 +532,28 @@
         width: 90%;
     }
 
+
 }
+
 @media (max-width: 970px) {
     .img img {
         width: 300px;
     }
+
     .body-down {
         display: block;
     }
+
     .update {
         display: flex;
         width: 100%;
         height: auto;
     }
+
     .view {
         width: 100%;
     }
+
     .historia {
         border-left: 0px dashed;
         width: 100%;
@@ -144,6 +564,7 @@
         border: 1px solid rgb(226, 226, 226);
         padding-left: 10px;
     }
+
     .espaco-inf {
         border-top: 2px solid rgb(226, 226, 226);
         padding-left: 60px;
@@ -153,37 +574,63 @@
         padding: 0px;
         padding-top: 10px;
     }
-    
+
 }
 
+@media (min-width: 840px) {
+    .qtda-estat {
+        display: flex;
+        width: 50%;
+        
+    }
+    
+}
+@media (max-width: 840px) {
+    .estatisticas {
+        display: grid;
+    }
+    .sobre-empresa-perfil {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}
 
 
 @media (max-width: 600px) {
     .conjunt {
         padding: 0px;
     }
+
     .inf-cadastrada {
         padding-left: 0px;
         padding-right: 0px;
     }
+
     .nome-empresa {
         font-size: 20px;
     }
+
     .espaco-inf {
         border-top: 2px solid rgb(226, 226, 226);
         padding-left: 20px;
     }
+
     .endereco-title {
         padding-left: 10px;
     }
+
     .update {
         display: block;
         width: 100%;
         height: auto;
     }
+
     .update a {
         font-size: 15px;
     }
+
     .update img {
         display: none;
     }
@@ -203,6 +650,7 @@
     }
 
 }
+
 @media (max-width: 400px) {
     .img img {
         width: 180px;

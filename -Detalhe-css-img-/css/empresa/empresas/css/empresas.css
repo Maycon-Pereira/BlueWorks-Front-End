@@ -8,6 +8,9 @@ body{
     background-color: #fff;
     width: 100%;
 }
+.empresas-nav {
+    color: #116dff;
+}
 .empresas-title h1{
     font-size: 50px;
     text-align: center;

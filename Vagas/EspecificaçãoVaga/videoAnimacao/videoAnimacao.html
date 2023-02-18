@@ -12,6 +12,10 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/footer.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/menuLateral/css/menuLateral.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/vaga/css/especificacao.css">
+
+    <script src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
+    <script src="/-Detalhe-css-img-/js/vaga/vaga.js"></script>
+    
     <title>Vídeo e Animação</title>
 
 </head>
@@ -47,7 +51,7 @@
                     </nav>
                 </div>
                 <!--Fim Barra Lateral-->
-                    
+
                 <div class="fixo">
                     <div class="ator">
 
@@ -59,10 +63,12 @@
                                 </a>
                             </div>
                             <ul class="ator-ul">
-                                <li><a href="/Cadastros/Usuario/CadastroUsuario.html"><span class="span-cad">Usuario</span><img class="login-usuario"
+                                <li><a href="/Cadastros/Usuario/CadastroUsuario.html"><span
+                                            class="span-cad">Usuario</span><img class="login-usuario"
                                             src="/-Detalhe-css-img-/img/usuarioSemFundo.png" alt=""></a></li>
-                                <li class="emp"><a href="/Cadastros/Empresa/CadastroEmpresa.html"><span class="span-cad">Empresa</span><img
-                                            class="login-empresa" src="/-Detalhe-css-img-/img/empresaSemFundo.png" alt=""></a></li>
+                                <li class="emp"><a href="/Cadastros/Empresa/CadastroEmpresa.html"><span
+                                            class="span-cad">Empresa</span><img class="login-empresa"
+                                            src="/-Detalhe-css-img-/img/empresaSemFundo.png" alt=""></a></li>
                             </ul>
                         </nav>
 
@@ -97,6 +103,9 @@
 
                 </header>
 
+
+
+
                 <div class="parte-branca">
                 </div>
 
@@ -106,31 +115,38 @@
             <section class="body">
 
 
+
                 <div class="especificacao-vaga">
 
+                    <script>
+                        todasVagas(event)
+                    </script>
+
+
+
                     <div class="pesquisa-container top">
-                        
+
                         <div class="funil">
 
                             <!--
-                            <div class="check-time">
-                                <div class="check-input">
-                                    <label for="">check 1</label>
-                                    <input type="checkbox" name="" id="">
-                                    
-                                </div>
-                                <div class="check-input">
-                                    <label for="">check 2</label>
-                                    <input type="checkbox" name="" id="">
-                                    
-                                </div>
-                                <div class="check-input">
-                                    <label for="">check 3</label>
-                                    <input type="checkbox" name="" id="">
-                                    
-                                </div>
-    
-                            </div>-->
+        <div class="check-time">
+            <div class="check-input">
+                <label for="">check 1</label>
+                <input type="checkbox" name="" id="">
+                
+            </div>
+            <div class="check-input">
+                <label for="">check 2</label>
+                <input type="checkbox" name="" id="">
+                
+            </div>
+            <div class="check-input">
+                <label for="">check 3</label>
+                <input type="checkbox" name="" id="">
+                
+            </div>
+
+        </div>-->
 
                             <h1>Pesquisa interativa</h1>
                             <input type="search" class="search" id="pesquisa" oninput="limpar()">
@@ -153,50 +169,14 @@
 
                     </div>
 
+
                     <div class="vagas-container">
                         <div class="title">
                             <h2>Vídeo e Animação</h2>
                         </div>
-
                         <div class="vagas-block">
 
-
-                            <div class="vagas-box">
-                                <a href="/Vagas/EspecificaçãoVaga/videoAnimacao/especificacaoVideoAnimacao/vagaPerfil.html">
-
-                                    <div class="vaga-box">
-                                        <div class="vaga-name">
-                                            <h3>Vídeo e Animação</h3>
-                                            <h4>Confidencial júnior/Trainee</h4>
-                                        </div>
-                                    </div>
-
-                                    <div class="abaixo">
-                                        <div class="descricao">
-                                            <p><span> Empresa de Autopeças, procura Designer Gráfico, responsável pela
-                                                    criação/manutenção
-                                                    do
-                                                    catalogo da empresa, conhecimentos sólidos em Indesign são
-                                                    primordiais...</span></p>
-                                        </div>
-                                        <div class="baixo">
-                                            <div class="local">
-                                                <img src="/-Detalhe-css-img-/img/LOCAL (2).png" alt="">
-                                                <span>Rio de Janeiro / RJ</span>
-                                            </div>
-                                            <div class="data">
-                                                <img src="/-Detalhe-css-img-/img/HORA (2).png" alt="">
-                                                <span>08/09/2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-
-
-
-
+                            <!-- <div class="vagas-box"><a href="/Vagas/EspecificaçãoVaga/todas/especificacaTodas/vagaPerfil.html"><div class="img-vaga-display"><img src="/-Detalhe-css-img-/img/candidatos/Bruno.webp" alt="imagem da vaga"></div><div class="content-vaga-display"><div class="vaga-box"><div class="vaga-name"><h3>' + response[i].nome + '</h3><h4>' + response[i].area + '</h4></div></div><div class="abaixo"><div class="descricao"><p><span>' + response[i].sobre + '</span></p></div><div class="baixo"><div class="local"><img src="/-Detalhe-css-img-/img/LOCAL (2).png" alt=""><span> ' + response[i].cidade + ' / ' + response[i].uf + '</span></div><div class="data"><img src="/-Detalhe-css-img-/img/HORA (2).png" alt=""> ' + response[i].data + ' <span></span></div></div></div></div></a></div> -->
 
 
                         </div>
@@ -204,7 +184,7 @@
                     </div>
 
                     <div class="pesquisa-container direita">
-                        
+
                         <div class="funil">
 
                             <!--
@@ -234,16 +214,36 @@
                             <input type="search" class="search" id="pesquisa" oninput="limpar()">
 
                             <ul class="lista" id="lista">
-                                <a href="#"><li>Ana</li></a>
-                                <a href="#"><li>Mariana</li></a>
-                                <a href="#"><li>Banana</li></a>
-                                <a href="#"><li>Celular</li></a>
-                                <a href="#"><li>Smartphone</li></a>
-                                <a href="#"><li>Dumbphone</li></a>
-                                <a href="#"><li>Tablet</li></a>
-                                <a href="#"><li>Phablet</li></a>
-                                <a href="#"><li>Laptop</li></a>
-                                <a href="#"><li>Top-down</li></a>
+                                <a href="#">
+                                    <li>Ana</li>
+                                </a>
+                                <a href="#">
+                                    <li>Mariana</li>
+                                </a>
+                                <a href="#">
+                                    <li>Banana</li>
+                                </a>
+                                <a href="#">
+                                    <li>Celular</li>
+                                </a>
+                                <a href="#">
+                                    <li>Smartphone</li>
+                                </a>
+                                <a href="#">
+                                    <li>Dumbphone</li>
+                                </a>
+                                <a href="#">
+                                    <li>Tablet</li>
+                                </a>
+                                <a href="#">
+                                    <li>Phablet</li>
+                                </a>
+                                <a href="#">
+                                    <li>Laptop</li>
+                                </a>
+                                <a href="#">
+                                    <li>Top-down</li>
+                                </a>
                             </ul>
 
                             <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -286,8 +286,11 @@
                                 </div>
                                 <div class="redes">
                                     <ul>
-                                        <li><a href="https://www.instagram.com/bluetips_empregabilidade/?next=%2Fbluetips_empregabilidade%2F" target="_blank"><img src="/-Detalhe-css-img-/img/INSTA.png" alt=""></a></li>
-                                        <li><a href="https://discord.gg/YVzwuqs2" target="_blank"><img src="/-Detalhe-css-img-/img/DC.png" alt=""></a></li>
+                                        <li><a href="https://www.instagram.com/bluetips_empregabilidade/?next=%2Fbluetips_empregabilidade%2F"
+                                                target="_blank"><img src="/-Detalhe-css-img-/img/INSTA.png" alt=""></a>
+                                        </li>
+                                        <li><a href="https://discord.gg/YVzwuqs2" target="_blank"><img
+                                                    src="/-Detalhe-css-img-/img/DC.png" alt=""></a></li>
                                     </ul>
                                 </div>
 
@@ -298,7 +301,8 @@
                                     <li><a href="/Login/UsuarioEmpresa.html">Cadastre-se</a></li>
                                     <li><a href="/Cadastros/Empresa/CadastroEmpresa.html">Anuncie Aqui</a></li>
                                     <li><a href="/Documentacao/termos-de-uso/termos-de-uso.html">Termos de uso</a></li>
-                                    <li><a href="/Documentacao/privacidade/privacidade.html">Política de Privacidade</a></li>
+                                    <li><a href="/Documentacao/privacidade/privacidade.html">Política de Privacidade</a>
+                                    </li>
                                     <li><a href="/Ajuda/ajuda.html">Ajuda</a></li>
                                 </ul>
                             </div>

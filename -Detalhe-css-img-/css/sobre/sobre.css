@@ -34,16 +34,26 @@ body {
 
 /*FIM TITLE*/
 .paragrafo {
-    display: flex;
+    display: grid;
     text-align: center;
     padding-bottom: 50px;
-    font-size: 19px;
+    font-size: 20px;
     width: 60%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
     line-height: 2rem;
     margin-top: 50px;
+}
+.paragrafo p:first-child{
+    padding: 20px;
+}
+
+.hover {
+    transition: all 0.3s ease 0.1s;
+}
+.hover:hover {
+    color: #125ed8;
 }
 
 .bolder {

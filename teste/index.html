@@ -1,49 +1,53 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  
-  * {
-    margin: 0px;
-    padding: 0px;
-  }
-  body {
-    background-color: #082032;
-  }
-  input[ type="date"] {
-    width: 200px;
-    height: 30px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background: orange;
-    background-size: 30px;
-    background-repeat: no-repeat;
-    background-position: 90%;
-    padding: 5px;
-    font-size: 18px;
-    font-weight: 999;
-    border: none;
-    outline: none;
-  }
-  input:focus {
-    border: 5px solid #334756;
-  }
-  input[ type="date"]
-  ::-webkit-calendar-picker-indicator {
-    opacity: 0;
-  }
-  input[ type="date"]
-  ::-webkit-calendar-picker-indicator:hover {
-    color: red;
-  }
-</style>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="/-Detalhe-css-img-/teste/js/index.js"></script>
+    <title>Chat em tempo real</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      #messages {
+        height: 300px;
+        overflow-y: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="messages"></div>
+    <form id="message-form">
+      <input type="text" id="message-input" />
+      <button type="submit">Enviar</button>
+    </form>
 
-<body>
+    <script>
+      const socket = new WebSocket('ws://localhost:8080');
 
-  <input type="date" name="" id="">
+      socket.addEventListener('open', (event) => {
+        console.log('WebSocket connected');
+      });
 
-</body>
+      socket.addEventListener('message', (event) => {
+        const messages = document.getElementById('messages');
+        const message = document.createElement('div');
+        message.innerText = event.data;
+        messages.appendChild(message);
+      });
 
+      const messageForm = document.getElementById('message-form');
+      const messageInput = document.getElementById('message-input');
+
+      messageForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const message = messageInput.value;
+        socket.send(message);
+
+        messageInput.value = '';
+      });
+    </script>
+  </body>
 </html>
