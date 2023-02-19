@@ -110,7 +110,7 @@ function AdminPerfilUsuarios() {
 
       for (var i = 0; i < response.length; i++) {
 
-        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit"> Accept </button><button class="delet"> Delete</button></div> </div></div></div></div> ');
+        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit"> Accept </button><button class="delet"> Reject </button></div> </div></div></div></div> ');
       }
       var qtda_usu = [i + 1]
       var totalUsus = qtda_usu[qtda_usu.length - 1]
@@ -133,19 +133,18 @@ function AdminPerfilUsuarios() {
 
 
 window.onload = function () {
-  // Localiza o botão "Excluir vaga" e adiciona um listener de evento de clique a ele
+
   var deleteButton = document.getElementById('deleteVaga');
   if (deleteButton) {
     deleteButton.addEventListener('click', function () {
-      // Quando o botão é clicado, chama a função deleteVaga com o ID da vaga a ser excluída
-      var VagaId = 2; // Aqui você pode substituir 8 pelo ID da vaga a ser excluída
+
+      var VagaId = 2;
       deleteVaga(VagaId);
 
+
+
+
       function deleteVaga() {
-        // Faz uma solicitação AJAX para excluir a vaga com o ID especificado
-
-
-
 
         $.ajax({
           url: 'http://localhost:8080/vagas/' + VagaId,
@@ -154,7 +153,7 @@ window.onload = function () {
           contentType: "application/json",
           dataType: "json",
           success: function (response) {
-            // Se a solicitação for bem-sucedida, exibe uma mensagem de sucesso
+
             for (var i = 0; i < response.length; i++) {
 
               /* var idDelete = response[i].id
@@ -167,7 +166,7 @@ window.onload = function () {
             console.log("Vaga excluída com sucesso!");
           },
           error: function (xhr, status) {
-            // Se a solicitação falhar, exibe uma mensagem de erro e registra o erro no console
+
             console.log("Ocorreu um erro ao excluir a vaga.");
             console.log(xhr);
             console.log(status);
