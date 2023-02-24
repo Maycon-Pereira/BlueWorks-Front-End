@@ -73,6 +73,9 @@ body{
     word-break: break-word;
     /*---------------*/
 }
+.id-perto-nome-opacity {
+    display: none;
+}
 
 @media (max-width: 580px) {
     

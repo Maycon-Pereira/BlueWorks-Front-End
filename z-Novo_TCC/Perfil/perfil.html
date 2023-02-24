@@ -13,21 +13,20 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/footer.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/empresa/css/perfilEmpresa.css">
 
-
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
 
     <title>Perfil - Empresa</title>
-    <script src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
+    <script src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script><!-- 
+    <script src="/-Detalhe-css-img-/js/cadastro/atualizar/atualizarVaga.js" defer></script> -->
     <script src="/-Detalhe-css-img-/js/empresas/empresas.js"></script>
+
 </head>
 
-<body>
-
+<body class="oficial-body">
 
     <div class="responsBarMenu">
-
 
         <div class="barraLateral">
             <!--Barra Lateral-->
@@ -43,7 +42,7 @@
                 </ul>
 
                 <ul class="lateral" id="bottom">
-                    <li><a href="/Usuario/Perfil-Usuario/elizabethBryan.html" class="bottom-li">Perfil</a></li>
+                    <li><a href="/z-Novo_TCC/Perfil/perfil.html" class="bottom-li">Perfil</a></li>
                     <li><a href="/Ajuda/ajuda.html" class="bottom-li">Ajuda</a></li>
                     <li><a href="#" class="bottom-li" id="sair">Sair</a></li>
                 </ul>
@@ -76,6 +75,18 @@
 
             <nav class="botao">
                 <!-- <div class="img-perfil-empresa"><div class="dropdonw-img-config"><img class="img-empresa-perfil" src="/-Detalhe-css-img-/img/candidatos/Bruno.webp" alt=""><div class="submenu-hover"><a class="submenu" href="">Editar Perfil</a><a class="submenu" href="">Sair</a></div></div></div> -->
+                <!-- <div class="img-perfil-empresa">
+                    <div class="dropdonw-img-config"><img class="img"
+                            src="data:image/png;base64,' + response[i].fotoBase64 + '" />
+                        <div class="submenu-hover">
+                            <div class="id-display-none">' + response[i].id + '</div><a class="submenu"
+                                id="editar-perfil-empresa" onclick="AtualizarSobre(this)">Editar Perfil</a><a
+                                class="submenu" href="">Sair</a>
+                        </div>
+                    </div>
+                </div> -->
+
+
             </nav>
 
 
@@ -89,25 +100,22 @@
     </section>
     <!--Final Header-->
 
-
-
-
     <section>
 
         <script>
             AdminPerfilImagem()
-            AdminPerfilSobre()
+            AdminPerfilSobre(4)
             AdminPerfilVagas()
             AdminPerfilUsuarios()
-            /* deleteVaga() */
         </script>
 
         <div class="body">
 
             <div class="perfilEmpresa">
-                <div class="estatisticas">
+                <div class="estatisticas" id="estatisticasPerfil">
 
-                    <!-- <div class="sobre-empresa-perfil"><div class="first-empresa-sobre"><h4>' + response[i].nome + '</h4><div class="sobre-exp">Porte: ' + response[i].porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response[i].email + '</div><div class="sobre-exp">Cnpj: ' + response[i].cnpj + '</div><div class="sobre-exp">Cep: ' + response[i].cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num"> 0 </div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num"></div></div></div> -->
+                    <!-- <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div">' + response[i].id + '</div><h4>' + response[i].nome + '</h4><div class="sobre-exp">Porte: ' + response[i].porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response[i].email + '</div><div class="sobre-exp">Cnpj: ' + response[i].cnpj + '</div><div class="sobre-exp">Cep: ' + response[i].cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num"> 0 </div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num"></div></div></div> -->
+
 
                 </div>
 
@@ -119,11 +127,9 @@
                     <div class="cima">
                         <h3 class="tituloCa">Vagas Cadastradas:</h3>
                         <div class="nova-vaga"><button class="button-new-vaga"> <a
-                                    href="/z-Novo_TCC/cadastro/CadastroVaga.html" target="_blank"
-                                    rel="noopener noreferrer"> Nova Vaga </a></button></div>
+                                    href="/z-Novo_TCC/cadastro/CadastroVaga.html" rel="noopener noreferrer"> Nova Vaga
+                                </a></button></div>
                     </div>
-
-
 
                     <div class="crud-vagas-ex">
                         <div class="crud-vagas-1-5">
@@ -149,9 +155,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
 
                     <!--  -->
                     <div class="crud-vagas">
@@ -199,6 +202,8 @@
                     <div class="crud-usuario">
 
 
+
+
                     </div>
                     <!--  -->
 
@@ -211,6 +216,28 @@
 
 
     </section>
+
+
+    <div class="body-modal">
+
+        <div id="fade" class="hide"></div>
+        <div id="modal" class="hide">
+            <div class="modal-header">
+                <h2>Realmente deseja <span class="exc-Modal">excluir</span> esta vaga?</h2>
+
+                <button class="modal-button botao-x" id="close-modal"></button>
+
+            </div>
+            <div class="modal-body">
+                <button class="cancel-modal modal-button" id="confirm-modal"
+                    onclick="cancelCandidatura()">Excluir</button>
+
+            </div>
+
+
+        </div>
+    </div>
+
 
     <!-- <section>
         <footer>

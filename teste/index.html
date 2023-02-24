@@ -1,53 +1,37 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <script src="/-Detalhe-css-img-/teste/js/index.js"></script>
-    <title>Chat em tempo real</title>
-    <style>
-      body {
-        font-family: sans-serif;
-        margin: 0;
-        padding: 0;
-      }
-      #messages {
-        height: 300px;
-        overflow-y: scroll;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="messages"></div>
-    <form id="message-form">
-      <input type="text" id="message-input" />
-      <button type="submit">Enviar</button>
-    </form>
-
-    <script>
-      const socket = new WebSocket('ws://localhost:8080');
-
-      socket.addEventListener('open', (event) => {
-        console.log('WebSocket connected');
-      });
-
-      socket.addEventListener('message', (event) => {
-        const messages = document.getElementById('messages');
-        const message = document.createElement('div');
-        message.innerText = event.data;
-        messages.appendChild(message);
-      });
-
-      const messageForm = document.getElementById('message-form');
-      const messageInput = document.getElementById('message-input');
-
-      messageForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        const message = messageInput.value;
-        socket.send(message);
-
-        messageInput.value = '';
-      });
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="form-perfil" method="post" action="/atualizar-perfil">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nomi" value="" />
+  
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" id="email" value="" />
+  
+    <label for="endereco">Endereço:</label>
+    <input type="text" name="endereco" id="endereco" value="" />
+  
+    <button type="submit">Atualizar perfil</button>
+  </form>
+  
+  <script>
+    // Obtenha uma referência para o formulário
+    const form = document.querySelector('#form-perfil');
+  
+    // Defina os valores para cada campo do formulário
+    form.nome.value = "João Silva";
+    form.email.value = "joao.silva@example.com";
+    form.endereco.value = "Rua da Praia, 123";
+  
+    // Envie o formulário
+    //form.submit();
+  </script>
+  
+</body>
 </html>

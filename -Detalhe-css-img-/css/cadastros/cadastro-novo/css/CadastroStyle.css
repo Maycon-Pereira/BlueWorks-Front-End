@@ -27,6 +27,23 @@
     height: auto;
 }
 
+.botao-seta-esquerda {
+    background-color: transparent;
+    font-size: 18px;
+    border: none;
+    position: absolute;
+}
+.botao-seta-esquerda a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+.botao-seta-esquerda a:hover {
+    text-decoration: none;
+    color: #085adf;
+    transition: 0.3s;
+}
+
 .intoducao {
     width: 70%;
     padding: 35px;
@@ -279,6 +296,7 @@ textarea:focus {
     padding-top: 4px;
 }
 
+.volt {}
 
 /*----------Cadastro responsividade------------*/
 

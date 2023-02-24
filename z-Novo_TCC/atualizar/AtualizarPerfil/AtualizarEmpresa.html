@@ -14,7 +14,6 @@
     </script>
 
     <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
-    <script src="/-Detalhe-css-img-/js/cadastro/empresaCadastro.js"></script>
     <title>Atualizar Perfil</title>
 </head>
 
@@ -24,6 +23,7 @@
         <div class="container-form">
             <form id="formEmpresa" action="">
 
+                <button class="botao-seta-esquerda"><a href="/z-Novo_TCC/Perfil/perfil.html">🡸 Voltar</a></button>
                 <div class="up-info">
                     <div class="intoducao">
                         <div class="title">
@@ -189,12 +189,12 @@
                                     title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."
                                     -->
 
-                                    <label for="confirmPassword">Confirme sua Senha: *</label><br />
+                                    <!-- <label for="confirmPassword">Confirme sua Senha: *</label><br />
                                     <input id="confirmPassword" class="required" type="password" name="confirmPassword"
                                         oninput="comparePassword()"><br />
                                     <div id="--confirmsenha">
                                         <p class="exception" id="--confirmSenha--">Senhas devem ser compativeis</p>
-                                    </div>
+                                    </div> -->
                                     <!--
                                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
                                     title="A confirmação de senha deve ser exatamente igual a senha colocada acima."
@@ -222,8 +222,8 @@
                     <div class="buttons">
                         <div class="botoes">
                             <input class="button" id="reset" type="reset" value="Limpar" />
-                            <input class="button" id="cadastro" type="submit" value="Cadastrar"
-                                onclick="empresaCad(event)" /><!--onclick="empresaCad(event)"-->
+                            <input class="button" id="atualizarEmpresa" type="submit" value="Atualizar"
+                                onclick="AtualizarSobre()" /><!--onclick="empresaCad(event)"-->
 
                         </div>
 
@@ -236,7 +236,8 @@
 
 
             <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js"></script>
-            <script src="/-Detalhe-css-img-/js/cadastro/empresaCadastro.js"></script>
+            <script src="/-Detalhe-css-img-/js/cadastro/atualizar/atualizarEmpresa.js"></script>
+            <script src="/-Detalhe-css-img-/js/empresas/empresas.js"></script>
         </div>
     </div>
 

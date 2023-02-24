@@ -157,26 +157,29 @@ function vagasCad(event) {
     event.preventDefault();
     //var x = $( "form" ).serialize();
 
-        const date = new Date();
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();/* 
-        console.log(" -- " +day+"/"+month+"/"+year +" -- ") */
-    
+    var date = new Date();
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
 
+    if (month <= 9) {
+        month = '0' + month;
+    }
+
+    //alert(" -- " + day + "/" + month + "/" + year + " -- ");
 
     var name = $("#name").val();
     var tipo = $("#type").val();
     var qtda = $("#qtda").val();
-    var data = day+"/"+month+"/"+year;
+    var data = day + "/" + month + "/" + year;
     var salario = $("#salario").val();
 
     /* restirar a mascara de salario */
     salario = salario.replace("R", "")
     salario = salario.replace("$", "")
     salario = salario.replace(" ", "")
-    salario = salario.replace(":", "")    
-    
+    salario = salario.replace(":", "")
+
     var escolaridade = $("#escolaridadeVaga").val();
     var area = $("#area").val();
     var exigencia = $("#exigencia").val();
@@ -247,6 +250,7 @@ function vagasCad(event) {
             console.log(response);
             console.log("3")
             uploadImagem(response.id, event); console.log("4")
+            location.href = "/z-Novo_TCC/Perfil/perfil.html";
         },
         error: function (xhr, status) {
             console.log("5")
