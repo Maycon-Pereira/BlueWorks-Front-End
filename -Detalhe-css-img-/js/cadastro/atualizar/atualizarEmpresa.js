@@ -1,33 +1,36 @@
 //variaveis
-const form = document.getElementById("formEmpresa");
-const campos = document.querySelectorAll(".required");
-const spans = document.querySelectorAll(".exception");
-const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$/;
+const formEmpres = document.getElementById("formEmpresa");
+const camposEmpres = document.querySelectorAll(".required");
+const spansEmpres = document.querySelectorAll(".exception");
+const emailRegexEmpres = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$/;
 
 
-const nomeInput = document.querySelector("#name")
-const cnpjInput = document.getElementById('cnpj')
-const porteSelect = document.getElementById('porte')
-const historiaTextarea = document.getElementById('historia')
+const nomeInputEmpres = document.querySelector("#name")
+const cnpjInputEmpres = document.getElementById('cnpj')
+const porteSelectEmpres = document.getElementById('porte')
+const historiaTextareaEmpres = document.getElementById('historia')
 
-const cepInput = document.getElementById('cep')
-const cepComplemento = document.querySelector('.cep-complemento')
+const cepInputEmpres = document.getElementById('cep')
+const cepComplementoEmpres = document.querySelector('.cep-complemento')
 
-const ruaInput = document.getElementById('rua')
-const bairroInput = document.getElementById('bairro')
-const cidadeInput = document.getElementById('cidade')
-const ufInput = document.getElementById('uf')
+const ruaInputEmpres = document.getElementById('rua')
+const bairroInputEmpres = document.getElementById('bairro')
+const cidadeInputEmpres = document.getElementById('cidade')
+const ufInputEmpres = document.getElementById('uf')
 
-const imgInput = document.getElementById('uploadImg')
+const imgInputEmpres = document.getElementById('uploadImg')
 
-const numeroInput = document.getElementById('numero')
+const numeroInputEmpres = document.getElementById('numero')
 
-const emailInput = document.getElementById("email")
-const passwordInput = document.getElementById('password')
-const confirm_passwordInput = document.getElementById('confirmPassword')
+const emailInputEmpres = document.getElementById("email")
+const passwordInputEmpres = document.getElementById('password')
+const confirm_passwordInputEmpres = document.getElementById('confirmPassword')
 
 
-form.addEventListener('submit', (event) => {
+
+
+
+formEmpres.addEventListener('submit', (event) => {
     event.preventDefault();
     nameValidate()
     cnpjValidate()
@@ -37,16 +40,16 @@ form.addEventListener('submit', (event) => {
     mainPasswordValidate()
 })
 function setError(index) {
-    campos[index].style.border = '1px solid rgb(218, 21, 21)';
-    spans[index].style.opacity = '1';
+    camposEmpres[index].style.border = '1px solid rgb(218, 21, 21)';
+    spansEmpres[index].style.opacity = '1';
 }
 function removeError(index) {
-    campos[index].style.border = '';
-    spans[index].style.opacity = '0';
+    camposEmpres[index].style.border = '';
+    spansEmpres[index].style.opacity = '0';
 }
 
 function nameValidate() {
-    if (campos[0].value.length < 3) {
+    if (camposEmpres[0].value.length < 3) {
 
         setError(0);
 
@@ -58,7 +61,7 @@ function nameValidate() {
 }
 
 function cnpjValidate() {
-    if (campos[1].value.length < 18) {
+    if (camposEmpres[1].value.length < 18) {
 
         setError(1);
 
@@ -70,7 +73,7 @@ function cnpjValidate() {
 }
 
 function sobreValidate() {
-    if (campos[2].value.length <= 5) {
+    if (camposEmpres[2].value.length <= 5) {
 
         setError(2);
 
@@ -82,7 +85,7 @@ function sobreValidate() {
 }
 
 function cepValidate() {
-    if (campos[3].value.length < 9) {
+    if (camposEmpres[3].value.length < 9) {
 
         setError(3);
 
@@ -113,7 +116,7 @@ function validEmail(email) {
 };
 
 function mainPasswordValidate() {
-    if (campos[5].value.length < 8) {
+    if (camposEmpres[5].value.length < 8) {
         setError(5);
     } else {
         removeError(5);

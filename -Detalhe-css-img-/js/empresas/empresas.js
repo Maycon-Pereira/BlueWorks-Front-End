@@ -56,7 +56,8 @@ function AdminPerfilImagem() {
 
       for (var i = 0; i < response.length; i++) {
 
-        $('.botao').append(' <div class="img-perfil-empresa"><div class="dropdonw-img-config"><img class="img" src="data:image/png;base64,' + response[i].fotoBase64 + '" /><div class="submenu-hover"><div class="id-display-none">' + response[i].id + '</div><a class="submenu" id="editar-perfil-empresa"  onclick="AtualizarSobre(this)">Editar Perfil</a><a class="submenu" href="">Sair</a></div></div></div> ');
+        $('.botao').append(' <div class="img-perfil-empresa"><div class="dropdonw-img-config"><img class="img" id="imagem-PerfilEmpresa" src="data:image/png;base64,' + response[i].fotoBase64 + '" /><div class="submenu-hover"><div class="id-display-none">' + response[i].id + '</div><a class="submenu" id="editar-perfil-empresa"  onclick="AtualizarSobre(this)">Editar Perfil</a><a class="submenu" href="">Sair</a></div></div></div> ');
+
       }
 
     },
@@ -142,7 +143,7 @@ function AdminPerfilUsuarios() {
 
       for (var i = 0; i < response.length; i++) {
 
-        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit"> Accept </button><button class="delet"> Reject </button></div> </div></div></div></div> ');
+        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" onClick="DarLike(this)"> Accept </button><button class="delet"> Reject </button></div> </div></div></div></div> ');
       }
 
       var qtda_usu = [i + 1]
@@ -234,23 +235,23 @@ $.ajax({
 $('#atualizarEmpresa').on('click', function () {
   // Cria um objeto com os valores atualizados
 
-    var dadosAtualizados = {
-      nome: $("#name").val(),
-      cnpj: $("#cnpj").val(),
-      porte: $("#porte").val(),
-      sobre: $("#historia").val(),
-      cep: $("#cep").val(),
-      logradouro: $("#rua").val(),
-      bairro: $("#bairro").val(),
-      cidade: $("#cidade").val(),
-      uf: $("#uf").val(),
-      numero: $("#numero").val(),
-      email: $("#email").val(),
+  var dadosAtualizados = {
+    nome: $("#name").val(),
+    cnpj: $("#cnpj").val(),
+    porte: $("#porte").val(),
+    sobre: $("#historia").val(),
+    cep: $("#cep").val(),
+    logradouro: $("#rua").val(),
+    bairro: $("#bairro").val(),
+    cidade: $("#cidade").val(),
+    uf: $("#uf").val(),
+    numero: $("#numero").val(),
+    email: $("#email").val(),
 
-      fotoBase64: $("#uploadImg").val()
+    fotoBase64: $("#uploadImg").val()
 
-    };
-  
+  };
+
   // Envia a solicitação PUT para atualizar a emepresa
   $.ajax({
     url: 'http://localhost:8080/empresa/' + empresaId,
@@ -274,7 +275,7 @@ $('#atualizarEmpresa').on('click', function () {
 //========FIM PUT TYPE FOR ATUALIZAR PERFIL EMPRESA========
 
 
-
+/* 
 //========PUT TYPE FOR ATUALIZAR VAGA========
 
 function AtualizarVaga(el) {
@@ -401,159 +402,9 @@ $('#atualizarVaga').on('click', function () {
     }
   });
 });
-
-
-/* 
-
-function AtualizarVaga(el) {
-  var element = el;
-  // Obtém o ID da vaga a ser atualizada
-  var VagaId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
-
-  //window.location.href = '/z-Novo_TCC/atualizar/AtualizarVaga/atualizarVaga.html';
-  
-  // Cria o objeto JSON com os dados da vaga atualizados
-
-  const date = new Date();
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
-      //console.log(" -- " +day+"/"+month+"/"+year +" -- ") 
-
-
-
-  var name = $("#name").val();
-  var tipo = $("#type").val();
-  var qtda = $("#qtda").val();
-  var data = day + "/" + month + "/" + year;
-  var salario = $("#salario").val();
-
-  var escolaridade = $("#escolaridadeVaga").val();
-  var area = $("#area").val();
-  var exigencia = $("#exigencia").val();
-  var valorizado = $("#valorizado").val();
-  var tipoContrato = $("#tipoContrato").val();
-  var sobre = $("#historia-vaga").val();
-  var cnpj = $("#cnpj").val();
-
-  var senha = $("#password").val();
-  var cep = $("#cep").val();
-
-  var logradouro = $("#rua").val();
-  var bairro = $("#bairro").val();
-  var uf = $("#uf").val();
-  var cidade = $("#cidade").val();
-  var fotoPerfil = $("#uploadImg").val();
-
-
-
-  var request = {
-    "nome": name,
-    "tipo": tipo,
-    "qtda": qtda,
-    "data": data,
-    "salario": salario,
-    "escolaridade": escolaridade,
-    "area": area,
-    "exigencias": exigencia,
-    "valorizado": valorizado,
-    "contrato": tipoContrato,
-    "sobre": sobre,
-    "cnpj": cnpj,
-    "senha": senha,
-    "cep": cep,
-    "logradouro": logradouro,
-    "bairro": bairro,
-    "uf": uf,
-    "cidade": cidade,
-    "fotoPerfil": fotoPerfil,
-  }
-
-  console.log(request); // Verifica o objeto JSON que está sendo enviado
-
-  $.ajax({
-    url: 'http://localhost:8080/vagas/' + VagaId,
-    type: "PUT",
-    crossDomain: true,
-    contentType: "application/json",
-    data: JSON.stringify(request),
-    success: function (response) {
-      console.log('A Vaga '+ VagaId +' atualizada com sucesso');
-    },
-    error: function (xhr, status) {
-      console.log("Erro ao atualizar a vaga");
-      console.log(xhr);
-      console.log(status);
-
-      let jsonObject = JSON.parse(xhr.responseText);
-      let objects = jsonObject.erros;
-
-      let str = JSON.stringify(objects, null, 4);
-
-      var dataJSON = JSON.parse(str);
-
-      if (dataJSON !== null) {
-        el.preventDefault();
-
-        if ('nome' in dataJSON == true) {
-          nomeInput.style.border = "1px solid rgb(218, 21, 21)";
-          document.getElementById("--name--").style.opacity = '1';
-          //spans.style.opacity = '1';  o opacity não funciona aqui
-        }
-        if ('qtda' in dataJSON == true) {
-          qtdaInput.style.border = "1px solid rgb(218, 21, 21)";
-          document.getElementById("--qtda--").style.opacity = '1';
-          //spans.style.opacity = '1';
-        }
-        if ('salario' in dataJSON == true) {
-          salarioInput.style.border = "1px solid rgb(218, 21, 21)";
-          document.getElementById("--salario--").style.opacity = '1';
-          //spans.style.opacity = '1';
-        }
-        if ('area' in dataJSON == true) {
-          areaInput.style.border = "1px solid rgb(218, 21, 21)";
-          document.getElementById("--area--").style.opacity = '1';
-          //spans.style.opacity = '1';
-        }
-        if ('exigencias' in dataJSON == true) {
-          exigenciasInput.style.border = "1px solid rgb(218, 21, 21)";
-          document.getElementById("--exigencias--").style.opacity = '1';
-          //spans.style.opacity = '1';
-        }
-        if ('cep' in dataJSON == true) {
-          cepInput.style.border = "1px solid rgb(218, 21, 21)";
-          document.getElementById("--cep--").style.opacity = '1';
-          //spans.style.opacity = '1';
-        }
-        if ('sobre' in dataJSON == true) {
-          historiaTextarea.style.border = "1px solid rgb(218, 21, 21)";
-          document.getElementById("--sobre--").style.opacity = '1';
-          //spans.style.opacity = '1';
-        }
-        if ('cnpj' in dataJSON == true) {
-          //a propriedade "style" esta colorido, enquanto não devia!!!
-          cnpjInput.style.border = "1px solid rgb(218, 21, 21)";
-          document.getElementById("--cnpj--").style.opacity = '1';
-          //spans.style.opacity = '1';
-        }
-        if ('senha' in dataJSON == true) {
-          passwordInput.style.border = "1px solid rgb(218, 21, 21)";
-          document.getElementById("--senha--").style.opacity = '1';
-        }
-
-
-        
-      }
-      alert(str)
-    }
-  });
-} */
+ */
 
 //========END PUT TYPE FOR ATUALIZAR VAGA========
-
-
-
-
 
 
 
@@ -614,3 +465,30 @@ function remove(el) {
 }
 //========DELETE TYPE AND OPEN MODAL========
 
+
+
+//=============Dar Like No Usuario================
+
+function DarLike(el) {
+  var element = el;
+  //alert("Deu Like!")
+
+  var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
+  var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.firstChild.innerHTML;
+  EmpresaNome.trim()
+ // alert(UsuarioId + ' / ' + EmpresaNome)
+
+  $.ajax({
+    url: 'localhost:8080/usuario/darLikeEmUsuario/' + UsuarioId + '/' + EmpresaNome,
+    type: "PUT",
+    crossDomain: true,
+    contentType: "application/json",
+    dataType: "json",
+    success: function (response) {
+      alert('Deu Like Com Sucesso!');
+    },  
+    error: function (xhr, status) {
+      console.log('Erro ao Dar Like: ' + status);
+    }
+  });
+}
