@@ -5,9 +5,10 @@
     font-family: Arial;
 }
 
-header {    
+header {
     padding: 12px;
 }
+
 .img {
     background-color: rgb(230, 230, 230);
     min-width: 3rem;
@@ -15,6 +16,7 @@ header {
     min-height: 3rem;
     max-height: 3rem;
 }
+
 /*Novo Perfil Empresa*/
 
 .parte-branca {
@@ -86,9 +88,11 @@ header {
     min-width: 50%;
     display: inline;
 }
+
 .id-display-none {
     display: none;
 }
+
 .second-empresa-sobre {
     line-height: 2rem;
     min-width: 50%;
@@ -103,10 +107,12 @@ header {
 .img-perfil-empresa {
     position: relative;
 }
+
 .dropdonw-img-config {
     position: absolute;
     top: -25px;
 }
+
 .dropdonw-img-config img {
     position: relative;
     min-width: 3rem;
@@ -135,6 +141,7 @@ header {
     width: 7rem;
     display: block;
 }
+
 .dropdonw-img-config:hover .submenu-hover,
 .submenu a {
     width: 8rem;
@@ -268,7 +275,12 @@ header {
 .crud-vagas-1-5 {
     display: flex;
 }
-
+.crud-aceitos {
+    padding-bottom: 10px;
+}
+.usuAcito {
+    margin-bottom: 10px;
+}
 .edit-1 {
     border-radius: 5px;
     background-color: rgb(230, 230, 230);
@@ -380,6 +392,20 @@ header {
     opacity: 0.9;
     background-color: rgb(250, 18, 18);
 }
+.remove {
+    border-radius: 5px;
+    opacity: 0;
+    background-color: rgb(250, 18, 18);
+}
+.removeButton {
+    border-radius: 5px;
+    background-color: rgb(250, 18, 18);
+}
+.removeButt button{
+    width: 80%;
+    margin-left: 60px;
+    margin-right: 60px;
+}
 
 .edit:hover {
     background-color: rgb(0, 233, 0);
@@ -393,6 +419,7 @@ header {
 a {
     cursor: pointer;
 }
+
 /*Final Novo Perfil Empresa*/
 
 .qtda-estat {
@@ -401,6 +428,16 @@ a {
 
 }
 
+.nomeEmpresa {
+    display: none;
+}
+
+.UsuariosAceitados {
+    background-color: rgb(246, 246, 246);
+    width: 98%;
+    margin: auto;
+    border-radius: 10px;
+}
 
 /*  MODAL  */
 
@@ -540,6 +577,9 @@ a {
         border-radius: 10px;
     }
 
+    .UsuariosAceitados {
+        width: 100%;
+    }
 
 }
 

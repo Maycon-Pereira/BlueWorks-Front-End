@@ -143,7 +143,7 @@ function AdminPerfilUsuarios() {
 
       for (var i = 0; i < response.length; i++) {
 
-        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" onClick="DarLike(this)"> Accept </button><button class="delet"> Reject </button></div> </div></div></div></div> ');
+        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike">  <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"> Accept </button><button class="delet"> Reject </button></div> </div></div></div></div> ');
       }
 
       var qtda_usu = [i + 1]
@@ -161,8 +161,53 @@ function AdminPerfilUsuarios() {
     }
   });
 
+  $.ajax({
+    url: "http://localhost:8080/empresa",
+    type: "GET",
+    crossDomain: true,
+    contentType: "application/json",
+    dataType: "json",
+    success: function (response) {
+      for (var i = 0; i < response.length; i++) {
+
+        $('.nomeEmpresaDeuLike').append('<div class="nomeEmpresa">' + response[i].nome + '</div>');
+
+      }
+    },
+    error: function (xhr, status) {
+      //window.location.href = '/z-Novo_TCC/atualizar/AtualizarVaga/atualizarVaga.html';
+
+      console.log(xhr);
+      console.log(status);
+    }
+  });
+
 }
 
+function UsuariosAceitos() {
+
+  $.ajax({
+    url: "http://localhost:8080/usuario",
+    type: "GET",
+    crossDomain: true,
+    contentType: "application/json",
+    dataType: "json",
+    success: function (response) {
+
+      for (var i = 0; i < response.length; i++) {
+
+        $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton"> Remove </button></div></div></div></div></div> ');
+      }
+
+    },
+    error: function (xhr, status) {
+
+      console.log(xhr);
+      console.log(status);
+
+    }
+  });
+}
 
 
 
@@ -469,26 +514,42 @@ function remove(el) {
 
 //=============Dar Like No Usuario================
 
+/* function GetNameEmpresa(el) {
+  var element = el;
+  $('.buttons').on('click', '#acceptDarLike', function () {
+
+    alert("aqui")
+
+    //var empresaId = element.parentNode.firstChild.innerHTML;
+
+  });
+} */
+
+
 function DarLike(el) {
   var element = el;
   //alert("Deu Like!")
 
   var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
-  var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.firstChild.innerHTML;
-  EmpresaNome.trim()
- // alert(UsuarioId + ' / ' + EmpresaNome)
+  var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.lastChild.innerHTML;
+  //EmpresaNome.trim()
+  alert(UsuarioId + ' / ' + EmpresaNome)
+
 
   $.ajax({
-    url: 'localhost:8080/usuario/darLikeEmUsuario/' + UsuarioId + '/' + EmpresaNome,
+    url: 'http://localhost:8080/usuario/darLikeEmUsuario/' + UsuarioId + '/' + EmpresaNome,
     type: "PUT",
     crossDomain: true,
     contentType: "application/json",
-    dataType: "json",
     success: function (response) {
-      alert('Deu Like Com Sucesso!');
-    },  
+
+      alert('Empresa: ' + EmpresaNome + ', Deu like em voce usuario  ' + UsuarioId);
+
+    },
     error: function (xhr, status) {
-      console.log('Erro ao Dar Like: ' + status);
+      alert('Erro ao Dar Like: ' + status + ' Tente novamente');
+      window.location.reload();
     }
   });
 }
+
