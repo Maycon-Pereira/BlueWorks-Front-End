@@ -143,7 +143,7 @@ function AdminPerfilUsuarios() {
 
       for (var i = 0; i < response.length; i++) {
 
-        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike">  <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"> Accept </button><button class="delet"> Reject </button></div> </div></div></div></div> ');
+        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="name-user-undefined">' + response[i].nome + '</div><div class="nomeEmpresaDeuLike">  <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="name-user-undefined">' + response[i].escolaridade + '</div><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"> Accept </button><button class="delet"> Reject </button></div> </div></div></div></div> ');
       }
 
       var qtda_usu = [i + 1]
@@ -179,32 +179,6 @@ function AdminPerfilUsuarios() {
 
       console.log(xhr);
       console.log(status);
-    }
-  });
-
-}
-
-function UsuariosAceitos() {
-
-  $.ajax({
-    url: "http://localhost:8080/usuario",
-    type: "GET",
-    crossDomain: true,
-    contentType: "application/json",
-    dataType: "json",
-    success: function (response) {
-
-      for (var i = 0; i < response.length; i++) {
-
-        $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton"> Remove </button></div></div></div></div></div> ');
-      }
-
-    },
-    error: function (xhr, status) {
-
-      console.log(xhr);
-      console.log(status);
-
     }
   });
 }
@@ -526,14 +500,22 @@ function remove(el) {
 } */
 
 
+//DAR LIKE NO USUARIO
+
 function DarLike(el) {
   var element = el;
   //alert("Deu Like!")
 
   var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
-  var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.lastChild.innerHTML;
+  //var UsuarioNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.firstChild.innerHTML;
+
+  var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
+
+
+  var userNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.innerHTML;
+  var userFormacao = element.parentNode.parentNode.firstChild.innerHTML;
   //EmpresaNome.trim()
-  alert(UsuarioId + ' / ' + EmpresaNome)
+  //alert(userFormacao)
 
 
   $.ajax({
@@ -543,13 +525,39 @@ function DarLike(el) {
     contentType: "application/json",
     success: function (response) {
 
-      alert('Empresa: ' + EmpresaNome + ', Deu like em voce usuario  ' + UsuarioId);
+      /* .removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode) */
+      element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
+      /* .remove(element.parentNode) */
+      //alert('Empresa: ' + EmpresaNome + ', Deu like em voce usuario  ' + UsuarioId);
+
+      $.ajax({
+        url: "http://localhost:8080/usuario",
+        type: "GET",
+        crossDomain: true,
+        contentType: "application/json",
+        dataType: "json",
+        success: function (response) {
+
+            $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + UsuarioId + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <a href=""><div class="content-vagas">' + userNome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + userFormacao + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton"> Remove </button></div></div></div></div></div> ');
+            
+
+        },
+        error: function (xhr, status) {
+
+          console.log(xhr);
+          console.log(status);
+
+        }
+      });
+
+
 
     },
     error: function (xhr, status) {
-      alert('Erro ao Dar Like: ' + status + ' Tente novamente');
+      alert('' + status + ' Tente novamente');
       window.location.reload();
     }
   });
 }
 
+//DAR LIKE NO USUARIO FIM

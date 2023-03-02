@@ -432,6 +432,9 @@ a {
     display: none;
 }
 
+.name-user-undefined {
+    display: none;
+}
 .UsuariosAceitados {
     background-color: rgb(246, 246, 246);
     width: 98%;
