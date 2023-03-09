@@ -3,7 +3,7 @@
 
 function perfilEmpresaVisivelAoUsuario() {
     $.ajax({
-        url: 'http://localhost:8080/empresa/' + vagaId,
+        url: 'http://localhost:8080/empresa/' + empresaId,
         type: "GET",
         crossDomain: true,
         contentType: "application/json",

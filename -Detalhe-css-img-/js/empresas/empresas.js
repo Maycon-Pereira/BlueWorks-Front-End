@@ -42,6 +42,8 @@ function empresaGetAll() {
 
 
 
+
+
 //Perfil admin crud vagas e usuarios
 
 function AdminPerfilImagem() {
@@ -99,6 +101,19 @@ function AdminPerfilSobre() {
   });
 
 }
+//Mostra todas as vagas cadastradas no site
+function VagaPerfil(el) {
+  var element = el
+  //alert("clicou no link")
+  // Obtém o ID da vaga a ser atualizada
+  var vagaId = element.parentNode.parentNode.parentNode.firstChild.innerHTML;
+
+  //alert('id = '+vagaId)
+
+  window.location.href = '/z-Novo_TCC/Vaga/perfilVaga/vagaPerfil.html?id=' + vagaId;
+
+}
+
 
 function AdminPerfilVagas() {
 
@@ -112,7 +127,7 @@ function AdminPerfilVagas() {
 
       for (var i = 0; i < response.length; i++) {
 
-        $('.crud-vagas').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-vags-cadastradas-a-mostrar"><div class="link"><a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div><div class="link"><a href=""><div class="content-vagas">' + response[i].data + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" id="atualizarBtn" onclick="AtualizarVaga(this)"><a  rel="noopener noreferrer"> Edit </a> </button><button class="delet modal-button" id="open-modal" onclick="remove(this)"> Delete </button></div></div></div></div></div> ');
+        $('.crud-vagas').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-vags-cadastradas-a-mostrar"><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].data + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" id="atualizarBtn" onclick="AtualizarVaga(this)"><a  rel="noopener noreferrer"> Edit </a> </button><button class="delet modal-button" id="open-modal" onclick="remove(this)"> Delete </button></div></div></div></div></div> ');
         /* edit   href="/z-Novo_TCC/atualizar/AtualizarVaga/atualizarVaga.html" */
       }
       var qtda_vagas = [i + 1]
@@ -143,7 +158,7 @@ function AdminPerfilUsuarios() {
 
       for (var i = 0; i < response.length; i++) {
 
-        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="name-user-undefined">' + response[i].nome + '</div><div class="nomeEmpresaDeuLike">  <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="name-user-undefined">' + response[i].escolaridade + '</div><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"> Accept </button><button class="delet"> Reject </button></div> </div></div></div></div> ');
+        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link perfilView"><div class="name-user-undefined">' + response[i].nome + '</div><div class="nomeEmpresaDeuLike">  <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link perfilView"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="name-user-undefined">' + response[i].escolaridade + '</div><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"> Accept </button><button class="delet" onClick="rejectUser(this)"> Reject </button></div> </div></div></div></div> ');
       }
 
       var qtda_usu = [i + 1]
@@ -500,6 +515,13 @@ function remove(el) {
 } */
 
 
+//VIEW PERFIL ONCLICK
+function viewPerfil() {
+
+}
+//FIM VIEW PERFIL ONCLICK
+
+
 //DAR LIKE NO USUARIO
 
 function DarLike(el) {
@@ -538,8 +560,7 @@ function DarLike(el) {
         dataType: "json",
         success: function (response) {
 
-            $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + UsuarioId + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <a href=""><div class="content-vagas">' + userNome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + userFormacao + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton"> Remove </button></div></div></div></div></div> ');
-            
+          $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + UsuarioId + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <a href=""><div class="content-vagas">' + userNome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + userFormacao + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton"> Remove </button></div></div></div></div></div> ');
 
         },
         error: function (xhr, status) {
@@ -550,8 +571,6 @@ function DarLike(el) {
         }
       });
 
-
-
     },
     error: function (xhr, status) {
       alert('' + status + ' Tente novamente');
@@ -561,3 +580,11 @@ function DarLike(el) {
 }
 
 //DAR LIKE NO USUARIO FIM
+
+function rejectUser(el) {
+  var element = el;
+
+  element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
+  alert('usuario removido com sucesso! ')
+
+}
