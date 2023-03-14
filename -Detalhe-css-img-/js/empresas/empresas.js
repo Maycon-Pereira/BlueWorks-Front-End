@@ -87,7 +87,7 @@ function AdminPerfilSobre() {
 
       for (var i = 0; i < response.length; i++) {
 
-        $('.estatisticas').append(' <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div"> Id= ' + response[i].id + '</div><h4>' + response[i].nome + '</h4><div class="sobre-exp">Porte: ' + response[i].porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response[i].email + '</div><div class="sobre-exp">Cnpj: ' + response[i].cnpj + '</div><div class="sobre-exp">Cep: ' + response[i].cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num"> 0 </div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num"></div></div></div> ');
+        $('.estatisticas').append(' <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div"> Id= ' + response[i].id + '</div><h4>' + response[i].nome + '</h4><div class="sobre-exp">Porte: ' + response[i].porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response[i].email + '</div><div class="sobre-exp">Cnpj: ' + response[i].cnpj + '</div><div class="sobre-exp">Cep: ' + response[i].cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num"> 0 </div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num">  </div></div></div> ');
 
       }
 
@@ -130,10 +130,12 @@ function AdminPerfilVagas() {
         $('.crud-vagas').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-vags-cadastradas-a-mostrar"><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].data + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" id="atualizarBtn" onclick="AtualizarVaga(this)"><a  rel="noopener noreferrer"> Edit </a> </button><button class="delet modal-button" id="open-modal" onclick="remove(this)"> Delete </button></div></div></div></div></div> ');
         /* edit   href="/z-Novo_TCC/atualizar/AtualizarVaga/atualizarVaga.html" */
       }
+
       var qtda_vagas = [i + 1]
       var totalVagas = qtda_vagas[qtda_vagas.length - 1]
       var totVaga = totalVagas - 1;
 
+      
       $('.vag-num').append('' + totVaga + '')
     },
     error: function (xhr, status) {
@@ -147,7 +149,7 @@ function AdminPerfilVagas() {
 }
 
 function AdminPerfilUsuarios() {
-
+  console.log("AdminPerfilUsuarios foi chamado")
   $.ajax({
     url: "http://localhost:8080/usuario",
     type: "GET",
@@ -156,23 +158,30 @@ function AdminPerfilUsuarios() {
     dataType: "json",
     success: function (response) {
 
+      var totalUsuarios = 0;
+
       for (var i = 0; i < response.length; i++) {
 
-        $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link perfilView"><div class="name-user-undefined">' + response[i].nome + '</div><div class="nomeEmpresaDeuLike">  <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link perfilView"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="name-user-undefined">' + response[i].escolaridade + '</div><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"> Accept </button><button class="delet" onClick="rejectUser(this)"> Reject </button></div> </div></div></div></div> ');
+        if (response[i].usuarioDipensado == false) {
+
+          totalUsuarios = totalUsuarios + 1;
+
+          if (response[i].empresaDeuLike == false) {
+            $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link perfilView"><div class="name-user-undefined">' + response[i].nome + '</div><div class="nomeEmpresaDeuLike">  <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link perfilView"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="name-user-undefined">' + response[i].escolaridade + '</div><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"> Accept </button><button class="delet" onClick="rejectUser(this)"> Reject </button></div> </div></div></div></div> ');
+          } else {
+            $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton" onclick="NaoDarLike(this)" > Remove </button></div></div></div></div></div> ');
+          }
+
+        }
+        
       }
-
-      var qtda_usu = [i + 1]
-      var totalUsus = qtda_usu[qtda_usu.length - 1]
-      var totUsuarios = totalUsus - 1;
-
-      $('.usuario-num').append('' + totUsuarios + '')
+      $('.usuario-num').append('' + totalUsuarios + '')
+      
 
     },
     error: function (xhr, status) {
-
       console.log(xhr);
       console.log(status);
-
     }
   });
 
@@ -486,6 +495,8 @@ function remove(el) {
       dataType: "json",
       success: function (response) {
         // Remove a vaga da lista após excluí-la
+        
+        location.reload();
         element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
         closeModal(document.getElementById("modal"), document.getElementById("fade"));
         location.reload();
@@ -533,12 +544,12 @@ function DarLike(el) {
 
   var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
 
-
   var userNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.innerHTML;
   var userFormacao = element.parentNode.parentNode.firstChild.innerHTML;
   //EmpresaNome.trim()
   //alert(userFormacao)
 
+  console.log('usuario->' + UsuarioId + ' empresa->' + EmpresaNome,)
 
   $.ajax({
     url: 'http://localhost:8080/usuario/darLikeEmUsuario/' + UsuarioId + '/' + EmpresaNome,
@@ -547,29 +558,9 @@ function DarLike(el) {
     contentType: "application/json",
     success: function (response) {
 
-      /* .removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode) */
       element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
-      /* .remove(element.parentNode) */
-      //alert('Empresa: ' + EmpresaNome + ', Deu like em voce usuario  ' + UsuarioId);
 
-      $.ajax({
-        url: "http://localhost:8080/usuario",
-        type: "GET",
-        crossDomain: true,
-        contentType: "application/json",
-        dataType: "json",
-        success: function (response) {
-
-          $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + UsuarioId + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <a href=""><div class="content-vagas">' + userNome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + userFormacao + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton"> Remove </button></div></div></div></div></div> ');
-
-        },
-        error: function (xhr, status) {
-
-          console.log(xhr);
-          console.log(status);
-
-        }
-      });
+      window.location.reload();
 
     },
     error: function (xhr, status) {
@@ -581,10 +572,77 @@ function DarLike(el) {
 
 //DAR LIKE NO USUARIO FIM
 
+// NAO DAR LIKE 
+
+function NaoDarLike(el) {
+  var element = el;
+  //alert("Deu Like!")
+
+  var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
+  //var UsuarioNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.firstChild.innerHTML;
+
+  var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
+
+  var userNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.innerHTML;
+  var userFormacao = element.parentNode.parentNode.firstChild.innerHTML;
+  //EmpresaNome.trim()
+  //alert(userFormacao)
+
+  console.log('usuario->' + UsuarioId + ' empresa->' + EmpresaNome,)
+
+  $.ajax({
+    url: 'http://localhost:8080/usuario/naodarLikeEmUsuario/' + UsuarioId + '/' + EmpresaNome,
+    type: "PUT",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (response) {
+
+      element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
+
+      window.location.reload();
+
+    },
+    error: function (xhr, status) {
+      alert('' + status + ' Tente novamente');
+      window.location.reload();
+    }
+  });
+}
+
+// FIM NAO DAR LIKE
+
+
 function rejectUser(el) {
   var element = el;
 
+  var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
+  //var UsuarioNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.firstChild.innerHTML;
+
+  var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
+
+
   element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
   alert('usuario removido com sucesso! ')
+
+
+  $.ajax({
+    url: 'http://localhost:8080/usuario/dispensarUsuario/' + UsuarioId + '/' + EmpresaNome,
+    type: "PUT",
+    crossDomain: true,
+    contentType: "application/json",
+    success: function (response) {
+
+      window.location.reload();
+      element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
+
+      //window.location.reload();
+
+    },
+    error: function (xhr, status) {
+      alert('' + status + ' Tente novamente');
+      window.location.reload();
+    }
+
+  });
 
 }

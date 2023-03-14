@@ -165,6 +165,7 @@ function vagasCad(event) {
     if (month <= 9) {
         month = '0' + month;
     }
+    
 
     //alert(" -- " + day + "/" + month + "/" + year + " -- ");
 

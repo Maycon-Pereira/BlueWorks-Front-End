@@ -187,7 +187,7 @@ function usuarioCad(event) {
     var sobre = $("#historiaUsuario").val();
     var numero = $("#numero").val();
 
-    /* restirar a mascara de cep */
+    /* restirar a mascara de telefone */
     numero = numero.replace("(", "")
     numero = numero.replace(")", "")
     numero = numero.replace(" ", "")
