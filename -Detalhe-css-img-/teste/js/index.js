@@ -1,20 +1,19 @@
-const WebSocket = require('ws');
+const btn = document.querySelector("button");
+const divMessage = document.querySelector(".alert");
 
-const server = new WebSocket.Server({ port: 8080 });
+const msg = "teste de alerta !!!";
 
-server.on('connection', (socket) => {
-  console.log('Client connected');
+function ativar(msg) {
+  const message = document.createElement("div");
+  message.classList.add("message");
+  message.innerText = msg;
+  divMessage.appendChild(message);
 
-  socket.on('message', (data) => {
-    console.log(`Received message: ${data}`);
-    server.clients.forEach((client) => {
-      if (client.readyState === WebSocket.OPEN) {
-        client.send(data);
-      }
-    });
-  });
+  setTimeout(() => {
+    message.style.display = "none";
+  }, 3000);
+}
 
-  socket.on('close', () => {
-    console.log('Client disconnected');
-  });
+btn.addEventListener("click", () => {
+  ativar(msg);
 });

@@ -135,7 +135,7 @@ function AdminPerfilVagas() {
       var totalVagas = qtda_vagas[qtda_vagas.length - 1]
       var totVaga = totalVagas - 1;
 
-      
+
       $('.vag-num').append('' + totVaga + '')
     },
     error: function (xhr, status) {
@@ -173,10 +173,10 @@ function AdminPerfilUsuarios() {
           }
 
         }
-        
+
       }
       $('.usuario-num').append('' + totalUsuarios + '')
-      
+
 
     },
     error: function (xhr, status) {
@@ -495,7 +495,7 @@ function remove(el) {
       dataType: "json",
       success: function (response) {
         // Remove a vaga da lista após excluí-la
-        
+
         location.reload();
         element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
         closeModal(document.getElementById("modal"), document.getElementById("fade"));
@@ -532,7 +532,24 @@ function viewPerfil() {
 }
 //FIM VIEW PERFIL ONCLICK
 
+function errorAlert() {
+  const divMessage = document.querySelector(".alert");
 
+  const msg = "Tente novamente";
+
+  function ativar(msg) {
+    const message = document.createElement("div");
+    message.classList.add("message");
+    message.innerText = msg;
+    divMessage.appendChild(message);
+
+    setTimeout(() => {
+      message.style.display = "none";
+      window.location.reload();
+    }, 1000);
+  }
+    ativar(msg);
+}
 //DAR LIKE NO USUARIO
 
 function DarLike(el) {
@@ -564,8 +581,10 @@ function DarLike(el) {
 
     },
     error: function (xhr, status) {
-      alert('' + status + ' Tente novamente');
-      window.location.reload();
+      /* alert('' + status + ' Tente novamente');
+      window.location.reload(); */
+
+      errorAlert()
     }
   });
 }
@@ -603,8 +622,10 @@ function NaoDarLike(el) {
 
     },
     error: function (xhr, status) {
-      alert('' + status + ' Tente novamente');
-      window.location.reload();
+      /* alert('' + status + ' Tente novamente');
+      window.location.reload(); */
+
+      errorAlert()
     }
   });
 }
@@ -622,7 +643,7 @@ function rejectUser(el) {
 
 
   element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
-  alert('usuario removido com sucesso! ')
+  //alert('usuario removido com sucesso! ')
 
 
   $.ajax({
@@ -639,8 +660,10 @@ function rejectUser(el) {
 
     },
     error: function (xhr, status) {
-      alert('' + status + ' Tente novamente');
-      window.location.reload();
+      /* alert('' + status + ' Tente novamente');
+      window.location.reload(); */
+
+      errorAlert()
     }
 
   });

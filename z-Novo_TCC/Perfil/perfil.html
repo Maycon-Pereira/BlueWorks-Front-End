@@ -41,11 +41,12 @@
                     <li><a href="/z-Novo_TCC/Inicio/inicio.html">Inicio</a></li>
                     <li><a href="/z-Novo_TCC/sobre/sobre.html">Sobre</a></li>
                     <li><a href="/z-Novo_TCC/empresas/empresas.html">Empresas</a></li>
+                    <li class="login-lateral"><a href="/z-Novo_TCC/Login/login.html">Login</a></li>
                 </ul>
 
                 <ul class="lateral" id="bottom">
                     <li><a href="/z-Novo_TCC/Perfil/perfil.html" class="bottom-li">Perfil</a></li>
-                    <li><a href="/Ajuda/ajuda.html" class="bottom-li">Ajuda</a></li>
+                    <li><a href="/z-Novo_TCC/Ajuda/ajuda.html" class="bottom-li">Ajuda</a></li>
                     <li><a href="#" class="bottom-li" id="sair">Sair</a></li>
                 </ul>
 
@@ -239,16 +240,25 @@
     </section>
 
 
+    <!-- ALERT ERROR -->
+    <div class="alert"></div>
+    <!-- ALERT ERROR -->
+
+
     <div class="body-modal">
 
         <div id="fade" class="hide"></div>
         <div id="modal" class="hide">
             <div class="modal-header">
-                <h2>Realmente deseja <span class="exc-Modal">excluir</span> esta vaga?</h2>
+                <h2>Realmente deseja <span class="exc-Modal">excluir</span> esta vaga? <p class="notbold">Não tem como desfazer!</p></h2>
+                
 
                 <button class="modal-button botao-x" id="close-modal"></button>
+                
 
             </div>
+            
+            
             <div class="modal-body">
                 <button class="cancel-modal modal-button" id="confirm-modal"
                     onclick="cancelCandidatura()">Excluir</button>
