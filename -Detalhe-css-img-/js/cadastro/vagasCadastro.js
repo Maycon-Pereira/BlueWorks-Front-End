@@ -215,7 +215,7 @@ function vagasCad(event) {
         "tipo": tipo,
         "qtda": qtda,
 
-        "data": data,
+        "data_publicacao": data,
 
         "salario": salario,
         "escolaridade": escolaridade,
@@ -250,7 +250,8 @@ function vagasCad(event) {
             //var resp = JSON.parse(response)
             console.log(response);
             console.log("3")
-            uploadImagem(response.id, event); console.log("4")
+            uploadImagem(response.id, event); 
+            console.log("4")
             location.href = "/z-Novo_TCC/Perfil/perfil.html";
         },
         error: function (xhr, status) {
@@ -315,6 +316,7 @@ function vagasCad(event) {
                     passwordInput.style.border = "1px solid rgb(218, 21, 21)";
                     document.getElementById("--senha--").style.opacity = '1';
                 }
+                
 
 
                 //old validation

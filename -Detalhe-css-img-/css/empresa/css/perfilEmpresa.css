@@ -458,6 +458,10 @@ a {
 
 /* ERROR MODAL */
 
+.id-Empresa-to-Show {
+    display: none
+}
+
 
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;500&display=swap");
 * {

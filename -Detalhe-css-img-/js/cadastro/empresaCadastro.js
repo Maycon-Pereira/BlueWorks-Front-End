@@ -290,10 +290,8 @@ function empresaCad(event) {
             console.log("3")
 
             //location.href redireciona para a tela escolhida após o submit.
-            /* location.href = "/Pag-Inicial/inicio.html"; */
+            location.href = "/z-Novo_TCC/Perfil/perfil.html";
             uploadImagem(response.id, event);
-            console.log("4")
-            alert("Sucesso!")
         },
 
         error: function (xhr, status) {

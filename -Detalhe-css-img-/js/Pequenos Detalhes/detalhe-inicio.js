@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     new TypeIt(".tituloPequenoDetalhe", {
-        speed: 200
+        speed: 100
     })
         .type('BlueWorks - Inicio')
         .go()

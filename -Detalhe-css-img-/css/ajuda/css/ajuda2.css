@@ -92,6 +92,21 @@ form {
 .void {
     height: 20px;
 }
+.body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back {
+    background-color: #f7f7f7;
+    width: 50%;
+}
+
+.iframeFORM {
+    width: 100%;
+}
+
 
 @media (max-width: 600px) {
 
