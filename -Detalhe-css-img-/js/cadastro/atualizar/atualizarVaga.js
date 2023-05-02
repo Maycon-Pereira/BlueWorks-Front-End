@@ -222,17 +222,17 @@ $.ajax({
 // Evento de clique no botão de atualizar
 $('#atualizarVaga').on('click', function () {
     // Cria um objeto com os valores atualizados
-    /* const date = new Date();
+    const date = new Date();
     const day = date.getDate();
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
-    const data = day + "/" + month + "/" + year; */
+    const data = day + "/" + month + "/" + year;
 
     var dadosAtualizados = {
         nome: $("#name").val(),
         tipo: $("#type").val(),
         qtda: $("#qtda").val(),
-        /* data: data, */
+        data: data,
         salario: $("#salario").val(),
         escolaridade: $("#escolaridadeVaga").val(),
         area: $("#area").val(),
