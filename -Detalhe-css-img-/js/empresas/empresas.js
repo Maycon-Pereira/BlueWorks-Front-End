@@ -168,8 +168,8 @@ function AdminPerfilVagas() {
       var totalVagas = qtda_vagas[qtda_vagas.length - 1]
       var totVaga = totalVagas - 1;
 
-
-      $('.vag-num').append('' + totVaga + '')
+      $('.vag-num').append(totVaga);
+      
     },
     error: function (xhr, status) {
 
@@ -342,7 +342,7 @@ $('#atualizarEmpresa').on('click', function () {
     data: JSON.stringify(dadosAtualizados),
     contentType: 'application/json',
     success: function (response) {
-      alert('Empresa atualizada com sucesso!');
+      //alert('Empresa atualizada com sucesso!');
       location.href = "/z-Novo_TCC/Perfil/perfil.html";
     },
     error: function (xhr, status) {

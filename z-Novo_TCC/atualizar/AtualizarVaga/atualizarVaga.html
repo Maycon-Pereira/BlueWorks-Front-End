@@ -29,9 +29,9 @@
 
                 <button class="botao-seta-esquerda"><a href="/z-Novo_TCC/Perfil/perfil.html">🡸 Voltar</a></button>
                 <div class="up-info">
-                    
+
                     <div class="intoducao">
-                        
+
                         <div class="title">
                             <h2>Dados da Vaga</h2>
                         </div>
@@ -71,7 +71,8 @@
 
                                 <div class="input-box vagaInput">
                                     <label for="nome">Nome da Vaga: *<br />
-                                        <input class="input required" id="name" type="text" oninput="nameValidate()" required>
+                                        <input class="input required" id="name" type="text" oninput="nameValidate()"
+                                            required>
                                     </label><br />
                                     <div>
                                         <p class="exception" id="--name--">Nome deve ter no mínimo 3 caracteres</p>
@@ -79,27 +80,64 @@
 
                                     <label for="type-vaga">Tipo da Vaga: *<br />
                                         <select class="vaga-options input select" id="type" name="types">
-                                            <option value="Designer & Grafico" selected>Designer & Grafico</option>
+
+                                            <optgroup label="Tipos de Vagas">
+
+
+                                                <option value="Administração" selected>Administração</option>
+                                                <option value="Alimentação & Gastronomia">Alimentação & Gastronomia
+                                                </option>
+                                                <option value="Arquitetura & Engenharia">Arquitetura & Engenharia
+                                                </option>
+                                                <option value="Assistente Administrativo">Assistente Administrativo
+                                                </option>
+                                                <option value="Atendimento ao Cliente">Atendimento ao Cliente</option>
+                                                <option value="Consultoria">Consultoria</option>
+                                                <option value="Design de Interiores">Design de Interiores</option>
+                                                <option value="Desenvolvedor (TI)">Desenvolvedor (TI)</option>
+                                                <option value="Escrita & Edição">Escrita & Edição</option>
+                                                <option value="Finanças & Contabilidade">Finanças & Contabilidade
+                                                </option>
+                                                <option value="Gestão de Projetos">Gestão de Projetos</option>
+                                                <option value="Logística & Supply Chain">Logística & Supply Chain
+                                                </option>
+                                                <option value="Marketing Digital">Marketing Digital</option>
+                                                <option value="Música & Áudio">Música & Áudio</option>
+                                                <option value="Pesquisa & Desenvolvimento">Pesquisa & Desenvolvimento
+                                                </option>
+                                                <option value="Recursos Humanos">Recursos Humanos</option>
+                                                <option value="Saúde & Bem-estar">Saúde & Bem-estar</option>
+                                                <option value="Suporte Técnico">Suporte Técnico</option>
+                                                <option value="Turismo & Hospitalidade">Turismo & Hospitalidade</option>
+                                                <option value="Vídeo & Animação">Vídeo & Animação</option>
+                                                <option value="Outros">Outros</option>
+                                            </optgroup>
+
+                                            <!-- <option value="Designer & Grafico" selected>Designer & Grafico</option>
                                             <option value="Desenvolvedor Web">Desenvolvedor Web</option>
                                             <option value="Escrita & Edicao">Escrita & Edicao</option>
                                             <option value="Marketing Digital">Marketing Digital</option>
                                             <option value="Música & Audio">Música & Audio</option>
                                             <option value="Suporte Técnico">Suporte Técnico</option>
                                             <option value="Video & Animacao">Video & Animacao</option>
-                                            <option value="Outros">Outros</option>
+                                            <option value="Outros">Outros</option> -->
                                         </select required></label><br />
                                     <div class="divisoria"></div>
 
                                     <label for="qtda">Qtda de Vagas Disponiveis: *<br />
-                                        <input class="input required" id="qtda" oninput="qtdaValidate()" type="number" required>
+                                        <input class="input required" id="qtda" oninput="qtdaValidate()" type="number"
+                                            required>
                                     </label><br />
                                     <div>
                                         <p class="exception" id="--qtda--">A quantidade de vagas não pode estar vazio
                                         </p>
                                     </div>
 
-                                    <label for="salario">Salário: *<br />
-                                        <input class="input salario required" id="salario" name="salario" oninput="salarioValidate()" type="text" placeholder="R$: " required>
+                                    <label class="salarioLabel" for="salario">Salário: *<br />
+                                        <span class="rsMoney">R$:</span>
+                                        <input class="input salario required" id="salario" name="salario"
+                                            oninput="salarioValidate()" type="text" placeholder="0,00" required>
+                                            
                                     </label><br />
                                     <div>
                                         <p class="exception" id="--salario--">O salário não pode estar vazio</p>
@@ -107,7 +145,43 @@
 
                                     <label for="escolaridade-Vaga">Nivel de Escolaridade Minima: *<br />
                                         <select class="vaga-options input  select" id="escolaridadeVaga" name="types">
-                                            <option value="Analfabeto">Analfabeto</option>
+
+                                            <optgroup label="Níveis de Ensino">
+                                                <option value="Analfabeto">Analfabeto</option>
+                                                <option value="Educação Infantil">Educação Infantil</option>
+                                                <option value="Ensino Fundamental I">Ensino Fundamental I</option>
+                                                <option value="Ensino Fundamental II">Ensino Fundamental II</option>
+                                                <option value="Ensino Médio" selected>Ensino Médio</option>
+                                                <option value="Ensino Técnico">Ensino Técnico</option>
+                                                <option value="Ensino Superior (Graduação)">Ensino Superior (Graduação)
+                                                </option>
+                                            </optgroup>
+                                            <!-- Pós-Graduação -->
+                                            <optgroup label="Pós-Graduação">
+                                                <option value="Pós-graduação Lato Sensu">Pós-graduação Lato Sensu
+                                                </option>
+                                                <option value="Pós-graduação Stricto Sensu">Pós-graduação Stricto Sensu
+                                                </option>
+                                                <option value="Mestrado">Mestrado</option>
+                                                <option value="Doutorado">Doutorado</option>
+                                                <option value="Pós-doutorado">Pós-doutorado</option>
+                                            </optgroup>
+                                            <!-- Outras Formas de Estudo -->
+                                            <optgroup label="Outras Formas de Estudo">
+                                                <option value="Cursos Livres">Cursos Livres</option>
+                                                <option value="Ensino a Distância (EAD)">Ensino a Distância (EAD)
+                                                </option>
+                                                <option value="Cursos Técnicos Profissionalizantes">Cursos Técnicos
+                                                    Profissionalizantes</option>
+                                                <option value="Cursos de Idiomas">Cursos de Idiomas</option>
+                                                <option value="Formação Profissional">Formação Profissional</option>
+                                                <option value="Treinamentos Específicos">Treinamentos Específicos
+                                                </option>
+                                                <option value="Certificações">Certificações</option>
+                                                <option value="Educação Continuada">Educação Continuada</option>
+                                            </optgroup>
+
+                                            <!-- <option value="Analfabeto">Analfabeto</option>
                                             <option value="Até 5º Ano Incompleto">Até 5º Ano Incompleto</option>
                                             <option value="5º Ano Completo">5º Ano Completo</option>
                                             <option value="6º ao 9º Ano do Fundamental">6º ao 9º Ano do Fundamental
@@ -119,7 +193,7 @@
                                             <option value="Superior Completo">Superior Completo</option>
                                             <option value="Mestrado">Mestrado</option>
                                             <option value="Doutorado">Doutorado</option>
-                                            <option value="Nenhum">Nenhum</option>
+                                            <option value="Nenhum">Nenhum</option> -->
                                         </select required></label><br />
                                     <div class="divisoria"></div>
                                     <!--
@@ -150,14 +224,16 @@
 
 
                                     <label for="areaProfissional">Área Profissional: *<br />
-                                        <input class="input required" id="area" type="text" oninput="areaValidate()" name="areaProfissional" required>
+                                        <input class="input required" id="area" type="text" oninput="areaValidate()"
+                                            name="areaProfissional" required>
                                     </label><br />
                                     <div>
                                         <p class="exception" id="--area--">A área profissional não pode estar vazio</p>
                                     </div>
 
                                     <label for="exigencia">Exigencias: *<br />
-                                        <input class="input required" id="exigencia" type="text" name="exigencia" oninput="exigenciaValidate()" required>
+                                        <input class="input required" id="exigencia" type="text" name="exigencia"
+                                            oninput="exigenciaValidate()" required>
                                     </label><br />
                                     <div>
                                         <p class="exception" id="--exigencias--">A exigencia não pode estar vazio</p>
@@ -170,7 +246,40 @@
 
                                     <label for="tipoContrato">Tipo de contrato: *<br />
                                         <select class="vaga-options input select" id="tipoContrato" name="contrato">
-                                            <option value="Efetivo – CLT - Período Integral">Efetivo – CLT - Período
+
+                                            <optgroup label="Contratos de Trabalho">
+                                                <option value="Contrato de Aprendizagem">Contrato de Aprendizagem
+                                                </option>
+                                                <option value="Contrato de Prestação de Serviços">Contrato de Prestação
+                                                    de Serviços</option>
+                                                <option value="Contrato de Substituição Temporária">Contrato de
+                                                    Substituição Temporária</option>
+                                                <option value="Contrato por Obra Certa">Contrato por Obra Certa</option>
+                                                <option value="De Estágio">De Estágio</option>
+                                                <option value="De Experiência">De Experiência</option>
+                                                <option value="De Teletrabalho">De Teletrabalho</option>
+                                                <option value="De Trabalho Autônomo">De Trabalho Autônomo</option>
+                                                <option value="De Trabalho Eventual">De Trabalho Eventual</option>
+                                                <option value="Efetivo – CLT - Período Integral">Efetivo – CLT - Período
+                                                    Integral</option>
+                                                <option value="Efetivo – Home Office" selected>Efetivo – Home Office
+                                                </option>
+                                                <option value="Intermitente">Intermitente</option>
+                                                <option value="Parcial – Período Parcial">Parcial – Período Parcial
+                                                </option>
+                                                <option value="Por Projeto">Por Projeto</option>
+                                                <option value="Por Tempo Determinado">Por Tempo Determinado</option>
+                                                <option value="Por Tempo Indeterminado">Por Tempo Indeterminado</option>
+                                                <option value="Tempo Parcial">Tempo Parcial</option>
+                                                <option value="Temporário">Temporário</option>
+                                            </optgroup>
+                                            <optgroup label="Outros Contratos">
+                                                <option value="Contrato de Parceria">Contrato de Parceria</option>
+                                                <option value="Freelancer">Freelancer</option>
+                                                <option value="Voluntariado">Voluntariado</option>
+                                            </optgroup>
+
+                                            <!-- <option value="Efetivo – CLT - Período Integral">Efetivo – CLT - Período
                                                 Integral</option>
                                             <option value="Efetivo – Home Office" selected>Efetivo – Home Office
                                             </option>
@@ -181,7 +290,7 @@
                                             <option value="de experiência">de experiência</option>
                                             <option value="de teletrabalho">de teletrabalho</option>
                                             <option value="intermitente">intermitente</option>
-                                            <option value="de trabalho autônomo">de trabalho autônomo</option>
+                                            <option value="de trabalho autônomo">de trabalho autônomo</option> -->
                                         </select required>
                                     </label><br />
                                     <div class="divisoria"></div>
@@ -260,26 +369,27 @@
 
 
                                     <label for="historia-vaga">Sobre a Vaga: *<br />
-                                        <textarea class="historia-Vaga input textarea required" id="historia-vaga"
+                                        <textarea class="historia-Vaga hvitr input textarea required" id="historia-vaga"
                                             maxlength="500" oninput="sobreValidate()" required></textarea>
                                     </label>
                                     <div>
                                         <p class="exception" id="--sobre--">O sobre não pode estar vazio</p>
                                     </div>
 
-                                    <label for="cnpj">Cnpj: *<br />
+                                    <label for="cnpj">Cnpj da Empresa: *<br />
                                         <input class="input required" id="cnpj" type="cnpj" name="cnpj" minlength="14"
-                                            maxlength="14" placeholder="XX. XXX. XXX/0001-XX" oninput="cnpjValidate()" required></label><br />
+                                            maxlength="14" placeholder="XX. XXX. XXX/0001-XX" oninput="cnpjValidate()"
+                                            required></label><br />
                                     <div>
                                         <p class="exception" id="--cnpj--">O cnpj não pode estar vazio</p>
                                     </div>
-
+                                    <!-- 
                                     <label for="password">Senha: *<br />
                                         <input class="input required" id="password" type="password" name="password"
                                             oninput="mainPasswordValidate()" required></label><br />
                                     <div>
                                         <p class="exception" id="--senha--">A senha tem que ter mais de 8 caracteres</p>
-                                    </div>
+                                    </div> -->
 
                                 </div>
                             </div>
@@ -312,7 +422,7 @@
                                     <script> // MASK
                                         $('#cep').mask('00000-000')
                                         $('#cnpj').mask('00.000.000/0000-00')
-                                        $('#salario').mask("R$: ######", {reverse: false});
+                                        $('#salario').mask('#.##0,00', {reverse: true});
 
 
                                     </script>
@@ -329,7 +439,7 @@
 
             <script src="/-Detalhe-css-img-/js/cadastro/cadOtherFunctions.js" defer></script>
             <script src="/-Detalhe-css-img-/js/cadastro/atualizar/atualizarVaga.js" defer></script>
-            
+
             <!-- <script src="/-Detalhe-css-img-/js/empresas/empresas.js" defer></script> -->
         </div>
 

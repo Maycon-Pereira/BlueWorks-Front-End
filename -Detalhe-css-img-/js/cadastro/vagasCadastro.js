@@ -28,7 +28,7 @@ const imgInput = document.getElementById('uploadImg')
 
 const historiaTextarea = document.getElementById('historia-vaga')
 const cnpjInput = document.getElementById('cnpj')
-const passwordInput = document.getElementById('password')
+//const passwordInput = document.getElementById('password')
 
 
 
@@ -42,7 +42,7 @@ form.addEventListener('submit', (event) => {
     cnpjValidate()
     sobreValidate()
     cepValidate()
-    mainPasswordValidate()
+    //mainPasswordValidate()
 })
 function setError(index) {
     campos[index].style.border = '1px solid rgb(218, 21, 21)';
@@ -76,7 +76,7 @@ function qtdaValidate() {
     }
 }
 function salarioValidate() {
-    if (campos[2].value.length < 7) {
+    if (campos[2].value.length < 6) {
 
         setError(2);
 
@@ -143,19 +143,20 @@ function cnpjValidate() {
 
     }
 }
-
+/* 
 function mainPasswordValidate() {
     if (campos[8].value.length < 8) {
         setError(8);
     } else {
         removeError(8);
     }
-}
+} */
 
 //VAGAS--------------------------------------------
 function vagasCad(event) {
     event.preventDefault();
     //var x = $( "form" ).serialize();
+
 
     var date = new Date();
     var day = date.getDate();
@@ -173,13 +174,17 @@ function vagasCad(event) {
     var tipo = $("#type").val();
     var qtda = $("#qtda").val();
     var data = day + "/" + month + "/" + year;
+
+    
     var salario = $("#salario").val();
+    //alert("salario não formatado" + salario)
 
     /* restirar a mascara de salario */
-    salario = salario.replace("R", "")
-    salario = salario.replace("$", "")
-    salario = salario.replace(" ", "")
-    salario = salario.replace(":", "")
+    /* salario = salario.replace(".", "")
+    salario = salario.replace(".", "")
+    salario = salario.replace(",", "") */
+
+    //alert("salario formatado" + salario)
 
     var escolaridade = $("#escolaridadeVaga").val();
     var area = $("#area").val();
@@ -189,17 +194,19 @@ function vagasCad(event) {
     var sobre = $("#historia-vaga").val();
     var cnpj = $("#cnpj").val();
 
-    /* restirar a mascara de cnpj */
-    cnpj = cnpj.replace(".", "")
+    //restirar a mascara de cnpj
+    /* cnpj = cnpj.replace(".", "")
     cnpj = cnpj.replace(".", "")
     cnpj = cnpj.replace("/", "")
-    cnpj = cnpj.replace("-", "")
+    cnpj = cnpj.replace("-", "") */
+    
+    //var senha = $("#password").val();
 
-    var senha = $("#password").val();
+
     var cep = $("#cep").val();
 
     /* restirar a mascara de cep */
-    cep = cep.replace("-", "")
+    /* cep = cep.replace("-", "") */
 
     var logradouro = $("#rua").val();
     var bairro = $("#bairro").val();
@@ -225,7 +232,7 @@ function vagasCad(event) {
         "contrato": tipoContrato,
         "sobre": sobre,
         "cnpj": cnpj,
-        "senha": senha,
+        //"senha": senha,
         "cep": cep,
         "logradouro": logradouro,
         "bairro": bairro,
@@ -312,10 +319,10 @@ function vagasCad(event) {
                     document.getElementById("--cnpj--").style.opacity = '1';
                     /* spans.style.opacity = '1'; */
                 }
-                if ('senha' in dataJSON == true) {
+                /* if ('senha' in dataJSON == true) {
                     passwordInput.style.border = "1px solid rgb(218, 21, 21)";
                     document.getElementById("--senha--").style.opacity = '1';
-                }
+                } */
                 
 
 
@@ -353,7 +360,7 @@ function vagasCad(event) {
     console.log(" tipoContrato " + tipoContrato)
     console.log(" sobre " + sobre)
     console.log(" cnpj " + cnpj)
-    console.log(" senha  " + senha)
+    //console.log(" senha  " + senha)
     console.log(" cep " + cep)
     console.log(" logradouro " + logradouro)
     console.log(" bairro " + bairro)

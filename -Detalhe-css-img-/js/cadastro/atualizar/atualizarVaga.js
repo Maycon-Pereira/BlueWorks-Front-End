@@ -28,7 +28,7 @@ const imgInputVaga = document.getElementById('uploadImg')
 
 const historiaTextareaVaga = document.getElementById('historia-vaga')
 const cnpjInputVaga = document.getElementById('cnpj')
-const passwordInputVaga = document.getElementById('password')
+//const passwordInputVaga = document.getElementById('password')
 
 
 // Validação Atualiza Vaga
@@ -42,7 +42,7 @@ formVaga.addEventListener('submit', (event) => {
     cnpjValidate()
     sobreValidate()
     cepValidate()
-    mainPasswordValidate()
+    //mainPasswordValidate()
 })
 function setError(index) {
     camposVaga[index].style.border = '1px solid rgb(218, 21, 21)';
@@ -76,7 +76,7 @@ function qtdaValidate() {
     }
 }
 function salarioValidate() {
-    if (camposVaga[2].value.length < 7) {
+    if (camposVaga[2].value.length < 6 ) {
 
         setError(2);
 
@@ -143,14 +143,14 @@ function cnpjValidate() {
 
     }
 }
-
+/*
 function mainPasswordValidate() {
     if (camposVaga[8].value.length < 8) {
         setError(8);
     } else {
         removeError(8);
     }
-}
+} */
 // Fim Validação Atualiza Vaga
 
 //========PUT TYPE TO ATUALIZAR VAGA========
@@ -168,6 +168,8 @@ function AtualizarVaga(el) {
 
 //ATUALIZAR VAGA
 var vagaId = new URLSearchParams(window.location.search).get('id');
+
+
 
 $.ajax({
     url: 'http://localhost:8080/vagas/' + vagaId,
@@ -193,7 +195,10 @@ $.ajax({
         $('#type').val(response.tipo);
 
         $('#qtda').val(response.qtda);
+
+
         $('#salario').val(response.salario);
+
         $('#escolaridadeVaga').val(response.escolaridade);
         $('#area').val(response.area);
         $('#exigencia').val(response.exigencias);
@@ -232,7 +237,7 @@ $('#atualizarVaga').on('click', function () {
         nome: $("#name").val(),
         tipo: $("#type").val(),
         qtda: $("#qtda").val(),
-        data: data,
+        data_publicacao: data,
         salario: $("#salario").val(),
         escolaridade: $("#escolaridadeVaga").val(),
         area: $("#area").val(),
@@ -249,6 +254,29 @@ $('#atualizarVaga').on('click', function () {
         fotoBase64: $("#uploadImg").val()
 
     };
+    //if (nomeAtualizado.length != "") {
+
+    var dadosAtualizados = JSON.parse(JSON.stringify(dadosAtualizados));
+
+    /* if (dadosAtualizados.valorizado === "") {
+        dadosAtualizados.valorizado.replace("", ".");
+        alert("val replace: " + dadosAtualizados.valorizado)
+    }
+    if (prop === "valorizado") {
+        dadosAtualizados[prop] = dadosAtualizados[prop].replace("", ".");
+      } */
+
+    var propertiesToIgnore = ["valorizado", "fotoBase64"];
+
+    for (var prop in dadosAtualizados) {
+        if (dadosAtualizados.hasOwnProperty(prop)) {
+            if (dadosAtualizados[prop] === "" && !propertiesToIgnore.includes(prop)) {
+                //alert("consegui parar");
+                console.log("Propriedade vazia: " + prop);
+                return;
+            }
+        }
+    }
 
     // Envia a solicitação PUT para atualizar a vaga
     $.ajax({
@@ -257,17 +285,23 @@ $('#atualizarVaga').on('click', function () {
         data: JSON.stringify(dadosAtualizados),
         contentType: 'application/json',
         success: function (response) {
-            /* alert('Vaga atualizada com sucesso!'); */
+
             location.href = "/z-Novo_TCC/Perfil/perfil.html";
+
         },
         error: function (xhr, status) {
             console.log('Erro ao atualizar a vaga: ' + status);
+            // Restante do código...
         }
     });
+
+    //}
+
+
 });
 
 
-/* 
+/*
 function autoValidation() {
  */
 //}

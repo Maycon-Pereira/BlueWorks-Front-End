@@ -23,7 +23,7 @@ const imgInputEmpres = document.getElementById('uploadImg')
 const numeroInputEmpres = document.getElementById('numero')
 
 const emailInputEmpres = document.getElementById("email")
-const passwordInputEmpres = document.getElementById('password')
+//const passwordInputEmpres = document.getElementById('password')
 const confirm_passwordInputEmpres = document.getElementById('confirmPassword')
 
 
@@ -37,7 +37,7 @@ formEmpres.addEventListener('submit', (event) => {
     sobreValidate()
     cepValidate()
     emailValidate()
-    mainPasswordValidate()
+    //mainPasswordValidate()
 })
 function setError(index) {
     camposEmpres[index].style.border = '1px solid rgb(218, 21, 21)';
@@ -115,7 +115,7 @@ function validEmail(email) {
     );
 };
 
-function mainPasswordValidate() {
+/* function mainPasswordValidate() {
     if (camposEmpres[5].value.length < 8) {
         setError(5);
     } else {
@@ -123,3 +123,4 @@ function mainPasswordValidate() {
     }
 }
 
+ */

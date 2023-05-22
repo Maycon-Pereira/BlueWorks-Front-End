@@ -82,28 +82,58 @@
 
                                     <label for="porte">Porte da Empresa: *</label><br />
                                     <select class="porteEmpresa" id="porte" name="types">
-                                        <option value="Microempreendedor Individual (MEI)">Microempreendedor
+
+                                        <option value="Empresas de capital aberto">Empresas de capital aberto</option>
+                                        <option value="Empresas de capital fechado">Empresas de capital fechado</option>
+                                        <option value="Empresas de consultoria">Empresas de consultoria</option>
+                                        <option value="Empresas de energia">Empresas de energia</option>
+                                        <option value="Empresas de e-commerce">Empresas de e-commerce</option>
+                                        <option value="Empresas de manufatura">Empresas de manufatura</option>
+                                        <option value="Empresas de serviços financeiros">Empresas de serviços
+                                            financeiros</option>
+                                        <option value="Empresas de setor privado">Empresas de setor privado</option>
+                                        <option value="Empresas de setor público">Empresas de setor público</option>
+                                        <option value="Empresas de tecnologia">Empresas de tecnologia</option>
+                                        <option value="Empresas de transporte e logística">Empresas de transporte e
+                                            logística</option>
+                                        <option value="Empresas de varejo">Empresas de varejo</option>
+                                        <option value="Empresa de Médio Porte" selected>Empresa de Médio Porte</option>
+                                        <option value="Empresas multinacionais">Empresas multinacionais</option>
+                                        <option value="Empresas sociais ou de economia solidária">Empresas sociais ou de
+                                            economia solidária</option>
+                                        <option value="Empresas start-ups">Empresas start-ups</option>
+                                        <option value="Empresa de Pequeno Porte (EPP)">Empresa de Pequeno Porte (EPP)
+                                        </option>
+                                        <option value="Empresa de Médio Porte">Empresa de Médio Porte</option>
+                                        <option value="Grande Empresa">Grande Empresa</option>
+                                        <option value="Microempresa">Microempresa</option>
+                                        <option value="Microempreendedor Individual (MEI)">Microempreendedor Individual
+                                            (MEI)</option>
+                                        <option value="Multinacional">Multinacional</option>
+                                        <option value="Pequena empresa">Pequena empresa</option>
+
+                                        <!-- <option value="Microempreendedor Individual (MEI)">Microempreendedor
                                             Individual (MEI)</option>
                                         <option value="Microempresa (ME)">Microempresa (ME)</option>
                                         <option value="Empresa de Pequeno Porte (EPP)">Empresa de Pequeno Porte
                                             (EPP)</option>
                                         <option value="Empresa de Médio Porte" selected>Empresa de Médio Porte
                                         </option>
-                                        <option value="Grande Empresa">Grande Empresa</option>
+                                        <option value="Grande Empresa">Grande Empresa</option> -->
                                     </select><br />
                                     <div class="divisoria"></div>
 
 
                                     <div class="checkEmpresa" id="check">
-                                        <tbody>
+                                        <!-- <tbody>
                                             <tr>
                                                 <td>
                                                     <label id="checkLabel" for="empresaCheck">Tem Empresa
                                                         Fisica?</label>
-                                                    <input id="empresaCheck" onclick="ocultar()" type="checkbox">
+                                                    <input id="empresaCheck" onclick="mostrar()" type="checkbox">
                                                 </td>
                                             </tr>
-                                        </tbody>
+                                        </tbody> -->
 
                                     </div>
 
@@ -135,8 +165,8 @@
                                         <p class="exception" id="--cep--">O CEP não pode estar vazio</p>
                                     </div>
 
-                                    <div class="input-address" class="tiny button" id="input-address"
-                                        style="display:none">
+                                    <div class="input-address input-address-atualizaEmpresa" class="tiny button"
+                                        id="input-address" style="display:block">
                                         <!------->
                                         <!-- Inicio do formulario -->
                                         <label>Rua:</label><br />
@@ -167,7 +197,7 @@
                                 <div class="input-box">
 
                                     <label for="numero">Número de Telefone:</label><br />
-                                    <input id="numero" type="tel" name="numero" placeholder="(XX) XXXXX-XXXX"
+                                    <input id="numero" type="tel" name="numero" placeholder="(ddd) XXXXX-XXXX"
                                         maxlength="11"><br />
                                     <div class="divisoria"></div>
 
@@ -178,12 +208,14 @@
                                         <p class="exception" id="--email--">Digite um email válido</p>
                                     </div>
 
-                                    <label for="password">Senha: *</label><br />
+                                    <!-- <label for="password">Senha: *</label><br />
                                     <input id="password" class="required" type="password" name="password"
                                         oninput="mainPasswordValidate()"><br />
                                     <div id="--senha">
                                         <p class="exception" id="--senha--">A senha tem que ter mais de 8 caracteres</p>
-                                    </div>
+                                    </div> -->
+
+
                                     <!--
                                     pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$"
                                     title="A senha deve conter entre 6 a 12 CARACTERES, deve conter pelo menos uma letra MAIÚSCULA, um NÚMERO e não deve conter SÍMBOLOS."

@@ -222,10 +222,11 @@ function empresaCad(event) {
     var cnpj = $("#cnpj").val();
 
     /* restirar a mascara de cnpj */
-    cnpj = cnpj.replace(".", "");
+    
+    /* cnpj = cnpj.replace(".", "");
     cnpj = cnpj.replace(".", "");
     cnpj = cnpj.replace("/", "");
-    cnpj = cnpj.replace("-", "");
+    cnpj = cnpj.replace("-", ""); */
 
     var porte = $("#porte").val();
     var historia = $("#historia").val();
@@ -243,7 +244,7 @@ function empresaCad(event) {
     var cep = $("#cep").val();
 
     /* restirar a mascara de cep */
-    cep = cep.replace("-", "");
+    /* cep = cep.replace("-", ""); */
 
     var rua = $("#rua").val();
     var bairro = $("#bairro").val();
