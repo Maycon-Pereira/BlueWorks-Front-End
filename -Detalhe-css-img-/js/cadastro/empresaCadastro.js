@@ -251,6 +251,7 @@ function empresaCad(event) {
     var uf = $("#uf").val();
     var cidade = $("#cidade").val();
     var fotoPerfil = $("#uploadImg").val();
+    var statusEmpresa = "ATIVA"
 
    
 
@@ -268,6 +269,7 @@ function empresaCad(event) {
         "bairro": bairro,
         "uf": uf,
         "cidade": cidade,
+        "status_empresa":statusEmpresa,
         "fotoBase64": fotoPerfil
     }
 

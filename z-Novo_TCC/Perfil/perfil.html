@@ -19,14 +19,16 @@
 
     <title>Perfil - Empresa</title>
     <script src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
-    <script src="/-Detalhe-css-img-/js/cadastro/atualizar/atualizarVaga.js" defer></script>
     <script src="/-Detalhe-css-img-/js/cadastro/atualizar/atualizarEmpresa.js" defer></script>
+    
+    <script src="/-Detalhe-css-img-/js/cadastro/atualizar/atualizarVaga.js"></script>
     <script src="/-Detalhe-css-img-/js/empresas/empresas.js"></script>
     <script src="/-Detalhe-css-img-/js/vaga/vagaPerfil/vagaPerfil.js"></script>
-
+    <script src="/-Detalhe-css-img-/js/cadastro/vagasCadastro.js"></script>
 </head>
 
 <body class="oficial-body">
+
 
     <div class="responsBarMenu">
 
@@ -120,9 +122,16 @@
 
                     <div class="cima">
                         <h3 class="tituloCa">Vagas Cadastradas:</h3>
-                        <div class="nova-vaga"><button class="button-new-vaga"> <a
-                                    href="/z-Novo_TCC/cadastro/CadastroVaga.html" rel="noopener noreferrer"> Nova Vaga
-                                </a></button></div>
+                        <div class="id-Empresa-to-Showff"></div>
+                        <div class="nova-vaga">
+
+
+                            <button class="button-new-vaga"> <a id="newVaga" onclick="IdEmpresaCadVaga(this)"
+                                    rel="noopener noreferrer"> Nova Vaga
+                                </a></button>
+
+
+                        </div>
                     </div>
 
                     <div class="crud-vagas-ex">
@@ -253,15 +262,17 @@
         <div id="fade" class="hide"></div>
         <div id="modal" class="hide">
             <div class="modal-header">
-                <h2>Realmente deseja <span class="exc-Modal">excluir</span> esta vaga? <p class="notbold">Não tem como desfazer!</p></h2>
-                
+                <h2>Realmente deseja <span class="exc-Modal">excluir</span> esta vaga? <p class="notbold">Não tem como
+                        desfazer!</p>
+                </h2>
+
 
                 <button class="modal-button botao-x" id="close-modal"></button>
-                
+
 
             </div>
-            
-            
+
+
             <div class="modal-body">
                 <button class="cancel-modal modal-button" id="confirm-modal"
                     onclick="cancelCandidatura()">Excluir</button>

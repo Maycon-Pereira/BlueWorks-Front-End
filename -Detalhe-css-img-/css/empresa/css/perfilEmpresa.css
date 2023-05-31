@@ -325,6 +325,7 @@ header {
 
 
 .link {
+    
     width: 65%;
     height: 50px;
 }
@@ -461,6 +462,9 @@ a {
 
 .id-Empresa-to-Show {
     display: none
+}
+.id-Empresa-to-Showff {
+    display: none;
 }
 
 

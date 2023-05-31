@@ -3,7 +3,6 @@ const formVaga = document.getElementById("formVaga");
 const camposVaga = document.querySelectorAll(".required");
 const spansVaga = document.querySelectorAll(".exception");
 const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-/* const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$/; */
 
 
 const nomeInputVaga = document.querySelector("#name")
@@ -233,11 +232,14 @@ $('#atualizarVaga').on('click', function () {
     const year = date.getFullYear();
     const data = day + "/" + month + "/" + year;
 
+    var statusVaga = "ATIVA"
+
     var dadosAtualizados = {
         nome: $("#name").val(),
         tipo: $("#type").val(),
         qtda: $("#qtda").val(),
-        data_publicacao: data,
+        data_atualizacao: data,
+        status_vaga:statusVaga,
         salario: $("#salario").val(),
         escolaridade: $("#escolaridadeVaga").val(),
         area: $("#area").val(),

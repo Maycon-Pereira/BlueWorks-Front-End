@@ -152,10 +152,121 @@ function mainPasswordValidate() {
     }
 } */
 
+
 //VAGAS--------------------------------------------
+
+
+
+
+/* var idDaEmpresa = "";
+$.ajax({
+    url: "http://localhost:8080/empresa",
+    type: "GET",
+    crossDomain: true,
+    contentType: "application/json",
+    dataType: "json",
+    success: function (response) {
+
+        for (var i = 0; i < response.length; i++) {
+
+            idDaEmpresa = response[i].id;
+
+        }
+        
+        IdEmpresaCadVaga(idDaEmpresa)
+    },
+    error: function (xhr, status) {
+
+        console.log(xhr);
+        console.log(status);
+
+    }
+});
+
+function IdEmpresaCadVaga(empresaId) {
+
+    console.log("id da empresa " + empresaId);
+
+} */
+/* function IdEmpresaCadVaga(empresaId) {
+
+    alert("id da empresa: " + empresaId);
+
+    var idDaEmpresa = "";
+    $.ajax({
+        url: "http://localhost:8080/empresa",
+        type: "GET",
+        crossDomain: true,
+        contentType: "application/json",
+        dataType: "json",
+        success: function (response) {
+            for (var i = 0; i < response.length; i++) {
+                idDaEmpresa = response[i].id;
+            }
+            IdEmpresaCadVaga(idDaEmpresa);
+
+
+        },
+        error: function (xhr, status) {
+            console.log(xhr);
+            console.log(status);
+        }
+    });
+
+} */
+
+function IdEmpresaCadVaga(empresaId) {
+
+    $('.nova-vaga').on('click', '#newVaga', function () {
+
+        empresaId = document.querySelector('.empresa-id-div').innerHTML.trim();
+        //alert(empresaId)
+
+        redirecionarParaCadastroVaga(empresaId);
+        //vagasCad(empresaId);
+    });
+
+}
+
+
+function redirecionarParaCadastroVaga(id) {
+    window.location.href = '/z-Novo_TCC/cadastro/CadastroVaga.html?id=' + id;
+}
+
+
+$.ajax({
+    url: "http://localhost:8080/empresa",
+    type: "GET",
+    crossDomain: true,
+    contentType: "application/json",
+    dataType: "json",
+    success: function (response) {
+
+        for (var i = 0; i < response.length; i++) {
+
+            $('.idEmpresaDIV').append('<div class="idEmpresaCadastroVaga" id="'+response[i].id+'">'+response[i].id+'</div>')
+        }
+    },
+    error: function (xhr, status) {
+
+        console.log(xhr);
+        console.log(status);
+
+    }
+});
+
+ //var empresaID = new URLSearchParams(window.location.search).get('id'); 
+
+//alert(empresaID)
 function vagasCad(event) {
     event.preventDefault();
     //var x = $( "form" ).serialize();
+
+    var empresaId = document.querySelector('.idEmpresaCadastroVaga').innerHTML.trim();
+    //var empresa_id = empresaId;
+
+    //alert(empresaId)
+
 
 
     var date = new Date();
@@ -166,7 +277,7 @@ function vagasCad(event) {
     if (month <= 9) {
         month = '0' + month;
     }
-    
+
 
     //alert(" -- " + day + "/" + month + "/" + year + " -- ");
 
@@ -175,7 +286,7 @@ function vagasCad(event) {
     var qtda = $("#qtda").val();
     var data = day + "/" + month + "/" + year;
 
-    
+
     var salario = $("#salario").val();
     //alert("salario não formatado" + salario)
 
@@ -199,7 +310,7 @@ function vagasCad(event) {
     cnpj = cnpj.replace(".", "")
     cnpj = cnpj.replace("/", "")
     cnpj = cnpj.replace("-", "") */
-    
+
     //var senha = $("#password").val();
 
 
@@ -215,9 +326,10 @@ function vagasCad(event) {
     var fotoPerfil = $("#uploadImg").val();
 
 
-
+    var statusVaga = "ATIVA"
 
     var request = {
+        "id_empresa": empresaId,
         "nome": name,
         "tipo": tipo,
         "qtda": qtda,
@@ -232,7 +344,7 @@ function vagasCad(event) {
         "contrato": tipoContrato,
         "sobre": sobre,
         "cnpj": cnpj,
-        //"senha": senha,
+        "status_vaga": statusVaga,
         "cep": cep,
         "logradouro": logradouro,
         "bairro": bairro,
@@ -241,7 +353,6 @@ function vagasCad(event) {
         "fotoPerfil": fotoPerfil,
     }
 
-    console.log("1")
 
 
     $.ajax({
@@ -253,20 +364,14 @@ function vagasCad(event) {
         dataType: "json",
 
         success: function (response) {
-            console.log("2")
             //var resp = JSON.parse(response)
             console.log(response);
-            console.log("3")
-            uploadImagem(response.id, event); 
-            console.log("4")
+            uploadImagem(response.id, event);
             location.href = "/z-Novo_TCC/Perfil/perfil.html";
         },
         error: function (xhr, status) {
-            console.log("5")
             console.log(xhr);
-            console.log("6")
             console.log(status);
-            console.log("7")
 
             let jsonObject = JSON.parse(xhr.responseText);
             let objects = jsonObject.erros;
@@ -323,7 +428,7 @@ function vagasCad(event) {
                     passwordInput.style.border = "1px solid rgb(218, 21, 21)";
                     document.getElementById("--senha--").style.opacity = '1';
                 } */
-                
+
 
 
                 //old validation
@@ -345,9 +450,8 @@ function vagasCad(event) {
 
 
 
-    console.log("8")
 
-    console.log(" DADOS CADASTRADOS ")
+    /* console.log(" DADOS CADASTRADOS ")
     console.log(" nome " + name)
     console.log(" tipo " + tipo)
     console.log(" qtda " + qtda)
@@ -366,7 +470,7 @@ function vagasCad(event) {
     console.log(" bairro " + bairro)
     console.log(" uf " + uf)
     console.log(" cidade " + cidade)
-    console.log(" fotoPerfil " + fotoPerfil)
+    console.log(" fotoPerfil " + fotoPerfil) */
 }
 
 function uploadImagem(id, event) {

@@ -133,7 +133,7 @@ function AdminPerfilSobre() {
       for (var i = 0; i < response.length; i++) {
 
         $('.estatisticas').append(' <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div"> Id= ' + response[i].id + '</div><h4>' + response[i].nome + '</h4><div class="sobre-exp">Porte: ' + response[i].porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response[i].email + '</div><div class="sobre-exp">Cnpj: ' + response[i].cnpj + '</div><div class="sobre-exp">Cep: ' + response[i].cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num qtda-usuarios-visto"> 0 </div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num">  </div></div></div> ');
-
+        $('.id-Empresa-to-Showff').append('<div class="empresa-id-div" id="'+response[i].id+'">'+response[i].id+'</div>')
       }
 
     },
@@ -171,7 +171,15 @@ function AdminPerfilVagas() {
 
       for (var i = 0; i < response.length; i++) {
 
-        $('.crud-vagas').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-vags-cadastradas-a-mostrar"><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].data_publicacao + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" id="atualizarBtn" onclick="AtualizarVaga(this)"><a  rel="noopener noreferrer"> Editar </a> </button><button class="delet modal-button" id="open-modal" onclick="remove(this)"><a  rel="noopener noreferrer"> Excluir </a></button></div></div></div></div></div> ');
+        var dataExibicao = response[i].data_publicacao;
+        if (response[i].data_atualizacao) {
+
+          var atlz = document.getElementById("backAtualizada")
+          //atlz.style.backgroundColor = 'red'
+          dataExibicao = response[i].data_atualizacao + '*';
+        }
+        
+        $('.crud-vagas').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-vags-cadastradas-a-mostrar"><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div><div class="link perfilView" id="backAtualizada"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + dataExibicao + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" id="atualizarBtn" onclick="AtualizarVaga(this)"><a  rel="noopener noreferrer"> Editar </a> </button><button class="delet modal-button" id="open-modal" onclick="remove(this)"><a  rel="noopener noreferrer"> Excluir </a></button></div></div></div></div></div> ');
         /* edit   href="/z-Novo_TCC/atualizar/AtualizarVaga/atualizarVaga.html" */
       }
 
