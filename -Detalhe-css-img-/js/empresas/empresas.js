@@ -49,35 +49,37 @@ function VagaPerfil(el) {
   //alert("clicou no link")
   // Obtém o ID da vaga a ser atualizada
   var vagaId = element.parentNode.parentNode.parentNode.firstChild.innerHTML;
-  //alert('id = '+vagaId)
+  //alert('id = ' + vagaId)
 
   window.location.href = '/z-Novo_TCC/Vaga/perfilVaga/vagaPerfil.html?id=' + vagaId;
 
 }
 
+var vagaId = new URLSearchParams(window.location.search).get('id');
 
 function perfilVagaParaVisializar() {
   $.ajax({
-    url: 'http://localhost:8080/vagas',
+    url: 'http://localhost:8080/vagas/' + vagaId,
     type: "GET",
     crossDomain: true,
     contentType: "application/json",
     dataType: "json",
     success: function (response) {
-      
+      console.log(vagaId)
+      console.log("Passou por aqui! 1")
 
+      console.log("Passou por aqui! 2")
+      //(condição) ? valor_se_verdadeiro : valor_se_falso;
+      var status_vaga = response.status_vaga ? "ATIVA" : "INATIVA";
+      if (status_vaga != "ATIVA") {
+        document.getElementById("statusVagaDisponivel").style.backgroundColor = "red";
 
-      for (var i = 0; i < response.length; i++) {
-
-        //(condição) ? valor_se_verdadeiro : valor_se_falso;
-        var status_vaga = response[i].status_vaga ? "ATIVA" : "INATIVA";
-        if (status_vaga === "INATIVA") {
-          document.getElementById("statusVagaDisponivel").style.backgroundColor = "red";
-
-        }
-        
-        $('.perfil-vaga').append('<div class="detalhe"><div class="bunner"><div id="idPerfilVaga">' + response[i].id + '</div><img src="data:image/png;base64,' + response[i].fotoBase64 + '" alt="Bunner Vaga"></div><div class="detalhe-vaga"><div class="Info"><div class="all-Info"><div class="title"><h2>' + response[i].nome + '</h2></div><div class="apresentacao"><div class="status"><div class="statusVaga"><label for="status"><span class="bold">Status da Vaga: </span><span id="statusVagaDisponivel" class="disponivel">' + status_vaga + '</span></label></div><div class="statusVaga" id="estado"><label for="estado"> <span class="bold">' + response[i].cidade + ' - ' + response[i].uf + '</span></label></div><div class="salario-bruto"><label for="salario"><span class="bold">R$: ' + response[i].salario + ' </span></label></div></div></div></div></div></div></div><div class="detalhe-body"><div class="infVaga"><h2>Informação da vaga</h2><p>' + response[i].sobre + '</p><div class="infVaga2"><div class="numVagas space"><label for="numVagas"><span class="bold">Número de vagas:</span> ' + response[i].qtda + '</label></div><div class="tipo-contrato space"><label for="tipo"><span class="bold"> Tipo de contrato e Jornada:</span>' + response[i].contrato + '</label></div><div class="area-profis space"><label for="area"><span class="bold"> Área Profissional:</span>' + response[i].area + '</label></div><div class="exigencia space"><label for="exigencia"><span class="bold"> Exigências: </span></label>' + response[i].exigencias + '<ul><li><span class="ex">Escolaridade Mínima: </span>' + response[i].escolaridade + '</li></ul></div><div class="valorizado val-space space"><label for="valorizado"><span class="bold"> Valorizado: </span></label><ul><li>' + response[i].valorizado + '</li></ul></div></div></div><div class="inf-empresa"></div></div>');
       }
+
+      $('.perfil-vaga').append('<div class="detalhe"><div class="bunner"><div id="idPerfilVaga">' + response.id + '</div><img src="data:image/png;base64,' + response.fotoBase64 + '" alt="Bunner Vaga"></div><div class="detalhe-vaga"><div class="Info"><div class="all-Info"><div class="title"><h2>' + response.nome + '</h2></div><div class="apresentacao"><div class="status"><div class="statusVaga"><label for="status"><span class="bold">Status da Vaga: </span><span id="statusVagaDisponivel" class="disponivel">' + status_vaga + '</span></label></div><div class="statusVaga" id="estado"><label for="estado"> <span class="bold">' + response.cidade + ' - ' + response.uf + '</span></label></div><div class="salario-bruto"><label for="salario"><span class="bold">R$: ' + response.salario + ' </span></label></div></div></div></div></div></div></div><div class="detalhe-body"><div class="infVaga"><h2>Informação da vaga</h2><p>' + response.sobre + '</p><div class="infVaga2"><div class="numVagas space"><label for="numVagas"><span class="bold">Número de vagas:</span> ' + response.qtda + '</label></div><div class="tipo-contrato space"><label for="tipo"><span class="bold"> Tipo de contrato e Jornada:</span>' + response.contrato + '</label></div><div class="area-profis space"><label for="area"><span class="bold"> Área Profissional:</span>' + response.area + '</label></div><div class="exigencia space"><label for="exigencia"><span class="bold"> Exigências: </span></label>' + response.exigencias + '<ul><li><span class="ex">Escolaridade Mínima: </span>' + response.escolaridade + '</li></ul></div><div class="valorizado val-space space"><label for="valorizado"><span class="bold"> Valorizado: </span></label><ul><li>' + response.valorizado + '</li></ul></div></div></div><div class="inf-empresa"></div></div>');
+      console.log("Passou por aqui! 3")
+
+      console.log("Passou por aqui! 4")
     },
     error: function (xhr, status) {
       console.log(xhr);
@@ -85,8 +87,62 @@ function perfilVagaParaVisializar() {
     }
   });
 }
-
 //VER PERFIL DA VAGA FIM
+
+
+//VER PERFIL USUARIO
+
+function UsuarioPerfilPart1(el) {
+  var element = el
+  //alert("clicou no link")
+  // Obtém o ID da vaga a ser atualizada
+  var usuarioId = element.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
+  //alert('id usuario parte 1= ' + usuarioId)
+
+  window.location.href = '/z-Novo_TCC/Usuario/perfilUsuarioVisivelAEmpresa.html?id=' + usuarioId;
+
+
+}
+/* function UsuarioPerfilPart2(el) {
+  var element = el
+  //alert("clicou no link")
+  // Obtém o ID da vaga a ser atualizada
+  var usuarioId = element.parentNode.parentNode.parentNode.firstChild.innerHTML;
+  alert('id usuario = parte 2' + usuarioId)
+
+  //window.location.href = '/z-Novo_TCC/Vaga/perfilVaga/vagaPerfil.html?id=' + usuarioId;
+
+} */
+
+var usuarioId = new URLSearchParams(window.location.search).get('id');
+//alert(usuarioId)
+function PerfilUsuarioVisivelAEmpresa() {
+
+  $.ajax({
+    url: 'http://localhost:8080/usuario/' + usuarioId,
+    type: "GET",
+    crossDomain: true,
+    contentType: "application/json",
+    dataType: "json",
+    success: function (response) {
+
+
+      $('.usuario-info').append('<div class="main-info"><div class="info"><div class="img"><img src="data:image/png;base64,' + response.fotoBase64 + '" /></div><div class="personal-info"><div class="info-0"><span class="name"><h2>' + response.nome + '</h2></span></div><div class="info-1"><label for="tel"><span class="bold"> Telefone: </span><span id="num">' + response.telefone + '</span></label></div><div class="info-1"><label for="mail"><span class="bold">Email: </span><span id="email">' + response.email + '</span></label></div><div class="info-1"><label for="addres"><span class="bold">Endereço: </span><span id="addres">' + response.cidade + ', ' + response.uf + '</span></label></div><div class="info-1"><label for="nasc"><span class="bold">Data de Nascimento:</span><span id="addres"> ' + response.nascimento + ' </span></label></div><div class="info-1"><label for="escola"><span class="bold">Escolaridade: </span><span id="escolaridade">' + response.escolaridade + ' </span></label></div></div></div></div><div class="main-info2"><div class="down-info"><div class="sobre-"><div class="mim"><div class="assunto"><h2>Sobre-mim</h2><p> ' + response.sobre + ' </p></div></div></div></div></div>');
+
+
+    },
+    error: function (xhr, status) {
+
+      console.log(xhr);
+      console.log(status);
+
+    }
+  });
+
+}
+
+
+// FIM VER PERFIL USUARIO
 
 
 //Perfil admin crud vagas e usuarios
@@ -133,7 +189,7 @@ function AdminPerfilSobre() {
       for (var i = 0; i < response.length; i++) {
 
         $('.estatisticas').append(' <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div"> Id= ' + response[i].id + '</div><h4>' + response[i].nome + '</h4><div class="sobre-exp">Porte: ' + response[i].porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response[i].email + '</div><div class="sobre-exp">Cnpj: ' + response[i].cnpj + '</div><div class="sobre-exp">Cep: ' + response[i].cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num qtda-usuarios-visto"> 0 </div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num">  </div></div></div> ');
-        $('.id-Empresa-to-Showff').append('<div class="empresa-id-div" id="'+response[i].id+'">'+response[i].id+'</div>')
+        $('.id-Empresa-to-Showff').append('<div class="empresa-id-div" id="' + response[i].id + '">' + response[i].id + '</div>')
       }
 
     },
@@ -173,12 +229,9 @@ function AdminPerfilVagas() {
 
         var dataExibicao = response[i].data_publicacao;
         if (response[i].data_atualizacao) {
-
-          var atlz = document.getElementById("backAtualizada")
-          //atlz.style.backgroundColor = 'red'
           dataExibicao = response[i].data_atualizacao + '*';
         }
-        
+
         $('.crud-vagas').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-vags-cadastradas-a-mostrar"><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div><div class="link perfilView" id="backAtualizada"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + dataExibicao + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" id="atualizarBtn" onclick="AtualizarVaga(this)"><a  rel="noopener noreferrer"> Editar </a> </button><button class="delet modal-button" id="open-modal" onclick="remove(this)"><a  rel="noopener noreferrer"> Excluir </a></button></div></div></div></div></div> ');
         /* edit   href="/z-Novo_TCC/atualizar/AtualizarVaga/atualizarVaga.html" */
       }
@@ -188,7 +241,7 @@ function AdminPerfilVagas() {
       var totVaga = totalVagas - 1;
 
       $('.vag-num').append(totVaga);
-      
+
     },
     error: function (xhr, status) {
 
@@ -199,6 +252,7 @@ function AdminPerfilVagas() {
   });
 
 }
+
 
 function AdminPerfilUsuarios() {
   //console.log("AdminPerfilUsuarios foi chamado")
@@ -215,19 +269,19 @@ function AdminPerfilUsuarios() {
 
 
       for (var i = 0; i < response.length; i++) {
-/* 
-        var qtda_usu = [i + 1]
-        var totalusuarios = qtda_usu[qtda_usu.length - 1]
-        var totUsu = totalusuarios - 1; */
+        /* 
+                var qtda_usu = [i + 1]
+                var totalusuarios = qtda_usu[qtda_usu.length - 1]
+                var totUsu = totalusuarios - 1; */
 
         if (response[i].usuarioDipensado == false) {
 
           totalUsuarios = totalUsuarios + 1;
 
           if (response[i].empresaDeuLike == false) {
-            $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link perfilView"><div class="name-user-undefined">' + response[i].nome + '</div><div class="nomeEmpresaDeuLike">  <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link perfilView"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="name-user-undefined">' + response[i].escolaridade + '</div><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"><a  rel="noopener noreferrer"> Gostei </a> </button><button class="delet" onClick="rejectUser(this)"><a  rel="noopener noreferrer"> Regeitar </a></button></div> </div></div></div></div> ');
+            $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="'+ response[i].id +'">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link perfilView"><div class="nomeEmpresaDeuLike">  <button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div></div><div class="link perfilView"><button class="buttonPerfilUserView but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas">' + response[i].escolaridade + '</div></button></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"><a  rel="noopener noreferrer"> Gostei </a> </button><button class="delet" onClick="rejectUser(this)"><a  rel="noopener noreferrer"> Regeitar </a></button></div> </div></div></div></div> ');
           } else {
-            $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <a href=""><div class="content-vagas">' + response[i].nome + '</div></a></div></div><div class="link"><a href=""><div class="content-vagas">' + response[i].escolaridade + '</div></a></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton" onclick="NaoDarLike(this)" ><a  rel="noopener noreferrer"> Remover </a></button></div></div></div></div></div> ');
+            $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="'+ response[i].id +'">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div></div><div class="link"><button class="buttonPerfilUserView  but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas">' + response[i].escolaridade + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton" onclick="NaoDarLike(this)" ><a  rel="noopener noreferrer"> Remover </a></button></div></div></div></div></div> ');
           }
 
         }
@@ -265,6 +319,7 @@ function AdminPerfilUsuarios() {
     }
   });
 }
+
 
 
 
@@ -609,11 +664,17 @@ function DarLike(el) {
   var element = el;
   //alert("Deu Like!")
 
-  var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
+ // var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
   //var UsuarioNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.firstChild.innerHTML;
 
-  var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
+  var UsuarioId = document.querySelector('.idUsuarioCandidatadaAVaga').innerHTML.trim();
+//alert("id usuario trim()  = "+UsuariovId)
 
+  //alert(UsuarioId)
+  //var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
+  var EmpresaNome = document.querySelector('.nomeEmpresa').innerHTML.trim();
+  
+  //alert(EmpresaNome)
   var userNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.innerHTML;
   var userFormacao = element.parentNode.parentNode.firstChild.innerHTML;
   //EmpresaNome.trim()
@@ -627,11 +688,11 @@ function DarLike(el) {
     crossDomain: true,
     contentType: "application/json",
     success: function (response) {
-
+      //alert(UsuarioId)
       element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
-
+      //alert(UsuarioId)
       window.location.reload();
-
+      //alert(UsuarioId)
     },
     error: function (xhr, status) {
       /* alert('' + status + ' Tente novamente');
@@ -652,9 +713,9 @@ function NaoDarLike(el) {
 
   var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
   //var UsuarioNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.firstChild.innerHTML;
-
+//alert("remover="+UsuarioId)
   var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
-
+//alert(EmpresaNome)
   var userNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.innerHTML;
   var userFormacao = element.parentNode.parentNode.firstChild.innerHTML;
   //EmpresaNome.trim()

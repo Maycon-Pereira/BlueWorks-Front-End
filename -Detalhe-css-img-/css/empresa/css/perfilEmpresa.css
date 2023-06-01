@@ -457,6 +457,28 @@ a {
 
 }
 
+.buttonPerfilUserView {
+    background-color: #E6E6E6E6;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    
+}
+.buttonPerfilUserView:hover {
+    width: 100%;
+    border: none;
+    background-color: rgb(236, 236, 236);
+}
+
+.butt1 {
+    cursor: pointer;
+    background-color: transparent;
+}
+.butt1:hover {
+    cursor: pointer;
+    background: rgb(12, 12, 12);
+}
+
 
 /* ERROR MODAL */
 

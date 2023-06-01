@@ -1,77 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/-Detalhe-css-img-/css/empresa/css/perfilEmpresa.css">
   <title>Document</title>
-  <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-
-body {
-  align-items: center;
-  background-color: #f7f7f7;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  height: 100vh;
-  justify-content: center;
-}
-
-h1 {
-  color: #666;
-}
-
-form {
-  background: #38B2AC;
-  border-radius: 5px;
-  box-shadow: 0 1px 2px #ccc;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0 10px;
-  padding: 20px;
-}
-
-input, textarea, button {
-  background-color: #f7f7f7;
-  border: none;
-  border-radius: 5px;
-  color: #777;
-  font-size: 18px;
-  outline: none;
-  padding: 15px;
-  width: 100%;
-}
-
-button {
-  color: #777;
-  cursor: pointer;
-  font-weight: bold;
-}
-  </style>
 </head>
-<body>
-  <h1>CONTATO</h1>
-  <form action="https://formsubmit.co/bluetipsbrasil@gmail.com" method="POST">
-    <input type="text" name="name" placeholder="Digite seu nome" required>
-    <input type="email" name="email" placeholder="Digite seu e-mail" required>
 
-    <textarea cols="30" rows="10" name="message" 
-      placeholder="Digite sua mensagem" required></textarea>
-    
-    <button type="submit" >ENVIAR</button>
-    
-    
-    <input type="hidden" name="_subject" value="Novo Contato!">
-    <input type="text" name="_honey" style="display:none">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="/z-Novo_TCC/Login/login.html">
-  </form>
+<body>
+
+  <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="'+ response[i].id +'">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link perfilView"><div class="nomeEmpresaDeuLike">  <button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div></div><div class="link perfilView"><button class="buttonPerfilUserView but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas">' + response[i].escolaridade + '</div></button></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"><a  rel="noopener noreferrer"> Gostei </a> </button><button class="delet" onClick="rejectUser(this)"><a  rel="noopener noreferrer"> Regeitar </a></button></div> </div></div></div></div>
 </body>
+
 </html>

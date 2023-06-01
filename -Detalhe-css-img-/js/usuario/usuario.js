@@ -1,4 +1,4 @@
-//Perfil usuario
+/* //Perfil usuario
 function usuario() {
 
     $.ajax({
@@ -23,9 +23,9 @@ function usuario() {
         }
     });
 
-}
+} */
 
-function PerfilUsuarioVisivelAEmpresa() {
+/* function PerfilUsuarioVisivelAEmpresa() {
 
     $.ajax({
         url: "http://localhost:8080/usuario/v2/image/download",
@@ -49,5 +49,5 @@ function PerfilUsuarioVisivelAEmpresa() {
         }
     });
 
-}
+} */
 

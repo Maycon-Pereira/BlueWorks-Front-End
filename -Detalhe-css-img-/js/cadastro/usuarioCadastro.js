@@ -212,7 +212,7 @@ function usuarioCad(event) {
         "nome": name,
         "cpf": cpf,
         "escolaridade": escolaridade,
-        "data": data,
+        "nascimento": data,
         "sobre": sobre,
         "telefone": numero,
         "email": email,

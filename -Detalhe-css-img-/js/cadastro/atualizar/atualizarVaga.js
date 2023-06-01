@@ -153,7 +153,7 @@ function mainPasswordValidate() {
 // Fim Validação Atualiza Vaga
 
 //========PUT TYPE TO ATUALIZAR VAGA========
-function AtualizarVaga(el) {
+/* function AtualizarVaga(el) {
     var element = el;
     $('.crud-vagas').on('click', '#atualizarBtn', function () {
 
@@ -167,8 +167,10 @@ function AtualizarVaga(el) {
 
 //ATUALIZAR VAGA
 var vagaId = new URLSearchParams(window.location.search).get('id');
+ */
 
-
+//ATUALIZAR VAGA
+var vagaId = new URLSearchParams(window.location.search).get('id');
 
 $.ajax({
     url: 'http://localhost:8080/vagas/' + vagaId,
