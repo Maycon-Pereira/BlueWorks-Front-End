@@ -279,9 +279,9 @@ function AdminPerfilUsuarios() {
           totalUsuarios = totalUsuarios + 1;
 
           if (response[i].empresaDeuLike == false) {
-            $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="'+ response[i].id +'">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link perfilView"><div class="nomeEmpresaDeuLike">  <button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div></div><div class="link perfilView"><button class="buttonPerfilUserView but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas">' + response[i].escolaridade + '</div></button></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"><a  rel="noopener noreferrer"> Gostei </a> </button><button class="delet" onClick="rejectUser(this)"><a  rel="noopener noreferrer"> Regeitar </a></button></div> </div></div></div></div> ');
+            $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="' + response[i].id + '">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link perfilView"><div class="nomeEmpresaDeuLike">  <button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div></div><div class="link perfilView"><button class="buttonPerfilUserView but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas">' + response[i].escolaridade + '</div></button></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"><a  rel="noopener noreferrer"> Gostei </a> </button><button class="delet" onClick="rejectUser(this)"><a  rel="noopener noreferrer"> Regeitar </a></button></div> </div></div></div></div> ');
           } else {
-            $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="'+ response[i].id +'">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div></div><div class="link"><button class="buttonPerfilUserView  but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas">' + response[i].escolaridade + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton" onclick="NaoDarLike(this)" ><a  rel="noopener noreferrer"> Remover </a></button></div></div></div></div></div> ');
+            $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="' + response[i].id + '">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div></div><div class="link"><button class="buttonPerfilUserView  but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas">' + response[i].escolaridade + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton" onclick="NaoDarLike(this)" ><a  rel="noopener noreferrer"> Remover </a></button></div></div></div></div></div> ');
           }
 
         }
@@ -374,11 +374,39 @@ $.ajax({
     $('#numero').val(response.telefone);
     $('#email').val(response.email);
 
-    //não dá o preview da imagem já cadastrada
-    //$('#frame').attr('src', 'data:image/png;base64,' + response.fotoBase64);
-    if (response.fotoBase64 !== undefined && response.fotoBase64 > 0) {
-      $('#frame').attr('src', 'data:image/png;base64,' + response.fotoBase64);
-    }
+
+    console.log("1")
+
+    //var image = new Image();
+    //alert(response.fotoBase64)
+    console.log("2")
+    //image.src = 'data:image/png;base64,' + response.fotoBase64
+    /* document.body.appendChild(image) */
+    console.log("3")
+    var imgElement = document.getElementById('frameEmpresaAtlz');
+    imgElement.src = 'data:image/png;base64,' + response.fotoBase64;
+    //$('#frame').val(image)
+    console.log("4")
+
+    var inputFile = document.getElementById('uploadImg');
+    console.log("5")
+    inputFile.addEventListener('change', function (event) {
+      var file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var imgElement = document.getElementById('frameEmpresaAtlz');
+        imgElement.src = e.target.result;
+      };
+      console.log("7")
+      reader.readAsDataURL(file);
+      console.log("8")
+    });
+
+
+
+
+
 
   },
   error: function (xhr, status) {
@@ -388,6 +416,86 @@ $.ajax({
 });
 
 
+
+$('#atualizarEmpresa').on('click', function () {
+  // Cria um objeto com os valores atualizados
+  var dadosAtualizados = {
+    nome: $("#name").val(),
+    cnpj: $("#cnpj").val(),
+    porte: $("#porte").val(),
+    sobre: $("#historia").val(),
+    cep: $("#cep").val(),
+    logradouro: $("#rua").val(),
+    bairro: $("#bairro").val(),
+    cidade: $("#cidade").val(),
+    uf: $("#uf").val(),
+    telefone: $("#numero").val(),
+    email: $("#email").val()
+  };
+
+  var inputFile = document.getElementById('uploadImg');
+  var file = inputFile.files[0]; // Obtém o arquivo selecionado
+
+  if (file) {
+    var formData = new FormData();
+    
+    formData.append('imagem', file);
+    console.log(formData)
+    // Adicione outros dados ao FormData, se necessário
+    Object.entries(dadosAtualizados).forEach(([key, value]) => {
+      formData.append(key, value);
+      //console.log(key, value)
+    });
+
+    console.log("1")
+
+
+
+
+    /* O ERRO 501 ESTÁ AQUI!!! ELE NÃO ATUALIZA POR CAUSA DISSO ABAIXO */
+    $.ajax({
+      url: 'http://localhost:8080/empresa/' + empresaId,
+      type: 'PUT',
+      data: formData,// talvez aqui!!
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        console.log("2")
+        location.href = "/z-Novo_TCC/Perfil/perfil.html";
+      },
+      error: function (xhr, status) {
+        console.log("3")
+        console.log('Erro ao atualizar a Empresa: ' + status);
+      }
+    });
+    /* O ERRO ESTÁ AQUI!! ACIMA */
+
+
+
+
+
+  } else {
+    console.log("4")
+    // Se nenhum arquivo foi selecionado, envie apenas os outros dados
+    $.ajax({
+      url: 'http://localhost:8080/empresa/' + empresaId,
+      type: 'PUT',
+      data: JSON.stringify(dadosAtualizados),
+      contentType: 'application/json',
+      success: function (response) {
+        // alert('Empresa atualizada com sucesso!');
+        location.href = "/z-Novo_TCC/Perfil/perfil.html";
+      },
+      error: function (xhr, status) {
+        console.log("6")
+        console.log('Erro ao atualizar a Empresa: ' + status);
+      }
+    });
+  }
+});
+
+
+/* 
 // Evento de clique no botão de atualizar
 $('#atualizarEmpresa').on('click', function () {
   // Cria um objeto com os valores atualizados
@@ -424,7 +532,7 @@ $('#atualizarEmpresa').on('click', function () {
     }
   });
 });
-
+ */
 
 
 
@@ -664,16 +772,16 @@ function DarLike(el) {
   var element = el;
   //alert("Deu Like!")
 
- // var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
+  // var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
   //var UsuarioNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.firstChild.innerHTML;
 
   var UsuarioId = document.querySelector('.idUsuarioCandidatadaAVaga').innerHTML.trim();
-//alert("id usuario trim()  = "+UsuariovId)
+  //alert("id usuario trim()  = "+UsuariovId)
 
   //alert(UsuarioId)
   //var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
   var EmpresaNome = document.querySelector('.nomeEmpresa').innerHTML.trim();
-  
+
   //alert(EmpresaNome)
   var userNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.innerHTML;
   var userFormacao = element.parentNode.parentNode.firstChild.innerHTML;
@@ -713,9 +821,9 @@ function NaoDarLike(el) {
 
   var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
   //var UsuarioNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.firstChild.innerHTML;
-//alert("remover="+UsuarioId)
+  //alert("remover="+UsuarioId)
   var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
-//alert(EmpresaNome)
+  //alert(EmpresaNome)
   var userNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.innerHTML;
   var userFormacao = element.parentNode.parentNode.firstChild.innerHTML;
   //EmpresaNome.trim()
