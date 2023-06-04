@@ -6,23 +6,31 @@ function logar() {
     const login = document.getElementById('email').value;
     const senha = document.getElementById('password').value;
 
-    if (login == "teste@gmail.com" && senha == "12345678") {
-        alert('Sucesso');
-        //location.href redireciona para a tela escolhida após o submit
-        location.href = "/Pag-Inicial/inicio.html";
-    } else {
-        alert('Usuario ou senha incorretos');
-        return emailValidate(),passwordValidate()
-        
-        /* login.style.border = "1px solid rgb(218, 21, 21)";
-        document.getElementById("exception").style.opacity = '1';
-
-        senha.style.border = "1px solid rgb(218, 21, 21)";
-        document.getElementById("exception").style.opacity = '1'; */
-
+    var request = {
+        "email": login,
+        "senha": senha
     }
 
+    //AJAX ESTÁ DANDO ERRO na validação!!!!
+    $.ajax({
+        url: "http://localhost:8080/login/efetuaLoginEmpresa",
+        type: "POST",
+        crossDomain: true,
+        data: JSON.stringify(request),
+        contentType: "application/json",
+        dataType: "json",
+
+        success: function (response) {
+            location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + response.id;
+        },
+        error: function (xhr, status) {
+            console.log(xhr, status);
+            return alert("Usuario ou senha invalido!");
+        }
+    });
+
 }
+
 
 form = document.getElementById('formLogin');
 const campos = document.querySelectorAll(".required");

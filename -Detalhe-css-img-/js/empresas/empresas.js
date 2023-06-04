@@ -176,28 +176,23 @@ function AdminPerfilImagem() {
 
 
 
-function AdminPerfilSobre() {
+function AdminPerfilSobre( idEmpresaLogin) {
+  
 
   $.ajax({
-    url: "http://localhost:8080/empresa",
+    url: "http://localhost:8080/empresa/" + idEmpresaLogin,
     type: "GET",
     crossDomain: true,
     contentType: "application/json",
     dataType: "json",
     success: function (response) {
-
-      for (var i = 0; i < response.length; i++) {
-
-        $('.estatisticas').append(' <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div"> Id= ' + response[i].id + '</div><h4>' + response[i].nome + '</h4><div class="sobre-exp">Porte: ' + response[i].porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response[i].email + '</div><div class="sobre-exp">Cnpj: ' + response[i].cnpj + '</div><div class="sobre-exp">Cep: ' + response[i].cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num qtda-usuarios-visto"> 0 </div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num">  </div></div></div> ');
-        $('.id-Empresa-to-Showff').append('<div class="empresa-id-div" id="' + response[i].id + '">' + response[i].id + '</div>')
-      }
-
+        $('.estatisticas').append(' <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div"> Id= ' + response.id + '</div><h4>' + response.nome + '</h4><div class="sobre-exp">Porte: ' + response.porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response.email + '</div><div class="sobre-exp">Cnpj: ' + response.cnpj + '</div><div class="sobre-exp">Cep: ' + response.cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num qtda-usuarios-visto"> 0 </div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num">  </div></div></div> ');
+        $('.id-Empresa-to-Showff').append('<div class="empresa-id-div" id="' + response.id + '">' + response.id + '</div>')
+      
     },
     error: function (xhr, status) {
-
       console.log(xhr);
       console.log(status);
-
     }
   });
 
@@ -438,7 +433,7 @@ $('#atualizarEmpresa').on('click', function () {
 
   if (file) {
     var formData = new FormData();
-    
+
     formData.append('imagem', file);
     console.log(formData)
     // Adicione outros dados ao FormData, se necessário
@@ -450,23 +445,28 @@ $('#atualizarEmpresa').on('click', function () {
     console.log("1")
 
 
-
-
-    /* O ERRO 501 ESTÁ AQUI!!! ELE NÃO ATUALIZA POR CAUSA DISSO ABAIXO */
     $.ajax({
       url: 'http://localhost:8080/empresa/' + empresaId,
-      type: 'PUT',
-      data: formData,// talvez aqui!!
-      processData: false,
-      contentType: false,
+      type: "PUT",
+      crossDomain: true,
+      data: JSON.stringify(dadosAtualizados),
+      contentType: "application/json",
+      dataType: "json",
+
       success: function (response) {
+
+        //var resp = JSON.parse(response)
         console.log("2")
-        location.href = "/z-Novo_TCC/Perfil/perfil.html";
-      },
-      error: function (xhr, status) {
+        console.log(response);
         console.log("3")
-        console.log('Erro ao atualizar a Empresa: ' + status);
-      }
+
+        //location.href redireciona para a tela escolhida após o submit.
+        //location.href = "/z-Novo_TCC/Perfil/perfil.html";
+        uploadImagem(response.id, event);
+      },
+
+      /* O ERRO 501 ESTÁ AQUI!!! ELE NÃO ATUALIZA POR CAUSA DISSO ABAIXO */
+
     });
     /* O ERRO ESTÁ AQUI!! ACIMA */
 
@@ -485,6 +485,7 @@ $('#atualizarEmpresa').on('click', function () {
       success: function (response) {
         // alert('Empresa atualizada com sucesso!');
         location.href = "/z-Novo_TCC/Perfil/perfil.html";
+
       },
       error: function (xhr, status) {
         console.log("6")

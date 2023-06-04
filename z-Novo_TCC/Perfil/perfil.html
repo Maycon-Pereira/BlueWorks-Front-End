@@ -20,10 +20,10 @@
     <title>Perfil - Empresa</title>
     <script src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
     <script src="/-Detalhe-css-img-/js/cadastro/atualizar/atualizarEmpresa.js" defer></script>
-    
+
     <script src="/-Detalhe-css-img-/js/cadastro/atualizar/atualizarVaga.js" defer></script>
     <script src="/-Detalhe-css-img-/js/cadastro/atualizar/atualizarVagaBuscaId.js"></script>
-    
+
     <script src="/-Detalhe-css-img-/js/empresas/empresas.js"></script>
     <!-- <script src="/-Detalhe-css-img-/js/vaga/vagaPerfil/vagaPerfil.js"></script> -->
     <script src="/-Detalhe-css-img-/js/cadastro/vagasCadastro.js"></script>
@@ -100,8 +100,12 @@
     <section>
 
         <script>
+            var queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+            var idEmpresaLogin = urlParams.get('idEmpresaLogin');
+            
             AdminPerfilImagem()
-            AdminPerfilSobre(4)
+            AdminPerfilSobre(idEmpresaLogin)
             AdminPerfilVagas()
             AdminPerfilUsuarios()
             VagaPerfil(event)
