@@ -220,7 +220,7 @@ function IdEmpresaCadVaga(empresaId) {
     $('.nova-vaga').on('click', '#newVaga', function () {
 
         empresaId = document.querySelector('.empresa-id-div').innerHTML.trim();
-        //alert(empresaId)
+        alert("id empresa cadastro :  "+empresaId)
 
         redirecionarParaCadastroVaga(empresaId);
         //vagasCad(empresaId);

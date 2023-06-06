@@ -461,7 +461,7 @@ $('#atualizarEmpresa').on('click', function () {
         console.log("3")
 
         //location.href redireciona para a tela escolhida após o submit.
-        //location.href = "/z-Novo_TCC/Perfil/perfil.html";
+        location.href = "/z-Novo_TCC/Perfil/perfil.html";
         uploadImagem(response.id, event);
       },
 
