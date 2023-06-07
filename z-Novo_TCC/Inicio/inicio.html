@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/menuLateral/css/menuLateral.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/footer.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/pag-inicial/inicio.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/logado/Logado.css">
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/empresa/css/perfilEmpresa.css">
 
     <script crossorigin="anonymous" src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js" defer></script>
     <script src="/-Detalhe-css-img-/js/Pequenos Detalhes/detalhe-inicio.js" defer></script>
@@ -86,7 +88,28 @@
 
 
                     <nav class="botao">
-                        <a href="/z-Novo_TCC/Login/login.html" class="cta"><button>Login</button></a>
+                        <a href="/z-Novo_TCC/Login/login.html" class="cta"><button
+                                class="loginButton">Login</button></a>
+
+                        <div class="perfilLogado">
+                            <div class="imagem">
+
+                                <!-- Perfil logado -->
+                                <div class="img-perfil-empresa">
+                                    <div class="dropdonw-img-config"><img class="img" id="imagem-PerfilEmpresa"
+                                            src="data:image/png;base64,' + response[i].fotoBase64 + '" />
+                                        <div class="submenu-hover">
+                                            <div class="id-display-none"></div>
+                                            <a class="submenu" id="editar-perfil-empresa">Perfil</a>
+                                            <a class="submenu" href="">Sair</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
                     </nav>
 
 
