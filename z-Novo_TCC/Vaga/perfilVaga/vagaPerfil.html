@@ -29,6 +29,7 @@
 
             <div class="responsBarMenu">
 
+
                 <div class="barraLateral">
                     <!--Barra Lateral-->
                     <input type="checkbox" id="chec">
@@ -40,11 +41,13 @@
                             <li><a href="/z-Novo_TCC/Inicio/inicio.html">Inicio</a></li>
                             <li><a href="/z-Novo_TCC/sobre/sobre.html">Sobre</a></li>
                             <li><a href="/z-Novo_TCC/empresas/empresas.html">Empresas</a></li>
+                            <li class="login-lateral"><a href="/z-Novo_TCC/Login/login.html">Login</a></li>
                         </ul>
 
                         <ul class="lateral" id="bottom">
                             <li><a href="/z-Novo_TCC/Perfil/perfil.html" class="bottom-li">Perfil</a></li>
-                            <li><a href="/Ajuda/ajuda.html" class="bottom-li">Ajuda</a></li>
+                            <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdmKc5bIUlHwOjqzNvCe7HPAhFkybvHoAIA2ckn4WMQ5ylpMA/viewform?usp=sf_link"
+                                    target="_blank" class="bottom-li">Ajuda</a></li>
                             <li><a href="#" class="bottom-li" id="sair">Sair</a></li>
                         </ul>
 
@@ -52,9 +55,29 @@
                 </div>
                 <!--Fim Barra Lateral-->
 
+                <div class="fixo">
+                    <div class="ator">
+
+                        <nav class="ator-nav">
+                            <ul class="ator-ul">
+                                <li class="emp"><a href="/z-Novo_TCC/cadastro/CadastroEmpresa.html"><span
+                                            class="span-cad">Empresa </span><img class="login-empresa"
+                                            src="/-Detalhe-css-img-/img/empresaSemFundo.png" alt=""></a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+
+
             </div>
-            <section class="header-perfil">
+
+            <section class="header">
+
                 <header>
+
+                    <!--Navegar entre as paginas principais-->
+
                     <nav class="header-nav">
                         <ul class="headerLink">
                             <li><a class="inicio" href="/z-Novo_TCC/Inicio/inicio.html">Início</a></li>
@@ -65,10 +88,38 @@
                         </ul>
                     </nav>
 
+
                     <nav class="botao">
+                        <a href="/z-Novo_TCC/Login/login.html" class="cta"><button
+                                class="loginButton">Login</button></a>
+
+                        <div class="perfilLogado">
+                            <div class="imagem">
+
+                                <!-- Perfil logado -->
+                                <div class="img-perfil-empresa">
+                                    <div class="dropdonw-img-config"><img class="img" id="imagem-PerfilEmpresa"
+                                            src="data:image/png;base64,' + response[i].fotoBase64 + '" />
+                                        <div class="submenu-hover">
+                                            <div class="id-display-none"></div>
+                                            <a class="submenu" id="editar-perfil-empresa">Perfil</a>
+                                            <a class="submenu" href="">Sair</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
                     </nav>
 
+
                 </header>
+
+
+
+
 
                 <div class="parte-branca">
                 </div>
@@ -87,9 +138,23 @@
 
                 <div class="perfil-vaga">
 
-                  
+
 
                 </div>
+
+                <div class="box-cookies hide">
+                    <p class="msg-cookies">Este site usa cookies para garantir que você obtenha a melhor experiência. <a
+                            class="linkPoliticaPrivacidadeCookie"
+                            href="/z-Novo_TCC/documentacao/privacidade/privacidade.html">Politica de Privacidade</a>
+                    </p>
+                    <button class="btn-cookies">Aceitar!</button>
+                </div>
+
+                <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/cookie.css">
+                <script src="/-Detalhe-css-img-/js/cookie/cookie.js"></script>
+                <script>
+                    aceitouCookies()
+                </script>
             </section>
 
 

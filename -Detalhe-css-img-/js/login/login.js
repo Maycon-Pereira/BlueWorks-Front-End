@@ -1,10 +1,13 @@
 
 
-//função de logar teste! depois conectar com o banco de dados!
 function logar() {
 
     const login = document.getElementById('email').value;
     const senha = document.getElementById('password').value;
+
+    
+    localStorage.setItem('login', login);
+    localStorage.setItem('senha', senha);
 
     var request = {
         "email": login,
@@ -21,11 +24,37 @@ function logar() {
         dataType: "json",
 
         success: function (response) {
+            adicionarCookie(response.id, response.id)
+            exibirCookie(response.id)
             location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + response.id;
         },
         error: function (xhr, status) {
             console.log(xhr, status);
-            return alert("Usuario ou senha invalido!");
+
+            if (login == "" && senha == "") {
+                campos[0].style.border = '1px solid rgb(218, 21, 21)';
+                spans[0].style.opacity = '1';
+            
+                campos[1].style.border = '1px solid rgb(218, 21, 21)';
+                spans[1].style.opacity = '1';
+            
+            } else if (login == "" || login == null) {
+                emailValidate();
+            } else if (senha == "" || senha == null) {
+                passwordValidate();
+            } else {
+                // Nenhum dos campos está correto
+                campos[0].style.border = '1px solid rgb(218, 21, 21)';
+                spans[0].style.opacity = '1';
+            
+                campos[1].style.border = '1px solid rgb(218, 21, 21)';
+                spans[1].style.opacity = '1';
+            }
+
+
+
+            //return alert("Usuario ou senha invalido!");
+
         }
     });
 

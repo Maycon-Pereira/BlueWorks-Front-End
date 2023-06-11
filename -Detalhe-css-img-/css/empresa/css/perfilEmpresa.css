@@ -110,7 +110,7 @@ header {
 
 .dropdonw-img-config {
     position: absolute;
-    top: -25px;
+    top: -3px;
 }
 
 .dropdonw-img-config img {
@@ -252,18 +252,18 @@ header {
     margin-bottom: 5px;
     border-radius: 10px;
     background-color: rgb(230, 230, 230);
-    width: 90%;
+    width: 95%;
     height: auto;
 }
 
 .crud-usuarios-candidatados-a-mostrar {
     display: flex;
-    margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border-radius: 10px;
     background-color: rgb(230, 230, 230);
-    width: 90%;
+    width: 95%;
     height: auto;
 }
 
@@ -302,6 +302,7 @@ header {
 }
 
 .id-vaga-to-delet-or-edit {
+    visibility: hidden;
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -311,7 +312,7 @@ header {
     margin-bottom: 5px;
     border-radius: 10px;
     height: 50px;
-    width: 8%;
+    width: 0%;
 }
 
 .first-size {

@@ -75,7 +75,7 @@ function qtdaValidate() {
     }
 }
 function salarioValidate() {
-    if (camposVaga[2].value.length < 6 ) {
+    if (camposVaga[2].value.length < 6) {
 
         setError(2);
 
@@ -168,7 +168,7 @@ function mainPasswordValidate() {
 //ATUALIZAR VAGA
 var vagaId = new URLSearchParams(window.location.search).get('id');
  */
-
+var empresaId = localStorage.getItem('idEmpresaLogada');
 //ATUALIZAR VAGA
 var vagaId = new URLSearchParams(window.location.search).get('id');
 
@@ -225,6 +225,9 @@ $.ajax({
     }
 });
 
+
+
+
 // Evento de clique no botão de atualizar
 $('#atualizarVaga').on('click', function () {
     // Cria um objeto com os valores atualizados
@@ -241,7 +244,7 @@ $('#atualizarVaga').on('click', function () {
         tipo: $("#type").val(),
         qtda: $("#qtda").val(),
         data_atualizacao: data,
-        status_vaga:statusVaga,
+        status_vaga: statusVaga,
         salario: $("#salario").val(),
         escolaridade: $("#escolaridadeVaga").val(),
         area: $("#area").val(),
@@ -290,7 +293,7 @@ $('#atualizarVaga').on('click', function () {
         contentType: 'application/json',
         success: function (response) {
 
-            location.href = "/z-Novo_TCC/Perfil/perfil.html";
+            location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + empresaId;
 
         },
         error: function (xhr, status) {

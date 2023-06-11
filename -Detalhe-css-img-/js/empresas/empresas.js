@@ -147,37 +147,9 @@ function PerfilUsuarioVisivelAEmpresa() {
 
 //Perfil admin crud vagas e usuarios
 
-function AdminPerfilImagem() {
-
-  $.ajax({
-    url: "http://localhost:8080/empresa/v2/image/download",
-    type: "GET",
-    crossDomain: true,
-    contentType: "application/json",
-    dataType: "json",
-    success: function (response) {
-
-      for (var i = 0; i < response.length; i++) {
-
-        $('.botao').append(' <div class="img-perfil-empresa"><div class="dropdonw-img-config"><img class="img" id="imagem-PerfilEmpresa" src="data:image/png;base64,' + response[i].fotoBase64 + '" /><div class="submenu-hover"><div class="id-display-none">' + response[i].id + '</div><a class="submenu" id="editar-perfil-empresa"  onclick="AtualizarSobre(this)">Editar Perfil</a><a class="submenu" href="">Sair</a></div></div></div> ');
-
-      }
-
-    },
-    error: function (xhr, status) {
-
-      console.log(xhr);
-      console.log(status);
-
-    }
-  });
-
-}
+function AdminPerfilSobre(idEmpresaLogin) {
 
 
-
-function AdminPerfilSobre( idEmpresaLogin) {
-  
 
   $.ajax({
     url: "http://localhost:8080/empresa/" + idEmpresaLogin,
@@ -186,9 +158,20 @@ function AdminPerfilSobre( idEmpresaLogin) {
     contentType: "application/json",
     dataType: "json",
     success: function (response) {
-        $('.estatisticas').append(' <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div"> Id= ' + response.id + '</div><h4>' + response.nome + '</h4><div class="sobre-exp">Porte: ' + response.porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response.email + '</div><div class="sobre-exp">Cnpj: ' + response.cnpj + '</div><div class="sobre-exp">Cep: ' + response.cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num qtda-usuarios-visto"> 0 </div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num">  </div></div></div> ');
-        $('.id-Empresa-to-Showff').append('<div class="empresa-id-div" id="' + response.id + '">' + response.id + '</div>')
+
+      //alert(idEmpresaLogin)
+      var nomeParaApagarCookie = response.id
+
+      $('.botao').append(' <div class="img-perfil-empresbottom-liid empresa cadastroa"><div class="dropdonw-img-config"><img class="img" id="imagem-PerfilEmpresa" src="data:image/png;base64,' + response.fotoBase64 + '" /><div class="submenu-hover"><div class="id-display-none">' + response.id + '</div><a class="submenu" id="editar-perfil-empresa"  onclick="AtualizarSobre(this)">Editar Perfil</a><a class="submenu" onclick="apagarCookie(\'' + nomeParaApagarCookie + '\')">Sair</a></div></div></div> ');
+
+      $('.estatisticas').append(' <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div"> Id= ' + response.id + '</div><h4>' + response.nome + '</h4><div class="sobre-exp">Porte: ' + response.porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response.email + '</div><div class="sobre-exp">Cnpj: ' + response.cnpj + '</div><div class="sobre-exp">Cep: ' + response.cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num qtda-usuarios-visto"> 0 </div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num">  </div></div></div> ');
+      $('.id-Empresa-to-Showff').append('<div class="empresa-id-div" id="' + response.id + '">' + response.id + '</div>')
+      $('.nomeEmpresaDeuLike').append('<div class="nomeEmpresa">' + response.nome + '</div>');
+
       
+      obterIdEmpresaLoginAtual(response.id)
+      manterLogado(response.id)
+      pegaIdEmpresa(response.id)
     },
     error: function (xhr, status) {
       console.log(xhr);
@@ -197,20 +180,8 @@ function AdminPerfilSobre( idEmpresaLogin) {
   });
 
 }
-//Mostra todas as vagas cadastradas no site
-/* function VagaPerfil(el) {
-  var element = el
-  //alert("clicou no link")
-  // Obtém o ID da vaga a ser atualizada
-  var vagaId = element.parentNode.parentNode.parentNode.firstChild.innerHTML;
-  alert('id = '+vagaId)
-
-  //window.location.href = '/z-Novo_TCC/Vaga/perfilVaga/vagaPerfil.html?id=' + vagaId;
-
-} */
-
-
-function AdminPerfilVagas() {
+function AdminPerfilVagas(idEmpresaLogin) {
+  var totVaga = 0;
 
   $.ajax({
     url: "http://localhost:8080/vagas",
@@ -222,18 +193,17 @@ function AdminPerfilVagas() {
 
       for (var i = 0; i < response.length; i++) {
 
-        var dataExibicao = response[i].data_publicacao;
-        if (response[i].data_atualizacao) {
-          dataExibicao = response[i].data_atualizacao + '*';
+        if (response[i].id_empresa === idEmpresaLogin) {
+          var dataExibicao = response[i].data_publicacao;
+          if (response[i].data_atualizacao) {
+            dataExibicao = response[i].data_atualizacao + '*';
+          }
+
+          $('.crud-vagas').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-vags-cadastradas-a-mostrar"><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div><div class="link perfilView" id="backAtualizada"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + dataExibicao + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" id="atualizarBtn" onclick="AtualizarVaga(this)"><a  rel="noopener noreferrer"> Editar </a> </button><button class="delet modal-button" id="open-modal" onclick="remove(this)"><a  rel="noopener noreferrer"> Excluir </a></button></div></div></div></div></div> ');
+          /* edit   href="/z-Novo_TCC/atualizar/AtualizarVaga/atualizarVaga.html" */
+          totVaga++;
         }
-
-        $('.crud-vagas').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-vags-cadastradas-a-mostrar"><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div><div class="link perfilView" id="backAtualizada"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + dataExibicao + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" id="atualizarBtn" onclick="AtualizarVaga(this)"><a  rel="noopener noreferrer"> Editar </a> </button><button class="delet modal-button" id="open-modal" onclick="remove(this)"><a  rel="noopener noreferrer"> Excluir </a></button></div></div></div></div></div> ');
-        /* edit   href="/z-Novo_TCC/atualizar/AtualizarVaga/atualizarVaga.html" */
       }
-
-      var qtda_vagas = [i + 1]
-      var totalVagas = qtda_vagas[qtda_vagas.length - 1]
-      var totVaga = totalVagas - 1;
 
       $('.vag-num').append(totVaga);
 
@@ -250,7 +220,10 @@ function AdminPerfilVagas() {
 
 
 function AdminPerfilUsuarios() {
-  //console.log("AdminPerfilUsuarios foi chamado")
+
+  var totalUsuarios = 0;
+
+
   $.ajax({
     url: "http://localhost:8080/usuario",
     type: "GET",
@@ -259,15 +232,11 @@ function AdminPerfilUsuarios() {
     dataType: "json",
     success: function (response) {
 
-      var totalUsuarios = 0;
+
 
 
 
       for (var i = 0; i < response.length; i++) {
-        /* 
-                var qtda_usu = [i + 1]
-                var totalusuarios = qtda_usu[qtda_usu.length - 1]
-                var totUsu = totalusuarios - 1; */
 
         if (response[i].usuarioDipensado == false) {
 
@@ -303,7 +272,6 @@ function AdminPerfilUsuarios() {
       for (var i = 0; i < response.length; i++) {
 
         $('.nomeEmpresaDeuLike').append('<div class="nomeEmpresa">' + response[i].nome + '</div>');
-
       }
     },
     error: function (xhr, status) {
@@ -313,27 +281,32 @@ function AdminPerfilUsuarios() {
       console.log(status);
     }
   });
+
+
 }
 
 
 
 
 //========PUT TYPE FOR ATUALIZAR PERFIL EMPRESA========
-
+var empresaId = localStorage.getItem('idEmpresaLogada');
 function AtualizarSobre(el) {
   var element = el;
   $('.botao').on('click', '#editar-perfil-empresa', function () {
 
     // Obtém o ID da vaga a ser atualizada
-    var empresaId = element.parentNode.firstChild.innerHTML;
+    
     // Redireciona para a página de atualização com o ID da vaga na URL
     window.location.href = '/z-Novo_TCC/atualizar/AtualizarPerfil/AtualizarEmpresa.html?id=' + empresaId;
 
   });
 }
-
+var empresaId = localStorage.getItem('idEmpresaLogada');
 //ATUALIZAR EMPRESA
-var empresaId = new URLSearchParams(window.location.search).get('id');
+
+var senha;
+var confirmSenha;
+var statusEmpresa = "ATIVA"
 
 $.ajax({
   url: 'http://localhost:8080/empresa/' + empresaId,
@@ -368,6 +341,9 @@ $.ajax({
 
     $('#numero').val(response.telefone);
     $('#email').val(response.email);
+
+    senha = response.senha;
+    confirmSenha = response.confirmSenha;
 
 
     console.log("1")
@@ -425,7 +401,10 @@ $('#atualizarEmpresa').on('click', function () {
     cidade: $("#cidade").val(),
     uf: $("#uf").val(),
     telefone: $("#numero").val(),
-    email: $("#email").val()
+    email: $("#email").val(),
+    status_empresa: statusEmpresa,
+    senha: senha,
+    confirmSenha: confirmSenha
   };
 
   var inputFile = document.getElementById('uploadImg');
@@ -461,7 +440,7 @@ $('#atualizarEmpresa').on('click', function () {
         console.log("3")
 
         //location.href redireciona para a tela escolhida após o submit.
-        location.href = "/z-Novo_TCC/Perfil/perfil.html";
+        location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + empresaId;
         uploadImagem(response.id, event);
       },
 
@@ -484,7 +463,7 @@ $('#atualizarEmpresa').on('click', function () {
       contentType: 'application/json',
       success: function (response) {
         // alert('Empresa atualizada com sucesso!');
-        location.href = "/z-Novo_TCC/Perfil/perfil.html";
+        location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + empresaId;
 
       },
       error: function (xhr, status) {
@@ -892,3 +871,4 @@ function rejectUser(el) {
   });
 
 }
+

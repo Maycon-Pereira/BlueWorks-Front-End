@@ -215,54 +215,30 @@ function IdEmpresaCadVaga(empresaId) {
 
 } */
 
-function IdEmpresaCadVaga(empresaId) {
-
-    $('.nova-vaga').on('click', '#newVaga', function () {
-
-        empresaId = document.querySelector('.empresa-id-div').innerHTML.trim();
-        alert("id empresa cadastro :  "+empresaId)
-
-        redirecionarParaCadastroVaga(empresaId);
-        //vagasCad(empresaId);
-    });
+function IdEmpresaCadVaga(event) {
+        /* empresaId = document.querySelector('.empresa-id-div').innerHTML.trim();
+        alert("id empresa cadastro :  " + empresaId)
+ */
+        redirecionarParaCadastroVaga();
 
 }
 
-
-function redirecionarParaCadastroVaga(id) {
-    window.location.href = '/z-Novo_TCC/cadastro/CadastroVaga.html?id=' + id;
+function redirecionarParaCadastroVaga() {
+    window.location.href = '/z-Novo_TCC/cadastro/CadastroVaga.html';
 }
 
 
-$.ajax({
-    url: "http://localhost:8080/empresa",
-    type: "GET",
-    crossDomain: true,
-    contentType: "application/json",
-    dataType: "json",
-    success: function (response) {
+var idEmpresaLogada = localStorage.getItem('idEmpresaLogada');
+//alert("id no cadastro vaga " +idEmpresaLogada);
 
-        for (var i = 0; i < response.length; i++) {
-
-            $('.idEmpresaDIV').append('<div class="idEmpresaCadastroVaga" id="'+response[i].id+'">'+response[i].id+'</div>')
-        }
-    },
-    error: function (xhr, status) {
-
-        console.log(xhr);
-        console.log(status);
-
-    }
-});
-
- //var empresaID = new URLSearchParams(window.location.search).get('id'); 
+//var empresaID = new URLSearchParams(window.location.search).get('id'); 
 
 //alert(empresaID)
 function vagasCad(event) {
     event.preventDefault();
     //var x = $( "form" ).serialize();
 
-    var empresaId = document.querySelector('.idEmpresaCadastroVaga').innerHTML.trim();
+    //alert("id no cadastro vaga " +idEmpresaLogada);
     //var empresa_id = empresaId;
 
     //alert(empresaId)
@@ -329,7 +305,7 @@ function vagasCad(event) {
     var statusVaga = "ATIVA"
 
     var request = {
-        "id_empresa": empresaId,
+        "id_empresa": idEmpresaLogada,
         "nome": name,
         "tipo": tipo,
         "qtda": qtda,
@@ -367,7 +343,7 @@ function vagasCad(event) {
             //var resp = JSON.parse(response)
             console.log(response);
             uploadImagem(response.id, event);
-            location.href = "/z-Novo_TCC/Perfil/perfil.html";
+            location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + idEmpresaLogada;
         },
         error: function (xhr, status) {
             console.log(xhr);
