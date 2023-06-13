@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/recuperar/recuperarSenha/css/recuperarSenha.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
+
+
+    <script src="/-Detalhe-css-img-/js/recuperarSenha/recuperarSenha.js"></script>
+
+
+    <script src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
     <title>Recuperar Senha</title>
 </head>
 
@@ -21,16 +27,16 @@
                 <div class="inputs">
 
                     <label for="email">Email:</label><br />
-                    <input id="email" type="email" name="email" required><br />
+                    <input id="emailRecuperarSenha" type="email" name="email" required><br />
 
                 </div>
 
                 <div class="button">
                     <!--Não está funcionando a linkagem 'a' -->
 
-                    <a href="/Recuperar/recuperarSenha/codigoRecup.html">
-                        <input type="submit" value="gerar">
-                    </a>
+                    <a href="/z-Novo_TCC/Recuperar/recuperarSenha/recuperarSenha.html"><input onclick="recuperarSenha()"
+                            type="submit" value="Gerar"></a>
+
 
                 </div>
             </div>
@@ -39,7 +45,7 @@
                 <div class="usu">
 
                     <label for="">
-                        <a href="/Pag-Inicial/inicio.html">Voltar</a><br />
+                        <a href="/z-Novo_TCC/Inicio/inicio.html">Voltar</a><br />
                     </label>
                 </div>
 
@@ -50,13 +56,16 @@
         </form>
 
         <div class="box-cookies hide">
-            <p class="msg-cookies">Este site usa cookies para garantir que você obtenha a melhor experiência. <a class="linkPoliticaPrivacidadeCookie" href="/z-Novo_TCC/documentacao/privacidade/privacidade.html">Politica de Privacidade</a>
+            <p class="msg-cookies">Este site usa cookies para garantir que você obtenha a melhor experiência. <a
+                    class="linkPoliticaPrivacidadeCookie"
+                    href="/z-Novo_TCC/documentacao/privacidade/privacidade.html">Politica de Privacidade</a>
             </p>
             <button class="btn-cookies">Aceitar!</button>
         </div>
-        
+
         <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/cookie.css">
         <script src="/-Detalhe-css-img-/js/cookie/cookie.js"></script>
+
         <script>
             aceitouCookies()
         </script>

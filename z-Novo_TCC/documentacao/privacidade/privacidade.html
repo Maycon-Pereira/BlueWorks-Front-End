@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/menuLateral/css/menuLateral.css">
     <link rel="stylesheet" href="/-Detalhe-css-img-/css/documentacao/privacidade/privacidade.css">
 
+    <link rel="stylesheet" href="/-Detalhe-css-img-/css/empresa/css/perfilEmpresa.css">
+
+    <script src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
+
     <title>Política de Privacidade</title>
 </head>
 
@@ -39,7 +43,7 @@
                     <li><a class="bottom-li" onclick="voltarPaginaPerfil()" id="linkDoPerfilNaBarraLateral">Perfil</a></li>
                     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdmKc5bIUlHwOjqzNvCe7HPAhFkybvHoAIA2ckn4WMQ5ylpMA/viewform?usp=sf_link"
                             target="_blank" class="bottom-li">Ajuda</a></li>
-                    <li><a href="#" class="bottom-li" id="sair">Sair</a></li>
+                    <li><a href="#" class="bottom-li" onclick="apagarCookieBarraLateral()" id="sair">Sair</a></li>
                 </ul>
 
             </nav>
@@ -89,14 +93,7 @@
 
                         <!-- Perfil logado -->
                         <div class="img-perfil-empresa">
-                            <div class="dropdonw-img-config"><img class="img" id="imagem-PerfilEmpresa"
-                                    src="data:image/png;base64,' + response[i].fotoBase64 + '" />
-                                <div class="submenu-hover">
-                                    <div class="id-display-none"></div>
-                                    <a class="submenu" id="editar-perfil-empresa">Perfil</a>
-                                    <a class="submenu" href="">Sair</a>
-                                </div>
-                            </div>
+                            
                         </div>
 
 
@@ -629,7 +626,7 @@
                         </ul>
                         </p>
                     </div>
-                    <p class="last-p explanation">Obrigado por ler, e tenha um bom uso do site da BlueWorks.</p>
+                    <p class="last-p explanation">Obrigado por ler, e tenha um bom uso do sistema da BlueWorks.</p>
 
                 </div>
 

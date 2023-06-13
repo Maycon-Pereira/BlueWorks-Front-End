@@ -86,6 +86,15 @@ function apagarCookie(nome) {
 }
 //id da empresa logada no momento
 
+function apagarCookieBarraLateral() {
+    //alert("Clicou em sair" + idCookieEmpresaLogin)
+
+    apagarCookie(idCookieEmpresaLogin)
+    localStorage.removeItem('idCookieEmpresaLogin');
+    //alert("apagou do local storage?")
+    location.reload();
+}
+
 function manterLogado(id) {
     var idCookieEmpresaLogin = exibirCookie(id);
     var idEmpresaLogin = id;
@@ -98,11 +107,8 @@ function manterLogado(id) {
     if (idCookieEmpresaLogin === idEmpresaLogin) {
         // Mantém o usuário logado
 
-        //alert("login = " + idEmpresaLogin)
-
 
     } else {
-        // Redireciona para a página de login
         window.location.href = "/z-Novo_TCC/Inicio/inicio.html";
     }
 }
@@ -113,10 +119,41 @@ var idCookieEmpresaLogin = localStorage.getItem('idCookieEmpresaLogin');
 function voltarPaginaPerfil() {
 
     //alert("idCookieEmpresaLogin " + idCookieEmpresaLogin)
-    if (idCookieEmpresaLogin != empresaId) {
+    if (idCookieEmpresaLogin !== empresaId) {
         alert("não está logado!!")
         location.href = "#";
     } else {
         location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + idCookieEmpresaLogin;
     }
+}
+
+if (empresaId === idCookieEmpresaLogin) {
+    var cta = document.querySelector('.cta');
+    var emp = document.querySelector('.emp');
+    var perfilLogado = document.querySelector('.perfilLogado');
+    var loginLateral = document.querySelector('.login-lateral');
+
+    $.ajax({
+        url: "http://localhost:8080/empresa/" + empresaId,
+        type: "GET",
+        crossDomain: true,
+        contentType: "application/json",
+        dataType: "json",
+        success: function (response) {
+            loginLateral.style.display = 'none';
+            cta.style.display = 'none';
+            emp.style.display = 'none';
+            perfilLogado.style.display = 'flex';
+            $('.img-perfil-empresa').append('<div class="dropdonw-img-config"><img class="img" id="imagem-PerfilEmpresa" src="data:image/png;base64,' + response.fotoBase64 + '" /><div class="submenu-hover"><div class="id-display-none"></div><a class="submenu" id="editar-perfil-empresa" onclick="voltarPaginaPerfil()">Perfil</a><a class="submenu" href="https://docs.google.com/forms/d/e/1FAIpQLSdmKc5bIUlHwOjqzNvCe7HPAhFkybvHoAIA2ckn4WMQ5ylpMA/viewform?usp=sf_link" target="_blank">Ajuda</a></div></div>')
+        },
+        error: function (xhr, status) {
+            console.log(xhr);
+            console.log(status);
+        }
+    });
+} else {
+    var sair = document.getElementById('sair');
+    var perfilLateral = document.getElementById('linkDoPerfilNaBarraLateral');
+    sair.style.display = 'none';
+    perfilLateral.style.display = 'none';
 }
