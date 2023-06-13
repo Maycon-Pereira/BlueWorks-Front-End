@@ -22,7 +22,7 @@ function recuperarSenha() {
         // Se o email existe, exibir mensagem de sucesso
         if (emailExiste) {
           exibirMensagem("success", "Um e-mail com as instruções foi enviado para o seu endereço de e-mail.");
-          window.location.href = "/z-Novo_TCC/recuperarSenha/novaSenha.html";
+          window.location.href = "/z-Novo_TCC/Recuperar/recuperarSenha/codigoRecup.html";
         } else {
           exibirMensagem("error", "O e-mail fornecido não foi encontrado.");
         }

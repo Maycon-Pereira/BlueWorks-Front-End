@@ -43,21 +43,6 @@ input[type="email"]:focus {
     outline: none;
     background-color: #e0e0e0;
 }
-input[type="password"] {
-    width: 90%;
-    padding: 10px;
-    margin: 10px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    transition: background-color 0.3s;
-}
-
-input[type="password"]:focus {
-    outline: none;
-    background-color: #e0e0e0;
-}
 
 input:focus+label {
     transform: translateY(-20px);
