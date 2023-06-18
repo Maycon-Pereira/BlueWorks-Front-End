@@ -18,6 +18,7 @@
         rel="stylesheet" />
 
     <title>Perfil - Empresa</title>
+
     <script src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
     <script src="/-Detalhe-css-img-/js/cadastro/atualizar/atualizarEmpresa.js" defer></script>
 
@@ -29,7 +30,7 @@
     <script src="/-Detalhe-css-img-/js/cadastro/vagasCadastro.js"></script>
 </head>
 
-<body class="oficial-body">
+<body class="oficial-body" onload="reloadOnce()">
 
     <script>
         var queryString = window.location.search;
@@ -43,6 +44,20 @@
         VagaPerfil(event)
         perfilVagaParaVisializar()
 
+
+        function reloadOnce() {
+            // Verifica se já foi feito o recarregamento
+            if (!localStorage.getItem('pageReloaded')) {
+                // Define o item no localStorage indicando que a página foi recarregada
+                localStorage.setItem('pageReloaded', 'true');
+
+                // Recarrega a página
+                location.reload();
+            } else {
+                // Remove o item do localStorage para permitir recarregamentos subsequentes
+                localStorage.removeItem('pageReloaded');
+            }
+        }
 
     </script>
 
@@ -65,8 +80,10 @@
                 </ul>
 
                 <ul class="lateral" id="bottom">
-                    <li><a class="bottom-li" id="linkDoPerfilNaBarraLateral" href="">Perfil</a></li>
-                    <li><a href="/z-Novo_TCC/Ajuda/ajuda.html" class="bottom-li">Ajuda</a></li>
+                    <li><a class="bottom-li" onclick="voltarPaginaPerfil()" id="linkDoPerfilNaBarraLateral">Perfil</a>
+                    </li>
+                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdmKc5bIUlHwOjqzNvCe7HPAhFkybvHoAIA2ckn4WMQ5ylpMA/viewform?usp=sf_link"
+                            target="_blank" class="bottom-li">Ajuda</a></li>
                     <li><a href="#" class="bottom-li" onclick="apagarCookieBarraLateral()" id="sair">Sair</a></li>
                 </ul>
 
@@ -149,9 +166,46 @@
                 <div class="VeC vagas-cadastradas">
 
                     <div class="cima">
-                        <h3 class="tituloCa">Vagas Cadastradas:</h3>
-                        <div class="id-Empresa-to-Showff"></div>
-                        <div class="nova-vaga">
+                        <div class="tituloVagaCad espacoDivisoria">
+                            <h3 class="tituloCa">Vagas Cadastradas:</h3>
+                            <div class="id-Empresa-to-Showff"></div>
+                        </div>
+
+                        <div class="searchBox espacoDivisoria">
+                            <div class="allSearchBox">
+                                <input id="searchbar" onkeyup="search_vaga()" onclick="mostarCheckBox()" type="text"
+                                    name="search" placeholder="Procure sua vaga..">
+
+                                <div class="checkBoxOptions">
+                                    <div class="radioCheck checkkk">
+                                        <input type="radio" id="searchByBoth" name="searchOption" checked>
+                                        <label for="searchByBoth">Ambos</label>
+
+                                        <input type="radio" id="searchByName" name="searchOption">
+                                        <label for="searchByName">Pelo Nome</label>
+
+                                        <input type="radio" id="searchByDate" name="searchOption">
+                                        <label for="searchByDate">Pela Data</label>
+                                    </div>
+                                </div>
+
+
+                                <!-- <div class="checkBoxOptions">
+                                    <div class="radioCheck">
+                                        <input type="radio" id="searchByBoth" name="searchOption" checked>
+                                        Ambos
+                                        <input type="radio" id="searchByName" name="searchOption">
+                                        Pelo Nome
+                                        <input type="radio" id="searchByDate" name="searchOption">
+                                        Pela Data
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <div class="nova-vaga espacoDivisoria">
+
+
 
 
                             <button class="button-new-vaga"> <a id="newVaga" onclick="IdEmpresaCadVaga(this)"
@@ -199,6 +253,37 @@
                     <div class="cima">
                         <h3 class="tituloCa">Usuarios Interessados:</h3>
                         <div class="nova-vaga"></div>
+
+                        <div class="searchBox espacoDivisoria">
+                            <div class="allSearchBox">
+                                <input id="searchbarUsuario" onkeyup="search_usuario()"
+                                    onclick="mostarCheckBoxUsuario()" type="text" name="search"
+                                    placeholder="Procure por seu candidato..">
+
+                                <div class="checkBoxOptionsUsuario">
+                                    <div class="radioCheckUsuario checkkk">
+                                        <input type="radio" id="searchByBothUsuario" name="searchOptionUsuario" checked>
+                                        <label for="searchByBothUsuario">Ambos</label>
+
+                                        <input type="radio" id="searchByNameUsuario" name="searchOptionUsuario">
+                                        <label for="searchByNameUsuario">Pelo Nome</label>
+
+                                        <input type="radio" id="searchByVagaUsuario" name="searchOptionUsuario">
+                                        <label for="searchByVagaUsuario">Pela Vaga</label>
+                                    </div>
+                                </div>
+                                <!-- <div class="checkBoxOptionsUsuario">
+                                    <div class="radioCheck">
+                                        <input type="radio" id="searchByBothUsuario" name="searchOptionUsuario" checked>
+                                        Por Ambos
+                                        <input type="radio" id="searchByNameUsuario" name="searchOptionUsuario">
+                                        Pelo Nome
+                                        <input type="radio" id="searchByVagaUsuario" name="searchOptionUsuario">
+                                        Pela Vaga
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
                     </div>
                     <!--  -->
 
@@ -211,7 +296,7 @@
                                         <div class="content-vagas first-size">Nome</div>
                                     </a></div>
                                 <div class="link"><a href="">
-                                        <div class="content-vagas first-size">Formação</div>
+                                        <div class="content-vagas first-size">Nome da Vaga Candidatada</div>
                                     </a></div>
                                 <div class="content-vagas">
                                     <div class="buttons">
@@ -242,6 +327,42 @@
             <div class="UsuariosAceitados">
                 <div class="cima">
                     <h3 class="tituloCa">Usuarios Aprovados:</h3>
+
+                    <div class="searchBox espacoDivisoria">
+                        <div class="allSearchBox">
+                            <input id="searchbarUsuarioAprovado" onkeyup="search_usuarioAprovado()"
+                                onclick="mostarCheckBoxUsuarioAprovado()" type="text" name="search"
+                                placeholder="Procure por seu candidato aprovado..">
+                            <div class="checkBoxOptionsUsuarioAprovado">
+
+                                <div class="radioCheckUsuarioAprovado checkkk">
+                                    <input type="radio" id="searchByBothUsuarioAprovado"
+                                        name="searchOptionUsuarioAprovado" checked>
+                                    <label for="searchByBothUsuarioAprovado">Ambos</label>
+
+                                    <input type="radio" id="searchByNameUsuarioAprovado"
+                                        name="searchOptionUsuarioAprovado">
+                                    <label for="searchByNameUsuarioAprovado">Pelo Nome</label>
+
+                                    <input type="radio" id="searchByVagaUsuarioAprovado"
+                                        name="searchOptionUsuarioAprovado">
+                                    <label for="searchByVagaUsuarioAprovado">Pela Vaga</label>
+                                </div>
+
+                                <!-- <div class="radioCheck">
+                                    <input type="radio" id="searchByBothUsuarioAprovado"
+                                        name="searchOptionUsuarioAprovado" checked>
+                                    Por Ambos
+                                    <input type="radio" id="searchByNameUsuarioAprovado"
+                                        name="searchOptionUsuarioAprovado">
+                                    Pelo Nome
+                                    <input type="radio" id="searchByVagaUsuarioAprovado"
+                                        name="searchOptionUsuarioAprovado">
+                                    Pela Vaga
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="crud-vagas-1-5">
                     <div class="id-vaga-to-delet-or-edit first-size">Id</div>
@@ -251,7 +372,7 @@
                                 <div class="content-vagas first-size">Nome</div>
                             </a></div>
                         <div class="link"><a href="">
-                                <div class="content-vagas first-size">Formação</div>
+                                <div class="content-vagas first-size">Nome da Vaga Candidatada</div>
                             </a></div>
                         <div class="content-vagas">
 

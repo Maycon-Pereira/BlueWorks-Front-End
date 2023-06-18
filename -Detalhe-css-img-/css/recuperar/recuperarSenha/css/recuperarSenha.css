@@ -26,7 +26,13 @@ h1 {
     position: relative;
     margin-bottom: 10px;
 }
-
+.exception {
+    position: absolute;
+    opacity: 0;
+    color: rgb(218, 21, 21);
+    margin-top: -20px;
+    margin-left: 15px;
+}
 
 input[type="email"] {
     width: 90%;
@@ -38,8 +44,22 @@ input[type="email"] {
     background-color: #f0f0f0;
     transition: background-color 0.3s;
 }
-
 input[type="email"]:focus {
+    outline: none;
+    background-color: #e0e0e0;
+}
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+}
+
+input[type="text"]:focus {
     outline: none;
     background-color: #e0e0e0;
 }

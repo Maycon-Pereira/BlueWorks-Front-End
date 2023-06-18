@@ -52,7 +52,7 @@ function adicionarCookie(id, idValor) {
 
     var dias = 7; // O cookie será válido por 7 dias
     setCookie(nome, valor, dias);
-    alert("Cookie adicionado com sucesso!");
+    //alert("Cookie adicionado com sucesso!");
 
     var idEmpresaLogada = nome;//id da empresa
 
@@ -65,7 +65,7 @@ function exibirCookie(nome) {
     if (valor) {
         return (valor);
     } else {
-        alert("Cookie não encontrado!");
+        //alert("Cookie não encontrado!");
     }
 }
 var idMME = ""
@@ -109,6 +109,7 @@ function manterLogado(id) {
 
 
     } else {
+        localStorage.removeItem('idsVagasCadastradas');
         window.location.href = "/z-Novo_TCC/Inicio/inicio.html";
     }
 }
@@ -120,7 +121,7 @@ function voltarPaginaPerfil() {
 
     //alert("idCookieEmpresaLogin " + idCookieEmpresaLogin)
     if (idCookieEmpresaLogin !== empresaId) {
-        alert("não está logado!!")
+        //alert("não está logado!!")
         location.href = "#";
     } else {
         location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + idCookieEmpresaLogin;

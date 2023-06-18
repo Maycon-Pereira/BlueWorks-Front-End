@@ -215,9 +215,20 @@ $.ajax({
         $('#cidade').val(response.cidade);
 
         //não dá o preview da imagem já cadastrada
-        if (response.fotoBase64 !== undefined && response.fotoBase64 > 0) {
-            $('#frame').attr('src', 'data:image/png;base64,' + response.fotoBase64);
-        }
+        var imgElement = document.getElementById('frameVagaAtlz');
+        imgElement.src = 'data:image/png;base64,' + response.fotoBase64;
+
+        var inputFile = document.getElementById('uploadImg');
+        inputFile.addEventListener('change', function (event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var imgElement = document.getElementById('frameVagaAtlz');
+                imgElement.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
 
     },
     error: function (xhr, status) {
@@ -261,57 +272,105 @@ $('#atualizarVaga').on('click', function () {
         fotoBase64: $("#uploadImg").val()
 
     };
+
+
     //if (nomeAtualizado.length != "") {
 
-    var dadosAtualizados = JSON.parse(JSON.stringify(dadosAtualizados));
+    //var dadosAtualizados = JSON.parse(JSON.stringify(dadosAtualizados));
 
-    /* if (dadosAtualizados.valorizado === "") {
-        dadosAtualizados.valorizado.replace("", ".");
-        alert("val replace: " + dadosAtualizados.valorizado)
-    }
-    if (prop === "valorizado") {
-        dadosAtualizados[prop] = dadosAtualizados[prop].replace("", ".");
-      } */
+    var inputFile = document.getElementById('uploadImg');
+    var file = inputFile.files[0]; // Obtém o arquivo selecionado
 
-    var propertiesToIgnore = ["valorizado", "fotoBase64"];
 
-    for (var prop in dadosAtualizados) {
-        if (dadosAtualizados.hasOwnProperty(prop)) {
-            if (dadosAtualizados[prop] === "" && !propertiesToIgnore.includes(prop)) {
-                //alert("consegui parar");
-                console.log("Propriedade vazia: " + prop);
-                return;
+    if (file) {
+        var formData = new FormData();
+
+        formData.append('imagem', file);
+        console.log(formData)
+        // Adicione outros dados ao FormData, se necessário
+        Object.entries(dadosAtualizados).forEach(([key, value]) => {
+            formData.append(key, value);
+            //console.log(key, value)
+        });
+
+        console.log("1")
+
+
+        $.ajax({
+            url: 'http://localhost:8080/vagas/' + vagaId,
+            type: "PUT",
+            crossDomain: true,
+            data: JSON.stringify(dadosAtualizados),
+            contentType: "application/json",
+            dataType: "json",
+
+            success: function (response) {
+
+                //var resp = JSON.parse(response)
+                console.log("2")
+                console.log(response);
+                console.log("3")
+
+                //location.href redireciona para a tela escolhida após o submit.
+                location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + empresaId;
+                uploadImagem(response.id, event);
+            },
+        });
+
+    } else {
+        console.log("4")
+        // Se nenhum arquivo foi selecionado, envie apenas os outros dados
+        $.ajax({
+            url: 'http://localhost:8080/vagas/' + vagaId,
+            type: 'PUT',
+            data: JSON.stringify(dadosAtualizados),
+            contentType: 'application/json',
+            success: function (response) {
+                // alert('Empresa atualizada com sucesso!');
+                location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + empresaId;
+
+            },
+            error: function (xhr, status) {
+                console.log("6")
+                console.log('Erro ao atualizar a Empresa: ' + status);
             }
-        }
+        });
     }
-
-    // Envia a solicitação PUT para atualizar a vaga
-    $.ajax({
-        url: 'http://localhost:8080/vagas/' + vagaId,
-        type: 'PUT',
-        data: JSON.stringify(dadosAtualizados),
-        contentType: 'application/json',
-        success: function (response) {
-
-            location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + empresaId;
-
-        },
-        error: function (xhr, status) {
-            console.log('Erro ao atualizar a vaga: ' + status);
-            // Restante do código...
-        }
-    });
-
-    //}
-
-
 });
 
+function uploadImagem(id, event) {
 
-/*
-function autoValidation() {
- */
-//}
-//
-//
-//
+    let foto = document.getElementById("uploadImg").files[0];
+    //var file = $('#uploadImg').attr('src', event.target.result);
+    var data = new FormData();
+    data.append('file', foto);
+
+
+    jQuery.ajax({
+        url: 'http://localhost:8080/vagas/v2/image/upload/' + id,
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        method: 'POST',
+        type: 'POST', // For jQuery < 1.9
+        success: function (data) {
+            alert("Vaga cadastrada com sucesso!");
+        }
+    });
+}
+
+
+var empresaId = localStorage.getItem('idEmpresaLogada');
+var idCookieEmpresaLogin = localStorage.getItem('idCookieEmpresaLogin');
+
+function voltarPaginaPerfil() {
+
+    //alert("idCookieEmpresaLogin " + idCookieEmpresaLogin)
+    if (idCookieEmpresaLogin !== empresaId) {
+        alert("não está logado!!")
+        location.href = "#";
+    } else {
+        location.href = "/z-Novo_TCC/Perfil/perfil.html?idEmpresaLogin=" + idCookieEmpresaLogin;
+    }
+}

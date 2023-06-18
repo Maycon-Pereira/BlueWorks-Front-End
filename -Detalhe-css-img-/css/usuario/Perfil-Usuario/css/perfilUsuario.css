@@ -18,7 +18,7 @@
     background-color: rgb(246, 246, 246);
     border-bottom: 1px solid #000;
 }
-.img{
+.imgPerfilUsuario{
     max-width: 500px;
     margin: 10px;
 }
@@ -100,7 +100,7 @@
 /* ========= */
 
 @media (max-width: 1100px) {
-    .img{
+    .imgPerfilUsuario{
         width: 400px;
         height: auto;
     }
@@ -111,7 +111,7 @@
 }
 
 @media (max-width: 930px) {
-    .img{
+    .imgPerfilUsuario{
         width: 350px;
         height: auto;
     }
@@ -121,7 +121,7 @@
     }
 }
 @media (max-width: 800px) {
-    .img{
+    .imgPerfilUsuario{
         width: 300px;
         height: auto;
     }
@@ -141,7 +141,7 @@
 
 }
 @media (max-width: 700px) {
-    .img{
+    .imgPerfilUsuario{
         width: 250px;
         height: auto;
     }
@@ -165,7 +165,7 @@
 
 
 
-    .img{
+    .imgPerfilUsuario{
         width: 300px;
         height: auto;
     }
@@ -183,7 +183,7 @@
         justify-content: center;
     }
 
-    .img{
+    .imgPerfilUsuario{
         width: 80%;
         height: auto;
         margin-left: auto;
@@ -208,7 +208,7 @@
         justify-content: center;
     }
 
-    .img{
+    .imgPerfilUsuario{
         width: 80%;
         height: auto;
         margin-left: auto;

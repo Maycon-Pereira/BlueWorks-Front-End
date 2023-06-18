@@ -127,7 +127,7 @@ function PerfilUsuarioVisivelAEmpresa() {
     success: function (response) {
 
 
-      $('.usuario-info').append('<div class="main-info"><div class="info"><div class="img"><img src="data:image/png;base64,' + response.fotoBase64 + '" /></div><div class="personal-info"><div class="info-0"><span class="name"><h2>' + response.nome + '</h2></span></div><div class="info-1"><label for="tel"><span class="bold"> Telefone: </span><span id="num">' + response.telefone + '</span></label></div><div class="info-1"><label for="mail"><span class="bold">Email: </span><span id="email">' + response.email + '</span></label></div><div class="info-1"><label for="addres"><span class="bold">Endereço: </span><span id="addres">' + response.cidade + ', ' + response.uf + '</span></label></div><div class="info-1"><label for="nasc"><span class="bold">Data de Nascimento:</span><span id="addres"> ' + response.nascimento + ' </span></label></div><div class="info-1"><label for="escola"><span class="bold">Escolaridade: </span><span id="escolaridade">' + response.escolaridade + ' </span></label></div></div></div></div><div class="main-info2"><div class="down-info"><div class="sobre-"><div class="mim"><div class="assunto"><h2>Sobre-mim</h2><p> ' + response.sobre + ' </p></div></div></div></div></div>');
+      $('.usuario-info').append('<div class="main-info"><div class="info"><div class="imgPerfilUsuario"><img src="data:image/png;base64,' + response.fotoBase64 + '"></div><div class="personal-info"><div class="info-0"><span class="name"><h2>' + response.nome + '</h2></span></div><div class="info-1"><label for="tel"><span class="bold"> Telefone: </span><span id="num">' + response.telefone + '</span></label></div><div class="info-1"><label for="mail"><span class="bold">Email: </span><span id="email">' + response.email + '</span></label></div><div class="info-1"><label for="addres"><span class="bold">Endereço: </span><span id="addres">' + response.cidade + ', ' + response.uf + '</span></label></div><div class="info-1"><label for="nasc"><span class="bold">Data de Nascimento:</span><span id="addres"> ' + response.nascimento + ' </span></label></div><div class="info-1"><label for="escola"><span class="bold">Escolaridade: </span><span id="escolaridade">' + response.escolaridade + ' </span></label></div></div></div></div><div class="main-info2"><div class="down-info"><div class="sobre-"><div class="mim"><div class="assunto"><h2>Sobre-mim</h2><p> ' + response.sobre + ' </p></div></div></div></div></div>');
 
 
     },
@@ -164,7 +164,7 @@ function AdminPerfilSobre(idEmpresaLogin) {
 
       $('.botao').append(' <div class="img-perfil-empresbottom-liid empresa cadastroa"><div class="dropdonw-img-config"><img class="img" id="imagem-PerfilEmpresa" src="data:image/png;base64,' + response.fotoBase64 + '" /><div class="submenu-hover"><div class="id-display-none">' + response.id + '</div><a class="submenu" id="editar-perfil-empresa"  onclick="AtualizarSobre(this)">Editar Perfil</a><a class="submenu" href="https://docs.google.com/forms/d/e/1FAIpQLSdmKc5bIUlHwOjqzNvCe7HPAhFkybvHoAIA2ckn4WMQ5ylpMA/viewform?usp=sf_link" target="_blank">Ajuda</a><a class="sairButton submenu" onclick="apagarCookie(\'' + nomeParaApagarCookie + '\')">Sair</a></div></div></div> ');
 
-      $('.estatisticas').append(' <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div"> Id= ' + response.id + '</div><h4>' + response.nome + '</h4><div class="sobre-exp">Porte: ' + response.porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response.email + '</div><div class="sobre-exp">Cnpj: ' + response.cnpj + '</div><div class="sobre-exp">Cep: ' + response.cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num qtda-usuarios-visto"></div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num"></div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num">  </div></div></div> ');
+      $('.estatisticas').append(' <div class="sobre-empresa-perfil"><div class="first-empresa-sobre" id="id-empresa-perfil"><div class="id-Empresa-to-Show"  id="empresa-id-div"> Id= ' + response.id + '</div><h4>' + response.nome + '</h4><div class="sobre-exp">Porte: ' + response.porte + '</div></div><div class="second-empresa-sobre"><div class="sobre-exp">Email: ' + response.email + '</div><div class="sobre-exp">Cnpj: ' + response.cnpj + '</div><div class="sobre-exp">Cep: ' + response.cep + '</div></div></div><div class="qtda-estat"><div class="qtda-estatistica vistos-por-usuarios"><div class="ti"><h4> Quantos viram: </h4></div><div class="qtda-num qtda-usuarios-visto">0</div></div> <div class="qtda-estatistica vagas-cadastradas"><div class="ti"><h4> Vagas cadastradas: </h4></div><div class="qtda-num  vag-num">0</div></div><div class="qtda-estatistica usuarios-candidatados"><div class="ti"><h4> Candidatos a vaga: </h4></div><div class="qtda-num usuario-num">0</div></div></div> ');
       $('.id-Empresa-to-Showff').append('<div class="empresa-id-div" id="' + response.id + '">' + response.id + '</div>')
       $('.nomeEmpresaDeuLike').append('<div class="nomeEmpresa">' + response.nome + '</div>');
 
@@ -179,6 +179,8 @@ function AdminPerfilSobre(idEmpresaLogin) {
   });
 
 }
+var idsVagasCadastradas = [];
+
 function AdminPerfilVagas(idEmpresaLogin) {
   var totVaga = 0;
 
@@ -198,13 +200,19 @@ function AdminPerfilVagas(idEmpresaLogin) {
             dataExibicao = response[i].data_atualizacao + '*';
           }
 
-          $('.crud-vagas').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-vags-cadastradas-a-mostrar"><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div><div class="link perfilView" id="backAtualizada"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas">' + dataExibicao + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" id="atualizarBtn" onclick="AtualizarVaga(this)"><a  rel="noopener noreferrer"> Editar </a> </button><button class="delet modal-button" id="open-modal" onclick="remove(this)"><a  rel="noopener noreferrer"> Excluir </a></button></div></div></div></div></div> ');
+          $('.crud-vagas').append(' <div class="crud-vagas-1-5 crud-vagas-1-6"><div class="id-vaga-to-delet-or-edit">' + response[i].id + '</div><div class="crud-vags-cadastradas-a-mostrar pesquisaVagasAdvanced"><div class="link perfilView"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas name-content-wrap">' + response[i].nome + '</div></button></div><div class="link perfilView" id="backAtualizada"><button class="buttonPerfilView" onclick="VagaPerfil(this)"><div class="content-vagas dataExibicao">' + dataExibicao + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt "><button class="edit" id="atualizarBtn" onclick="AtualizarVaga(this)"><a  rel="noopener noreferrer"> Editar </a> </button><button class="delet modal-button" id="open-modal" onclick="remove(this)"><a  rel="noopener noreferrer"> Excluir </a></button></div></div></div></div></div> ');
           /* edit   href="/z-Novo_TCC/atualizar/AtualizarVaga/atualizarVaga.html" */
-          totVaga++;
+
+          var idVagaCadastrada = response[i].id;
+          idsVagasCadastradas.push(idVagaCadastrada);
+          localStorage.setItem('idsVagasCadastradas', idsVagasCadastradas);
+          //totVaga++;
         }
       }
 
-      $('.vag-num').append(totVaga);
+      //console.log("numero totVaga: " + totVaga)
+      //$('.vag-num').append(totVaga);
+
 
     },
     error: function (xhr, status) {
@@ -219,70 +227,137 @@ function AdminPerfilVagas(idEmpresaLogin) {
 
 
 function AdminPerfilUsuarios() {
-
-  var totalUsuarios = 0;
-  var totalUsuariosVisualizaram = 0;
-
+  var usuarioLikedHTML = "";
+  var usuarioAcceptedHTML = "";
+  var usuariosAdicionados = {};
 
   $.ajax({
-    url: "http://localhost:8080/usuario",
+    url: "http://localhost:8080/usuarioVaga/listarTodosUsuarioVaga",
     type: "GET",
     crossDomain: true,
     contentType: "application/json",
     dataType: "json",
-    success: function (response) {
+    success: function (usuarioVagaResponse) {
+      var idsVagasCadastradas = localStorage.getItem('idsVagasCadastradas');
 
-      for (var i = 0; i < response.length; i++) {
+      var arrayIdsVagasCadastradas = idsVagasCadastradas.split(",");
+      var quantidadeIdsVagasCadastradas = arrayIdsVagasCadastradas.length;
 
-        
 
-        if (response[i].usuarioDipensado == false) {
+      var totalUsuarios = 0;
+      var totalUsuariosVisualizaram = 0;
+      var totalUsuariosVisualizaramOriginal = 0; // Armazena a contagem original de visualizações
 
-          totalUsuarios = totalUsuarios + 1;
+      // Array de Promises para armazenar as chamadas AJAX
+      var promises = [];
+      var count = 0;
 
-          if (response[i].empresaDeuLike == false) {
-            $('.crud-usuario').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="' + response[i].id + '">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link perfilView"><div class="nomeEmpresaDeuLike">  <button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div></div><div class="link perfilView"><button class="buttonPerfilUserView but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas">' + response[i].escolaridade + '</div></button></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="butt "><button class="edit" id="acceptDarLike" onClick="DarLike(this)"><a  rel="noopener noreferrer"> Gostei </a> </button><button class="delet" onClick="rejectUser(this)"><a  rel="noopener noreferrer"> Regeitar </a></button></div> </div></div></div></div> ');
-          } else {
-            $('.crud-aceitos').append(' <div class="crud-vagas-1-5"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="' + response[i].id + '">' + response[i].id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"> <button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas">' + response[i].nome + '</div></button></div></div><div class="link"><button class="buttonPerfilUserView  but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas">' + response[i].escolaridade + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton" onclick="NaoDarLike(this)" ><a  rel="noopener noreferrer"> Remover </a></button></div></div></div></div></div> ');
+      var usuariosCandidatados = {};
+
+      usuarioVagaResponse.forEach(function (candidatura) {
+        if (idsVagasCadastradas.includes(candidatura.vaga_id)) {
+          var idVaga = candidatura.vaga_id;
+          var idUsuario = candidatura.usuario_id;
+
+          if (!usuariosCandidatados[idVaga]) {
+            usuariosCandidatados[idVaga] = []; // Inicializar array de usuários candidatados para a vaga
           }
 
+          if (!usuariosCandidatados[idVaga].includes(idUsuario)) {
+            usuariosCandidatados[idVaga].push(idUsuario);
+
+            var promise = new Promise(function (resolve, reject) {
+              $.ajax({
+                url: "http://localhost:8080/usuario/" + idUsuario,
+                type: "GET",
+                crossDomain: true,
+                contentType: "application/json",
+                dataType: "json",
+                success: function (response) {
+
+                  $.ajax({
+                    url: "http://localhost:8080/vagas/" + idVaga,
+                    type: "GET",
+                    crossDomain: true,
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (vagaNameResponseLigation) {
+
+                      if (!usuariosAdicionados[response.id]) {
+                        usuariosAdicionados[response.id] = true;
+                        if (response.usuarioDipensado == false) {
+                          totalUsuariosVisualizaramOriginal++
+                          localStorage.setItem('totalUsuariosVisualizaramOriginal', totalUsuariosVisualizaramOriginal);
+                          totalUsuarios++;
+                          if (response.empresaDeuLike == false) {
+                            console.log("id usuario gostei: " + idUsuario)
+                            usuarioLikedHTML += '<div class="crud-vagas-1-5 crud-usuario-1-6"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="' + response.id + '">' + response.id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link perfilView"><div class="nomeEmpresaDeuLike"><button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas nomeUsuario">' + response.nome + '</div></button></div></div><div class="link perfilView"><button class="buttonPerfilUserView but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas nomeVaga">' + vagaNameResponseLigation.nome + '</div></button></div><div class="content-vagas" id="backgroundAccept"><div class="buttons"><div class="butt"><button class="edit" id="acceptDarLike" onClick="DarLike(this, \'' + response.id + '\', \'' + vagaNameResponseLigation.id_empresa + '\')"><a rel="noopener noreferrer"> Gostei </a> </button><button class="delet" onClick="rejectUser(this, \'' + response.id + '\', \'' + vagaNameResponseLigation.id_empresa + '\')"><a rel="noopener noreferrer"> Rejeitar </a></button></div></div></div></div></div>';
+                          } else {
+                            usuarioAcceptedHTML += '<div class="crud-vagas-1-5 crud-usuario-aprovado"><div class="id-vaga-to-delet-or-edit idUsuarioCandidatadaAVaga" id="' + response.id + '">' + response.id + '</div><div class="crud-usuarios-candidatados-a-mostrar"><div class="link"><div class="nomeEmpresaDeuLike"><button class="buttonPerfilUserView butt1" onclick="UsuarioPerfilPart1(this)"><div class="content-vagas nomeUsuarioAprovado">' + response.nome + '</div></button></div></div><div class="link"><button class="buttonPerfilUserView but22" onclick="UsuarioPerfilPart1(this)" disabled><div class="content-vagas nomeVagaAprovado">' + vagaNameResponseLigation.nome + '</div></button></div><div class="content-vagas"><div class="buttons"><div class="butt removeButt"><button class="removeButton" onclick="NaoDarLike(this, \'' + response.id + '\', \'' + vagaNameResponseLigation.id_empresa + '\')"><a rel="noopener noreferrer"> Remover </a></button></div></div></div></div></div>';
+                          }
+                          totalUsuariosVisualizaram++;
+                        }
+                      }
+                      resolve(); // Resolve a Promise quando a chamada AJAX é concluída com sucesso
+
+                    },
+                    error: function (xhr, status) {
+
+                      console.log(xhr);
+                      console.log(status);
+
+                    }
+                  });
+
+                },
+                error: function (xhr, status) {
+                  console.log(xhr);
+                  console.log(status);
+                  reject(); // Rejeita a Promise em caso de erro na chamada AJAX
+                }
+              });
+            });
+
+          }
+          // Criar uma Promise para cada chamada AJAX
+
+
+          promises.push(promise); // Adiciona a Promise ao array de Promises
         }
-        totalUsuariosVisualizaram ++
-      }
+      });
 
-      $('.usuario-num').append(totalUsuarios);
-      $('.qtda-usuarios-visto').append(totalUsuariosVisualizaram)
-      
+      Promise.all(promises).then(function () {
+        count++;
 
+        var totalUsuariosVisualizaramOriginal = localStorage.getItem('totalUsuariosVisualizaramOriginal');
+        var countTotalRejected = localStorage.getItem('countTotalRejected');
+
+
+        if (countTotalRejected == 0 || countTotalRejected == null || isNaN(countTotalRejected)) {
+          $('.qtda-usuarios-visto').text(totalUsuariosVisualizaramOriginal); // Exibir a contagem original
+        } else {
+          var countTotal = parseInt(totalUsuariosVisualizaramOriginal) + parseInt(countTotalRejected);
+          $('.qtda-usuarios-visto').text(countTotal);
+        }
+
+        $('.usuario-num').text(totalUsuarios);
+
+        // Adicionar o HTML dos usuários que não receberam like
+        $('.crud-usuario').append(usuarioLikedHTML);
+        $('.crud-aceitos').append(usuarioAcceptedHTML);
+        $('.vag-num').text(quantidadeIdsVagasCadastradas);
+      }).catch(function () {
+        alert("Erro ao carregar os usuários.");
+      });
     },
     error: function (xhr, status) {
       console.log(xhr);
       console.log(status);
     }
   });
-
-  $.ajax({
-    url: "http://localhost:8080/empresa",
-    type: "GET",
-    crossDomain: true,
-    contentType: "application/json",
-    dataType: "json",
-    success: function (response) {
-      for (var i = 0; i < response.length; i++) {
-
-        $('.nomeEmpresaDeuLike').append('<div class="nomeEmpresa">' + response[i].nome + '</div>');
-      }
-    },
-    error: function (xhr, status) {
-      //window.location.href = '/z-Novo_TCC/atualizar/AtualizarVaga/atualizarVaga.html';
-
-      console.log(xhr);
-      console.log(status);
-    }
-  });
-
-
 }
+
+
 
 
 
@@ -345,21 +420,16 @@ $.ajax({
     confirmSenha = response.confirmSenha;
 
 
-    console.log("1")
 
     //var image = new Image();
     //alert(response.fotoBase64)
-    console.log("2")
     //image.src = 'data:image/png;base64,' + response.fotoBase64
     /* document.body.appendChild(image) */
-    console.log("3")
     var imgElement = document.getElementById('frameEmpresaAtlz');
     imgElement.src = 'data:image/png;base64,' + response.fotoBase64;
     //$('#frame').val(image)
-    console.log("4")
 
     var inputFile = document.getElementById('uploadImg');
-    console.log("5")
     inputFile.addEventListener('change', function (event) {
       var file = event.target.files[0];
       var reader = new FileReader();
@@ -368,20 +438,12 @@ $.ajax({
         var imgElement = document.getElementById('frameEmpresaAtlz');
         imgElement.src = e.target.result;
       };
-      console.log("7")
       reader.readAsDataURL(file);
-      console.log("8")
     });
-
-
-
-
-
 
   },
   error: function (xhr, status) {
     alert('Erro ao carregar dados da vaga: ' + status);
-
   }
 });
 
@@ -403,7 +465,8 @@ $('#atualizarEmpresa').on('click', function () {
     email: $("#email").val(),
     status_empresa: statusEmpresa,
     senha: senha,
-    confirmSenha: confirmSenha
+    confirmSenha: confirmSenha,
+    fotoBase64: $("#uploadImg").val()
   };
 
   var inputFile = document.getElementById('uploadImg');
@@ -443,14 +506,9 @@ $('#atualizarEmpresa').on('click', function () {
         uploadImagem(response.id, event);
       },
 
-      /* O ERRO 501 ESTÁ AQUI!!! ELE NÃO ATUALIZA POR CAUSA DISSO ABAIXO */
+      //O ERRO 501 ESTÁ AQUI!!! ELE NÃO ATUALIZA POR CAUSA DISSO ABAIXO
 
     });
-    /* O ERRO ESTÁ AQUI!! ACIMA */
-
-
-
-
 
   } else {
     console.log("4")
@@ -473,7 +531,26 @@ $('#atualizarEmpresa').on('click', function () {
   }
 });
 
+function uploadImagem(id, event) {
 
+  let foto = document.getElementById("uploadImg").files[0];
+  //var file = $('#uploadImg').attr('src', event.target.result);
+  var data = new FormData();
+  data.append('file', foto);
+
+  jQuery.ajax({
+    url: 'http://localhost:8080/empresa/v2/image/upload/' + id,
+    data: data,
+    cache: false,
+    contentType: false,
+    processData: false,
+    method: 'POST',
+    type: 'POST', // For jQuery < 1.9
+    success: function (data) {
+      alert("Empresa cadastrada com sucesso!");
+    }
+  });
+}
 /* 
 // Evento de clique no botão de atualizar
 $('#atualizarEmpresa').on('click', function () {
@@ -747,127 +824,279 @@ function errorAlert() {
 }
 //DAR LIKE NO USUARIO
 
-function DarLike(el) {
+function DarLike(el, usuarioId, empresaId) {
   var element = el;
   //alert("Deu Like!")
 
   // var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
   //var UsuarioNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.firstChild.innerHTML;
 
-  var UsuarioId = document.querySelector('.idUsuarioCandidatadaAVaga').innerHTML.trim();
-  //alert("id usuario trim()  = "+UsuariovId)
+  var UsuarioId = usuarioId;
+  var EmpresaId = empresaId;
 
-  //alert(UsuarioId)
-  //var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
-  var EmpresaNome = document.querySelector('.nomeEmpresa').innerHTML.trim();
-
-  //alert(EmpresaNome)
-  var userNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.innerHTML;
-  var userFormacao = element.parentNode.parentNode.firstChild.innerHTML;
-  //EmpresaNome.trim()
-  //alert(userFormacao)
-
-  console.log('usuario->' + UsuarioId + ' empresa->' + EmpresaNome,)
+  //console.log("usuario "+UsuarioId)
+  //console.log("empresa "+EmpresaId)
 
   $.ajax({
-    url: 'http://localhost:8080/usuario/darLikeEmUsuario/' + UsuarioId + '/' + EmpresaNome,
-    type: "PUT",
+    url: "http://localhost:8080/empresa/" + EmpresaId,
+    type: "GET",
     crossDomain: true,
     contentType: "application/json",
+    dataType: "json",
     success: function (response) {
-      //alert(UsuarioId)
-      element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
-      //alert(UsuarioId)
-      window.location.reload();
-      //alert(UsuarioId)
+
+      var EmpresaNome = response.nome
+
+      //console.log('usuario->' + UsuarioId + ' empresa->' + EmpresaNome,)
+
+      $.ajax({
+        url: 'http://localhost:8080/usuario/darLikeEmUsuario/' + UsuarioId + '/' + EmpresaNome,
+        type: "PUT",
+        crossDomain: true,
+        contentType: "application/json",
+        success: function (response) {
+          //alert(UsuarioId)
+          element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
+          //alert(UsuarioId)
+          window.location.reload();
+          //alert(UsuarioId)
+        },
+        error: function (xhr, status) {
+
+          errorAlert()
+        }
+      });
+
     },
     error: function (xhr, status) {
-      /* alert('' + status + ' Tente novamente');
-      window.location.reload(); */
-
-      errorAlert()
+      console.log(xhr);
+      console.log(status);
     }
   });
+
 }
 
 //DAR LIKE NO USUARIO FIM
 
 // NAO DAR LIKE 
 
-function NaoDarLike(el) {
+function NaoDarLike(el, usuarioId, empresaId) {
   var element = el;
   //alert("Deu Like!")
 
-  var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
-  //var UsuarioNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.firstChild.innerHTML;
-  //alert("remover="+UsuarioId)
-  var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
-  //alert(EmpresaNome)
-  var userNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.innerHTML;
-  var userFormacao = element.parentNode.parentNode.firstChild.innerHTML;
-  //EmpresaNome.trim()
-  //alert(userFormacao)
 
-  console.log('usuario->' + UsuarioId + ' empresa->' + EmpresaNome,)
+  var UsuarioId = usuarioId;
+  var EmpresaId = empresaId;
+
+
+
+  console.log('usuario->' + UsuarioId + ' empresa->' + EmpresaId,)
 
   $.ajax({
-    url: 'http://localhost:8080/usuario/naodarLikeEmUsuario/' + UsuarioId + '/' + EmpresaNome,
-    type: "PUT",
+    url: "http://localhost:8080/empresa/" + EmpresaId,
+    type: "GET",
     crossDomain: true,
     contentType: "application/json",
+    dataType: "json",
     success: function (response) {
 
-      element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
+      var EmpresaNome = response.nome
 
-      window.location.reload();
+      //console.log('usuario->' + UsuarioId + ' empresa->' + EmpresaNome,)
+
+      $.ajax({
+        url: 'http://localhost:8080/usuario/naodarLikeEmUsuario/' + UsuarioId + '/' + EmpresaNome,
+        type: "PUT",
+        crossDomain: true,
+        contentType: "application/json",
+        success: function (response) {
+
+          element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
+
+          window.location.reload();
+
+        },
+        error: function (xhr, status) {
+
+          errorAlert()
+        }
+      });
 
     },
     error: function (xhr, status) {
-      /* alert('' + status + ' Tente novamente');
-      window.location.reload(); */
-
-      errorAlert()
+      console.log(xhr);
+      console.log(status);
     }
   });
+
 }
 
 // FIM NAO DAR LIKE
 
 
-function rejectUser(el) {
+function rejectUser(el, usuarioId, empresaId) {
   var element = el;
 
-  var UsuarioId = element.parentNode.parentNode.parentNode.parentNode.parentNode.firstChild.innerHTML;
-  //var UsuarioNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.firstChild.innerHTML;
-
-  var EmpresaNome = element.parentNode.parentNode.parentNode.parentNode.firstChild.lastChild.lastChild.innerHTML;
-
-
-  element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
-  //alert('usuario removido com sucesso! ')
-
+  var UsuarioId = usuarioId;
+  var EmpresaId = empresaId;
+  var countTotalRejected = 0;
 
   $.ajax({
-    url: 'http://localhost:8080/usuario/dispensarUsuario/' + UsuarioId + '/' + EmpresaNome,
-    type: "PUT",
+    url: "http://localhost:8080/empresa/" + EmpresaId,
+    type: "GET",
     crossDomain: true,
     contentType: "application/json",
+    dataType: "json",
     success: function (response) {
 
-      window.location.reload();
-      element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
+      var EmpresaNome = response.nome
 
-      //window.location.reload();
+      //console.log('usuario->' + UsuarioId + ' empresa->' + EmpresaNome,)
+
+      $.ajax({
+        url: 'http://localhost:8080/usuario/dispensarUsuario/' + UsuarioId + '/' + EmpresaNome,
+        type: "PUT",
+        crossDomain: true,
+        contentType: "application/json",
+        success: function (response) {
+
+
+          countTotalRejected++
+          localStorage.setItem('countTotalRejected', countTotalRejected);
+
+          window.location.reload();
+          element.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.removeChild(element.parentNode.parentNode.parentNode.parentNode.parentNode);
+
+          //window.location.reload();
+
+        },
+        error: function (xhr, status) {
+          /* alert('' + status + ' Tente novamente');
+          window.location.reload(); */
+
+          errorAlert()
+        }
+
+      });
 
     },
     error: function (xhr, status) {
-      /* alert('' + status + ' Tente novamente');
-      window.location.reload(); */
-
-      errorAlert()
+      console.log(xhr);
+      console.log(status);
     }
-
   });
-
 }
 
+
+function mostarCheckBox() {
+  var checkBoxOptions = document.querySelector('.checkBoxOptions')
+
+  checkBoxOptions.style.visibility = "visible"
+
+}
+function mostarCheckBoxUsuario() {
+  var checkBoxOptionsUsuario = document.querySelector('.checkBoxOptionsUsuario')
+
+  checkBoxOptionsUsuario.style.visibility = "visible"
+
+}
+function mostarCheckBoxUsuarioAprovado() {
+  var checkBoxOptionsUsuario = document.querySelector('.checkBoxOptionsUsuarioAprovado')
+
+  checkBoxOptionsUsuario.style.visibility = "visible"
+
+}
+function removeAcentos(str) {
+  return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+
+function search_vaga() {
+  let input = removeAcentos(document.getElementById('searchbar').value.trim().toLowerCase());
+  let searchByName = document.getElementById('searchByName');
+  let searchByDate = document.getElementById('searchByDate');
+  let searchByBoth = document.getElementById('searchByBoth');
+  let x = document.getElementsByClassName('crud-vagas-1-6');
+
+  for (let i = 0; i < x.length; i++) {
+    let animalName = removeAcentos(x[i].querySelector('.name-content-wrap').textContent.toLowerCase());
+    let animalType = removeAcentos(x[i].querySelector('.dataExibicao').textContent.toLowerCase());
+
+    if ((searchByName.checked && animalName.includes(input)) || (searchByDate.checked && animalType.includes(input)) || (searchByBoth.checked && (animalName.includes(input) || animalType.includes(input)))) {
+      x[i].style.display = "flex";
+    } else {
+      x[i].style.display = "none";
+    }
+  }
+}
+
+function search_usuario() {
+  let input = removeAcentos(document.getElementById('searchbarUsuario').value.trim().toLowerCase());
+  let searchByName = document.getElementById('searchByNameUsuario');
+  let searchByVaga = document.getElementById('searchByVagaUsuario');
+  let searchByBoth = document.getElementById('searchByBothUsuario');
+  let x = document.getElementsByClassName('crud-usuario-1-6');
+
+  for (let i = 0; i < x.length; i++) {
+    let animalName = removeAcentos(x[i].querySelector('.nomeUsuario').textContent.toLowerCase());
+    let animalType = removeAcentos(x[i].querySelector('.nomeVaga').textContent.toLowerCase());
+
+    if ((searchByName.checked && animalName.includes(input) && !searchByVaga.checked) ||
+      (searchByVaga.checked && animalType.includes(input) && !searchByName.checked) ||
+      (searchByBoth.checked && (animalName.includes(input) || animalType.includes(input)))) {
+      x[i].style.display = "flex";
+    } else {
+      x[i].style.display = "none";
+    }
+  }
+}
+function search_usuarioAprovado() {
+  let input = removeAcentos(document.getElementById('searchbarUsuarioAprovado').value.trim().toLowerCase());
+  let searchByName = document.getElementById('searchByNameUsuarioAprovado');
+  let searchByVaga = document.getElementById('searchByVagaUsuarioAprovado');
+  let searchByBoth = document.getElementById('searchByBothUsuarioAprovado');
+  let x = document.getElementsByClassName('crud-usuario-aprovado');
+
+  for (let i = 0; i < x.length; i++) {
+    let animalName = removeAcentos(x[i].querySelector('.nomeUsuarioAprovado').textContent.toLowerCase());
+    let animalType = removeAcentos(x[i].querySelector('.nomeVagaAprovado').textContent.toLowerCase());
+
+    if ((searchByName.checked && animalName.includes(input) && !searchByVaga.checked) ||
+      (searchByVaga.checked && animalType.includes(input) && !searchByName.checked) ||
+      (searchByBoth.checked && (animalName.includes(input) || animalType.includes(input)))) {
+      x[i].style.display = "flex";
+    } else {
+      x[i].style.display = "none";
+    }
+  }
+}
+
+
+
+
+
+function toggleCheckboxes() {
+  const checkboxGroup = document.querySelector('.checkbox-group');
+  checkboxGroup.classList.toggle('active');
+}
+
+ // pesquisar data exibição, nome ou ambos, fazer o input
+
+
+
+
+
+/* function search_animal() {
+  let input = document.getElementById('searchbar').value
+  input = input.toLowerCase();
+  let x = document.getElementsByClassName('crud-vagas-1-6');
+
+  for (i = 0; i < x.length; i++) {
+    if (!x[i].innerHTML.toLowerCase().includes(input)) {
+      x[i].style.display = "none";
+    }
+    else {
+      x[i].style.display = "flex";
+    }
+  }
+} */

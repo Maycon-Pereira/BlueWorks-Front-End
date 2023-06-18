@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <script src="/-Detalhe-css-img-/js/jquery-3.6.1.min.js"></script>
   <title>Nova Senha</title>
-  <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="/-Detalhe-css-img-/css/-css-fixo/fundo.css">
   <link rel="stylesheet" href="/-Detalhe-css-img-/css/recuperar/recuperarSenha/css/recuperarSenha.css">
 </head>
@@ -13,15 +12,19 @@
 <body>
   <div class="container">
     <div class="box">
-      <div class="voltar"><a href="/z-Novo_TCC/Inicio/inicio.html">Voltar</a></div>
+      <div class="voltar"><a href="/z-Novo_TCC/recuperarSenha/codigoRecuperarSenha.html">Voltar</a></div>
       <h1>Digite sua nova Senha</h1>
-      <form id="recuperarSenhaForm">
+      <form id="redefinirSenhaForm">
 
         <div class="inter">
 
-          <input type="password" id="password" placeholder="Digite sua senha" required>
-          <input type="password" id="confirmPassword" placeholder="Confirme sua senha" required>
-          <button type="submit">Redefinir Senha</button>
+          <input type="password" id="password" class="required" oninput="passwordValidate()"
+            placeholder="Digite sua senha" required>
+          <div class="exception">Digite uma senha válida</div>
+          <input type="password" id="confirmPassword" class="required" oninput="confirmPasswordValidate()"
+            placeholder="Confirme sua senha" required>
+          <div class="exception">As senha devem ser compativeis</div>
+          <button type="submit" onclick="mudarSenha()">Redefinir Senha</button>
 
         </div>
 
@@ -31,7 +34,9 @@
     </div>
   </div>
 
+
   <script src="/-Detalhe-css-img-/js/recuperarSenha/recuperarSenha.js"></script>
+  <script src="/-Detalhe-css-img-/js/recuperarSenha/validaçãoRedefinir.js"></script>
   <div class="box-cookies hide">
     <p class="msg-cookies">Este site usa cookies para garantir que você obtenha a melhor experiência. <a
         class="linkPoliticaPrivacidadeCookie" href="/z-Novo_TCC/documentacao/privacidade/privacidade.html">Politica de
@@ -46,6 +51,7 @@
   <script>
     aceitouCookies()
   </script>
+
 </body>
 
 </html>

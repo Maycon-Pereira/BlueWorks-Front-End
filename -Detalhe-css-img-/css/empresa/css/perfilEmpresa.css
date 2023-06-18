@@ -44,6 +44,7 @@ header {
 }
 
 .estatisticas {
+    width: 100%;
     display: flex;
 }
 
@@ -79,7 +80,8 @@ header {
     background-color: rgb(246, 246, 246);
     border-radius: 10px;
     margin: 10px;
-    width: 60%;
+    /* width: 60%; */
+    width: 50%;
     height: auto;
 }
 
@@ -151,9 +153,11 @@ header {
 .submenu:last-child {
     border-top: 1px solid rgb(180, 180, 180);
 }
+
 .sairButton {
     color: red;
 }
+
 .sairButton:hover {
     color: red !important;
     background-color: rgb(255, 173, 173) !important;
@@ -171,6 +175,7 @@ header {
     border-radius: 10px;
     color: #3c87ff;
 }
+
 .submenu:nth-child(3):hover {
     background-color: rgb(196, 196, 196);
     border-radius: 10px;
@@ -196,17 +201,20 @@ header {
     padding: 5px;
 }
 
-.tituloCa,
-.cima {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
 
 .cima {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.tituloCa {
+    display: flex;
+}
+
+.nova-vaga {
+    width: 20%;
 }
 
 .nova-vaga button {
@@ -289,13 +297,17 @@ header {
 
 .crud-vagas-1-5 {
     display: flex;
+    /* overflow: auto; */
 }
+
 .crud-aceitos {
     padding-bottom: 10px;
 }
+
 .usuAcito {
     margin-bottom: 10px;
 }
+
 .edit-1 {
     border-radius: 5px;
     background-color: rgb(230, 230, 230);
@@ -335,13 +347,16 @@ header {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.name-content-wrap {
+    word-break: break-all;
+}
+
 .content-vagas {
     font-size: 15px;
 }
 
 
 .link {
-    
     width: 65%;
     height: 50px;
 }
@@ -365,7 +380,6 @@ header {
     justify-content: center;
     align-items: center;
 }
-
 
 .content-vagas {
     display: flex;
@@ -409,17 +423,19 @@ header {
     opacity: 0.9;
     background-color: rgb(250, 18, 18);
 }
+
 .remove {
     border-radius: 5px;
     opacity: 0;
     background-color: rgb(250, 18, 18);
 }
+
 .removeButton {
     border-radius: 5px;
     background-color: rgb(250, 18, 18);
 }
 
-.removeButt button{
+.removeButt button {
     width: 80%;
     margin-left: 60px;
     margin-right: 60px;
@@ -442,7 +458,8 @@ a {
 
 .qtda-estat {
     display: flex;
-    width: 100%;
+    margin-right: 18px;
+    width: 50%;
 
 }
 
@@ -453,6 +470,7 @@ a {
 .name-user-undefined {
     display: none;
 }
+
 .UsuariosAceitados {
     background-color: rgb(246, 246, 246);
     width: 98%;
@@ -460,7 +478,7 @@ a {
     border-radius: 10px;
 }
 
-.perfilView button{
+.perfilView button {
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -468,7 +486,7 @@ a {
     height: 100%;
 }
 
-.perfilView button:hover{
+.perfilView button:hover {
     background-color: rgb(236, 236, 236);
 
 }
@@ -478,8 +496,9 @@ a {
     width: 100%;
     border: none;
     border-radius: 10px;
-    
+
 }
+
 .buttonPerfilUserView:hover {
     width: 100%;
     border: none;
@@ -490,6 +509,7 @@ a {
     cursor: pointer;
     background-color: transparent;
 }
+
 .butt1:hover {
     cursor: pointer;
     background: rgb(12, 12, 12);
@@ -501,60 +521,66 @@ a {
 .id-Empresa-to-Show {
     display: none
 }
+
 .id-Empresa-to-Showff {
     display: none;
 }
 
 
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;500&display=swap");
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "M PLUS 2", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "M PLUS 2", sans-serif;
 }
 
 .message {
-  padding: 19px 60px;
-  position: fixed;
-  z-index: 20;
-  top: 20px;
-  right: 10px;
-  background-color: #116dff;
-  border-radius: 3px;
-  color: #fff;
-  animation: slidein 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    padding: 19px 60px;
+    position: fixed;
+    z-index: 20;
+    top: 20px;
+    right: 10px;
+    background-color: #116dff;
+    border-radius: 3px;
+    color: #fff;
+    animation: slidein 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes slidein {
-  0% {
-    transform: translateX(1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+    0% {
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 .message::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
-  animation: time 1s forwards;
-}
-@keyframes time {
-  0% {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
     width: 0;
-  }
-  100% {
-    width: 100%;
-  }
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: time 1s forwards;
 }
+
+@keyframes time {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
 /* ERROR MODAL */
 
 
@@ -563,6 +589,7 @@ a {
     font-weight: 100;
     font-size: 17px;
 }
+
 .exc-Modal {
     color: rgba(204, 0, 0, 0.877);
 }
@@ -597,6 +624,7 @@ a {
 .modal-button:hover {
     opacity: 1;
 }
+
 .cancel-modal:hover {
     opacity: 1;
     background-color: rgba(250, 18, 18, 0.973);
@@ -687,6 +715,18 @@ a {
 }
 
 /* FIM MODAL */
+/* @media (max-width: 1300) {
+    .sobre-empresa-perfil {
+        padding: 10px;
+        display: flex;
+        background-color: rgb(246, 246, 246);
+        border-radius: 10px;
+        margin: 10px;
+        
+        width: 50%;
+        height: auto;
+    }
+} */
 
 @media (max-width: 1100px) {
     .vagas-e-candidatos {
@@ -760,15 +800,6 @@ a {
 
 }
 
-@media (min-width: 840px) {
-    .qtda-estat {
-        display: flex;
-        width: 50%;
-
-    }
-
-}
-
 @media (max-width: 840px) {
     .estatisticas {
         display: grid;
@@ -779,6 +810,12 @@ a {
         margin-left: auto;
         margin-right: auto;
     }
+    .qtda-estat {
+        display: flex;
+        width: 100%;
+    }
+
+    
 
 }
 
@@ -843,3 +880,196 @@ a {
     }
 
 }
+
+
+
+
+
+
+.espacoDivisoria {
+    width: 33.3333;
+}
+
+.allSearchBox {
+    padding-top: 44px;
+}
+
+#searchbar {
+    padding: 5px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: #E6E6E6;
+}
+
+#searchbar:focus {
+    background-color: #cccccc;
+    outline: none;
+}
+
+#searchbarUsuario {
+    padding: 5px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: #E6E6E6;
+}
+
+#searchbarUsuario:focus {
+    background-color: #cccccc;
+    outline: none;
+}
+
+#searchbarUsuarioAprovado {
+    padding: 5px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    background-color: #E6E6E6;
+}
+
+#searchbarUsuarioAprovado:focus {
+    background-color: #cccccc;
+    outline: none;
+}
+
+.checkBoxOptions {
+    visibility: hidden;
+}
+
+.checkBoxOptionsUsuario {
+    visibility: hidden;
+}
+
+.checkBoxOptionsUsuarioAprovado {
+    visibility: hidden;
+}
+
+.radioCheck {
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+/*VAGAS ESTRELAS*/
+
+.radioCheck input[type="radio"] {
+    display: none;
+}
+
+.radioCheck label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+}
+
+.radioCheck label::before {
+    content: "\2605";
+    font-size: 24px;
+    color: #ddd;
+}
+
+.radioCheck input[type="radio"]:checked+label::before {
+    color: #f5d527;
+}
+
+/*USUARIOS CANDIDATADOS ESTRELAS*/
+
+.radioCheckUsuario {
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+.radioCheckUsuario input[type="radio"] {
+    display: none;
+}
+
+.radioCheckUsuario label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+}
+
+.radioCheckUsuario label::before {
+    content: "\2605";
+    font-size: 24px;
+    color: #ddd;
+}
+
+.radioCheckUsuario input[type="radio"]:checked+label::before {
+    color: #f5d527;
+}
+
+/*USUARIO APROVADO ESTRELAS*/
+
+.radioCheckUsuarioAprovado {
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+.radioCheckUsuarioAprovado input[type="radio"] {
+    display: none;
+}
+
+.radioCheckUsuarioAprovado label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+}
+
+.radioCheckUsuarioAprovado label::before {
+    content: "\2605";
+    font-size: 24px;
+    color: #ddd;
+}
+
+.radioCheckUsuarioAprovado input[type="radio"]:checked+label::before {
+    color: #f5d527;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.star-rating {
+    display: inline-block;
+    font-size: 0;
+}
+
+.star-rating input {
+    display: none;
+}
+
+.star-rating label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.star-rating label::before {
+    content: "\2605";
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    line-height: 20px;
+    color: #ccc;
+}
+
+.star-rating input:checked+label::before {
+    color: #ffcc00;
+} */
