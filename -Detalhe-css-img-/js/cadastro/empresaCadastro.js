@@ -222,7 +222,7 @@ function empresaCad(event) {
     var cnpj = $("#cnpj").val();
 
     /* restirar a mascara de cnpj */
-    
+
     /* cnpj = cnpj.replace(".", "");
     cnpj = cnpj.replace(".", "");
     cnpj = cnpj.replace("/", "");
@@ -243,6 +243,12 @@ function empresaCad(event) {
     var confirmSenha = $("#confirmPassword").val();
     var cep = $("#cep").val();
 
+
+    if (password != confirmSenha) {
+        //alert("As senha devem ser compativeis!!")
+        return;
+    }
+   
     /* restirar a mascara de cep */
     /* cep = cep.replace("-", ""); */
 
@@ -253,7 +259,7 @@ function empresaCad(event) {
     var fotoPerfil = $("#uploadImg").val();
     var statusEmpresa = "ATIVA"
 
-   
+
 
     var request = {
         "nome": name,
@@ -269,7 +275,7 @@ function empresaCad(event) {
         "bairro": bairro,
         "uf": uf,
         "cidade": cidade,
-        "status_empresa":statusEmpresa,
+        "status_empresa": statusEmpresa,
         "fotoBase64": fotoPerfil
     }
 
@@ -316,7 +322,7 @@ function empresaCad(event) {
             if (dataJSON !== null) {
                 event.preventDefault();
 
-                if(confirmSenha !== password) {
+                if (confirmSenha !== password) {
                     event.preventDefault();
                     setError(5);
                     setError(6);
@@ -372,8 +378,8 @@ function empresaCad(event) {
                 }
                 */
             }
-            
-            alert(str)
+
+            //alert(str)
 
             //---F
         }

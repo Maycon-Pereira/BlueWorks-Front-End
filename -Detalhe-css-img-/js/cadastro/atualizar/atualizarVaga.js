@@ -239,8 +239,53 @@ $.ajax({
 
 
 
-// Evento de clique no botão de atualizar
-$('#atualizarVaga').on('click', function () {
+function AtualizarVaga() {
+
+    var name = $("#name").val();
+    var tipo = $("#type").val();
+    var qtda = $("#qtda").val();
+    var salario = $("#salario").val();
+    var area = $("#area").val();
+    var exigencia = $("#exigencia").val();
+    var sobre = $("#historia-vaga").val();
+    var cnpj = $("#cnpj").val();
+    var cep = $("#cep").val();
+
+    if (name == "" || name.length < 3) {
+        nameValidate()
+        return
+    }
+    if (qtda == "" || qtda == 0 || qtda.length < 1) {
+        qtdaValidate()
+        return
+    }
+    if (salario == "" || salario.length < 6) {
+        salarioValidate()
+        return
+    }
+    if (area == "" || area.length < 3) {
+        areaValidate()
+        return
+    }
+    if (exigencia == "" || exigencia.length < 3) {
+        exigenciaValidate()
+        return
+    }
+    if (sobre == "" || sobre.length < 5) {
+        sobreValidate()
+        return
+    }
+    if (cnpj == "" || cnpj.length < 14) {
+        cnpjValidate()
+        return
+    }
+    if (cep == "" || cep.length < 9) {
+        cepValidate()
+        return
+    }
+
+
+
     // Cria um objeto com os valores atualizados
     const date = new Date();
     const day = date.getDate();
@@ -336,7 +381,7 @@ $('#atualizarVaga').on('click', function () {
             }
         });
     }
-});
+}
 
 function uploadImagem(id, event) {
 

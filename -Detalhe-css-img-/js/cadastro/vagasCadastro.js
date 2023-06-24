@@ -280,6 +280,10 @@ function vagasCad(event) {
     var tipoContrato = $("#tipoContrato").val();
     var sobre = $("#historia-vaga").val();
     var cnpj = $("#cnpj").val();
+/* 
+    if (cnpj) {
+
+    } */
 
     //restirar a mascara de cnpj
     /* cnpj = cnpj.replace(".", "")

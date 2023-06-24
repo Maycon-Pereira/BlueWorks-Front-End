@@ -1,4 +1,10 @@
 /*Aviso de cookies*/
+#sair {
+    display: none;
+}
+#linkDoPerfilNaBarraLateral {
+    display: none;
+}
 
 .box-cookies.hide {
     display: none !important;
@@ -46,3 +52,5 @@
 }
 
 /*FIM Aviso de cookies*/
+
+

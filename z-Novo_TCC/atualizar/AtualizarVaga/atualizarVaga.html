@@ -321,7 +321,7 @@
                                 <div class="input-box  vagaInput">
 
 
-                                    <label class="label-cep">Cep: * <p id="--cep"></p></label>
+                                    <label class="label-cep">Cep: * <p id="--cep">CEP não encontrado</p></label>
                                     <input name="cep" class="required" type="text" id="cep" value=""
                                         placeholder="XXXXX-XXX" maxlength="9" onblur="pesquisacep(this.value);"
                                         oninput="cepValidate()" /><br />
@@ -370,7 +370,7 @@
 
                                     <label for="historia-vaga">Sobre a Vaga: *<br />
                                         <textarea class="historia-Vaga hvitr input textarea required" id="historia-vaga"
-                                            maxlength="500" oninput="sobreValidate()" required></textarea>
+                                            maxlength="2000" oninput="sobreValidate()" required></textarea>
                                     </label>
                                     <div>
                                         <p class="exception" id="--sobre--">O sobre não pode estar vazio</p>

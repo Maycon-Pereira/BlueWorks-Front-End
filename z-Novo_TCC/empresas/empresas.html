@@ -136,15 +136,41 @@
             </script>
 
             <div class="empresas">
+                
 
                 <div class="empresas-title">
                     <h1>Empresas Parceiras</h1><!--GET ALL, todas empresas cadastradas apareceram aqui !-->
+
+                    <div class="searchBox espacoEmpresas">
+                        <div class="allSearchBox">
+                            <input id="searchbarEmpresa" onkeyup="search_empresa()" onclick="mostarCheckBox()" type="text"
+                                name="search" placeholder="Procure por Empresas..">
+
+                            <div class="checkBoxOptions">
+                                <div class="radioCheckEmpresa checkkk">
+                                    <input type="radio" id="searchByBothEmpresa" name="searchOptionEmpresa" checked>
+                                    <label for="searchByBothEmpresa">Ambos</label>
+
+                                    <input type="radio" id="searchByNameEmpresa" name="searchOptionEmpresa">
+                                    <label for="searchByNameEmpresa">Pelo Nome</label>
+
+                                    <input type="radio" id="searchByAboutEmpresa" name="searchOptionEmpresa">
+                                    <label for="searchByAboutEmpresa">Pelo Sobre</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                
+
+                
 
             </div>
 
 
         </div>
+        
 
         <div class="box-cookies hide">
             <p class="msg-cookies">Este site usa cookies para garantir que você obtenha a melhor experiência. <a class="linkPoliticaPrivacidadeCookie" href="/z-Novo_TCC/documentacao/privacidade/privacidade.html">Politica de Privacidade</a>

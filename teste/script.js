@@ -4,7 +4,7 @@ function recuperarSenha() {
   
     // Enviar solicitação AJAX para verificar se o email existe
     $.ajax({
-      url: 'http://localhost:8080/empresa',
+      url: 'https://api.hunter.io/v2/email-verifier?email='+ email +'&api_key=d95a0b672e57d726979e566e11080142594586db',
       type: "GET",
       crossDomain: true,
       contentType: "application/json",

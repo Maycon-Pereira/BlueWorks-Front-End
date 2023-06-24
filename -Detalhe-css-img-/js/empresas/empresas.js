@@ -28,7 +28,7 @@ function empresaGetAll() {
 
 
 
-        $('.empresas').append(' <div class="empresas-box"><div class="img-empresas"><div class="empresa"><a id="img-a" onclick="IdEmpresaGetAll(this)"><img class="img" src="data:image/png;base64,' + response[i].fotoBase64 + '" /></a></div></div><div class="empresas-box-info"><div class="inf-empresas"><div class="id-perto-nome-opacity">' + response[i].id + '</div><div class="bold name">' + response[i].nome + '</div> <div class="email"><span class="bold">Email: </span> ' + response[i].email + '</div><div class="info-empresa"><span class="bold"> Sobre: </span><p>' + response[i].sobre + '</p></div></div></div></div> ');
+        $('.empresas').append(' <div class="empresas-box"><div class="img-empresas"><div class="empresa"><a id="img-a" onclick="IdEmpresaGetAll(this)"><img class="img" src="data:image/png;base64,' + response[i].fotoBase64 + '" /></a></div></div><div class="empresas-box-info"><div class="inf-empresas"><div class="id-perto-nome-opacity">' + response[i].id + '</div><div class="bold name nameSearchEmpresa">' + response[i].nome + '</div> <div class="email"><span class="bold">Email: </span> ' + response[i].email + '</div><div class="info-empresa"><span class="bold"> Sobre: </span><p class="aboutSearchEmpresa">' + response[i].sobre + '</p></div></div></div></div> ');
       }
     },
     error: function (xhr, status) {
@@ -182,7 +182,6 @@ function AdminPerfilSobre(idEmpresaLogin) {
 var idsVagasCadastradas = [];
 
 function AdminPerfilVagas(idEmpresaLogin) {
-  var totVaga = 0;
 
   $.ajax({
     url: "http://localhost:8080/vagas",
@@ -209,6 +208,11 @@ function AdminPerfilVagas(idEmpresaLogin) {
           //totVaga++;
         }
       }
+      var idsVagasCadastradaCount = localStorage.getItem('idsVagasCadastradas');
+
+      var arrayIdsVagasCadastradas = idsVagasCadastradaCount.split(",");
+      var quantidadeIdsVagasCadastradas = arrayIdsVagasCadastradas.length;
+      $('.vag-num').text(quantidadeIdsVagasCadastradas);
 
       //console.log("numero totVaga: " + totVaga)
       //$('.vag-num').append(totVaga);
@@ -345,7 +349,6 @@ function AdminPerfilUsuarios() {
         // Adicionar o HTML dos usuários que não receberam like
         $('.crud-usuario').append(usuarioLikedHTML);
         $('.crud-aceitos').append(usuarioAcceptedHTML);
-        $('.vag-num').text(quantidadeIdsVagasCadastradas);
       }).catch(function () {
         alert("Erro ao carregar os usuários.");
       });
@@ -450,6 +453,36 @@ $.ajax({
 
 
 $('#atualizarEmpresa').on('click', function () {
+
+
+  var name = $("#name").val();
+  var cnpj = $("#cnpj").val();
+  var porte = $("#porte").val();
+  var historia = $("#historia").val();
+  var email = $("#email").val();
+  var cep = $("#cep").val();
+
+  if (name == "" || name.length < 3) {
+    return
+  }
+  if (cnpj == "" || cnpj.length < 18) {
+    return
+  }
+  if (porte == "" || porte > 120) {
+    return
+  }
+  if (historia == "" || historia.length < 5 || historia > 120) {
+    sobreValidate()
+    return
+  }
+  if (email == "") {
+    return
+  }
+  if (cep == "" || cep.length < 9) {
+    return
+  }
+
+
   // Cria um objeto com os valores atualizados
   var dadosAtualizados = {
     nome: $("#name").val(),
@@ -483,7 +516,9 @@ $('#atualizarEmpresa').on('click', function () {
       //console.log(key, value)
     });
 
-    console.log("1")
+
+
+
 
 
     $.ajax({
@@ -1071,32 +1106,26 @@ function search_usuarioAprovado() {
   }
 }
 
+function search_empresa() {
+  let input = removeAcentos(document.getElementById('searchbarEmpresa').value.trim().toLowerCase());
+  let searchByName = document.getElementById('searchByNameEmpresa');
+  let searchByAbout = document.getElementById('searchByAboutEmpresa');
+  let searchByBoth = document.getElementById('searchByBothEmpresa');
+  let x = document.getElementsByClassName('empresas-box');
 
+  for (let i = 0; i < x.length; i++) {
+    let animalName = removeAcentos(x[i].querySelector('.nameSearchEmpresa').textContent.toLowerCase());
+    let animalAbout = removeAcentos(x[i].querySelector('.aboutSearchEmpresa').textContent.toLowerCase());
 
-
+    if ((searchByName.checked && animalName.includes(input)) || (searchByAbout.checked && animalAbout.includes(input)) || (searchByBoth.checked && (animalName.includes(input) || animalAbout.includes(input)))) {
+      x[i].style.display = "flex";
+    } else {
+      x[i].style.display = "none";
+    }
+  }
+}
 
 function toggleCheckboxes() {
   const checkboxGroup = document.querySelector('.checkbox-group');
   checkboxGroup.classList.toggle('active');
 }
-
- // pesquisar data exibição, nome ou ambos, fazer o input
-
-
-
-
-
-/* function search_animal() {
-  let input = document.getElementById('searchbar').value
-  input = input.toLowerCase();
-  let x = document.getElementsByClassName('crud-vagas-1-6');
-
-  for (i = 0; i < x.length; i++) {
-    if (!x[i].innerHTML.toLowerCase().includes(input)) {
-      x[i].style.display = "none";
-    }
-    else {
-      x[i].style.display = "flex";
-    }
-  }
-} */

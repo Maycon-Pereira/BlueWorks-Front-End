@@ -287,21 +287,22 @@ textarea:focus {
 }
 
 #--cep {
+    display: none;
     height: 13px;
     font-size: 10.5px;
     width: auto;
     color: rgb(218, 21, 21);
+    padding-left: 5px;
+    padding-top: 4px;
 }
+
 
 .label-cep {
     display: flex;
     align-items: flex-end;
 }
 
-#--cep {
-    padding-left: 5px;
-    padding-top: 4px;
-}
+
 .volt {}
 
 

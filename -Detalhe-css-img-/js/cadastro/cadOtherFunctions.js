@@ -22,14 +22,16 @@ function meu_callback(conteudo) {
         document.getElementById('cidade').value = (conteudo.localidade);
         document.getElementById('uf').value = (conteudo.uf);
 
-        document.getElementById("--cep").remove();        
+        var cepNaoEncontrado = document.getElementById("--cep");
+        cepNaoEncontrado.style.display = "none";
         cepInput.style.border = "1px solid rgba(128, 128, 128, 0.089)";
     } //end if.
     else {
         //CEP não Encontrado.
         limpa_formulário_cep();
-        
-        document.getElementById("--cep").append("CEP não encontrado");
+
+        var cepNaoEncontrado = document.getElementById("--cep");
+        cepNaoEncontrado.style.display = "flex";
         cepInput.style.border = "1px solid rgb(218, 21, 21)";
     }
 }
@@ -63,16 +65,17 @@ function pesquisacep(valor) {
             //Insere script no documento e carrega o conteúdo.
             document.body.appendChild(script);
 
-            
+
         } //end if.
         else {
             //cep é inválido.
             limpa_formulário_cep();/* 
             alert("Formato de CEP inválido."); */
-            document.getElementById("--cep").append("Digite um CEP válido");
-            cepInput.style.border = "1px solid rgb(218, 21, 21)"; 
+            var cepNaoEncontrado = document.getElementById("--cep");
+            cepNaoEncontrado.style.display = "flex";
+            cepInput.style.border = "1px solid rgb(218, 21, 21)";
 
-            
+
         }
     } //end if.
     else {

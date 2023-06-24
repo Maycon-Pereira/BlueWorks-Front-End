@@ -92,7 +92,7 @@ function apagarCookieBarraLateral() {
     apagarCookie(idCookieEmpresaLogin)
     localStorage.removeItem('idCookieEmpresaLogin');
     //alert("apagou do local storage?")
-    location.reload();
+    location.href = "/z-Novo_TCC/Inicio/inicio.html";
 }
 
 function manterLogado(id) {
@@ -133,6 +133,9 @@ if (empresaId === idCookieEmpresaLogin) {
     var emp = document.querySelector('.emp');
     var perfilLogado = document.querySelector('.perfilLogado');
     var loginLateral = document.querySelector('.login-lateral');
+    var sair = document.getElementById('sair');
+    var perfilLateral = document.getElementById('linkDoPerfilNaBarraLateral');
+
 
     $.ajax({
         url: "http://localhost:8080/empresa/" + empresaId,
@@ -141,10 +144,13 @@ if (empresaId === idCookieEmpresaLogin) {
         contentType: "application/json",
         dataType: "json",
         success: function (response) {
+            sair.style.display = 'block';
+            perfilLateral.style.display = 'block';
             loginLateral.style.display = 'none';
             cta.style.display = 'none';
             emp.style.display = 'none';
             perfilLogado.style.display = 'flex';
+
             $('.img-perfil-empresa').append('<div class="dropdonw-img-config"><img class="img" id="imagem-PerfilEmpresa" src="data:image/png;base64,' + response.fotoBase64 + '" /><div class="submenu-hover"><div class="id-display-none"></div><a class="submenu" id="editar-perfil-empresa" onclick="voltarPaginaPerfil()">Perfil</a><a class="submenu" href="https://docs.google.com/forms/d/e/1FAIpQLSdmKc5bIUlHwOjqzNvCe7HPAhFkybvHoAIA2ckn4WMQ5ylpMA/viewform?usp=sf_link" target="_blank">Ajuda</a></div></div>')
         },
         error: function (xhr, status) {
@@ -152,9 +158,9 @@ if (empresaId === idCookieEmpresaLogin) {
             console.log(status);
         }
     });
-} else {
+}/*  else if (empresaId !== idCookieEmpresaLogin) {
     var sair = document.getElementById('sair');
     var perfilLateral = document.getElementById('linkDoPerfilNaBarraLateral');
     sair.style.display = 'none';
     perfilLateral.style.display = 'none';
-}
+} */
